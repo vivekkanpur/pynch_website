@@ -115,13 +115,13 @@ export function TogglableMoods() {
         })}
       </div>
 
-      {/* Optional: "Get the look" or Shop button bottom right */}
+      {/* Join the waitlist button bottom right */}
       <div className="absolute bottom-8 sm:bottom-16 right-8 sm:right-16 z-30">
         <button 
-          onClick={() => navigate('/collections', { state: { selectedMood: MOODS_DATA[activeIndex].categoryId } })}
+          onClick={() => navigate('/waitlist')}
           className="bg-[var(--theme-lime)] text-[#1A1A1A] px-6 py-3 font-sans text-xs uppercase tracking-[0.2em] font-medium hover:bg-white transition-colors"
         >
-          Get The Look
+          Join Waitlist
         </button>
       </div>
     </section>
