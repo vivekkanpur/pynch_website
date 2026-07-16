@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Mrs+Saint+Delafield&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, serif;
+  --font-playfair: "Playfair Display", ui-serif, serif;
+
+  --font-weight-thin: 300;
+  --font-weight-extralight: 400;
+  --font-weight-light: 500;
+  --font-weight-normal: 600;
+  --font-weight-medium: 700;
+  --font-weight-semibold: 800;
+  --font-weight-bold: 900;
+
+  --color-primary-bg: var(--theme-bg);
+  --color-primary-text: var(--theme-text);
+  --color-accent-lime: var(--theme-lime);
+  --color-deep-teal: var(--theme-teal);
+  --color-border-gray: var(--theme-border);
+}
+
+@layer base {
+  :root {
+    --theme-bg: #FFFFFF;
+    --theme-text: #1A1A1A;
+    --theme-lime: #CFE11C;
+    --theme-teal: #08514C;
+    --theme-border: #E5E5E5;
+  }  * {
+    border-radius: 0px !important;
+  }
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--theme-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--theme-text);
+}
+
+/* Selection highlight */
+::selection {
+  background-color: var(--theme-lime);
+  color: #1A1A1A;
+}
+
+/* Smooth text rendering and body reset */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Zero border-radius mandate helper class */
+.no-radius {
+  border-radius: 0px !important;
+}
+
+/* Underline link effect */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

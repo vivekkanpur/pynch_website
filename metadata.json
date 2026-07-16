@@ -1,0 +1,8 @@
+{
+  "name": "PYNCH",
+  "description": "A high-end, cinematic, multi-page e-commerce web application for women's intimate wear.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

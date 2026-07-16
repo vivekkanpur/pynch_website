@@ -1,0 +1,63 @@
+import React from 'react';
+import { motion } from 'motion/react';
+import { Star } from 'lucide-react';
+
+const REVIEWS = [
+  { id: 1, name: "Sarah J.", avatar: "https://randomuser.me/api/portraits/women/44.jpg", rating: 5, text: "Absolutely in love with the quality. The fit is perfect and it feels so luxurious." },
+  { id: 2, name: "Emily R.", avatar: "https://randomuser.me/api/portraits/women/68.jpg", rating: 4, text: "Stunning details and fabric. I wish shipping was a bit faster, but worth the wait." },
+  { id: 3, name: "Jessica T.", avatar: "https://randomuser.me/api/portraits/women/12.jpg", rating: 5, text: "So comfortable yet incredibly flattering. The materials are definitely premium." },
+  { id: 4, name: "Amanda K.", avatar: "https://randomuser.me/api/portraits/women/32.jpg", rating: 3, text: "Beautiful design, but the sizing runs slightly small for me. Consider sizing up!" },
+  { id: 5, name: "Rachel M.", avatar: "https://randomuser.me/api/portraits/women/90.jpg", rating: 5, text: "I've finally found my go-to brand for intimates. The sizing is spot on." },
+  { id: 6, name: "Chloe S.", avatar: "https://randomuser.me/api/portraits/women/24.jpg", rating: 4, text: "The packaging alone was an experience. The pieces are great, but a bit on the pricey side." },
+  { id: 7, name: "Olivia P.", avatar: "https://randomuser.me/api/portraits/women/59.jpg", rating: 5, text: "Sensual, honest, and truly beautifully crafted. I'll be buying more colors." },
+  { id: 8, name: "Mia L.", avatar: "https://randomuser.me/api/portraits/women/17.jpg", rating: 3, text: "The fabric is nice but the elastic band feels a bit restrictive after a few hours of wear." }
+];
+
+export function CustomerReviews() {
+  return (
+    <section className="w-full overflow-hidden bg-[var(--theme-bg)] py-16 flex flex-col items-center">
+      <h2 className="font-serif font-light text-3xl sm:text-4xl text-[var(--theme-teal)] uppercase tracking-[0.1em] mb-12 text-center">
+        What Our Community Says
+      </h2>
+      <div className="w-full relative flex items-center">
+        {/* We use two identical sets of reviews to create a seamless infinite loop */}
+        <motion.div 
+          className="flex whitespace-nowrap"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ ease: "linear", duration: 35, repeat: Infinity }}
+        >
+          {/* Duplicate the array to ensure smooth looping */}
+          {[...REVIEWS, ...REVIEWS].map((review, i) => (
+            <div 
+              key={`${review.id}-${i}`} 
+              className="w-[300px] sm:w-[400px] shrink-0 mx-4 p-8 flex flex-col justify-between gap-6 bg-[var(--theme-bg)] hover:bg-[var(--theme-text)] hover:text-[var(--theme-bg)] transition-colors duration-500 group"
+            >
+              <div className="flex items-center gap-4">
+                <img src={review.avatar} alt={review.name} className="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                <div className="flex flex-col gap-1">
+                  <span className="font-sans font-medium text-xs tracking-[0.2em] uppercase">
+                    {review.name}
+                  </span>
+                  <div className="flex gap-1 text-[var(--theme-teal)] group-hover:text-[var(--theme-bg)] transition-colors duration-500">
+                    {Array.from({ length: 5 }).map((_, idx) => (
+                      <Star 
+                        key={idx} 
+                        size={14} 
+                        fill={idx < review.rating ? "currentColor" : "none"} 
+                        strokeWidth={idx < review.rating ? 0 : 1.5} 
+                        className={idx >= review.rating ? "opacity-30" : ""} 
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="font-serif text-xl leading-relaxed italic whitespace-normal">
+                "{review.text}"
+              </p>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
