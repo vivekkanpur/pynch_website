@@ -127,10 +127,8 @@ function AppContent() {
     });
   };
 
-  const [lenis, setLenis] = useState<any>(null);
-
   useEffect(() => {
-    const lenisInstance = new Lenis({
+    const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
@@ -139,28 +137,18 @@ function AppContent() {
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
-    setLenis(lenisInstance);
 
     function raf(time: number) {
-      lenisInstance.raf(time);
+      lenis.raf(time);
       requestAnimationFrame(raf);
     }
 
     requestAnimationFrame(raf);
 
     return () => {
-      lenisInstance.destroy();
+      lenis.destroy();
     };
   }, []);
-
-  useEffect(() => {
-    if (!lenis) return;
-    if (isCartOpen || isSizingOpen) {
-      lenis.stop();
-    } else {
-      lenis.start();
-    }
-  }, [isCartOpen, isSizingOpen, lenis]);
 
   const handleSelectProduct = (product: Product) => {
     setSelectedProduct(product);

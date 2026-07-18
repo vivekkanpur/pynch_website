@@ -45,7 +45,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-end bg-black/60 backdrop-blur-xs transition-opacity duration-300">
+    <div className="fixed inset-0 z-50 flex justify-end bg-black/60 backdrop-blur-xs transition-opacity duration-300" data-lenis-prevent="true">
       <div className="absolute inset-0" onClick={onClose}></div>
       <div className="relative w-full max-w-md bg-white h-full shadow-2xl flex flex-col z-10 no-radius">
         
@@ -87,7 +87,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         </div>
 
         {/* Scrollable Item List */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6" data-lenis-prevent="true">
+        <div className="flex-1 overflow-y-auto p-6 space-y-6">
           {!lines || lines.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center space-y-4">
               <span className="text-gray-200 font-sans font-light text-5xl">Ø</span>
