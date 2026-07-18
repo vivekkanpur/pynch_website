@@ -9,6 +9,20 @@ interface SizeGuideDrawerProps {
 }
 
 export default function SizeGuideDrawer({ isOpen, onClose }: SizeGuideDrawerProps) {
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || !isOpen) return;
+    const stopProp = (e: Event) => e.stopPropagation();
+    el.addEventListener('wheel', stopProp, { passive: false });
+    el.addEventListener('touchmove', stopProp, { passive: false });
+    return () => {
+      el.removeEventListener('wheel', stopProp);
+      el.removeEventListener('touchmove', stopProp);
+    };
+  }, [isOpen]);
+
   // Prevent scrolling on body when drawer is open
   useEffect(() => {
     if (isOpen) {
@@ -57,7 +71,11 @@ export default function SizeGuideDrawer({ isOpen, onClose }: SizeGuideDrawerProp
             </div>
 
             {/* Scrollable Body */}
-            <div className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 bg-[#F4F0EA]" data-lenis-prevent="true">
+            <div 
+              ref={scrollRef}
+              className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 bg-[#F4F0EA]" 
+              data-lenis-prevent="true"
+            >
               <SizeGuideView isDrawer={true} />
             </div>
           </motion.div>

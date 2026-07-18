@@ -11,6 +11,19 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   const [giftNoteAdded, setGiftNoteAdded] = useState(false);
   const [giftNote, setGiftNote] = useState('');
   const { lines, cost, linesRemove, linesUpdate, checkoutUrl, totalQuantity } = useCart();
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || !isOpen) return;
+    const stopProp = (e: Event) => e.stopPropagation();
+    el.addEventListener('wheel', stopProp, { passive: false });
+    el.addEventListener('touchmove', stopProp, { passive: false });
+    return () => {
+      el.removeEventListener('wheel', stopProp);
+      el.removeEventListener('touchmove', stopProp);
+    };
+  }, [isOpen]);
 
   React.useEffect(() => {
     if (isOpen) {
@@ -87,7 +100,11 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         </div>
 
         {/* Scrollable Item List */}
-        <div className="flex-1 overflow-y-auto overscroll-contain p-6 space-y-6" data-lenis-prevent="true">
+        <div 
+          ref={scrollRef}
+          className="flex-1 overflow-y-auto overscroll-contain p-6 space-y-6" 
+          data-lenis-prevent="true"
+        >
           {!lines || lines.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center space-y-4">
               <span className="text-gray-200 font-sans font-light text-5xl">Ø</span>
