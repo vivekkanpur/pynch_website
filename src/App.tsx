@@ -15,6 +15,7 @@ import WaitlistView from "./views/WaitlistView";
 import LoginView from "./views/LoginView";
 import AccountView from "./views/AccountView";
 import CartDrawer from "./components/CartDrawer";
+import SizeGuideDrawer from "./components/SizeGuideDrawer";
 import { ShopifyCartIdentitySync } from "./components/ShopifyCartIdentitySync";
 import { useAuth } from "./contexts/AuthContext";
 import SizeGuideView from "./views/SizeGuideView";
@@ -218,9 +219,18 @@ function AppContent() {
               <ProductDetailView
                 product={selectedProduct}
                 onBack={() => navigate(-1)}
-                onSizingOpen={() => navigate('/size-guide')}
+                onSizingOpen={() => setIsSizingOpen(true)}
                 lustListItems={lustListItems}
                 onToggleLust={handleToggleLust}
+                onSelectProduct={handleSelectProduct}
+                onQuickAdd={(p) => {
+                  handleAddToCart({
+                    product: p,
+                    selectedColor: p.colors[0],
+                    selectedSize: p.sizes[0],
+                    quantity: 1
+                  });
+                }}
               />
             ) : (
               <div className="pt-32 text-center">Product not found.</div>
@@ -247,6 +257,10 @@ function AppContent() {
       <CartDrawer
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
+      />
+      <SizeGuideDrawer
+        isOpen={isSizingOpen}
+        onClose={() => setIsSizingOpen(false)}
       />
     </div>
   );

@@ -12,15 +12,8 @@ export function useShopifyProducts() {
     async function fetchProducts() {
       try {
         setLoading(true);
-        const data = await storeFetch(PRODUCTS_QUERY, { first: 20 });
-        const localProducts = mapShopifyProductsToLocal(data);
-        
-        if (localProducts.length === 0) {
-          // Fallback to mock data if store is empty
-          setProducts(MOCK_PRODUCTS as Product[]);
-        } else {
-          setProducts(localProducts);
-        }
+        // FORCE MOCK DATA FOR UI TESTING
+        setProducts(MOCK_PRODUCTS as Product[]);
         setError(null);
       } catch (err: any) {
         console.error('Failed to fetch Shopify products:', err);

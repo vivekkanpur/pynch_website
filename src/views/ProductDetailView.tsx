@@ -4,12 +4,16 @@ import { Product } from '../types';
 import { motion } from 'motion/react';
 import { useCart } from '@shopify/hydrogen-react';
 import { useNavigate } from 'react-router-dom';
+import { useShopifyProducts } from '../hooks/useShopifyProducts';
+import { ProductCard } from '../components/ProductCard';
 interface ProductDetailViewProps {
   product: Product;
   onBack: () => void;
   onSizingOpen: () => void;
   lustListItems?: Product[];
   onToggleLust?: (product: Product) => void;
+  onSelectProduct?: (product: Product) => void;
+  onQuickAdd?: (product: Product, colorName: string, size: string) => void;
 }
 
 const pageVariants = {
@@ -22,7 +26,9 @@ export default function ProductDetailView({
   onBack,
   onSizingOpen,
   lustListItems,
-  onToggleLust
+  onToggleLust,
+  onSelectProduct,
+  onQuickAdd
 }: ProductDetailViewProps) {
   const [selectedColorIdx, setSelectedColorIdx] = useState(0);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
@@ -38,6 +44,14 @@ export default function ProductDetailView({
   const isLusted = lustListItems?.some(p => p.id === product.id);
   const { linesAdd } = useCart();
   const navigate = useNavigate();
+  const { products } = useShopifyProducts();
+
+  // Recommendations: same category or mood, excluding this one
+  let recommendedProducts = products.filter((p: any) => p.id !== product.id && (p.category === product.category || p.mood === product.mood));
+  if (recommendedProducts.length === 0) {
+    recommendedProducts = products.filter((p: any) => p.id !== product.id);
+  }
+  recommendedProducts = recommendedProducts.slice(0, 4);
 
   const handleAddToCart = () => {
     if (!selectedSize) {
@@ -157,29 +171,44 @@ export default function ProductDetailView({
 
           <div className="space-y-8">
             {/* Colorways Selector */}
-            <div className="space-y-4">
-              <div className="text-[10px] font-sans tracking-[0.2em] uppercase text-gray-400">
-                Color — <span className="text-[#111111]">{activeColor.name}</span>
+            <div className="space-y-3">
+              <a href="#" onClick={(e) => e.preventDefault()} className="text-[14px] font-sans text-[#006064] border-b border-[#006064] pb-0 inline-block mb-1">
+                All
+              </a>
+              
+              <div className="flex">
+                {product.colors.map((color, idx) => {
+                  const isSelected = selectedColorIdx === idx;
+                  const isGradient = color.hex.includes(',');
+                  const backgroundStyle = isGradient 
+                    ? `linear-gradient(to top left, ${color.hex.split(',')[0]} 50%, ${color.hex.split(',')[1]} 50%)`
+                    : color.hex;
+
+                  return (
+                    <button
+                      key={color.name}
+                      onClick={() => {
+                        setSelectedColorIdx(idx);
+                        setSelectedSize(null);
+                      }}
+                      className={`w-9 h-9 relative p-0 transition-none ${
+                        isSelected 
+                          ? 'outline outline-1 outline-black ring-2 ring-white ring-inset z-10' 
+                          : 'z-0 hover:opacity-90'
+                      }`}
+                      title={color.name}
+                    >
+                      <span
+                        className="absolute inset-0"
+                        style={{ background: backgroundStyle }}
+                      ></span>
+                    </button>
+                  );
+                })}
               </div>
-              <div className="flex gap-2">
-                {product.colors.map((color, idx) => (
-                  <button
-                    key={color.name}
-                    onClick={() => {
-                      setSelectedColorIdx(idx);
-                      setSelectedSize(null);
-                    }}
-                    className={`w-4 h-4 rounded-full border relative p-0 transition-all ${
-                      selectedColorIdx === idx ? 'border-[#111111] p-1' : 'border-transparent hover:border-gray-300'
-                    }`}
-                    title={color.name}
-                  >
-                    <span
-                      className="absolute inset-0 rounded-full"
-                      style={{ backgroundColor: color.hex, border: '1px solid rgba(0,0,0,0.1)' }}
-                    ></span>
-                  </button>
-                ))}
+
+              <div className="text-[14px] font-sans text-[#006064] mt-3">
+                Color: {activeColor.name}
               </div>
             </div>
 
@@ -390,6 +419,27 @@ export default function ProductDetailView({
 
         </div>
       </div>
+
+      {/* Recommendations Section */}
+      {recommendedProducts.length > 0 && (
+        <div className="mt-24 sm:mt-32 border-t border-[var(--theme-border)] pt-16">
+          <h2 className="font-serif font-light text-2xl sm:text-3xl text-[var(--theme-teal)] uppercase tracking-[0.1em] mb-8 text-center sm:text-left">
+            You May Also Like
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
+            {recommendedProducts.map((prod: any) => (
+              <ProductCard
+                key={prod.id}
+                product={prod}
+                onClick={onSelectProduct || (() => {})}
+                onQuickAdd={onQuickAdd || (() => {})}
+                isLusted={lustListItems?.some(p => p.id === prod.id)}
+                onToggleLust={onToggleLust}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 }

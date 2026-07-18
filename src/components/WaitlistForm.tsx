@@ -21,6 +21,7 @@ export function WaitlistForm() {
     phone: ''
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [waitlistNumber, setWaitlistNumber] = useState<number | null>(null);
 
   const toggleMood = (mood: string) => {
     if (selectedMoods.includes(mood)) {
@@ -54,6 +55,8 @@ export function WaitlistForm() {
       });
 
       if (response.ok) {
+        const data = await response.json();
+        setWaitlistNumber(data.position);
         setStatus('success');
         setFormData({ name: '', email: '', phone: '' });
         setSelectedMoods([]);
@@ -91,14 +94,14 @@ export function WaitlistForm() {
       {/* Form */}
       {status === 'success' ? (
         <div className="flex flex-col items-center justify-center py-12 text-center animate-fade-in">
-          <div className="w-16 h-16 rounded-full bg-[var(--theme-teal)] text-white flex items-center justify-center mb-6">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
+          <div className="w-16 h-16 rounded-full bg-[var(--theme-teal)] text-white flex items-center justify-center mb-6 shadow-lg">
+            <span className="font-serif text-xl font-light">
+              #{waitlistNumber?.toLocaleString() || '---'}
+            </span>
           </div>
           <h3 className="font-serif text-3xl font-light text-[#1A1A1A] mb-4">You're on the list.</h3>
           <p className="font-sans text-sm text-[#1A1A1A] opacity-80">
-            Keep an eye on your inbox. A note from Tashu is on its way.
+            You are number {waitlistNumber?.toLocaleString()} in line. Keep an eye on your inbox. A note from Tashu is on its way.
           </p>
         </div>
       ) : (

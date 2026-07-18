@@ -212,7 +212,7 @@ export default function Footer({ onViewChange, onSizingOpen }: FooterProps) {
       {/* Footer Bottom Credentials */}
       <div className="bg-[#111111] text-[#E8E3DB] py-8 px-4 sm:px-8 text-[9px] font-sans tracking-[0.2em] font-light">
         <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
-          <span className="opacity-70">© 2026 Pynch. Tashu Studio. All rights reserved.</span>
+          <span className="opacity-70">© 2026 Pynch. VELURIA INTERNATIONAL PRIVATE LIMITED. All rights reserved.</span>
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 text-center sm:text-left">
             <span className="opacity-100">Designed by Tashu</span>
             <span className="opacity-50">Dress the person, not the performance</span>

@@ -5,7 +5,6 @@ import asset_3 from "./images/models/Models New/Comphy/Nap Time Mid Rise Bikini/
 import asset_4 from "./images/models/Models New/Comphy/Nap Time Mid Rise Bikini/Syrn_DanielDerro8088.webp";
 import asset_5 from "./images/models/Models New/Comphy/Nap Time Mid Rise Bikini/hf_20260713_094347_1963e73f-8846-43d4-a1eb-d55cf4ad9e73.webp";
 import asset_6 from "./images/models/Models New/Comphy/Soft Launch Scoop Bralette/ECOM_CM_DWMYN_02_SY-NS-10036_BYT_TOP_BK_MO_SHOT01_5928A.webp";
-import asset_7 from "./images/models/Models New/Comphy/Soft Launch Scoop Bralette/ECOM_CM_DWMYN_06_SY-PI-10035_SY-NS-10036_DTN_BODY_BK_MB_SHOT01_GKI2Y.webp";
 import asset_8 from "./images/models/Models New/Comphy/Soft Launch Scoop Bralette/hf_20260713_093816_85d66ebe-8e03-4679-baa0-625c98daf954.webp";
 import asset_9 from "./images/models/Models New/Comphy/Soft Launch Scoop Bralette/hf_20260713_093900_f94af604-1237-4b3a-bab1-2b103fd4baa4.webp";
 import asset_10 from "./images/models/Models New/Comphy/Soft Launch Scoop Bralette/hf_20260713_093918_63c4ab61-dcd4-4e39-879b-f89c383394b4.webp";
@@ -93,14 +92,24 @@ export const MOCK_PRODUCTS = [
     name: "Nap Time Mid Rise Bikini",
     tagline: "New",
     description: "A beautifully crafted piece for your everyday essential. Join the waitlist for exclusive access.",
-    price: 3500,
+    price: 2121,
     category: "panties",
     mood: "Sukoon",
     colors: [
       {
-        name: "Signature",
-        hex: "#1A1A1A",
-        images: [asset_0, asset_1, asset_2, asset_3, asset_4, asset_5]
+        name: "After Dark",
+        hex: "#242424",
+        images: [asset_0, asset_1, asset_2]
+      },
+      {
+        name: "Pillow Fight",
+        hex: "#F4F0E6",
+        images: [asset_3, asset_4, asset_5]
+      },
+      {
+        name: "Bedhead / Pillow Fight",
+        hex: "#D1D1D1,#F4F0E6",
+        images: [asset_0, asset_3]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -118,14 +127,24 @@ export const MOCK_PRODUCTS = [
     name: "Soft Launch Scoop Bralette",
     tagline: "New",
     description: "A beautifully crafted piece for your everyday essential. Join the waitlist for exclusive access.",
-    price: 3500,
+    price: 3761,
     category: "bras",
     mood: "Sukoon",
     colors: [
       {
-        name: "Signature",
-        hex: "#1A1A1A",
-        images: [asset_11, asset_6, asset_7, asset_8, asset_9, asset_10, asset_12]
+        name: "After Dark",
+        hex: "#242424",
+        images: [asset_11, asset_6, asset_8, asset_9, asset_10, asset_12]
+      },
+      {
+        name: "Pillow Fight",
+        hex: "#F4F0E6",
+        images: [asset_11, asset_6, asset_8, asset_9, asset_10, asset_12]
+      },
+      {
+        name: "Bedhead / Pillow Fight",
+        hex: "#D1D1D1,#F4F0E6",
+        images: [asset_11, asset_6, asset_8, asset_9, asset_10, asset_12]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -143,13 +162,23 @@ export const MOCK_PRODUCTS = [
     name: "The Kiss Goodnight Triangle Bralette",
     tagline: "New",
     description: "A beautifully crafted piece for your everyday essential. Join the waitlist for exclusive access.",
-    price: 3500,
+    price: 3760,
     category: "bras",
     mood: "Sukoon",
     colors: [
       {
-        name: "Signature",
-        hex: "#1A1A1A",
+        name: "After Dark",
+        hex: "#242424",
+        images: [asset_13, asset_14, asset_15, asset_16, asset_17, asset_18]
+      },
+      {
+        name: "Pillow Fight",
+        hex: "#F4F0E6",
+        images: [asset_13, asset_14, asset_15, asset_16, asset_17, asset_18]
+      },
+      {
+        name: "Bedhead / Pillow Fight",
+        hex: "#D1D1D1,#F4F0E6",
         images: [asset_13, asset_14, asset_15, asset_16, asset_17, asset_18]
       }
     ],
@@ -173,8 +202,18 @@ export const MOCK_PRODUCTS = [
     mood: "Sukoon",
     colors: [
       {
-        name: "Signature",
-        hex: "#1A1A1A",
+        name: "After Dark",
+        hex: "#242424",
+        images: [asset_23, asset_19, asset_21, asset_22, asset_24]
+      },
+      {
+        name: "Pillow Fight",
+        hex: "#F4F0E6",
+        images: [asset_23, asset_19, asset_21, asset_22, asset_24]
+      },
+      {
+        name: "Bedhead / Pillow Fight",
+        hex: "#D1D1D1,#F4F0E6",
         images: [asset_23, asset_19, asset_21, asset_22, asset_24]
       }
     ],
@@ -198,8 +237,18 @@ export const MOCK_PRODUCTS = [
     mood: "Sukoon",
     colors: [
       {
-        name: "Signature",
-        hex: "#1A1A1A",
+        name: "After Dark",
+        hex: "#242424",
+        images: [asset_32, asset_25, asset_26, asset_27, asset_28, asset_29, asset_30, asset_31, asset_33, asset_34, asset_35]
+      },
+      {
+        name: "Pillow Fight",
+        hex: "#F4F0E6",
+        images: [asset_32, asset_25, asset_26, asset_27, asset_28, asset_29, asset_30, asset_31, asset_33, asset_34, asset_35]
+      },
+      {
+        name: "Bedhead / Pillow Fight",
+        hex: "#D1D1D1,#F4F0E6",
         images: [asset_32, asset_25, asset_26, asset_27, asset_28, asset_29, asset_30, asset_31, asset_33, asset_34, asset_35]
       }
     ],
@@ -223,8 +272,18 @@ export const MOCK_PRODUCTS = [
     mood: "Shararat",
     colors: [
       {
-        name: "Signature",
-        hex: "#1A1A1A",
+        name: "After Dark",
+        hex: "#242424",
+        images: [asset_42, asset_36, asset_37, asset_38, asset_39, asset_40, asset_41]
+      },
+      {
+        name: "Pillow Fight",
+        hex: "#F4F0E6",
+        images: [asset_42, asset_36, asset_37, asset_38, asset_39, asset_40, asset_41]
+      },
+      {
+        name: "Bedhead / Pillow Fight",
+        hex: "#D1D1D1,#F4F0E6",
         images: [asset_42, asset_36, asset_37, asset_38, asset_39, asset_40, asset_41]
       }
     ],
@@ -248,8 +307,18 @@ export const MOCK_PRODUCTS = [
     mood: "Ishq",
     colors: [
       {
-        name: "Signature",
-        hex: "#1A1A1A",
+        name: "After Dark",
+        hex: "#242424",
+        images: [asset_44, asset_43, asset_46, asset_47]
+      },
+      {
+        name: "Pillow Fight",
+        hex: "#F4F0E6",
+        images: [asset_44, asset_43, asset_46, asset_47]
+      },
+      {
+        name: "Bedhead / Pillow Fight",
+        hex: "#D1D1D1,#F4F0E6",
         images: [asset_44, asset_43, asset_46, asset_47]
       }
     ],
@@ -273,8 +342,18 @@ export const MOCK_PRODUCTS = [
     mood: "Ishq",
     colors: [
       {
-        name: "Signature",
-        hex: "#1A1A1A",
+        name: "After Dark",
+        hex: "#242424",
+        images: [asset_56, asset_48, asset_49, asset_50, asset_51, asset_54, asset_55, asset_57]
+      },
+      {
+        name: "Pillow Fight",
+        hex: "#F4F0E6",
+        images: [asset_56, asset_48, asset_49, asset_50, asset_51, asset_54, asset_55, asset_57]
+      },
+      {
+        name: "Bedhead / Pillow Fight",
+        hex: "#D1D1D1,#F4F0E6",
         images: [asset_56, asset_48, asset_49, asset_50, asset_51, asset_54, asset_55, asset_57]
       }
     ],
@@ -298,8 +377,18 @@ export const MOCK_PRODUCTS = [
     mood: "Ishq",
     colors: [
       {
-        name: "Signature",
-        hex: "#1A1A1A",
+        name: "After Dark",
+        hex: "#242424",
+        images: [asset_61, asset_58, asset_60, asset_62, asset_63]
+      },
+      {
+        name: "Pillow Fight",
+        hex: "#F4F0E6",
+        images: [asset_61, asset_58, asset_60, asset_62, asset_63]
+      },
+      {
+        name: "Bedhead / Pillow Fight",
+        hex: "#D1D1D1,#F4F0E6",
         images: [asset_61, asset_58, asset_60, asset_62, asset_63]
       }
     ],
@@ -323,8 +412,18 @@ export const MOCK_PRODUCTS = [
     mood: "Ishq",
     colors: [
       {
-        name: "Signature",
-        hex: "#1A1A1A",
+        name: "After Dark",
+        hex: "#242424",
+        images: [asset_69, asset_64, asset_65, asset_66, asset_67, asset_68]
+      },
+      {
+        name: "Pillow Fight",
+        hex: "#F4F0E6",
+        images: [asset_69, asset_64, asset_65, asset_66, asset_67, asset_68]
+      },
+      {
+        name: "Bedhead / Pillow Fight",
+        hex: "#D1D1D1,#F4F0E6",
         images: [asset_69, asset_64, asset_65, asset_66, asset_67, asset_68]
       }
     ],
@@ -348,8 +447,18 @@ export const MOCK_PRODUCTS = [
     mood: "Aarambh",
     colors: [
       {
-        name: "Signature",
-        hex: "#1A1A1A",
+        name: "After Dark",
+        hex: "#242424",
+        images: [asset_73, asset_70, asset_71, asset_72, asset_74, asset_75, asset_76, asset_77]
+      },
+      {
+        name: "Pillow Fight",
+        hex: "#F4F0E6",
+        images: [asset_73, asset_70, asset_71, asset_72, asset_74, asset_75, asset_76, asset_77]
+      },
+      {
+        name: "Bedhead / Pillow Fight",
+        hex: "#D1D1D1,#F4F0E6",
         images: [asset_73, asset_70, asset_71, asset_72, asset_74, asset_75, asset_76, asset_77]
       }
     ],
@@ -368,13 +477,23 @@ export const MOCK_PRODUCTS = [
     name: "The Seduction Lightly Lined Plunge Bra",
     tagline: "New",
     description: "A beautifully crafted piece for your everyday essential. Join the waitlist for exclusive access.",
-    price: 3500,
+    price: 8571,
     category: "bras",
     mood: "Aarambh",
     colors: [
       {
-        name: "Signature",
-        hex: "#1A1A1A",
+        name: "After Dark",
+        hex: "#242424",
+        images: [asset_80, asset_78, asset_79, asset_82, asset_83]
+      },
+      {
+        name: "Pillow Fight",
+        hex: "#F4F0E6",
+        images: [asset_80, asset_78, asset_79, asset_82, asset_83]
+      },
+      {
+        name: "Bedhead / Pillow Fight",
+        hex: "#D1D1D1,#F4F0E6",
         images: [asset_80, asset_78, asset_79, asset_82, asset_83]
       }
     ],
@@ -393,13 +512,23 @@ export const MOCK_PRODUCTS = [
     name: "The Show Off Unlined Plunge Bra",
     tagline: "New",
     description: "A beautifully crafted piece for your everyday essential. Join the waitlist for exclusive access.",
-    price: 3500,
+    price: 8571,
     category: "bras",
     mood: "Aarambh",
     colors: [
       {
-        name: "Signature",
-        hex: "#1A1A1A",
+        name: "After Dark",
+        hex: "#242424",
+        images: [asset_84, asset_85, asset_86]
+      },
+      {
+        name: "Pillow Fight",
+        hex: "#F4F0E6",
+        images: [asset_84, asset_85, asset_86]
+      },
+      {
+        name: "Bedhead / Pillow Fight",
+        hex: "#D1D1D1,#F4F0E6",
         images: [asset_84, asset_85, asset_86]
       }
     ],

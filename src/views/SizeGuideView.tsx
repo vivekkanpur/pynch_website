@@ -16,7 +16,7 @@ type Unit = 'in' | 'cm';
 type Region = 'IN' | 'EU';
 type ProductType = 'bra' | 'panty' | 'lingerie';
 
-export default function SizeGuideView() {
+export default function SizeGuideView({ isDrawer = false }: { isDrawer?: boolean } = {}) {
   const [unit, setUnit] = useState<Unit>('in');
   const [region, setRegion] = useState<Region>('IN');
   const [product, setProduct] = useState<ProductType>('bra');
@@ -243,17 +243,21 @@ export default function SizeGuideView() {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
-      className="max-w-[1240px] mx-auto px-4 sm:px-8 py-16 sm:py-24"
+      initial={isDrawer ? {} : { opacity: 0, y: 20 }}
+      animate={isDrawer ? {} : { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
+      className={isDrawer ? "w-full" : "max-w-[1240px] mx-auto px-4 sm:px-8 py-16 sm:py-24"}
     >
-      <p className="text-[11px] font-sans tracking-[0.18em] uppercase text-[#111111] font-semibold mb-2 text-center sm:text-left">Sizing & Sensation</p>
-      <h1 className="font-serif font-medium text-4xl sm:text-5xl tracking-wide uppercase text-[#111111] mb-2 text-center sm:text-left">
-        True Fitting Calculator
-      </h1>
-      <p className="font-serif italic text-[#6b6558] text-base sm:text-lg mb-12 text-center sm:text-left">
-        Bra · Panties · Lingerie — sized for India and EU, from one measurement
-      </p>
+      {!isDrawer && (
+        <>
+          <p className="text-[11px] font-sans tracking-[0.18em] uppercase text-[#111111] font-semibold mb-2 text-center sm:text-left">Sizing & Sensation</p>
+          <h1 className="font-serif font-medium text-4xl sm:text-5xl tracking-wide uppercase text-[#111111] mb-2 text-center sm:text-left">
+            True Fitting Calculator
+          </h1>
+          <p className="font-serif italic text-[#6b6558] text-base sm:text-lg mb-12 text-center sm:text-left">
+            Bra · Panties · Lingerie — sized for India and EU, from one measurement
+          </p>
+        </>
+      )}
 
       {/* Tabs */}
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-8">
@@ -293,10 +297,10 @@ export default function SizeGuideView() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className={isDrawer ? "flex flex-col gap-8 items-start" : "grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"}>
         
         {/* LEFT: INPUT PANEL */}
-        <div className="col-span-1 lg:col-span-5 bg-white border border-gray-200 p-6 sm:p-8 space-y-8 shadow-sm">
+        <div className={isDrawer ? "w-full bg-white border border-gray-200 p-6 space-y-6 shadow-sm" : "col-span-1 lg:col-span-5 bg-white border border-gray-200 p-6 sm:p-8 space-y-8 shadow-sm"}>
           
           {/* Philosophy Box */}
           <div className="border border-[#E8E3DB] p-6 bg-[#F4F0EA] no-radius space-y-3">
@@ -411,7 +415,7 @@ export default function SizeGuideView() {
         </div>
 
         {/* RIGHT: RESULTS PANEL */}
-        <div className="col-span-1 lg:col-span-7 bg-[#1A1A1A] text-white min-h-[500px] flex flex-col no-radius border border-[#222222]">
+        <div className={isDrawer ? "w-full bg-[#1A1A1A] text-white min-h-[400px] flex flex-col no-radius border border-[#222222]" : "col-span-1 lg:col-span-7 bg-[#1A1A1A] text-white min-h-[500px] flex flex-col no-radius border border-[#222222]"}>
           <div className="p-8 sm:p-10 pb-6 bg-[#111111] border-b border-[#222222]">
             <h2 className="font-serif font-medium text-3xl uppercase tracking-wide mb-2">Your True Fitting</h2>
             <div className="text-gray-400 text-xs leading-relaxed max-w-md">Enter your measurements to see your recommended size.</div>

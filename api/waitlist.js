@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, getCountFromServer } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.VITE_FIREBASE_API_KEY,
@@ -27,12 +27,19 @@ export default async function handler(req, res) {
     const { name, email, phone, moods } = req.body;
 
     // Save to Firebase Firestore
+    let waitlistPosition = 2401; // default fallback
     try {
-      await addDoc(collection(db, 'waitlist'), {
+      const waitlistColl = collection(db, 'waitlist');
+      const snapshot = await getCountFromServer(waitlistColl);
+      const dbCount = snapshot.data().count;
+      waitlistPosition = 2400 + dbCount + 1;
+
+      await addDoc(waitlistColl, {
         name: name || '',
         email: email || '',
         phone: phone || '',
         moods: moods || '',
+        position: waitlistPosition,
         createdAt: new Date().toISOString()
       });
     } catch (fbError) {
@@ -51,6 +58,7 @@ export default async function handler(req, res) {
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phone}</p>
           <p><strong>Moods:</strong> ${moods}</p>
+          <p><strong>Waitlist Position:</strong> #${waitlistPosition}</p>
         </div>
       `
     });
@@ -91,7 +99,7 @@ export default async function handler(req, res) {
                     <td style="padding: 50px 40px;">
                       <h2 style="margin: 0 0 30px 0; font-family: 'Playfair Display', serif; font-size: 28px; color: #1A1A1A; font-weight: 400; font-style: italic;">Welcome, ${name}.</h2>
                       
-                      <p style="margin: 0 0 20px 0; font-family: 'Inter', sans-serif; font-size: 15px; color: #4A4A4A; line-height: 1.8; font-weight: 300;">You are officially on the waitlist. We are incredibly excited to share our world with you.</p>
+                      <p style="margin: 0 0 20px 0; font-family: 'Inter', sans-serif; font-size: 15px; color: #4A4A4A; line-height: 1.8; font-weight: 300;">You are officially on the waitlist. Your spot is <strong>#${waitlistPosition}</strong> in line. We are incredibly excited to share our world with you.</p>
                       
                       <p style="margin: 0 0 30px 0; font-family: 'Inter', sans-serif; font-size: 15px; color: #4A4A4A; line-height: 1.8; font-weight: 300;">We will reach out the moment we launch so you can claim your early access and your exclusive 20% off.</p>
                       
@@ -125,7 +133,50 @@ export default async function handler(req, res) {
       throw new Error(`Resend Customer Email Failed: ${customerResponse.error.message}`);
     }
 
-    return res.status(200).json({ success: true });
+    // 3. WhatsApp Notification via Meta Business API
+    if (phone && phone !== "Not provided") {
+      try {
+        let formattedPhone = phone.trim().replace(/\D/g, ''); // Ensure only digits
+        // Basic formatting: assuming 91 if no country code provided and length is 10
+        if (formattedPhone.length === 10) {
+          formattedPhone = '91' + formattedPhone;
+        }
+
+        if (process.env.META_WHATSAPP_TOKEN && process.env.META_PHONE_NUMBER_ID) {
+          // Note: Meta typically requires a pre-approved 'template' message for business-initiated updates.
+          // This uses a standard text message for simplicity, which works within a 24h customer service window.
+          // If this fails in production, you will need to switch "type" to "template" and provide your template name.
+          const metaResponse = await fetch(`https://graph.facebook.com/v17.0/${process.env.META_PHONE_NUMBER_ID}/messages`, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${process.env.META_WHATSAPP_TOKEN}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              messaging_product: "whatsapp",
+              to: formattedPhone,
+              type: "text",
+              text: {
+                preview_url: false,
+                body: `Welcome to PYNCH, ${name}.\n\nYou are officially on the waitlist. Your spot is #${waitlistPosition} in line. We are incredibly excited to share our world with you.\n\nWe will reach out the moment we launch so you can claim your early access and your exclusive 20% off.\n\nStay Moody,\nTashu & The PYNCH Team`
+              }
+            })
+          });
+
+          if (!metaResponse.ok) {
+            const errorData = await metaResponse.json();
+            console.error('Meta WhatsApp API Error:', errorData);
+          }
+        } else {
+          console.log('Meta credentials missing. Skipping WhatsApp notification.');
+        }
+      } catch (metaError) {
+        console.error('WhatsApp Error:', metaError);
+        // We don't throw here to ensure the user still sees a success message 
+      }
+    }
+
+    return res.status(200).json({ success: true, position: waitlistPosition });
   } catch (error) {
     console.error('Resend Error:', error);
     return res.status(500).json({ error: error.message });

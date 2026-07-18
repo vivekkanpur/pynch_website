@@ -2,15 +2,23 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Star } from 'lucide-react';
 
+import reviewer1 from '../data/images/reviewer_1.png';
+import reviewer2 from '../data/images/reviewer_2.png';
+import reviewer3 from '../data/images/reviewer_3.png';
+import reviewer4 from '../data/images/reviewer_4.png';
+import reviewer5 from '../data/images/reviewer_5.png';
+import reviewer6 from '../data/images/reviewer_6.png';
+import reviewer7 from '../data/images/reviewer_7.png';
+
 const REVIEWS = [
-  { id: 1, name: "Sarah J.", avatar: "https://randomuser.me/api/portraits/women/44.jpg", rating: 5, text: "Absolutely in love with the quality. The fit is perfect and it feels so luxurious." },
-  { id: 2, name: "Emily R.", avatar: "https://randomuser.me/api/portraits/women/68.jpg", rating: 4, text: "Stunning details and fabric. I wish shipping was a bit faster, but worth the wait." },
-  { id: 3, name: "Jessica T.", avatar: "https://randomuser.me/api/portraits/women/12.jpg", rating: 5, text: "So comfortable yet incredibly flattering. The materials are definitely premium." },
-  { id: 4, name: "Amanda K.", avatar: "https://randomuser.me/api/portraits/women/32.jpg", rating: 3, text: "Beautiful design, but the sizing runs slightly small for me. Consider sizing up!" },
-  { id: 5, name: "Rachel M.", avatar: "https://randomuser.me/api/portraits/women/90.jpg", rating: 5, text: "I've finally found my go-to brand for intimates. The sizing is spot on." },
-  { id: 6, name: "Chloe S.", avatar: "https://randomuser.me/api/portraits/women/24.jpg", rating: 4, text: "The packaging alone was an experience. The pieces are great, but a bit on the pricey side." },
-  { id: 7, name: "Olivia P.", avatar: "https://randomuser.me/api/portraits/women/59.jpg", rating: 5, text: "Sensual, honest, and truly beautifully crafted. I'll be buying more colors." },
-  { id: 8, name: "Mia L.", avatar: "https://randomuser.me/api/portraits/women/17.jpg", rating: 3, text: "The fabric is nice but the elastic band feels a bit restrictive after a few hours of wear." }
+  { id: 1, name: "Priya M.", avatar: reviewer1, rating: 5, text: "Absolutely in love with the quality. The fit is perfect and it feels so luxurious." },
+  { id: 2, name: "Ananya S.", avatar: reviewer2, rating: 4, text: "Stunning details and fabric. I wish shipping was a bit faster, but worth the wait." },
+  { id: 3, name: "Neha K.", avatar: reviewer3, rating: 5, text: "So comfortable yet incredibly flattering. The materials are definitely premium." },
+  { id: 4, name: "Riya P.", avatar: reviewer4, rating: 3, text: "Beautiful design, but the sizing runs slightly small for me. Consider sizing up!" },
+  { id: 5, name: "Kavya R.", avatar: reviewer5, rating: 5, text: "I've finally found my go-to brand for intimates. The sizing is spot on." },
+  { id: 6, name: "Isha V.", avatar: reviewer6, rating: 4, text: "The packaging alone was an experience. The pieces are great, but a bit on the pricey side." },
+  { id: 7, name: "Simran D.", avatar: reviewer7, rating: 5, text: "Sensual, honest, and truly beautifully crafted. I'll be buying more colors." },
+  { id: 8, name: "Aisha N.", avatar: "https://ui-avatars.com/api/?name=Aisha+N&background=1A1A1A&color=fff", rating: 3, text: "The fabric is nice but the elastic band feels a bit restrictive after a few hours of wear." }
 ];
 
 export function CustomerReviews() {

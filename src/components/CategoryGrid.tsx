@@ -31,7 +31,7 @@ export const CategoryGrid = React.memo(({ categories, selectedId, onSelect }: Ca
                   className="w-full h-full object-cover object-top mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <span className={`font-serif text-[10px] sm:text-xs uppercase tracking-widest transition-all duration-300 ${isSelected
+              <span className={`font-serif text-xs sm:text-sm tracking-widest transition-all duration-300 ${isSelected
                   ? 'text-[var(--theme-teal)] border-b border-[var(--theme-teal)] pb-2'
                   : 'text-[var(--theme-text)] opacity-70 group-hover:opacity-100 border-b border-transparent pb-2'
                 }`}>

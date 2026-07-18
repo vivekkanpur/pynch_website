@@ -29,7 +29,7 @@ export default function WaitlistView() {
     <div className="w-full bg-[var(--theme-bg)] flex flex-col lg:flex-row h-full lg:min-h-[calc(100vh-140px)]">
       
       {/* Left Side - Looping Images */}
-      <div className="w-full lg:w-1/2 relative min-h-[50vh] lg:min-h-0 flex-grow overflow-hidden order-1 lg:order-none">
+      <div className="w-full lg:w-1/2 relative aspect-[3/4] overflow-hidden order-1 lg:order-none">
         <AnimatePresence>
           <motion.div
             key={currentIndex}
@@ -75,7 +75,7 @@ export default function WaitlistView() {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="w-full max-w-[600px]"
+          className="w-full max-w-[800px]"
         >
           <WaitlistForm />
         </motion.div>

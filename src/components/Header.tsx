@@ -244,38 +244,70 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                   <div className="flex gap-16 min-w-[300px]">
 
                     <div className="flex flex-col gap-4">
-                      <Link to="/collections" state={{ selectedMood: 'Aarambh' }} className="text-sm font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">Seductress</Link>
-                      <Link to="/collections" state={{ selectedMood: 'Ishq' }} className="text-sm font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">Romantic</Link>
-                      <Link to="/collections" state={{ selectedMood: 'Shararat' }} className="text-sm font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">Playful</Link>
-                      <Link to="/collections" state={{ selectedMood: 'Sukoon' }} className="text-sm font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">Comfy</Link>
+                      <Link to="/collections" state={{ selectedMood: 'Sukoon' }} className="text-base font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">SUKOON (Comfy)</Link>
+                      <Link to="/collections" state={{ selectedMood: 'Shararat' }} className="text-base font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">SHARARAT (Playful)</Link>
+                      <Link to="/collections" state={{ selectedMood: 'Ishq' }} className="text-base font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">ISHQ (Romantic)</Link>
+                      <Link to="/collections" state={{ selectedMood: 'Aarambh' }} className="text-base font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">AARAMBH (Seductress)</Link>
                     </div>
                   </div>
                   
-                  {/* Right Content - 4 Mood Images */}
-                  <div className="flex-1 grid grid-cols-4 gap-4 h-[300px]">
-                    <div onClick={() => navigate('/collections', { state: { selectedMood: 'Aarambh' } })} className="relative group cursor-pointer flex flex-col h-full">
-                      <div className="flex-1 relative overflow-hidden min-h-0 [transform:translateZ(0)]">
-                        <img src={imgSeductress} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" alt="Seductress" />
+                  {/* Right Content - Reveal Meter & 4 Mood Images */}
+                  <div className="flex-1 flex flex-col">
+                    {/* Reveal Meter */}
+                    <div className="w-full flex flex-col mb-6 relative">
+                      <div className="flex justify-between items-center text-[9px] font-sans tracking-[0.2em] uppercase text-[var(--theme-text)] opacity-60 mb-2 px-4">
+                        <span>Max Coverage (Comfy)</span>
+                        <span>Reveal Meter</span>
+                        <span>Max Reveal (Seductress)</span>
                       </div>
-                      <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">Shop Seductress</span>
+                      <div className="w-full flex items-center relative mt-1">
+                         {/* Continuous Line */}
+                         <div className="absolute left-[12.5%] right-[12.5%] top-[3px] h-px bg-[var(--theme-border)]"></div>
+                         {/* 4 Markers */}
+                         <div className="w-1/4 flex flex-col items-center z-10 gap-2">
+                           <div className="w-1.5 h-1.5 rounded-full bg-[var(--theme-teal)]"></div>
+                           <span className="text-[10px] font-sans tracking-widest text-[var(--theme-text)]">75%</span>
+                         </div>
+                         <div className="w-1/4 flex flex-col items-center z-10 gap-2">
+                           <div className="w-1.5 h-1.5 rounded-full bg-[var(--theme-border)]"></div>
+                           <span className="text-[10px] font-sans tracking-widest text-[var(--theme-text)] opacity-70">50%</span>
+                         </div>
+                         <div className="w-1/4 flex flex-col items-center z-10 gap-2">
+                           <div className="w-1.5 h-1.5 rounded-full bg-[var(--theme-border)]"></div>
+                           <span className="text-[10px] font-sans tracking-widest text-[var(--theme-text)] opacity-70">35%</span>
+                         </div>
+                         <div className="w-1/4 flex flex-col items-center z-10 gap-2">
+                           <div className="w-1.5 h-1.5 rounded-full bg-[var(--theme-teal)]"></div>
+                           <span className="text-[10px] font-sans tracking-widest text-[var(--theme-text)]">20%</span>
+                         </div>
+                      </div>
                     </div>
-                    <div onClick={() => navigate('/collections', { state: { selectedMood: 'Ishq' } })} className="relative group cursor-pointer flex flex-col h-full">
-                      <div className="flex-1 relative overflow-hidden min-h-0 [transform:translateZ(0)]">
-                        <img src={imgRomantic} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" alt="Romantic" />
+                    
+                    <div className="grid grid-cols-4 gap-4">
+                      <div onClick={() => navigate('/collections', { state: { selectedMood: 'Sukoon' } })} className="relative group cursor-pointer flex flex-col h-full">
+                        <div className="relative overflow-hidden aspect-[3/4]">
+                          <img src={imgComfy} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="SUKOON (Comfy)" />
+                        </div>
+                        <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">SUKOON (Comfy)</span>
                       </div>
-                      <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">Shop Romantic</span>
-                    </div>
-                    <div onClick={() => navigate('/collections', { state: { selectedMood: 'Shararat' } })} className="relative group cursor-pointer flex flex-col h-full">
-                      <div className="flex-1 relative overflow-hidden min-h-0 [transform:translateZ(0)]">
-                        <img src={imgPlayful} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" alt="Playful" />
+                      <div onClick={() => navigate('/collections', { state: { selectedMood: 'Shararat' } })} className="relative group cursor-pointer flex flex-col h-full">
+                        <div className="relative overflow-hidden aspect-[3/4]">
+                          <img src={imgPlayful} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="SHARARAT (Playful)" />
+                        </div>
+                        <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">SHARARAT (Playful)</span>
                       </div>
-                      <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">Shop Playful</span>
-                    </div>
-                    <div onClick={() => navigate('/collections', { state: { selectedMood: 'Sukoon' } })} className="relative group cursor-pointer flex flex-col h-full">
-                      <div className="flex-1 relative overflow-hidden min-h-0 [transform:translateZ(0)]">
-                        <img src={imgComfy} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" alt="Comfy" />
+                      <div onClick={() => navigate('/collections', { state: { selectedMood: 'Ishq' } })} className="relative group cursor-pointer flex flex-col h-full">
+                        <div className="relative overflow-hidden aspect-[3/4]">
+                          <img src={imgRomantic} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="ISHQ (Romantic)" />
+                        </div>
+                        <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">ISHQ (Romantic)</span>
                       </div>
-                      <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">Shop Comfy</span>
+                      <div onClick={() => navigate('/collections', { state: { selectedMood: 'Aarambh' } })} className="relative group cursor-pointer flex flex-col h-full">
+                        <div className="relative overflow-hidden aspect-[3/4]">
+                          <img src={imgSeductress} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="AARAMBH (Seductress)" />
+                        </div>
+                        <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">AARAMBH (Seductress)</span>
+                      </div>
                     </div>
                   </div>
                 </div>

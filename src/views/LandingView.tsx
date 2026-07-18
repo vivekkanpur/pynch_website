@@ -5,8 +5,8 @@ import { TogglableMoods } from "../components/TogglableMoods";
 import { CustomerReviews } from "../components/CustomerReviews";
 import { motion, useMotionValue, animate } from "motion/react";
 import { useShopifyProducts } from "../hooks/useShopifyProducts";
-import heroImage from "../data/images/hero element image.webp";
 import separatorImage from "../data/images/img01.webp";
+import { MOCK_PRODUCTS } from "../data/mockProducts";
 
 const pageVariants = {
   initial: { opacity: 0, y: 30 },
@@ -84,46 +84,8 @@ export default function LandingView({
       animate="animate"
       className="w-full bg-[var(--theme-bg)]"
     >
-      {/* HERO SECTION */}
-      <section className="relative w-full h-[100vh] flex flex-col justify-center items-center overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-[#1A1A1A]">
-          <img
-            src={heroImage}
-            alt="PYNCH Hero"
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-cover opacity-80 object-top"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40"></div>
-        </div>
-
-        <div className="relative z-10 w-full flex flex-col items-center text-white pb-20 px-4 text-center mt-32">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="font-serif text-5xl sm:text-7xl lg:text-[7rem] font-light tracking-widest leading-none mb-6 uppercase"
-          >
-            Sensual Honesty
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="font-sans text-xs sm:text-sm tracking-[0.3em] uppercase mb-12 opacity-80"
-          >
-            Dress the person, not the performance
-          </motion.p>
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            onClick={() => onViewChange("collections")}
-            className="bg-transparent border-2 border-white text-white px-10 py-4 font-sans text-[10px] uppercase tracking-[0.4em] font-medium hover:bg-[var(--theme-lime)] hover:border-[var(--theme-lime)] hover:text-[#1A1A1A] transition-colors duration-400 no-radius"
-          >
-            Explore Collection
-          </motion.button>
-        </div>
-      </section>
+      {/* HERO SECTION (TOGGLABLE MOODS) */}
+      <TogglableMoods />
 
       {/* HORIZONTAL SCROLLING MARQUEE */}
       <section className="w-full overflow-hidden bg-[var(--theme-bg)] py-6 flex items-center">
@@ -209,7 +171,7 @@ export default function LandingView({
               onClick={() => onViewChange("shop")}
             >
               <img
-                src="https://images.unsplash.com/photo-1642945667252-c0a68e4c2904?q=80&w=774&auto=format&fit=crop"
+                src={MOCK_PRODUCTS[0].colors[0].images[0]}
                 alt="Shop More"
                 className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none"
               />
@@ -276,8 +238,6 @@ export default function LandingView({
       {/* MOODS SECTION */}
       <MoodsSection />
 
-      {/* TOGGLABLE MOODS SECTION */}
-      <TogglableMoods />
 
       {/* CUSTOMER REVIEWS */}
       <CustomerReviews />

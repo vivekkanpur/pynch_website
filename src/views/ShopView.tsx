@@ -39,12 +39,12 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
   );
 
   const categoryItems: CategoryItem[] = [
-    { id: 'Bras', label: 'Bras', image: braImg },
-    { id: 'Panties', label: 'Panties', image: pantiesImg },
-    { id: 'Bodysuits', label: 'Bodysuits', image: bodysuitsImg },
-    { id: 'Corsets', label: 'Corsets', image: corsetImg },
-    { id: 'Attire', label: 'Attire', image: attireImg },
-    { id: 'Accessories', label: 'Accessories', image: accessoriesImg }
+    { id: 'Bras', label: 'BRAS', image: braImg },
+    { id: 'Panties', label: 'PANTIES', image: pantiesImg },
+    { id: 'Bodysuits', label: 'BODYSUITS', image: bodysuitsImg },
+    { id: 'Corsets', label: 'CORSETS', image: corsetImg },
+    { id: 'Attire', label: 'ATTIRE', image: attireImg },
+    { id: 'Accessories', label: 'ACCESSORIES', image: accessoriesImg }
   ];
 
   return (
