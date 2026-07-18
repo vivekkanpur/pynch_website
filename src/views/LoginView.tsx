@@ -92,7 +92,7 @@ export default function LoginView() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-md w-full space-y-12 bg-[#F8F5F0] p-8 sm:p-12 border border-[var(--theme-border)]"
+        className="max-w-lg w-full space-y-12 bg-[#F8F5F0] p-8 sm:p-12 border border-[var(--theme-border)]"
       >
         <div className="text-center space-y-4">
           <h1 className="font-serif text-4xl sm:text-5xl text-[var(--theme-teal)] uppercase tracking-[0.1em] font-light">
