@@ -83,7 +83,7 @@ export function TogglableMoods() {
             alt={MOODS_DATA[activeIndex].title}
             className={`w-full h-full object-cover ${
               MOODS_DATA[activeIndex].id === "seductress" 
-                ? "object-right md:object-center" 
+                ? "object-[65%_center] md:object-center" 
                 : "object-center"
             }`}
           />
