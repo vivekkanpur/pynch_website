@@ -24,7 +24,7 @@ export default function SizeGuideDrawer({ isOpen, onClose }: SizeGuideDrawerProp
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex justify-end" data-lenis-prevent="true">
+        <div className="fixed inset-0 z-50 flex justify-end">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -32,6 +32,7 @@ export default function SizeGuideDrawer({ isOpen, onClose }: SizeGuideDrawerProp
             transition={{ duration: 0.3 }}
             className="absolute inset-0 bg-black/60 backdrop-blur-xs"
             onClick={onClose}
+            data-lenis-prevent="true"
           />
           <motion.div
             initial={{ x: '100%' }}
@@ -56,7 +57,7 @@ export default function SizeGuideDrawer({ isOpen, onClose }: SizeGuideDrawerProp
             </div>
 
             {/* Scrollable Body */}
-            <div className="flex-1 overflow-y-auto p-4 sm:p-6 bg-[#F4F0EA]">
+            <div className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 bg-[#F4F0EA]" data-lenis-prevent="true">
               <SizeGuideView isDrawer={true} />
             </div>
           </motion.div>
