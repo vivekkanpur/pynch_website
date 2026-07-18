@@ -81,7 +81,11 @@ export function TogglableMoods() {
           <img
             src={MOODS_DATA[activeIndex].img}
             alt={MOODS_DATA[activeIndex].title}
-            className="w-full h-full object-cover object-center"
+            className={`w-full h-full object-cover ${
+              MOODS_DATA[activeIndex].id === "seductress" 
+                ? "object-right md:object-center" 
+                : "object-center"
+            }`}
           />
           {/* Subtle gradient overlay to make text more readable */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
