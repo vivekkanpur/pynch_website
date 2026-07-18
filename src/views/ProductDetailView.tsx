@@ -170,47 +170,7 @@ export default function ProductDetailView({
           </p>
 
           <div className="space-y-8">
-            {/* Colorways Selector */}
-            <div className="space-y-3">
-              <a href="#" onClick={(e) => e.preventDefault()} className="text-[14px] font-sans text-[#006064] border-b border-[#006064] pb-0 inline-block mb-1">
-                All
-              </a>
-              
-              <div className="flex">
-                {product.colors.map((color, idx) => {
-                  const isSelected = selectedColorIdx === idx;
-                  const isGradient = color.hex.includes(',');
-                  const backgroundStyle = isGradient 
-                    ? `linear-gradient(to top left, ${color.hex.split(',')[0]} 50%, ${color.hex.split(',')[1]} 50%)`
-                    : color.hex;
 
-                  return (
-                    <button
-                      key={color.name}
-                      onClick={() => {
-                        setSelectedColorIdx(idx);
-                        setSelectedSize(null);
-                      }}
-                      className={`w-9 h-9 relative p-0 transition-none ${
-                        isSelected 
-                          ? 'outline outline-1 outline-black ring-2 ring-white ring-inset z-10' 
-                          : 'z-0 hover:opacity-90'
-                      }`}
-                      title={color.name}
-                    >
-                      <span
-                        className="absolute inset-0"
-                        style={{ background: backgroundStyle }}
-                      ></span>
-                    </button>
-                  );
-                })}
-              </div>
-
-              <div className="text-[14px] font-sans text-[#006064] mt-3">
-                Color: {activeColor.name}
-              </div>
-            </div>
 
             {/* Sizing Model Selector */}
             <div className="space-y-4">
@@ -366,7 +326,7 @@ export default function ProductDetailView({
               </button>
               {activeTab === 'materials' && (
                 <div className="text-gray-500 text-xs leading-relaxed pt-4 space-y-3">
-                  <p>{product.materials}</p>
+                  <p className="whitespace-pre-line">{product.materials}</p>
                   <ul className="list-disc pl-4 space-y-1">
                     {product.details.map((dt, idx) => (
                       <li key={idx}>{dt}</li>

@@ -113,8 +113,13 @@ export const MOCK_PRODUCTS = [
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
-    materials: "Premium Lace & Organic Cotton",
-    details: ["Unlined", "Adjustable straps"],
+    materials: "Fabric Composition\nBody - 57% Cotton, 37% Polyester, 6% Spandex\nLace - 76% Nylon, 24% Spandex\nGusset - 100% Cotton",
+    details: [
+      "Adorned with a bow and scalloped trim",
+      "Features a keyhole cutout",
+      "Cotton-lined gusset",
+      "Created with Comfy Cotton Rib and Romantic Stretch Lace"
+    ],
     features: ["Comfortable fit"],
     fitInfo: "True to size.",
     story: "Designed for ultimate comfort and expression.",
