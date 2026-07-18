@@ -9,6 +9,7 @@ import reviewer4 from '../data/images/reviewer_4.png';
 import reviewer5 from '../data/images/reviewer_5.png';
 import reviewer6 from '../data/images/reviewer_6.png';
 import reviewer7 from '../data/images/reviewer_7.png';
+import reviewer8 from '../data/images/reviewer_8.png';
 
 const REVIEWS = [
   { id: 1, name: "Priya M.", avatar: reviewer1, rating: 5, text: "Absolutely in love with the quality. The fit is perfect and it feels so luxurious." },
@@ -18,7 +19,7 @@ const REVIEWS = [
   { id: 5, name: "Kavya R.", avatar: reviewer5, rating: 5, text: "I've finally found my go-to brand for intimates. The sizing is spot on." },
   { id: 6, name: "Isha V.", avatar: reviewer6, rating: 4, text: "The packaging alone was an experience. The pieces are great, but a bit on the pricey side." },
   { id: 7, name: "Simran D.", avatar: reviewer7, rating: 5, text: "Sensual, honest, and truly beautifully crafted. I'll be buying more colors." },
-  { id: 8, name: "Aisha N.", avatar: "https://ui-avatars.com/api/?name=Aisha+N&background=1A1A1A&color=fff", rating: 3, text: "The fabric is nice but the elastic band feels a bit restrictive after a few hours of wear." }
+  { id: 8, name: "Aisha N.", avatar: reviewer8, rating: 3, text: "The fabric is nice but the elastic band feels a bit restrictive after a few hours of wear." }
 ];
 
 export function CustomerReviews() {
