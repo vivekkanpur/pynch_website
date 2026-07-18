@@ -126,9 +126,9 @@ export default function ProductDetailView({
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
         {/* Left Side: Images */}
-        <div className="col-span-12 lg:col-span-7 space-y-4">
+        <div className="col-span-12 lg:col-span-7 flex overflow-x-auto snap-x snap-mandatory lg:flex-col lg:space-y-4 lg:overflow-visible gap-4 lg:gap-0 hide-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
           {product.videos?.map((vid, idx) => (
-            <div key={`vid-${idx}`} className="w-full bg-[#F4F0EA] overflow-hidden">
+            <div key={`vid-${idx}`} className="w-[85vw] sm:w-[70vw] lg:w-full shrink-0 snap-center lg:snap-align-none bg-[#F4F0EA] overflow-hidden">
               <video
                 src={vid}
                 autoPlay
@@ -140,7 +140,7 @@ export default function ProductDetailView({
             </div>
           ))}
           {activeColor.images.map((img, idx) => (
-            <div key={`img-${idx}`} className="w-full bg-[#F4F0EA] overflow-hidden">
+            <div key={`img-${idx}`} className="w-[85vw] sm:w-[70vw] lg:w-full shrink-0 snap-center lg:snap-align-none bg-[#F4F0EA] overflow-hidden">
               <img
                 src={img}
                 alt={`${product.name} detail ${idx + 1}`}
