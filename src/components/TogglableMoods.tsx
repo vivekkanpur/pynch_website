@@ -68,7 +68,7 @@ export function TogglableMoods() {
   }, [handleNext, isAutoPlaying, activeIndex]);
 
   return (
-    <section className="relative w-full aspect-video bg-[#1A1A1A] overflow-hidden">
+    <section className="relative w-full h-[85vh] md:h-auto md:aspect-video bg-[#1A1A1A] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={activeIndex}
@@ -105,7 +105,7 @@ export function TogglableMoods() {
              </p>
              <button 
                onClick={() => navigate('/collections', { state: { selectedMood: 'All Moods' } })}
-               className="pointer-events-auto mt-12 sm:mt-16 border border-white/50 bg-black/20 backdrop-blur-sm px-10 py-5 text-white font-sans text-xs sm:text-sm uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-300"
+               className="pointer-events-auto mt-8 sm:mt-16 border border-white/50 bg-black/20 backdrop-blur-sm px-6 py-4 sm:px-10 sm:py-5 text-white font-sans text-[10px] sm:text-sm uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-300"
              >
                Explore Collection
              </button>
@@ -132,7 +132,7 @@ export function TogglableMoods() {
       </div>
 
       {/* Mood Selectors (Bottom Left) */}
-      <div className="absolute bottom-8 sm:bottom-16 left-8 sm:left-16 z-30 flex flex-col gap-2">
+      <div className="absolute bottom-6 sm:bottom-16 left-4 sm:left-16 z-30 flex flex-col gap-1 sm:gap-2">
         {MOODS_DATA.map((mood, idx) => {
           const isActive = idx === activeIndex;
           return (
@@ -154,10 +154,10 @@ export function TogglableMoods() {
 
 
       {/* Join the waitlist button bottom right */}
-      <div className="absolute bottom-8 sm:bottom-16 right-8 sm:right-16 z-30">
+      <div className="absolute bottom-6 sm:bottom-16 right-4 sm:right-16 z-30">
         <button 
           onClick={() => navigate('/waitlist')}
-          className="bg-[var(--theme-lime)] text-[#1A1A1A] px-6 py-3 font-sans text-xs uppercase tracking-[0.2em] font-medium hover:bg-white transition-colors"
+          className="bg-[var(--theme-lime)] text-[#1A1A1A] px-4 py-2 sm:px-6 sm:py-3 font-sans text-[10px] sm:text-xs uppercase tracking-[0.2em] font-medium hover:bg-white transition-colors"
         >
           Join Waitlist
         </button>

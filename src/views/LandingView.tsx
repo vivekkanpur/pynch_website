@@ -35,6 +35,7 @@ export default function LandingView({
   const bestSellersRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
   const [bestSellersWidth, setBestSellersWidth] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const x = useMotionValue(0);
   const xBest = useMotionValue(0);
 
@@ -50,9 +51,11 @@ export default function LandingView({
     }
 
     const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
       if (carouselRef.current) setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
       if (bestSellersRef.current) setBestSellersWidth(bestSellersRef.current.scrollWidth - bestSellersRef.current.offsetWidth);
     };
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [products]);
@@ -132,13 +135,14 @@ export default function LandingView({
         {/* Horizontal drag container */}
         <motion.div
           ref={carouselRef}
-          className="w-full overflow-hidden cursor-grab active:cursor-grabbing pb-8"
+          className="w-full overflow-x-auto md:overflow-hidden cursor-auto md:cursor-grab md:active:cursor-grabbing pb-8 snap-x snap-mandatory flex"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           <motion.div
-            drag="x"
-            style={{ x }}
+            drag={isMobile ? false : "x"}
+            style={{ x: isMobile ? 0 : x }}
             dragConstraints={{ right: 0, left: -width }}
-            className="flex gap-8 w-max"
+            className="flex gap-4 sm:gap-8 w-max px-4 sm:px-0"
           >
             {loading ? (
               <div className="flex justify-center items-center w-[85vw] sm:w-[45vw] md:w-[25vw] h-[60vh] text-[var(--theme-olive)] font-sans text-sm tracking-widest uppercase">
@@ -212,13 +216,14 @@ export default function LandingView({
 
         <motion.div
           ref={bestSellersRef}
-          className="w-full overflow-hidden cursor-grab active:cursor-grabbing pb-4"
+          className="w-full overflow-x-auto md:overflow-hidden cursor-auto md:cursor-grab md:active:cursor-grabbing pb-8 snap-x snap-mandatory flex"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           <motion.div
-            drag="x"
-            style={{ x: xBest }}
+            drag={isMobile ? false : "x"}
+            style={{ x: isMobile ? 0 : xBest }}
             dragConstraints={{ right: 0, left: -bestSellersWidth }}
-            className="flex gap-4 w-max"
+            className="flex gap-4 sm:gap-8 w-max px-4 sm:px-0"
           >
             {featuredProducts.slice(0, 12).map((product) => (
               <div key={product.id} className="w-[85vw] sm:w-[45vw] md:w-[25vw] shrink-0 pointer-events-auto">

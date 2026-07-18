@@ -64,7 +64,7 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
       </div>
 
       {/* Product Grid */}
-      <div className="w-auto my-8 mx-8">
+      <div className="w-auto my-8 mx-4 sm:mx-8">
         {loading ? (
           <div className="flex justify-center items-center h-64 text-[var(--theme-olive)] font-sans text-sm tracking-widest uppercase">
             Loading Studio Selection...
@@ -104,7 +104,7 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }}
         viewport={{ once: true, margin: "-100px" }}
-        className="w-auto grid grid-cols-1 md:grid-cols-2 gap-8 my-8 mx-8"
+        className="w-auto grid grid-cols-1 md:grid-cols-2 gap-8 my-8 mx-4 sm:mx-8"
       >
         <div className="relative aspect-[3/4] overflow-hidden group cursor-pointer border border-[var(--theme-border)] p-4 bg-[var(--theme-bg)]">
           <div className="relative w-full h-full overflow-hidden">

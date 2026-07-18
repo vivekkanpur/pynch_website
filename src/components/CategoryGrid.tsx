@@ -14,15 +14,15 @@ interface CategoryGridProps {
 
 export const CategoryGrid = React.memo(({ categories, selectedId, onSelect }: CategoryGridProps) => {
   return (
-    <div className="w-full overflow-x-auto pb-4 mb-4 hide-scrollbar">
-      <div className="flex gap-4 sm:gap-6 md:gap-8 min-w-max px-4 sm:px-8 justify-center">
+    <div className="w-full overflow-x-auto pb-4 mb-4 hide-scrollbar snap-x">
+      <div className="flex gap-4 sm:gap-6 md:gap-8 min-w-max px-4 sm:px-8 justify-start lg:justify-center">
         {categories.map((cat) => {
           const isSelected = selectedId === cat.id;
           return (
             <div
               key={cat.id}
               onClick={() => onSelect(cat.id)}
-              className="flex flex-col items-center gap-4 cursor-pointer group w-40 sm:w-48 md:w-58 shrink-0"
+              className="flex flex-col items-center gap-4 cursor-pointer group w-32 sm:w-48 md:w-58 shrink-0 snap-start"
             >
               <div className={`w-full aspect-[4/5] bg-[#E8EAEB] overflow-hidden isolate z-0 transition-all duration-300 ${isSelected ? 'ring-1 ring-[var(--theme-teal)] ring-offset-4 ring-offset-[var(--theme-bg)]' : ''}`}>
                 <img
