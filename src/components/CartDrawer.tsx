@@ -12,6 +12,17 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   const [giftNote, setGiftNote] = useState('');
   const { lines, cost, linesRemove, linesUpdate, checkoutUrl, totalQuantity } = useCart();
 
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const subtotal = cost?.subtotalAmount?.amount ? parseFloat(cost.subtotalAmount.amount) : 0;
@@ -76,7 +87,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         </div>
 
         {/* Scrollable Item List */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+        <div className="flex-1 overflow-y-auto p-6 space-y-6" data-lenis-prevent="true">
           {!lines || lines.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center space-y-4">
               <span className="text-gray-200 font-sans font-light text-5xl">Ø</span>
