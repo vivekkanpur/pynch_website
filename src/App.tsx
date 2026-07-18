@@ -127,8 +127,10 @@ function AppContent() {
     });
   };
 
+  const [lenis, setLenis] = useState<any>(null);
+
   useEffect(() => {
-    const lenis = new Lenis({
+    const lenisInstance = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
@@ -137,18 +139,28 @@ function AppContent() {
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
+    setLenis(lenisInstance);
 
     function raf(time: number) {
-      lenis.raf(time);
+      lenisInstance.raf(time);
       requestAnimationFrame(raf);
     }
 
     requestAnimationFrame(raf);
 
     return () => {
-      lenis.destroy();
+      lenisInstance.destroy();
     };
   }, []);
+
+  useEffect(() => {
+    if (!lenis) return;
+    if (isCartOpen || isSizingOpen) {
+      lenis.stop();
+    } else {
+      lenis.start();
+    }
+  }, [isCartOpen, isSizingOpen, lenis]);
 
   const handleSelectProduct = (product: Product) => {
     setSelectedProduct(product);
@@ -217,6 +229,7 @@ function AppContent() {
           <Route path="/product" element={
             selectedProduct ? (
               <ProductDetailView
+                key={selectedProduct.id}
                 product={selectedProduct}
                 onBack={() => navigate(-1)}
                 onSizingOpen={() => setIsSizingOpen(true)}

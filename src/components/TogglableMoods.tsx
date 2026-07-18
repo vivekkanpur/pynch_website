@@ -83,8 +83,12 @@ export function TogglableMoods() {
             alt={MOODS_DATA[activeIndex].title}
             className={`w-full h-full object-cover ${
               MOODS_DATA[activeIndex].id === "seductress" 
-                ? "object-[65%_center] md:object-center" 
+                ? "object-[75%_center] md:object-center" 
                 : "object-center"
+            } ${
+              MOODS_DATA[activeIndex].id === "romantic"
+                ? "scale-[1.20] md:scale-100"
+                : "scale-100"
             }`}
           />
           {/* Subtle gradient overlay to make text more readable */}
