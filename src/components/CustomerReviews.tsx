@@ -2,14 +2,14 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Star } from 'lucide-react';
 
-import reviewer1 from '../data/images/reviewer_1.png';
-import reviewer2 from '../data/images/reviewer_2.png';
-import reviewer3 from '../data/images/reviewer_3.png';
-import reviewer4 from '../data/images/reviewer_4.png';
-import reviewer5 from '../data/images/reviewer_5.png';
-import reviewer6 from '../data/images/reviewer_6.png';
-import reviewer7 from '../data/images/reviewer_7.png';
-import reviewer8 from '../data/images/reviewer_8.png';
+import reviewer1 from '../data/images/reviewer_1.webp';
+import reviewer2 from '../data/images/reviewer_2.webp';
+import reviewer3 from '../data/images/reviewer_3.webp';
+import reviewer4 from '../data/images/reviewer_4.webp';
+import reviewer5 from '../data/images/reviewer_5.webp';
+import reviewer6 from '../data/images/reviewer_6.webp';
+import reviewer7 from '../data/images/reviewer_7.webp';
+import reviewer8 from '../data/images/reviewer_8.webp';
 
 const REVIEWS = [
   { id: 1, name: "Priya M.", avatar: reviewer1, rating: 5, text: "Absolutely in love with the quality. The fit is perfect and it feels so luxurious." },

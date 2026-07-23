@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import mood01 from "../data/images/hf_20260717_060736_71c8edad-d77a-42bc-b4e9-d916adaa1823.png";
-import mood02 from "../data/images/romantic_indian_16x9_4k.png";
+import mood01 from "../data/images/hf_20260717_060736_71c8edad-d77a-42bc-b4e9-d916adaa1823.webp";
+import mood02 from "../data/images/romantic_indian_16x9_4k.webp";
 import mood03 from "../data/images/Mood03.webp";
 import mood04 from "../data/images/Mood04.webp";
 
