@@ -154,6 +154,15 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                 >
                   {user.displayName ? `Hi, ${user.displayName.split(' ')[0]}` : "Account"}
                 </button>
+                <button
+                  onClick={() => navigate('/account')}
+                  className="p-2 text-[var(--theme-text)] hover:text-[var(--theme-lime)] transition-colors sm:hidden"
+                >
+                  <svg viewBox="0 0 24 24" className="w-6 h-6 stroke-current fill-none" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </button>
                 <div className="absolute top-full right-0 bg-[var(--theme-bg)] border border-[var(--theme-border)] shadow-xl p-4 hidden group-hover/user:flex flex-col gap-3 min-w-[150px] z-50">
                   <span className="text-[9px] font-sans text-gray-500 uppercase tracking-widest truncate max-w-full">{user.email}</span>
                   <button onClick={() => navigate('/account')} className="text-left text-[10px] font-sans uppercase tracking-[0.2em] hover:text-[var(--theme-lime)]">My Account</button>
@@ -161,12 +170,23 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                 </div>
               </div>
             ) : (
-              <button
-                onClick={() => navigate('/login')}
-                className="px-2 text-[var(--theme-text)] text-[10px] font-sans uppercase tracking-[0.4em] font-light hover:text-[var(--theme-lime)] transition-colors hidden sm:block whitespace-nowrap"
-              >
-                Log In
-              </button>
+              <>
+                <button
+                  onClick={() => navigate('/login')}
+                  className="px-2 text-[var(--theme-text)] text-[10px] font-sans uppercase tracking-[0.4em] font-light hover:text-[var(--theme-lime)] transition-colors hidden sm:block whitespace-nowrap"
+                >
+                  Log In
+                </button>
+                <button
+                  onClick={() => navigate('/login')}
+                  className="p-2 text-[var(--theme-text)] hover:text-[var(--theme-lime)] transition-colors sm:hidden"
+                >
+                  <svg viewBox="0 0 24 24" className="w-6 h-6 stroke-current fill-none" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </button>
+              </>
             )}
             
             <button
