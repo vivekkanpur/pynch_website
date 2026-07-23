@@ -157,7 +157,7 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative bg-[var(--theme-bg)] text-[var(--theme-text)] max-w-[1920px] mx-auto w-full">
+    <div className="min-h-screen flex flex-col relative bg-[var(--theme-bg)] text-[var(--theme-text)] w-full">
       <ScrollToTop />
       <ShopifyCartIdentitySync />
       <Header
