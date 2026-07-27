@@ -22,6 +22,7 @@ export function ProductCard({
   onQuickAdd,
   isLusted,
   onToggleLust,
+  priority = false,
 }: ProductCardProps) {
   const navigate = useNavigate();
   const activeColor = product.colors[0];
