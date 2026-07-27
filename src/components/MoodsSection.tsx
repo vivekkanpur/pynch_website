@@ -78,6 +78,8 @@ export function MoodsSection() {
               <img
                 src={mood.img}
                 alt={mood.title}
+                decoding="async"
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
               />
               {/* Deep teal overlay */}

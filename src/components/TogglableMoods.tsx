@@ -68,33 +68,44 @@ export function TogglableMoods() {
   }, [handleNext, isAutoPlaying, activeIndex]);
 
   return (
-    <section className="relative w-full h-[85vh] md:h-auto md:aspect-video bg-[#1A1A1A] overflow-hidden">
+    <section className="relative w-full h-[85vh] sm:h-[80vh] md:h-auto md:aspect-video bg-[#1A1A1A] overflow-hidden">
+      {/* Pre-rendered background image stack for instantaneous mobile switching and zero network delay */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
+        {MOODS_DATA.map((mood, idx) => {
+          const isActive = idx === activeIndex;
+          return (
+            <div
+              key={mood.id}
+              className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
+                isActive ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
+            >
+              <img
+                src={mood.img}
+                alt={mood.title}
+                decoding="async"
+                loading={idx === 0 ? "eager" : "lazy"}
+                fetchPriority={idx === 0 ? "high" : "auto"}
+                className="w-full h-full object-cover object-center transition-transform duration-[6000ms] ease-out"
+              />
+            </div>
+          );
+        })}
+        {/* Subtle gradient overlay to enhance mobile text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30 z-10"></div>
+      </div>
+
       <AnimatePresence mode="wait">
         <motion.div
           key={activeIndex}
-          initial={{ opacity: 0, scale: 1.02 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="absolute inset-0 w-full h-full"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="absolute inset-0 w-full h-full z-20 pointer-events-none"
         >
-          <img
-            src={MOODS_DATA[activeIndex].img}
-            alt={MOODS_DATA[activeIndex].title}
-            className={`w-full h-full object-cover ${
-              MOODS_DATA[activeIndex].id === "seductress" 
-                ? "object-[75%_center] md:object-center" 
-                : "object-center"
-            } ${
-              MOODS_DATA[activeIndex].id === "romantic"
-                ? "scale-[1.20] md:scale-100"
-                : "scale-100"
-            }`}
-          />
-          {/* Subtle gradient overlay to make text more readable */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
           
-          <div className="absolute top-8 sm:top-16 left-8 sm:left-16 text-left text-white z-20 max-w-md">
+          <div className="absolute top-8 sm:top-16 left-8 sm:left-16 text-left text-white z-20 max-w-md pointer-events-auto">
              <h2 className="font-[var(--font-playfair)] text-5xl sm:text-6xl font-medium tracking-wider uppercase leading-none drop-shadow-lg">
                 {MOODS_DATA[activeIndex].title}
              </h2>

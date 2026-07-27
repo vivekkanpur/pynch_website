@@ -135,7 +135,7 @@ export default function ProductDetailView({
                 muted
                 loop
                 playsInline
-                className="w-full h-auto object-cover mix-blend-multiply"
+                className="w-full h-auto object-cover mix-blend-multiply transition-transform duration-1000 ease-out lg:hover:scale-105"
               />
             </div>
           ))}
@@ -145,7 +145,10 @@ export default function ProductDetailView({
                 src={img}
                 alt={`${product.name} detail ${idx + 1}`}
                 referrerPolicy="no-referrer"
-                className="w-full h-auto object-cover mix-blend-multiply"
+                decoding="async"
+                loading={idx === 0 ? "eager" : "lazy"}
+                fetchPriority={idx === 0 ? "high" : "auto"}
+                className="w-full h-full object-cover mix-blend-multiply transition-transform duration-1000 ease-out lg:hover:scale-105"
               />
             </div>
           ))}
