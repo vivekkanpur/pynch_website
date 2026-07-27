@@ -6,6 +6,7 @@ import { CustomerReviews } from "../components/CustomerReviews";
 import { motion, useMotionValue, animate } from "motion/react";
 import { useShopifyProducts } from "../hooks/useShopifyProducts";
 import separatorImage from "../data/images/img01.webp";
+import separatorImageMobile from "../data/images/img01_mobile.webp";
 import { MOCK_PRODUCTS } from "../data/mockProducts";
 
 const pageVariants = {
@@ -190,7 +191,10 @@ export default function LandingView({
 
       {/* THE SEPARATOR / IMAGE PLACEHOLDER */}
       <section className="w-full flex justify-center items-center bg-[var(--theme-bg)] min-h-[50vh] sm:min-h-[70vh] overflow-hidden">
-        <img src={separatorImage} alt="PYNCH Separator" decoding="async" className="w-full h-full object-cover" />
+        <picture className="w-full h-full block">
+          <source media="(max-width: 767px)" srcSet={separatorImageMobile} />
+          <img src={separatorImage} alt="PYNCH Separator" decoding="async" className="w-full h-full object-cover" />
+        </picture>
       </section>
 
       {/* BEST SELLERS GRID */}
