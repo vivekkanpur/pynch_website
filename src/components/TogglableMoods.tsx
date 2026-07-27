@@ -3,9 +3,13 @@ import { motion, AnimatePresence } from "motion/react";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import mood01 from "../data/images/hf_20260717_060736_71c8edad-d77a-42bc-b4e9-d916adaa1823.webp";
+import mood01Mobile from "../data/images/hf_20260717_060736_71c8edad-d77a-42bc-b4e9-d916adaa1823_mobile.png";
 import mood02 from "../data/images/romantic_indian_16x9_4k.webp";
+import mood02Mobile from "../data/images/romantic_indian_16x9_4k_mobile.png";
 import mood03 from "../data/images/Mood03.webp";
+import mood03Mobile from "../data/images/Mood03_mobile.webp";
 import mood04 from "../data/images/Mood04.webp";
+import mood04Mobile from "../data/images/Mood04_mobile.webp";
 
 const MOODS_DATA = [
   {
@@ -14,6 +18,7 @@ const MOODS_DATA = [
     label: "Comfy",
     title: "SUKOON",
     img: mood03,
+    mobileImg: mood03Mobile,
   },
   {
     id: "playful",
@@ -21,6 +26,7 @@ const MOODS_DATA = [
     label: "Playful",
     title: "SHARARAT",
     img: mood04,
+    mobileImg: mood04Mobile,
   },
   {
     id: "romantic",
@@ -28,6 +34,7 @@ const MOODS_DATA = [
     label: "Romantic",
     title: "ISHQ",
     img: mood02,
+    mobileImg: mood02Mobile,
   },
   {
     id: "seductress",
@@ -35,6 +42,7 @@ const MOODS_DATA = [
     label: "Seductress",
     title: "AARAMBH",
     img: mood01,
+    mobileImg: mood01Mobile,
   },
 ];
 
@@ -80,14 +88,17 @@ export function TogglableMoods() {
                 isActive ? "opacity-100 z-10" : "opacity-0 z-0"
               }`}
             >
-              <img
-                src={mood.img}
-                alt={mood.title}
-                decoding="async"
-                loading={idx === 0 ? "eager" : "lazy"}
-                fetchPriority={idx === 0 ? "high" : "auto"}
-                className="w-full h-full object-cover object-center transition-transform duration-[6000ms] ease-out"
-              />
+              <picture className="w-full h-full block absolute inset-0">
+                <source media="(max-width: 767px)" srcSet={mood.mobileImg} />
+                <img
+                  src={mood.img}
+                  alt={mood.title}
+                  decoding="async"
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  fetchPriority={idx === 0 ? "high" : "auto"}
+                  className="w-full h-full object-cover object-center transition-transform duration-[6000ms] ease-out"
+                />
+              </picture>
             </div>
           );
         })}
