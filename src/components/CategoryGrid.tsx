@@ -29,7 +29,6 @@ export const CategoryGrid = React.memo(({ categories, selectedId, onSelect }: Ca
                   src={cat.image}
                   alt={cat.label}
                   decoding="async"
-                  loading="lazy"
                   className="w-full h-full object-cover object-top mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
                 />
               </div>

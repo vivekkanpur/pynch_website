@@ -146,8 +146,6 @@ export default function ProductDetailView({
                 alt={`${product.name} detail ${idx + 1}`}
                 referrerPolicy="no-referrer"
                 decoding="async"
-                loading={idx === 0 ? "eager" : "lazy"}
-                fetchPriority={idx === 0 ? "high" : "auto"}
                 className="w-full h-full object-cover mix-blend-multiply transition-transform duration-1000 ease-out lg:hover:scale-105"
               />
             </div>

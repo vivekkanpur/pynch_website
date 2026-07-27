@@ -178,7 +178,6 @@ export default function LandingView({
                 src={MOCK_PRODUCTS[0].colors[0].images[0]}
                 alt="Shop More"
                 decoding="async"
-                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none"
               />
               <h3 className="relative z-10 font-serif text-4xl text-white font-light tracking-widest group-hover:scale-110 transition-transform duration-700 uppercase pointer-events-none">
@@ -191,7 +190,7 @@ export default function LandingView({
 
       {/* THE SEPARATOR / IMAGE PLACEHOLDER */}
       <section className="w-full flex justify-center items-center bg-[var(--theme-bg)] min-h-[50vh] sm:min-h-[70vh] overflow-hidden">
-        <img src={separatorImage} alt="PYNCH Separator" decoding="async" loading="lazy" className="w-full h-full object-cover" />
+        <img src={separatorImage} alt="PYNCH Separator" decoding="async" className="w-full h-full object-cover" />
       </section>
 
       {/* BEST SELLERS GRID */}

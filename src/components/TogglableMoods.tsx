@@ -94,8 +94,6 @@ export function TogglableMoods() {
                   src={mood.img}
                   alt={mood.title}
                   decoding="async"
-                  loading={idx === 0 ? "eager" : "lazy"}
-                  fetchPriority={idx === 0 ? "high" : "auto"}
                   className="w-full h-full object-cover object-center transition-transform duration-[6000ms] ease-out"
                 />
               </picture>
