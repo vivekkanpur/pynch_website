@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  signInAnonymously,
   signOut
 } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
@@ -39,5 +40,6 @@ export {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  signInAnonymously,
   firebaseSignOut as signOut
 };

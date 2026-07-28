@@ -7,6 +7,7 @@ import { signOut } from "../lib/firebase";
 
 import logoImage from "../data/images/logo/Pynch Logo - Copy.png";
 import { MOCK_PRODUCTS } from "../data/mockProducts";
+import { MobileLoginModal } from "./MobileLoginModal";
 
 // Product & Mood Images for Mega Menus
 import imgCorset from "../data/images/products/model_black_corset.webp";
@@ -29,6 +30,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const navigate = useNavigate();
   const { user } = useAuth();
 
@@ -178,7 +180,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                   Log In
                 </button>
                 <button
-                  onClick={() => navigate('/login')}
+                  onClick={() => setIsLoginModalOpen(true)}
                   className="p-2 text-[var(--theme-text)] hover:text-[var(--theme-lime)] transition-colors sm:hidden"
                 >
                   <svg viewBox="0 0 24 24" className="w-6 h-6 stroke-current fill-none" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
@@ -423,6 +425,12 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
           </Link>
         </div>
       )}
+
+      {/* PYNCH Club Mobile Login Modal */}
+      <MobileLoginModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+      />
     </header>
   );
 }

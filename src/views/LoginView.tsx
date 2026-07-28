@@ -9,8 +9,8 @@ import {
   auth 
 } from '../lib/firebase';
 import { useNavigate } from 'react-router-dom';
-
 import { useAuth } from '../contexts/AuthContext';
+import { MobileLoginModal } from '../components/MobileLoginModal';
 
 export default function LoginView() {
   const navigate = useNavigate();
@@ -87,12 +87,18 @@ export default function LoginView() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--theme-bg)] flex items-center justify-center py-32 px-4 sm:px-8">
+    <div className="min-h-screen bg-[var(--theme-bg)] flex items-center justify-center py-24 px-4 sm:px-8">
+      {/* Mobile: PYNCH Club Experience */}
+      <div className="block sm:hidden w-full max-w-md">
+        <MobileLoginModal isOpen={true} isInline={true} onClose={() => navigate(-1)} />
+      </div>
+
+      {/* Desktop: Standard Atelier Credentials Login */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-lg w-full space-y-12 bg-[#F8F5F0] p-8 sm:p-12 border border-[var(--theme-border)]"
+        className="hidden sm:block max-w-lg w-full space-y-12 bg-[#F8F5F0] p-8 sm:p-12 border border-[var(--theme-border)]"
       >
         <div className="text-center space-y-4">
           <h1 className="font-serif text-4xl sm:text-5xl text-[var(--theme-teal)] uppercase tracking-[0.1em] font-light">
