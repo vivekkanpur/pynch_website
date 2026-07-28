@@ -104,7 +104,10 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex-1 flex justify-start">
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => {
+                setIsLoginModalOpen(false);
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+              }}
               className="p-2 text-[var(--theme-text)]"
             >
               <Menu className="w-5 h-5 stroke-[1]" />
@@ -180,7 +183,10 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                   Log In
                 </button>
                 <button
-                  onClick={() => setIsLoginModalOpen(true)}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsLoginModalOpen(!isLoginModalOpen);
+                  }}
                   className="p-2 text-[var(--theme-text)] hover:text-[var(--theme-lime)] transition-colors sm:hidden"
                 >
                   <svg viewBox="0 0 24 24" className="w-6 h-6 stroke-current fill-none" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
@@ -426,11 +432,24 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
         </div>
       )}
 
-      {/* PYNCH Club Mobile Login Modal */}
-      <MobileLoginModal 
-        isOpen={isLoginModalOpen} 
-        onClose={() => setIsLoginModalOpen(false)} 
-      />
+      {/* Mobile Login Drop-down Panel */}
+      <AnimatePresence>
+        {isLoginModalOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="md:hidden absolute top-full left-0 right-0 bg-[var(--theme-bg)] border-b border-[var(--theme-border)] shadow-2xl p-6 z-40 max-h-[calc(100vh-70px)] overflow-y-auto"
+          >
+            <MobileLoginModal 
+              isOpen={true} 
+              isInline={true}
+              onClose={() => setIsLoginModalOpen(false)} 
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
