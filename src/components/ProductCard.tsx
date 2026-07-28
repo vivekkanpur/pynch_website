@@ -41,6 +41,8 @@ export function ProductCard({
           src={primaryImage}
           alt={product.name}
           decoding="async"
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
           className="absolute inset-0 w-full h-full object-cover object-top transition-all duration-[1500ms] ease-out opacity-100 group-hover:opacity-0 group-hover:scale-105 pointer-events-none"
         />
 
@@ -49,6 +51,8 @@ export function ProductCard({
           src={secondaryImage}
           alt={`${product.name} alternate view`}
           decoding="async"
+          loading="lazy"
+          fetchPriority="low"
           className="absolute inset-0 w-full h-full object-cover object-top transition-all duration-[1500ms] ease-out opacity-0 group-hover:opacity-100 group-hover:scale-105 scale-100 pointer-events-none"
         />
 

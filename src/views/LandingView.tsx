@@ -158,12 +158,13 @@ export default function LandingView({
                 No pieces found.
               </div>
             ) : (
-              featuredProducts.map((product) => (
+              featuredProducts.map((product, index) => (
                 <div key={product.id} className="w-[85vw] sm:w-[45vw] md:w-[25vw] shrink-0 pointer-events-auto">
                   <ProductCard
                     product={product as any}
                     onClick={onSelectProduct}
                     onQuickAdd={onQuickAdd}
+                    priority={index < 3}
                     isLusted={lustListItems?.some((p: any) => p.id === product.id)}
                     onToggleLust={onToggleLust}
                   />
@@ -179,6 +180,7 @@ export default function LandingView({
                 src={MOCK_PRODUCTS[0].colors[0].images[0]}
                 alt="Shop More"
                 decoding="async"
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none"
               />
               <h3 className="relative z-10 font-serif text-4xl text-white font-light tracking-widest group-hover:scale-110 transition-transform duration-700 uppercase pointer-events-none">
@@ -193,7 +195,7 @@ export default function LandingView({
       <section className="w-full flex justify-center items-center bg-[var(--theme-bg)] min-h-[50vh] sm:min-h-[70vh] overflow-hidden">
         <picture className="w-full h-full block">
           <source media="(max-width: 767px)" srcSet={separatorImageMobile} />
-          <img src={separatorImage} alt="PYNCH Separator" decoding="async" className="w-full h-full object-cover" />
+          <img src={separatorImage} alt="PYNCH Separator" decoding="async" loading="lazy" className="w-full h-full object-cover" />
         </picture>
       </section>
 

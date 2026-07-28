@@ -42,7 +42,7 @@ export function CustomerReviews() {
               className="w-[300px] sm:w-[400px] shrink-0 mx-4 p-8 flex flex-col justify-between gap-6 bg-[var(--theme-bg)] hover:bg-[var(--theme-text)] hover:text-[var(--theme-bg)] transition-colors duration-500 group"
             >
               <div className="flex items-center gap-4">
-                <img src={review.avatar} alt={review.name} className="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                <img src={review.avatar} alt={review.name} loading="lazy" decoding="async" className="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                 <div className="flex flex-col gap-1">
                   <span className="font-sans font-medium text-xs tracking-[0.2em] uppercase">
                     {review.name}
