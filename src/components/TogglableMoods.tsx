@@ -124,9 +124,6 @@ export function TogglableMoods() {
 
           {/* Centered Main Hero Element */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 pointer-events-none px-4">
-             <h1 className="font-serif italic text-6xl sm:text-8xl lg:text-[8rem] xl:text-[10rem] tracking-wide drop-shadow-2xl mb-4 sm:mb-6 leading-none">
-               Sensual Honesty
-             </h1>
              <p className="font-sans text-sm sm:text-base lg:text-lg xl:text-xl tracking-[0.4em] uppercase opacity-90 drop-shadow-xl max-w-3xl mt-2 sm:mt-4">
                Dress the person, not the performance
              </p>
