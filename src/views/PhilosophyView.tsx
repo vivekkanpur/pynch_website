@@ -36,13 +36,13 @@ export default function PhilosophyView() {
           className="space-y-8 font-serif text-xl sm:text-2xl md:text-3xl font-light leading-[1.6] md:leading-[1.8] relative z-10"
         >
           <p>
-            For decades, intimate wear was sold through a single, narrow prism &mdash; performance. Padding designed to push. Wire engineered to cage. Lace woven to conform to an external gaze.
+            For decades, intimate wear was sold through a single, narrow prism performance. Padding designed to push. Wire engineered to cage. Lace woven to conform to an external gaze.
           </p>
           <p>
             It was a construction site, masquerading as elegance.
           </p>
           <p>
-            We started PYNCH because we had one quiet, stubborn belief: a woman is not one thing. She is a seductress on Monday, a romantic on a rainy Wednesday, unruly on Thursday, and &mdash; finally, gloriously &mdash; still on Sunday night. She contains multitudes. Her intimate wear should too.
+            We started PYNCH because we had one quiet, stubborn belief: a woman is not one thing. She is a seductress on Monday, a romantic on a rainy Wednesday, unruly on Thursday, and finally, gloriously still on Sunday night. She contains multitudes. Her intimate wear should too.
           </p>
 
           <p className="italic font-medium text-2xl sm:text-3xl md:text-4xl text-[#CFE11C] py-6">
@@ -61,13 +61,13 @@ export default function PhilosophyView() {
           </div>
 
           <p>
-            The word PYNCH itself is a reminder &mdash; that we feel through touch, that our clothes should be a continuation of our sensory experience, not a correction of it. So we removed everything that got in the way of feeling. No hardware. No plastic spacers. No steel cages.
+            The word PYNCH itself is a reminder that we feel through touch, that our clothes should be a continuation of our sensory experience, not a correction of it. So we removed everything that got in the way of feeling. No hardware. No plastic spacers. No steel cages.
           </p>
           <p>
-            What we kept is what matters. Whisper-fine polyamide that moves like a second skin. The world&apos;s finest polyester &mdash; engineered to feel like cotton, and to last longer than it. Pure cotton where the body needs to breathe. And a flexible titanium alloy that mimics the heat of your own skin &mdash; because the softest thing against a woman&apos;s body should be closer to her body than to a machine.
+            What we kept is what matters. Whisper-fine polyamide that moves like a second skin. The world&apos;s finest polyester engineered to feel like cotton, and to last longer than it. Pure cotton where the body needs to breathe. And a flexible titanium alloy that mimics the heat of your own skin because the softest thing against a woman&apos;s body should be closer to her body than to a machine.
           </p>
           <p>
-            We believe true luxury is not a performance put on for an audience. It is the quiet, physical ease of feeling entirely at home in your own skin &mdash; in whichever mood found you today.
+            We believe true luxury is not a performance put on for an audience. It is the quiet, physical ease of feeling entirely at home in your own skin in whichever mood found you today.
           </p>
           <p>
             PYNCH is here to wrap you in that ease.
