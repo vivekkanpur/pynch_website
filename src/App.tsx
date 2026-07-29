@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
+import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from "./components/ThemeProvider";
 import { Header } from "./components/Header";
 import Footer from "./components/Footer";
+import { BackToTop } from "./components/BackToTop";
+import { PageTransition } from "./components/PageTransition";
+import { SEO } from "./components/SEO";
 import LandingView from "./views/LandingView";
 import ShopView from "./views/ShopView";
 import CollectionsView from "./views/CollectionsView";
@@ -45,6 +49,7 @@ function ScrollToTop() {
 
 function AppContent() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   // Modals and Drawers
@@ -169,7 +174,7 @@ function AppContent() {
 
       <main className="flex-grow w-full">
         <Routes>
-          <Route path="/" element={<LandingView 
+          <Route path="/" element={<PageTransition><SEO /><LandingView 
             onViewChange={(path) => navigate(`/${path}`)} 
             onSelectProduct={handleSelectProduct} 
             lustListItems={lustListItems}
@@ -182,9 +187,9 @@ function AppContent() {
                 quantity: 1
               });
             }}
-          />} />
-          <Route path="/waitlist" element={<WaitlistView />} />
-          <Route path="/shop" element={<ShopView 
+          /></PageTransition>} />
+          <Route path="/waitlist" element={<PageTransition><SEO title="Join the Waitlist" description="Be the first to experience PYNCH luxury intimate wear. Join our exclusive waitlist for early access to our collections." /><WaitlistView /></PageTransition>} />
+          <Route path="/shop" element={<PageTransition><SEO title="Shop All Intimates" description="Explore the full PYNCH collection — bras, bralettes, panties, and more. Premium fabrics, zero hardware, designed for your comfort." /><ShopView 
             onSelectProduct={handleSelectProduct} 
             lustListItems={lustListItems}
             onToggleLust={handleToggleLust}
@@ -196,27 +201,27 @@ function AppContent() {
                 selectedSize: p.sizes[0],
                 quantity: 1
               });
-          }} />} />
-          <Route path="/collections" element={<CollectionsView 
+          }} /></PageTransition>} />
+          <Route path="/collections" element={<PageTransition><SEO title="Collections" description="Browse PYNCH mood-based collections — Sukoon (Comfy), Shararat (Playful), Ishq (Romantic), and Aarambh (Seductress)." /><CollectionsView 
             onSelectProduct={handleSelectProduct} 
             lustListItems={lustListItems}
             onToggleLust={handleToggleLust}
             onQuickAdd={(p) => console.log('Quick add')}
-          />} />
-          <Route path="/our-world" element={<PhilosophyView />} />
-          <Route path="/login" element={<LoginView />} />
-          <Route path="/account" element={<AccountView />} />
-          <Route path="/size-guide" element={<SizeGuideView />} />
-          <Route path="/tashu-studio" element={<TashuStudioView />} />
-          <Route path="/lust-list" element={<LustListView 
+          /></PageTransition>} />
+          <Route path="/our-world" element={<PageTransition><SEO title="Our World" description="Discover the PYNCH philosophy — we dress the person, not the performance. Four moods, four versions of you, all of them real." /><PhilosophyView /></PageTransition>} />
+          <Route path="/login" element={<PageTransition><SEO title="Log In" description="Sign in to your PYNCH account to manage orders, track deliveries, and access your Lust List." /><LoginView /></PageTransition>} />
+          <Route path="/account" element={<PageTransition><SEO title="My Account" /><AccountView /></PageTransition>} />
+          <Route path="/size-guide" element={<PageTransition><SEO title="Sizing & Comfort Guide" description="Find your perfect PYNCH fit with our comprehensive sizing guide and comfort calculator." /><SizeGuideView /></PageTransition>} />
+          <Route path="/tashu-studio" element={<PageTransition><SEO title="Tashu Studio" description="Meet the creator behind PYNCH. Explore Tashu's vision for redefining luxury intimate wear." /><TashuStudioView /></PageTransition>} />
+          <Route path="/lust-list" element={<PageTransition><SEO title="Lust List" description="Your curated selection of PYNCH pieces you love." /><LustListView 
             lustListItems={lustListItems}
             onSelectProduct={handleSelectProduct}
             onToggleLust={handleToggleLust}
             onQuickAdd={(p) => console.log('Quick add')}
-          />} />
+          /></PageTransition>} />
           <Route path="/product" element={
             selectedProduct ? (
-              <ProductDetailView
+              <PageTransition><SEO title={selectedProduct.name} description={selectedProduct.description} /><ProductDetailView
                 key={selectedProduct.id}
                 product={selectedProduct}
                 onBack={() => navigate(-1)}
@@ -232,16 +237,16 @@ function AppContent() {
                     quantity: 1
                   });
                 }}
-              />
+              /></PageTransition>
             ) : (
               <div className="pt-32 text-center">Product not found.</div>
             )
           } />
-          <Route path="/returns-and-exchanges" element={<LegalView type="returns" />} />
-          <Route path="/refund-policy" element={<LegalView type="refunds" />} />
-          <Route path="/privacy-policy" element={<LegalView type="privacy" />} />
-          <Route path="/terms-of-service" element={<LegalView type="terms" />} />
-          <Route path="/track-order" element={<OrderTrackingView />} />
+          <Route path="/returns-and-exchanges" element={<PageTransition><SEO title="Returns & Exchanges" description="PYNCH returns and exchanges policy. We want you to love your purchase." /><LegalView type="returns" /></PageTransition>} />
+          <Route path="/refund-policy" element={<PageTransition><SEO title="Refund Policy" /><LegalView type="refunds" /></PageTransition>} />
+          <Route path="/privacy-policy" element={<PageTransition><SEO title="Privacy Policy" /><LegalView type="privacy" /></PageTransition>} />
+          <Route path="/terms-of-service" element={<PageTransition><SEO title="Terms of Service" /><LegalView type="terms" /></PageTransition>} />
+          <Route path="/track-order" element={<PageTransition><SEO title="Track My Order" description="Track your PYNCH order status and delivery updates." /><OrderTrackingView /></PageTransition>} />
           {/* Checkout route removed for Shopify Headless */}
         </Routes>
       </main>
@@ -263,12 +268,14 @@ function AppContent() {
         isOpen={isSizingOpen}
         onClose={() => setIsSizingOpen(false)}
       />
+      <BackToTop />
     </div>
   );
 }
 
 export default function App() {
   return (
+    <HelmetProvider>
     <ShopifyProvider
       storeDomain={import.meta.env.VITE_SHOPIFY_STORE_DOMAIN}
       storefrontToken={import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN}
@@ -284,5 +291,6 @@ export default function App() {
         </AuthProvider>
       </CartProvider>
     </ShopifyProvider>
+    </HelmetProvider>
   );
 }
