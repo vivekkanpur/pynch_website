@@ -135,9 +135,7 @@ export default function ProductDetailView({
                 muted
                 loop
                 playsInline
-                className={`absolute inset-0 w-full h-full ${
-                  product.keepFullImage ? 'object-contain' : `object-cover ${['panties', 'briefs', 'thongs', 'bikinis'].includes(product.category.toLowerCase()) ? 'object-bottom' : 'object-top'}`
-                } mix-blend-multiply transition-transform duration-1000 ease-out lg:hover:scale-105`}
+                className={`absolute inset-0 w-full h-full object-cover object-center mix-blend-multiply transition-transform duration-1000 ease-out lg:hover:scale-105`}
               />
             </div>
           ))}
@@ -148,9 +146,7 @@ export default function ProductDetailView({
                 alt={`${product.name} detail ${idx + 1}`}
                 referrerPolicy="no-referrer"
                 decoding="async"
-                className={`absolute inset-0 w-full h-full ${
-                  product.keepFullImage ? 'object-contain' : `object-cover ${['panties', 'briefs', 'thongs', 'bikinis'].includes(product.category.toLowerCase()) ? 'object-bottom' : 'object-top'}`
-                } mix-blend-multiply transition-transform duration-1000 ease-out lg:hover:scale-105`}
+                className={`absolute inset-0 w-full h-full object-cover object-center mix-blend-multiply transition-transform duration-1000 ease-out lg:hover:scale-105`}
               />
             </div>
           ))}
@@ -176,42 +172,7 @@ export default function ProductDetailView({
 
           <div className="space-y-8">
 
-            {/* Color Selector */}
-            {product.colors.length > 1 && (
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 text-[10px] font-sans tracking-[0.2em] uppercase">
-                  <span className="text-gray-400">Color</span>
-                  <span className="text-[#111111] font-medium">{activeColor.name}</span>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {product.colors.map((color, idx) => (
-                    <button
-                      key={color.name}
-                      onClick={() => setSelectedColorIdx(idx)}
-                      className={`group relative w-8 h-8 rounded-full transition-all duration-300 ${
-                        selectedColorIdx === idx
-                          ? 'ring-2 ring-[#111111] ring-offset-2 scale-110'
-                          : 'ring-1 ring-gray-200 hover:ring-gray-400 hover:scale-105'
-                      }`}
-                      style={{ backgroundColor: color.hex }}
-                      aria-label={`Select color ${color.name}`}
-                      title={color.name}
-                    >
-                      {selectedColorIdx === idx && (
-                        <span className="absolute inset-0 flex items-center justify-center">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={
-                            // Use white check on dark colors, dark check on light colors
-                            parseInt(color.hex.replace('#', ''), 16) < 0x808080 ? 'white' : '#111111'
-                          } strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                        </span>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
+            {/* Color Selector (Removed for now) */}
 
             {/* Sizing Model Selector */}
             <div className="space-y-4">

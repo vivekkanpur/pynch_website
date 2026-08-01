@@ -35,7 +35,7 @@ export function ProductCard({
   return (
     <motion.div
       variants={itemVariants}
-      className="product-card group relative w-full border border-[var(--theme-border)] p-4 bg-[var(--theme-bg)] flex flex-col"
+      className="product-card group relative w-full h-full border border-[var(--theme-border)] p-4 bg-[var(--theme-bg)] flex flex-col"
       onClick={() => onClick(product)}
     >
       <div className="relative aspect-[2/3] w-full overflow-hidden isolate z-0 mb-4">
@@ -46,7 +46,7 @@ export function ProductCard({
           decoding="async"
           loading={priority ? "eager" : "lazy"}
           fetchPriority={priority ? "high" : "auto"}
-          className={`absolute inset-0 w-full h-full ${product.keepFullImage ? 'object-contain' : `object-cover ${objectPositionClass}`} transition-all duration-[1500ms] ease-out opacity-100 group-hover:opacity-0 group-hover:scale-105 pointer-events-none`}
+          className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-[1500ms] ease-out opacity-100 group-hover:opacity-0 group-hover:scale-105 pointer-events-none`}
         />
 
         {/* Secondary Image */}
@@ -55,7 +55,7 @@ export function ProductCard({
           alt={`${product.name} alternate view`}
           decoding="async"
           loading="lazy"
-          className={`absolute inset-0 w-full h-full ${product.keepFullImage ? 'object-contain' : `object-cover ${objectPositionClass}`} transition-all duration-[1500ms] ease-out opacity-0 group-hover:opacity-100 group-hover:scale-105 pointer-events-none`}
+          className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-[1500ms] ease-out opacity-0 group-hover:opacity-100 group-hover:scale-105 pointer-events-none`}
         />
 
         {/* Top Left Badge */}
@@ -113,11 +113,11 @@ export function ProductCard({
       </div>
 
       {/* Bottom Information */}
-      <div className="flex flex-col items-start justify-start pointer-events-none mt-2">
-        <h3 className="font-[var(--font-playfair)] italic text-[22px] tracking-wide text-[var(--theme-text)] font-light mb-1">
+      <div className="flex flex-col items-start justify-start pointer-events-none mt-2 flex-grow">
+        <h3 className="font-[var(--font-playfair)] italic text-[22px] tracking-wide text-[var(--theme-text)] font-light mb-1 line-clamp-2 min-h-[3.5rem]">
           {product.name}
         </h3>
-        <p className="font-sans text-[11px] tracking-widest uppercase text-[var(--theme-text)] font-medium">
+        <p className="font-sans text-[11px] tracking-widest uppercase text-[var(--theme-text)] font-medium mt-auto">
           ₹{product.price}
         </p>
       </div>
