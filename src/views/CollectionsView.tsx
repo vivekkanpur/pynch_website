@@ -44,6 +44,7 @@ export default function CollectionsView({ onSelectProduct, onQuickAdd, lustListI
   const [selectedCategory, setSelectedCategory] = useState<string>(
     location.state?.selectedMood || 'All Moods'
   );
+  const [selectedType, setSelectedType] = useState<string>('all');
   const { products, loading, error } = useShopifyProducts();
   
   const collectionProducts = products.filter(
@@ -90,10 +91,10 @@ export default function CollectionsView({ onSelectProduct, onQuickAdd, lustListI
           </div>
         ) : (
           <motion.div 
+            key={`${selectedCategory}-${selectedType}`}
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-12 sm:gap-y-16"
           >
             {collectionProducts.map((prod) => (

@@ -29,6 +29,9 @@ export function ProductCard({
   const primaryImage = activeColor.images[0] || "";
   const secondaryImage = activeColor.images[1] || primaryImage;
 
+  const isLowerBody = ['panties', 'briefs', 'thongs', 'bikinis'].includes(product.category.toLowerCase());
+  const objectPositionClass = isLowerBody ? 'object-bottom' : 'object-top';
+
   return (
     <motion.div
       variants={itemVariants}
@@ -43,7 +46,7 @@ export function ProductCard({
           decoding="async"
           loading={priority ? "eager" : "lazy"}
           fetchPriority={priority ? "high" : "auto"}
-          className="absolute inset-0 w-full h-full object-cover object-top transition-all duration-[1500ms] ease-out opacity-100 group-hover:opacity-0 group-hover:scale-105 pointer-events-none"
+          className={`absolute inset-0 w-full h-full ${product.keepFullImage ? 'object-contain' : `object-cover ${objectPositionClass}`} transition-all duration-[1500ms] ease-out opacity-100 group-hover:opacity-0 group-hover:scale-105 pointer-events-none`}
         />
 
         {/* Secondary Image */}
@@ -52,8 +55,7 @@ export function ProductCard({
           alt={`${product.name} alternate view`}
           decoding="async"
           loading="lazy"
-          fetchPriority="low"
-          className="absolute inset-0 w-full h-full object-cover object-top transition-all duration-[1500ms] ease-out opacity-0 group-hover:opacity-100 group-hover:scale-105 scale-100 pointer-events-none"
+          className={`absolute inset-0 w-full h-full ${product.keepFullImage ? 'object-contain' : `object-cover ${objectPositionClass}`} transition-all duration-[1500ms] ease-out opacity-0 group-hover:opacity-100 group-hover:scale-105 pointer-events-none`}
         />
 
         {/* Top Left Badge */}

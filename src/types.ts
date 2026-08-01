@@ -11,7 +11,7 @@ export interface Product {
   tagline: string;
   description: string;
   price: number;
-  category: 'bralettes' | 'briefs' | 'bodysuits' | 'sets' | 'loungewear';
+  category: string;
   colors: ProductColor[];
   sizes: string[];
   materials: string;
@@ -19,8 +19,11 @@ export interface Product {
   features: string[];
   fitInfo: string;
   story: string;
+  washingGuide?: string;
   mood?: string;
   videos?: string[];
+  keepFullImage?: boolean;
+  shopifyVariants?: any[] | null;
 }
 
 export interface CartItem {
@@ -43,6 +46,6 @@ export interface JournalArticle {
   quote?: string;
   collectionLink?: {
     text: string;
-    category: 'bralettes' | 'briefs' | 'bodysuits' | 'sets' | 'loungewear' | 'all';
+    category: string;
   };
 }

@@ -84,6 +84,80 @@ import asset_83 from "./images/models/Models New/Seductress/The Seduction Lightl
 import asset_84 from "./images/models/Models New/Seductress/The Show Off Unlined Plunge Bra/hf_20260713_171111_b04cc175-c03f-4142-8bb9-30f67ac5e807.webp";
 import asset_85 from "./images/models/Models New/Seductress/The Show Off Unlined Plunge Bra/hf_20260714_091429_ad38c6c4-c8dc-4781-be5c-48aaba5a79e9.webp";
 import asset_86 from "./images/models/Models New/Seductress/The Show Off Unlined Plunge Bra/hf_20260714_091616_b15c2c8b-831b-44a7-b4a7-267210c62b3d.webp";
+import asset_87 from "./images/models/Models New/Comphy/DT3931/hf_20260721_065538_bd64a69b-b47f-4b3a-bf08-56041ed6844e.png";
+import asset_88 from "./images/models/Models New/Comphy/DT3931/hf_20260721_070846_b19fc192-4e7b-4b2e-83cb-2f87bf1cb8a0.png";
+import asset_89 from "./images/models/Models New/Comphy/DT3931/hf_20260730_110132_0ce8d2ba-c7ac-40db-8e2a-9fcb775e2748.png";
+import asset_90 from "./images/models/Models New/Comphy/DT3931/hf_20260730_110217_88fb8ea1-c32f-4e08-a926-899adbf2fe8f.png";
+import asset_91 from "./images/models/Models New/Comphy/RH001/hf_20260721_063536_424cf1df-cd56-4d04-b308-f2938fb3cbc0.png";
+import asset_92 from "./images/models/Models New/Comphy/RH001/hf_20260721_064206_01de9800-eae5-4ff6-9b01-be3099004292.png";
+import asset_93 from "./images/models/Models New/Comphy/RH001/hf_20260730_091847_0dac7beb-54e5-4281-bbb5-cf5843b8dace.png";
+import asset_94 from "./images/models/Models New/Comphy/RH001/hf_20260730_100559_e894d44e-584a-4475-b285-830b0776c551.png";
+import asset_95 from "./images/models/Models New/Playful/2343/hf_20260731_130656_09078bef-8732-4df8-98b1-64cadd38de41.png";
+import asset_96 from "./images/models/Models New/Playful/2343/hf_20260731_131057_6412fcca-cd86-499c-a400-c1e8702f8b5d.png";
+import asset_97 from "./images/models/Models New/Playful/2343/hf_20260731_131150_88dbb9c0-755b-410d-b5c6-e099e4c69593.png";
+import asset_98 from "./images/models/Models New/Playful/2343/hf_20260731_131518_05d7f096-2e8f-47e4-b956-bd5686abcd9c.png";
+import asset_99 from "./images/models/Models New/Playful/2839/hf_20260731_124506_48a1daf5-2421-43cf-a143-6d56c49d9bac.png";
+import asset_100 from "./images/models/Models New/Playful/2839/hf_20260731_124914_4f9e6c2c-35b0-4400-bb4a-400df6eb63e3.png";
+import asset_101 from "./images/models/Models New/Playful/2839/hf_20260731_125011_34452f16-1711-4e58-9008-d07d93d75cc2.png";
+import asset_102 from "./images/models/Models New/Playful/2839/hf_20260731_125400_5b68a3c8-b56d-4b69-8475-97935083c9bd.png";
+import asset_103 from "./images/models/Models New/Playful/2870/hf_20260731_085434_163bd672-b853-4d58-a6b1-87b0e07d4447.png";
+import asset_104 from "./images/models/Models New/Playful/2870/hf_20260731_091047_373c5121-f7db-4156-94fb-6ac8ea4889c7.png";
+import asset_105 from "./images/models/Models New/Playful/2870/hf_20260731_094022_00a4f3c0-0ec1-410f-9479-67577ee13bed.png";
+import asset_106 from "./images/models/Models New/Playful/2870/hf_20260731_095154_7e024d18-69cf-43e3-8472-4b1fe626f0d3.png";
+import asset_107 from "./images/models/Models New/Playful/6616/hf_20260721_092041_1cd19880-e31d-4897-94c5-2917af7ff8e1.png";
+import asset_108 from "./images/models/Models New/Playful/6616/hf_20260731_071721_efb4afea-0b30-4265-9b2f-23520a7ada91.png";
+import asset_109 from "./images/models/Models New/Playful/6616/hf_20260731_075828_9bdcbfc0-7094-4d16-97e8-49e609324fc2.png";
+import asset_110 from "./images/models/Models New/Playful/6616/hf_20260731_075941_4f1bca78-5f38-4408-bb13-7a66c0a0aa9f.png";
+import asset_111 from "./images/models/Models New/Playful/9276/hf_20260721_082351_97fa3692-7c25-4f9c-a906-1d2994edfb12_min.webp";
+import asset_112 from "./images/models/Models New/Playful/9276/hf_20260730_114451_f430ca9d-9744-491f-93d4-6de65235dc46.png";
+import asset_113 from "./images/models/Models New/Playful/9276/hf_20260730_114848_693e8863-7168-4eed-b571-e282e9c534dc.png";
+import asset_114 from "./images/models/Models New/Playful/9276/hf_20260730_115039_7979e734-df84-496b-865b-d41c84a8ac49.png";
+import asset_115 from "./images/models/Models New/Playful/9306 Only Bra/hf_20260721_080913_1f6ddb5b-e511-4113-8374-8ad29d1330b4.png";
+import asset_116 from "./images/models/Models New/Playful/9306 Only Bra/hf_20260729_115650_78714bd3-e4e9-4cb6-94cb-a365df1a9f14.png";
+import asset_117 from "./images/models/Models New/Playful/9306 Only Bra/hf_20260729_123701_17c8bea2-1a0b-4132-9706-50b5d2c860f9.png";
+import asset_118 from "./images/models/Models New/Playful/9306 Only Bra/hf_20260729_124802_405075c7-860e-482f-8b08-40fa2fff1c3e.png";
+import asset_119 from "./images/models/Models New/Playful/B29/f1a63c81-5567-4cf3-8eb1-3175ce9bda37.png";
+import asset_120 from "./images/models/Models New/Playful/B29/hf_20260709_163042_8bab232e-a9b2-4bff-9022-a2771e34129b.webp";
+import asset_121 from "./images/models/Models New/Playful/B29/hf_20260730_085407_db453d0e-8aa6-4558-9ba1-8377d5d09736.png";
+import asset_122 from "./images/models/Models New/Playful/B29/hf_20260730_085518_d9b77254-7c62-4145-b7f0-020452b4f1fb.png";
+import asset_123 from "./images/models/Models New/Playful/T13/hf_20260720_044148_4b34aa54-498c-4e4d-8390-1e8efef459b9.png";
+import asset_124 from "./images/models/Models New/Playful/T13/hf_20260720_045241_34e4a41b-85e9-4624-b430-b049bf1ba4f0.png";
+import asset_125 from "./images/models/Models New/Playful/T13/hf_20260721_065512_aeff755d-a9e8-460c-9f74-bb95bcf3e91d.png";
+import asset_126 from "./images/models/Models New/Playful/T13/hf_20260729_113811_ee259c3b-0967-410e-bda6-51a313700293.png";
+import asset_127 from "./images/models/Models New/Romantic/2851/hf_20260731_121636_bd3c2835-d49c-422a-b997-becffd92d438.png";
+import asset_128 from "./images/models/Models New/Romantic/2851/hf_20260731_122155_138e559c-e4fc-4429-8679-7861bc5dc479.png";
+import asset_129 from "./images/models/Models New/Romantic/2851/hf_20260731_122340_77f57994-77f9-413e-bfeb-9b2b84a4d7e0.png";
+import asset_130 from "./images/models/Models New/Romantic/2851/hf_20260731_122737_000a2aa5-cf11-4ef6-a54e-c342bb3c986a.png";
+import asset_131 from "./images/models/Models New/Romantic/2876/hf_20260721_094716_a44e2633-104f-434a-883d-8b6b77b1670e.png";
+import asset_132 from "./images/models/Models New/Romantic/2876/hf_20260731_083315_0b15b915-55b3-4dba-84f3-2962ca7ffd5b.png";
+import asset_133 from "./images/models/Models New/Romantic/2876/hf_20260731_083334_b91c28b8-f807-480c-8329-7f834c8a3489.png";
+import asset_134 from "./images/models/Models New/Romantic/2876/hf_20260731_083459_1227bb1f-5abe-47e3-a28d-039461f4b85b.png";
+import asset_135 from "./images/models/Models New/Romantic/8810/hf_20260731_073355_8c944087-233d-4c1e-8fc3-3b9ac3dab9ab.png";
+import asset_136 from "./images/models/Models New/Romantic/8810/hf_20260731_075724_edf14e19-2c7b-4a9d-9a05-e18c1dc1492e.png";
+import asset_137 from "./images/models/Models New/Romantic/8810/hf_20260731_081135_2a56fe51-c27a-415e-a1c2-2de547f70c0d.png";
+import asset_138 from "./images/models/Models New/Romantic/8810/hf_20260731_081701_a39799de-9099-4971-9994-c3c0105aed44.png";
+import asset_139 from "./images/models/Models New/Romantic/8826/hf_20260721_082722_f8bc6a08-ee7c-46bd-b0aa-ae4e67e9a713_min.webp";
+import asset_140 from "./images/models/Models New/Romantic/8826/hf_20260731_064415_871590d8-30db-48dd-8677-c709cec7f00f.png";
+import asset_141 from "./images/models/Models New/Romantic/8826/hf_20260731_064458_b2acb07e-8d09-4984-b258-57b55b43780e.png";
+import asset_142 from "./images/models/Models New/Romantic/8826/hf_20260731_065008_4db5fa3a-f69c-42a1-add9-e1eaaa9c8159.png";
+import asset_143 from "./images/models/Models New/Romantic/9350/hf_20260721_071701_54a6d174-7b4e-4bc0-b14e-1969bbc424ab.png";
+import asset_144 from "./images/models/Models New/Romantic/9350/hf_20260730_111604_113c6afb-6481-495d-bc56-24ea84d85b4f.png";
+import asset_145 from "./images/models/Models New/Romantic/9350/hf_20260730_111632_d10a289f-f113-474e-a93a-e70a4da68714.png";
+import asset_146 from "./images/models/Models New/Romantic/9350/hf_20260730_113519_1e5c07f0-b400-4847-b2f3-4dd82d903892.png";
+import asset_147 from "./images/models/Models New/Seductress/2366/hf_20260731_125754_def3dd2f-94e5-43fc-b420-f69bf6367a76.png";
+import asset_148 from "./images/models/Models New/Seductress/2366/hf_20260731_125957_19a56285-6887-423a-86c3-e0de8d26a63a.png";
+import asset_149 from "./images/models/Models New/Seductress/2366/hf_20260731_130100_70a0d37c-f0e3-4ec6-b92f-eeebe48246df.png";
+import asset_150 from "./images/models/Models New/Seductress/2856/hf_20260722_055213_d20799a5-9cc2-4e8c-a257-bce92719f223.png";
+import asset_151 from "./images/models/Models New/Seductress/2856/hf_20260731_110753_8ff6b426-a4f9-45f4-817b-cfae11bf3c32.png";
+import asset_152 from "./images/models/Models New/Seductress/2856/hf_20260731_110940_3f0173f2-b29b-4779-a129-92a1b81d0aca.png";
+import asset_153 from "./images/models/Models New/Seductress/2856/hf_20260731_111017_80496461-dc3f-4740-81de-15caff395c8f.png";
+import asset_154 from "./images/models/Models New/Seductress/2857/hf_20260731_104125_8c4d6488-5310-4b64-bbae-3aa634c1d7e2.png";
+import asset_155 from "./images/models/Models New/Seductress/2857/hf_20260731_104408_d1576e8a-ca7b-4294-8f1a-9e0f950ff66a.png";
+import asset_156 from "./images/models/Models New/Seductress/2857/hf_20260731_104709_ab42afb1-8f7f-423d-a372-2f5fd443c24b.png";
+import asset_157 from "./images/models/Models New/Romantic/2867/hf_20260731_102127_37ac5fdd-e105-4abb-92c7-e66d7187fedc.png";
+import asset_158 from "./images/models/Models New/Romantic/2867/hf_20260731_102326_2136cc4a-c1ee-4e0a-b83f-f1f8ea1cfeb2.png";
+import asset_159 from "./images/models/Models New/Romantic/2867/hf_20260731_102931_24dcf116-d68b-442b-8b08-6621ff247c6f.png";
+import asset_160 from "./images/models/Models New/Romantic/2867/hf_20260731_103313_0648424d-b9d1-4394-b81d-a75e667acfda.png";
 
 export const MOCK_PRODUCTS = [
   {
@@ -545,5 +619,848 @@ export const MOCK_PRODUCTS = [
     story: "Designed for ultimate comfort and expression.",
     shopifyVariants: null,
     videos: []
+  },
+  {
+    id: 'prod-8810-bra-0',
+    sku: 'prod-8810-bra-0',
+    name: 'Midnight Whisper Mesh Bralette',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Midnight Whisper Mesh Bralette. Carefully crafted for a perfect fit, featuring Cup Fabric - 68% polyamide - 32% Elastane  Cup Mesh  - 100% polyaminde  Side fabric - 68% polyamide 32% elastane.',
+    price: 2500,
+    category: 'bralettes',
+    mood: 'Ishq',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_135, asset_136, asset_137, asset_138]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Cup Fabric - 68% polyamide - 32% Elastane  Cup Mesh  - 100% polyaminde  Side fabric - 68% polyamide 32% elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Handwash only, max temp 40$ C, Do not Bleach , Hand dry, Do not iron, Do not drycllean`,
+  },
+  {
+    id: 'prod-8810-pantie-1',
+    sku: 'prod-8810-pantie-1',
+    name: 'Midnight Whisper High Rise Brief',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Midnight Whisper High Rise Brief. Carefully crafted for a perfect fit, featuring Fabric  68% Polyamide  32% Elastane Crotch lining 100% Cotton.',
+    price: 4200,
+    category: 'briefs',
+    mood: 'Ishq',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_135, asset_136, asset_137, asset_138]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Fabric  68% Polyamide  32% Elastane Crotch lining 100% Cotton',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Handwash only, max temp 40$ C, Do not Bleach , Hand dry, Do not iron, Do not drycllean`,
+  },
+  {
+    id: 'prod-2857-bra-2',
+    sku: 'prod-2857-bra-2',
+    name: 'The Unveiling Triangle Bralette',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our The Unveiling Triangle Bralette. Carefully crafted for a perfect fit, featuring 9%% Polyester  5% Elastane.',
+    price: 3100,
+    category: 'bralettes',
+    mood: 'Aarambh',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_154, asset_155, asset_156]
+      }
+    ],
+    sizes: ['M'],
+    materials: '9%% Polyester  5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2857-pantie-3',
+    sku: 'prod-2857-pantie-3',
+    name: 'The Unveiling Low Rise Thong',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our The Unveiling Low Rise Thong. Carefully crafted for a perfect fit, featuring 9%% Polyester  5% Elastane.',
+    price: 2500,
+    category: 'briefs',
+    mood: 'Aarambh',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_154, asset_155, asset_156]
+      }
+    ],
+    sizes: ['M'],
+    materials: '9%% Polyester  5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Handwash only, max temp 40$ C, Do not Bleach , Hand dry, Do not iron, Do not drycllean`,
+  },
+  {
+    id: 'prod-8826-bra-4',
+    sku: 'prod-8826-bra-4',
+    name: 'Love Letter Lace Balconette',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Love Letter Lace Balconette. Carefully crafted for a perfect fit, featuring Lace  86% Polyamide 14% Elastane  Cup lining  100% Cotton   side lining 85% polyamide 15% elastane.',
+    price: 3100,
+    category: 'bralettes',
+    mood: 'Ishq',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_139, asset_140, asset_141, asset_142]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Lace  86% Polyamide 14% Elastane  Cup lining  100% Cotton   side lining 85% polyamide 15% elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Handwash only, max temp 40$ C, Do not Bleach , Hand dry, Do not iron, Do not drycllean`,
+  },
+  {
+    id: 'prod-8826-pantie-5',
+    sku: 'prod-8826-pantie-5',
+    name: 'Love Letter Lace Thong',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Love Letter Lace Thong. Carefully crafted for a perfect fit, featuring Lace  86% Polyamide 14% Elastane  Mesh Fabric 86% Polyamide 14% Elastane  Crotch Lining  100% Cotton.',
+    price: 5500,
+    category: 'briefs',
+    mood: 'Ishq',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_139, asset_140, asset_141, asset_142]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Lace  86% Polyamide 14% Elastane  Mesh Fabric 86% Polyamide 14% Elastane  Crotch Lining  100% Cotton',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Handwash only, max temp 40$ C, Do not Bleach , Hand dry, Do not iron, Do not drycllean`,
+  },
+  {
+    id: 'prod-2366-bra-6',
+    sku: 'prod-2366-bra-6',
+    name: 'Opening Act Halter Bralette',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Opening Act Halter Bralette. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 3500,
+    category: 'bralettes',
+    mood: 'Aarambh',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_147, asset_148, asset_149]
+      }
+    ],
+    sizes: ['L'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2366-pantie-7',
+    sku: 'prod-2366-pantie-7',
+    name: 'Opening Act Mid Rise Brief',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Opening Act Mid Rise Brief. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 4200,
+    category: 'briefs',
+    mood: 'Aarambh',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_147, asset_148, asset_149]
+      }
+    ],
+    sizes: ['L'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2870-bra-8',
+    sku: 'prod-2870-bra-8',
+    name: 'Caught You Looking Plunge Bralette',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Caught You Looking Plunge Bralette. Carefully crafted for a perfect fit, featuring Cup Shell 61.5% Polyester 38.5% Polyamide  Cup lining 100% Polyester Flank 85.8% Plyamide 14.2% Elastane.',
+    price: 3100,
+    category: 'bralettes',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_103, asset_104, asset_105, asset_106]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Cup Shell 61.5% Polyester 38.5% Polyamide  Cup lining 100% Polyester Flank 85.8% Plyamide 14.2% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2870-pantie-9',
+    sku: 'prod-2870-pantie-9',
+    name: 'Caught You Looking Mid Rise Bikini',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Caught You Looking Mid Rise Bikini. Carefully crafted for a perfect fit, featuring Fabric.1  61.5% Polyamide 38.5% Elastane  Fabric 2  85.8% Polyamide 14.2% Elastane   Crotch  100% Cotton.',
+    price: 3100,
+    category: 'briefs',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_103, asset_104, asset_105, asset_106]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Fabric.1  61.5% Polyamide 38.5% Elastane  Fabric 2  85.8% Polyamide 14.2% Elastane   Crotch  100% Cotton',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-9276-bra-10',
+    sku: 'prod-9276-bra-10',
+    name: 'The Tease Scoop Bralette',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our The Tease Scoop Bralette. Carefully crafted for a perfect fit, featuring Cup Fabric  90.4% Polyamide Fiber 9.6% Spandex  Cup lining  100% polyamide fiber   Flank  83.8% Polyamide  16.2% Spandex.',
+    price: 3500,
+    category: 'bralettes',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_111, asset_112, asset_113, asset_114]
+      }
+    ],
+    sizes: ['L'],
+    materials: 'Cup Fabric  90.4% Polyamide Fiber 9.6% Spandex  Cup lining  100% polyamide fiber   Flank  83.8% Polyamide  16.2% Spandex',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-9276-pantie-11',
+    sku: 'prod-9276-pantie-11',
+    name: 'The Tease Mid Rise Brief',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our The Tease Mid Rise Brief. Carefully crafted for a perfect fit, featuring Fabric 1  90.4% Polyamide fibre 9.6% Spandex  Fabric 2  83.8% Polyamide  16.2 Spandex   Crotch  100% Cotton.',
+    price: 3100,
+    category: 'briefs',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_111, asset_112, asset_113, asset_114]
+      }
+    ],
+    sizes: ['L'],
+    materials: 'Fabric 1  90.4% Polyamide fibre 9.6% Spandex  Fabric 2  83.8% Polyamide  16.2 Spandex   Crotch  100% Cotton',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-t13--360-bra-12',
+    sku: 'prod-t13--360-bra-12',
+    name: 'Full Circle Molded Bra',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Full Circle Molded Bra. Carefully crafted for a perfect fit, featuring Cup Lining 100% Polyester  Cup Fabric 78% Polyamide, 22% Elastane.',
+    price: 5500,
+    category: 'bralettes',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_123, asset_124, asset_125, asset_126]
+      }
+    ],
+    sizes: ['L'],
+    materials: 'Cup Lining 100% Polyester  Cup Fabric 78% Polyamide, 22% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-t13--360-pantie-13',
+    sku: 'prod-t13--360-pantie-13',
+    name: 'Full Circle Seamless Brief',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Full Circle Seamless Brief. Carefully crafted for a perfect fit, featuring Fabric - 78% Polyamide, 22% Elastane Crotch - 100% Cotton.',
+    price: 4200,
+    category: 'briefs',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_123, asset_124, asset_125, asset_126]
+      }
+    ],
+    sizes: ['L'],
+    materials: 'Fabric - 78% Polyamide, 22% Elastane Crotch - 100% Cotton',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-6616-bra-14',
+    sku: 'prod-6616-bra-14',
+    name: 'Wink Wink Plunge Bralette',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Wink Wink Plunge Bralette. Carefully crafted for a perfect fit, featuring Cup Shell 70% Polyamide 30% Elastane  Cup lining 100% Polyester Flank 70% Plyamide 30% Elastane.',
+    price: 3760,
+    category: 'bralettes',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_107, asset_108, asset_109, asset_110]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Cup Shell 70% Polyamide 30% Elastane  Cup lining 100% Polyester Flank 70% Plyamide 30% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-6616-pantie-15',
+    sku: 'prod-6616-pantie-15',
+    name: 'Wink Wink Low Rise Bikini',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Wink Wink Low Rise Bikini. Carefully crafted for a perfect fit, featuring Fabric 1  85% Polyamide  15% Elastane  Fabric 2  70% Polyamide 30% Elastane  Crotch 100% Cotton.',
+    price: 3500,
+    category: 'briefs',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_107, asset_108, asset_109, asset_110]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Fabric 1  85% Polyamide  15% Elastane  Fabric 2  70% Polyamide 30% Elastane  Crotch 100% Cotton',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2839-only-bra--l020-bra-16',
+    sku: 'prod-2839-only-bra--l020-bra-16',
+    name: 'Main Character Lace Bralette',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Main Character Lace Bralette. Carefully crafted for a perfect fit, featuring Fabric - 95% Nylon, 5% Spandex Cup Lining 95.3% Polyester Fibre 4.7% Spandex  Flank- 95% Nylon, 5% Spandex.',
+    price: 5500,
+    category: 'bralettes',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_99, asset_100, asset_101, asset_102]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Fabric - 95% Nylon, 5% Spandex Cup Lining 95.3% Polyester Fibre 4.7% Spandex  Flank- 95% Nylon, 5% Spandex',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+    keepFullImage: true,
+  },
+  {
+    id: 'prod-9306-only-bra--5201-bra-17',
+    sku: 'prod-9306-only-bra--5201-bra-17',
+    name: 'Scene Stealer Molded Cup Bra',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Scene Stealer Molded Cup Bra. Carefully crafted for a perfect fit, featuring Cup Fabric : 100 % Nylon Shell Fabric 100% Polyester Side: 85% Nylon, 15% Spandex.',
+    price: 2500,
+    category: 'bralettes',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_115, asset_116, asset_117, asset_118]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Cup Fabric : 100 % Nylon Shell Fabric 100% Polyester Side: 85% Nylon, 15% Spandex',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+    keepFullImage: true,
+  },
+  {
+    id: 'prod-rh001-2881-bra-18',
+    sku: 'prod-rh001-2881-bra-18',
+    name: 'Pillow Talk Wireless Bralette',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Pillow Talk Wireless Bralette. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 4200,
+    category: 'bralettes',
+    mood: 'Sukoon',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_91, asset_92, asset_93, asset_94]
+      }
+    ],
+    sizes: ['M'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-rh001-2881-pantie-19',
+    sku: 'prod-rh001-2881-pantie-19',
+    name: 'Pillow Talk Mid Rise Brief',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Pillow Talk Mid Rise Brief. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 5500,
+    category: 'briefs',
+    mood: 'Sukoon',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_91, asset_92, asset_93, asset_94]
+      }
+    ],
+    sizes: ['M'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2856-bra-20',
+    sku: 'prod-2856-bra-20',
+    name: 'Bold Move Unlined Bralette',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Bold Move Unlined Bralette. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 4200,
+    category: 'bralettes',
+    mood: 'Aarambh',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_150, asset_151, asset_152, asset_153]
+      }
+    ],
+    sizes: ['L'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2856-pantie-21',
+    sku: 'prod-2856-pantie-21',
+    name: 'Bold Move Mid Rise Bikini',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Bold Move Mid Rise Bikini. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 4200,
+    category: 'briefs',
+    mood: 'Aarambh',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_150, asset_151, asset_152, asset_153]
+      }
+    ],
+    sizes: ['L'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-9350-m002-bra-22',
+    sku: 'prod-9350-m002-bra-22',
+    name: 'The Promise Lace Plunge Bra',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our The Promise Lace Plunge Bra. Carefully crafted for a perfect fit, featuring Main : 90% Nylon, 10% Elastane Mesh - 100% Nylon Lining - 100% Nylon FlankMesh- 5% Nylon, 25% Elastane.',
+    price: 3500,
+    category: 'bralettes',
+    mood: 'Ishq',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_143, asset_144, asset_145, asset_146]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Main : 90% Nylon, 10% Elastane Mesh - 100% Nylon Lining - 100% Nylon FlankMesh- 5% Nylon, 25% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-9350-m002-pantie-23',
+    sku: 'prod-9350-m002-pantie-23',
+    name: 'The Promise Lace Bikini',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our The Promise Lace Bikini. Carefully crafted for a perfect fit, featuring Lace - 90% Nylon, 10% Elastane Msh - 90%Nylon, 10% Elastane Gusset Lining - 100% Cotton.',
+    price: 5500,
+    category: 'briefs',
+    mood: 'Ishq',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_143, asset_144, asset_145, asset_146]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Lace - 90% Nylon, 10% Elastane Msh - 90%Nylon, 10% Elastane Gusset Lining - 100% Cotton',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2867-bra-24',
+    sku: 'prod-2867-bra-24',
+    name: 'First Blush Demi Bra',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our First Blush Demi Bra. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 4200,
+    category: 'bralettes',
+    mood: 'Ishq',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_157, asset_158, asset_159, asset_160]
+      }
+    ],
+    sizes: ['L'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2867-pantie-25',
+    sku: 'prod-2867-pantie-25',
+    name: 'First Blush Mid Rise Brief',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our First Blush Mid Rise Brief. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 3100,
+    category: 'briefs',
+    mood: 'Ishq',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_157, asset_158, asset_159, asset_160]
+      }
+    ],
+    sizes: ['L'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-6616-2876-bra-26',
+    sku: 'prod-6616-2876-bra-26',
+    name: 'Wink Wink Plunge Bralette',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Stolen Glance Plunge Bralette. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 2500,
+    category: 'bralettes',
+    mood: 'Ishq',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_131, asset_132, asset_133, asset_134]
+      }
+    ],
+    sizes: ['M'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-6616-2876-pantie-27',
+    sku: 'prod-6616-2876-pantie-27',
+    name: 'Wink Wink Low Rise Bikini',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Stolen Glance Low Rise Bikini. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 5500,
+    category: 'briefs',
+    mood: 'Ishq',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_131, asset_132, asset_133, asset_134]
+      }
+    ],
+    sizes: ['M'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2343-bra-28',
+    sku: 'prod-2343-bra-28',
+    name: 'Truth or Dare Triangle Bralette',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Truth or Dare Triangle Bralette. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 3760,
+    category: 'bralettes',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_95, asset_96, asset_97, asset_98]
+      }
+    ],
+    sizes: ['L'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2343-pantie-29',
+    sku: 'prod-2343-pantie-29',
+    name: 'Truth or Dare Mid Rise Thong',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our Truth or Dare Mid Rise Thong. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 5500,
+    category: 'briefs',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_95, asset_96, asset_97, asset_98]
+      }
+    ],
+    sizes: ['L'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2851-bra-30',
+    sku: 'prod-2851-bra-30',
+    name: 'The Confession Lace Plunge Bra',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our The Confession Lace Plunge Bra. Carefully crafted for a perfect fit, featuring Lace - 90% Nylon, 10% Elastane cup Fabric - 82% Nylon, 18% Spandex  Flank Lining - 85% Nylon, 15% Spandex Cup Lining - 100% Polyester.',
+    price: 5500,
+    category: 'bralettes',
+    mood: 'Ishq',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_127, asset_128, asset_129, asset_130]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Lace - 90% Nylon, 10% Elastane cup Fabric - 82% Nylon, 18% Spandex  Flank Lining - 85% Nylon, 15% Spandex Cup Lining - 100% Polyester',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2851-pantie-31',
+    sku: 'prod-2851-pantie-31',
+    name: 'The Confession Lace Thong',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our The Confession Lace Thong. Carefully crafted for a perfect fit, featuring Lace - 90 % Nylon, 10 % Spandex  Mesh - 85% Nylon, 15% Spandex  Lining - 100% Cotton.',
+    price: 3100,
+    category: 'briefs',
+    mood: 'Ishq',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_127, asset_128, asset_129, asset_130]
+      }
+    ],
+    sizes: ['M'],
+    materials: 'Lace - 90 % Nylon, 10 % Spandex  Mesh - 85% Nylon, 15% Spandex  Lining - 100% Cotton',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2852-bra-32',
+    sku: 'prod-2852-bra-32',
+    name: 'The Dare Wireless Bralette',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our The Dare Wireless Bralette. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 2500,
+    category: 'bralettes',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_119, asset_120, asset_121, asset_122]
+      }
+    ],
+    sizes: ['M'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-2852-pantie-33',
+    sku: 'prod-2852-pantie-33',
+    name: 'The Dare Mid Rise Brief',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our The Dare Mid Rise Brief. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
+    price: 5500,
+    category: 'briefs',
+    mood: 'Shararat',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_119, asset_120, asset_121, asset_122]
+      }
+    ],
+    sizes: ['M'],
+    materials: '95% Polyester 5% Elastane',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+  },
+  {
+    id: 'prod-3931-bodysuit-34',
+    sku: 'prod-3931-bodysuit-34',
+    name: 'The Daydream Bodysuit',
+    tagline: 'designed for comfort and style',
+    description: 'Experience ultimate comfort with our The Daydream Bodysuit. Carefully crafted for a perfect fit, featuring Premium blended fabric.',
+    price: 5500,
+    category: 'bodysuits',
+    mood: 'Sukoon',
+    colors: [
+      {
+        name: 'Standard',
+        hex: '#E6DFD3',
+        images: [asset_87, asset_88, asset_89, asset_90]
+      }
+    ],
+    sizes: ['XL'],
+    materials: 'Premium blended fabric',
+    details: [],
+    features: [],
+    fitInfo: 'Standard fit. Choose your normal size.',
+    story: 'Part of our exclusive new collection.',
+    washingGuide: `Follow standard care instructions.`,
+    keepFullImage: true,
   }
 ];

@@ -128,25 +128,29 @@ export default function ProductDetailView({
         {/* Left Side: Images */}
         <div className="col-span-12 lg:col-span-7 flex overflow-x-auto snap-x snap-mandatory lg:flex-col lg:space-y-4 lg:overflow-visible gap-4 lg:gap-0 hide-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
           {product.videos?.map((vid, idx) => (
-            <div key={`vid-${idx}`} className="w-[85vw] sm:w-[70vw] lg:w-full shrink-0 snap-center lg:snap-align-none bg-[#F4F0EA] overflow-hidden">
+            <div key={`vid-${idx}`} className="relative aspect-[3/4] w-[85vw] sm:w-[70vw] lg:w-full shrink-0 snap-center lg:snap-align-none bg-[#F4F0EA] overflow-hidden">
               <video
                 src={vid}
                 autoPlay
                 muted
                 loop
                 playsInline
-                className="w-full h-auto object-cover mix-blend-multiply transition-transform duration-1000 ease-out lg:hover:scale-105"
+                className={`absolute inset-0 w-full h-full ${
+                  product.keepFullImage ? 'object-contain' : `object-cover ${['panties', 'briefs', 'thongs', 'bikinis'].includes(product.category.toLowerCase()) ? 'object-bottom' : 'object-top'}`
+                } mix-blend-multiply transition-transform duration-1000 ease-out lg:hover:scale-105`}
               />
             </div>
           ))}
           {activeColor.images.map((img, idx) => (
-            <div key={`img-${idx}`} className="w-[85vw] sm:w-[70vw] lg:w-full shrink-0 snap-center lg:snap-align-none bg-[#F4F0EA] overflow-hidden">
+            <div key={`img-${idx}`} className="relative aspect-[3/4] w-[85vw] sm:w-[70vw] lg:w-full shrink-0 snap-center lg:snap-align-none bg-[#F4F0EA] overflow-hidden">
               <img
                 src={img}
                 alt={`${product.name} detail ${idx + 1}`}
                 referrerPolicy="no-referrer"
                 decoding="async"
-                className="w-full h-full object-cover mix-blend-multiply transition-transform duration-1000 ease-out lg:hover:scale-105"
+                className={`absolute inset-0 w-full h-full ${
+                  product.keepFullImage ? 'object-contain' : `object-cover ${['panties', 'briefs', 'thongs', 'bikinis'].includes(product.category.toLowerCase()) ? 'object-bottom' : 'object-top'}`
+                } mix-blend-multiply transition-transform duration-1000 ease-out lg:hover:scale-105`}
               />
             </div>
           ))}
@@ -172,6 +176,42 @@ export default function ProductDetailView({
 
           <div className="space-y-8">
 
+            {/* Color Selector */}
+            {product.colors.length > 1 && (
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-[10px] font-sans tracking-[0.2em] uppercase">
+                  <span className="text-gray-400">Color</span>
+                  <span className="text-[#111111] font-medium">{activeColor.name}</span>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {product.colors.map((color, idx) => (
+                    <button
+                      key={color.name}
+                      onClick={() => setSelectedColorIdx(idx)}
+                      className={`group relative w-8 h-8 rounded-full transition-all duration-300 ${
+                        selectedColorIdx === idx
+                          ? 'ring-2 ring-[#111111] ring-offset-2 scale-110'
+                          : 'ring-1 ring-gray-200 hover:ring-gray-400 hover:scale-105'
+                      }`}
+                      style={{ backgroundColor: color.hex }}
+                      aria-label={`Select color ${color.name}`}
+                      title={color.name}
+                    >
+                      {selectedColorIdx === idx && (
+                        <span className="absolute inset-0 flex items-center justify-center">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={
+                            // Use white check on dark colors, dark check on light colors
+                            parseInt(color.hex.replace('#', ''), 16) < 0x808080 ? 'white' : '#111111'
+                          } strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Sizing Model Selector */}
             <div className="space-y-4">
@@ -376,6 +416,24 @@ export default function ProductDetailView({
                 </div>
               )}
             </div>
+
+            {/* Washing Guide */}
+            {product.washingGuide && (
+              <div className="py-4">
+                <button
+                  onClick={() => toggleTab('washing')}
+                  className="w-full flex justify-between items-center text-left text-lg font-[var(--font-playfair)] italic tracking-wide text-[#111111] hover:opacity-70 transition-opacity"
+                >
+                  <span>Washing Guide</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-500 ${activeTab === 'washing' ? 'rotate-180' : ''}`} />
+                </button>
+                {activeTab === 'washing' && (
+                  <div className="text-gray-500 text-xs leading-relaxed pt-4 space-y-3">
+                    <p className="whitespace-pre-line">{product.washingGuide}</p>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
         </div>

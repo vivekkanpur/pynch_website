@@ -131,10 +131,10 @@ export function TogglableMoods() {
                WEAR YOUR MOOD
              </p>
              <button 
-               onClick={() => navigate('/collections', { state: { selectedMood: 'All Moods' } })}
+               onClick={() => navigate('/collections', { state: { selectedMood: MOODS_DATA[activeIndex].categoryId } })}
                className="pointer-events-auto mt-8 sm:mt-16 border border-white/50 bg-black/20 backdrop-blur-sm px-6 py-4 sm:px-10 sm:py-5 text-white font-sans text-[10px] sm:text-sm uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-300"
              >
-               Explore Collection
+               Shop {MOODS_DATA[activeIndex].categoryId}
              </button>
           </div>
         </motion.div>

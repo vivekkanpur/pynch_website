@@ -34,14 +34,18 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
   const [filter, setFilter] = useState<string | null>(null);
   const { products, loading, error } = useShopifyProducts();
 
-  const filteredProducts = products.filter(
-    (product) => !filter || product.category === filter.toLowerCase()
-  );
+  const filteredProducts = products.filter((product) => {
+    if (!filter) return true;
+    if (filter === 'bras') return ['bras', 'bralettes'].includes(product.category.toLowerCase());
+    if (filter === 'panties') return ['panties', 'briefs', 'thongs', 'bikinis'].includes(product.category.toLowerCase());
+    if (filter === 'bodysuits') return product.category.toLowerCase() === 'bodysuits';
+    return product.category.toLowerCase() === filter.toLowerCase();
+  });
 
   const categoryItems: CategoryItem[] = [
-    { id: 'Bras', label: 'BRAS', image: braImg },
-    { id: 'Panties', label: 'PANTIES', image: pantiesImg },
-    { id: 'Bodysuits', label: 'BODYSUITS', image: bodysuitsImg },
+    { id: 'bras', label: 'BRAS', image: braImg },
+    { id: 'panties', label: 'PANTIES', image: pantiesImg },
+    { id: 'bodysuits', label: 'BODYSUITS', image: bodysuitsImg },
     { id: 'Corsets', label: 'CORSETS', image: corsetImg },
     { id: 'Attire', label: 'ATTIRE', image: attireImg },
     { id: 'Accessories', label: 'ACCESSORIES', image: accessoriesImg }
