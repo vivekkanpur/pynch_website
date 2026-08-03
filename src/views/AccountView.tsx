@@ -7,7 +7,7 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
 };
 
 export default function AccountView() {
@@ -158,7 +158,7 @@ export default function AccountView() {
                 
                 <div className="flex gap-6 items-center">
                   <div className="w-20 aspect-[3/4] bg-gray-100 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1594913785162-e678537db3b1?q=80&w=200" alt="Product" className="w-full h-full object-cover mix-blend-multiply" />
+                    <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1594913785162-e678537db3b1?q=80&w=200" alt="Product" className="w-full h-full object-cover mix-blend-multiply" />
                   </div>
                   <div className="flex-1">
                     <h4 className="font-sans text-xs uppercase tracking-widest mb-1">The Seduction Lightly Lined</h4>

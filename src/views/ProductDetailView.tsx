@@ -18,7 +18,7 @@ interface ProductDetailViewProps {
 
 const pageVariants = {
   initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" } },
 };
 
 export default function ProductDetailView({
@@ -141,7 +141,7 @@ export default function ProductDetailView({
           ))}
           {activeColor.images.map((img, idx) => (
             <div key={`img-${idx}`} className="relative aspect-[3/4] w-[85vw] sm:w-[70vw] lg:w-full shrink-0 snap-center lg:snap-align-none bg-[#F4F0EA] overflow-hidden">
-              <img
+              <img loading="lazy"
                 src={img}
                 alt={`${product.name} detail ${idx + 1}`}
                 referrerPolicy="no-referrer"

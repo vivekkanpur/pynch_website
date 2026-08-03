@@ -120,7 +120,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
             onMouseEnter={() => setActiveMenu(null)}
           >
             <Link to="/" className="relative inline-block group">
-              <img
+              <img decoding="async" loading="lazy"
                 src={logoImage}
                 alt="PYNCH Logo"
                 className="w-auto h-auto max-w-full max-h-10 sm:max-h-14 object-contain transition-all duration-300 group-hover:opacity-80"
@@ -252,7 +252,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                         <div key={product.id} onClick={() => navigate(`/shop`)} className="relative group overflow-hidden cursor-pointer bg-gray-100 flex flex-col h-full">
                           <div className="flex-1 relative overflow-hidden min-h-0 [transform:translateZ(0)]">
                             {idx === 0 && <span className="absolute top-2 left-2 bg-[var(--theme-lime)] text-[#1A1A1A] text-[8px] font-sans uppercase tracking-widest px-2 py-1 z-10">On Tashu's Rack</span>}
-                            <img src={product.colors[0].images[0]} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" alt={product.name} />
+                            <img decoding="async" loading="lazy" src={product.colors[0].images[0]} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" alt={product.name} />
                           </div>
                           <div className="mt-2 flex flex-col">
                             <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] truncate">{product.name}</span>
@@ -314,25 +314,25 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                     <div className="grid grid-cols-4 gap-4">
                       <div onClick={() => navigate('/collections', { state: { selectedMood: 'Sukoon' } })} className="relative group cursor-pointer flex flex-col h-full">
                         <div className="relative overflow-hidden aspect-[3/4]">
-                          <img src={imgComfy} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="SUKOON (Comfy)" />
+                          <img decoding="async" loading="lazy" src={imgComfy} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="SUKOON (Comfy)" />
                         </div>
                         <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">SUKOON (Comfy)</span>
                       </div>
                       <div onClick={() => navigate('/collections', { state: { selectedMood: 'Shararat' } })} className="relative group cursor-pointer flex flex-col h-full">
                         <div className="relative overflow-hidden aspect-[3/4]">
-                          <img src={imgPlayful} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="SHARARAT (Playful)" />
+                          <img decoding="async" loading="lazy" src={imgPlayful} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="SHARARAT (Playful)" />
                         </div>
                         <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">SHARARAT (Playful)</span>
                       </div>
                       <div onClick={() => navigate('/collections', { state: { selectedMood: 'Ishq' } })} className="relative group cursor-pointer flex flex-col h-full">
                         <div className="relative overflow-hidden aspect-[3/4]">
-                          <img src={imgRomantic} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="ISHQ (Romantic)" />
+                          <img decoding="async" loading="lazy" src={imgRomantic} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="ISHQ (Romantic)" />
                         </div>
                         <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">ISHQ (Romantic)</span>
                       </div>
                       <div onClick={() => navigate('/collections', { state: { selectedMood: 'Aarambh' } })} className="relative group cursor-pointer flex flex-col h-full">
                         <div className="relative overflow-hidden aspect-[3/4]">
-                          <img src={imgSeductress} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="AARAMBH (Seductress)" />
+                          <img decoding="async" loading="lazy" src={imgSeductress} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="AARAMBH (Seductress)" />
                         </div>
                         <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">AARAMBH (Seductress)</span>
                       </div>
@@ -366,7 +366,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                     <div className="grid grid-cols-2 gap-4 h-[300px]">
                       <div onClick={() => navigate('/our-world')} className="relative group overflow-hidden cursor-pointer bg-gray-100 flex flex-col col-span-1 h-full">
                         <div className="flex-1 relative overflow-hidden min-h-0 [transform:translateZ(0)]">
-                          <img src={imgOurWorld} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Our World" />
+                          <img decoding="async" loading="lazy" src={imgOurWorld} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Our World" />
                         </div>
                         <div className="mt-2 flex flex-col">
                           <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] truncate">Read The Essential Journal</span>

@@ -19,7 +19,7 @@ interface ShopViewProps {
 
 const pageVariants = {
   initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" } },
 };
 
 const gridVariants = {
@@ -106,13 +106,13 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
       {/* Campaign Footer Blocks */}
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }}
+        whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }}
         viewport={{ once: true, margin: "-100px" }}
         className="w-auto grid grid-cols-1 md:grid-cols-2 gap-8 my-8 mx-4 sm:mx-8"
       >
         <div className="relative aspect-[3/4] overflow-hidden group cursor-pointer border border-[var(--theme-border)] p-4 bg-[var(--theme-bg)]">
           <div className="relative w-full h-full overflow-hidden">
-            <img 
+            <img decoding="async" loading="lazy" 
               src="https://images.unsplash.com/photo-1652715256284-6cba3e829a70?q=80&w=774&auto=format&fit=crop" 
               alt="Campaign Image 1"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -127,7 +127,7 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
         </div>
         <div className="relative aspect-[3/4] overflow-hidden group cursor-pointer border border-[var(--theme-border)] p-4 bg-[var(--theme-bg)]">
           <div className="relative w-full h-full overflow-hidden">
-            <img 
+            <img decoding="async" loading="lazy" 
               src="https://images.unsplash.com/photo-1652859921634-d30457cb9695?q=80&w=774&auto=format&fit=crop" 
               alt="Campaign Image 2"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"

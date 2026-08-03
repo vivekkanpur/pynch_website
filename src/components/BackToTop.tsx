@@ -26,7 +26,7 @@ export function BackToTop() {
           initial={{ opacity: 0, scale: 0.8, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 10 }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
+          transition={{ duration: 0.2, ease: 'easeOut' }}
           onClick={scrollToTop}
           className="fixed bottom-8 right-8 z-40 w-12 h-12 bg-[var(--theme-text)] text-[var(--theme-bg)] flex items-center justify-center shadow-lg hover:bg-[var(--theme-teal)] transition-colors duration-300 group"
           aria-label="Back to top"

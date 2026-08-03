@@ -97,7 +97,7 @@ export default function LoginView() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
         className="hidden sm:block max-w-lg w-full space-y-12 bg-[#F8F5F0] p-8 sm:p-12 border border-[var(--theme-border)]"
       >
         <div className="text-center space-y-4">

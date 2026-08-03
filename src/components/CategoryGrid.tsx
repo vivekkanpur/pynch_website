@@ -25,7 +25,7 @@ export const CategoryGrid = React.memo(({ categories, selectedId, onSelect }: Ca
               className="flex flex-col items-center gap-4 cursor-pointer group w-32 sm:w-48 md:w-58 shrink-0 snap-start"
             >
               <div className={`w-full aspect-[4/5] bg-[#E8EAEB] overflow-hidden isolate z-0 transition-all duration-300 ${isSelected ? 'ring-1 ring-[var(--theme-teal)] ring-offset-4 ring-offset-[var(--theme-bg)]' : ''}`}>
-                <img
+                <img loading="lazy"
                   src={cat.image}
                   alt={cat.label}
                   decoding="async"

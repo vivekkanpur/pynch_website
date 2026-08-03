@@ -298,7 +298,7 @@ export function MobileLoginModal({ isOpen, onClose, isInline = false }: MobileLo
             key="step-success"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             className="flex flex-col items-center text-center py-8"
           >
             <CheckCircle2 size={40} className="text-[var(--theme-teal)] mb-4" strokeWidth={1.5} />

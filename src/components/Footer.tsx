@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Mail, ArrowRight, Instagram, Linkedin } from 'lucide-react';
+import { Mail, ArrowRight, Instagram, Linkedin, Facebook } from 'lucide-react';
 import logoImage from "../data/images/logo/Pynch Logo.png";
 
 interface FooterProps {
@@ -27,7 +27,7 @@ export default function Footer({ onViewChange, onSizingOpen }: FooterProps) {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 py-16 sm:py-24 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16 border-b border-[#E8E3DB]/50">
         <div className="col-span-12 md:col-span-6 space-y-6">
           <h3 className="font-sans italic text-2xl sm:text-3xl lg:text-4xl text-[#111111] font-light leading-snug tracking-wide">
-            "dress the person, not the performance."
+            "Dress the person, not the performance."
           </h3>
           <p className="font-sans font-light text-xs sm:text-sm text-gray-500 max-w-md leading-relaxed">
             PYNCH is an exploration of physical comfort. We do not design intimate garments to shape or reform;
@@ -77,7 +77,7 @@ export default function Footer({ onViewChange, onSizingOpen }: FooterProps) {
 
         {/* Logo Mark (Left Side) */}
         <div className="w-full flex flex-col justify-start items-start col-span-1 order-first pb-8 md:pb-0">
-          <img src={logoImage} alt="PYNCH Logo" className="w-[150px] sm:w-[180px] h-auto object-contain pointer-events-none" />
+          <img decoding="async" loading="lazy" src={logoImage} alt="PYNCH Logo" className="w-[150px] sm:w-[180px] h-auto object-contain pointer-events-none" />
         </div>
 
         {/* Column 1: Socials (Left of Directory) */}
@@ -88,6 +88,12 @@ export default function Footer({ onViewChange, onSizingOpen }: FooterProps) {
               <a href="https://www.instagram.com/justpynch" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--theme-teal)] hover:opacity-100 transition-colors flex items-center gap-3">
                 <Instagram className="w-4 h-4 stroke-[1.5]" />
                 <span>Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-[var(--theme-teal)] hover:opacity-100 transition-colors flex items-center gap-3">
+                <Facebook className="w-4 h-4 stroke-[1.5]" />
+                <span>Meta</span>
               </a>
             </li>
             <li>
@@ -202,7 +208,10 @@ export default function Footer({ onViewChange, onSizingOpen }: FooterProps) {
               </a>
             </li>
             <li>
-              <span className="hover:text-[var(--theme-teal)] hover:opacity-100 transition-colors cursor-pointer block">Milan ╱ New Delhi</span>
+              <span className="hover:text-[var(--theme-teal)] hover:opacity-100 transition-colors cursor-pointer block leading-relaxed">Mumbai / Banglore / Surat / Kanpur / United Kingdom</span>
+            </li>
+            <li className="pt-1">
+              <span className="hover:text-[var(--theme-teal)] hover:opacity-100 transition-colors cursor-pointer block opacity-70">Registered Office: United Kingdom / India</span>
             </li>
           </ul>
         </div>

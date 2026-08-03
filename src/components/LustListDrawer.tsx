@@ -65,7 +65,7 @@ export default function LustListDrawer({
               return (
                 <div key={`${item.id}-${index}`} className="flex gap-4 border-b border-[#E8E3DB] pb-6 last:border-0 last:pb-0">
                   <div className="w-24 aspect-[3/4] bg-[#F4F0EA] overflow-hidden shrink-0">
-                    <img src={primaryImage} alt={item.name} className="w-full h-full object-cover mix-blend-multiply" />
+                    <img decoding="async" loading="lazy" src={primaryImage} alt={item.name} className="w-full h-full object-cover mix-blend-multiply" />
                   </div>
 
                   <div className="flex-1 flex flex-col justify-between">

@@ -287,7 +287,7 @@ export default function SizeGuideView({ isDrawer = false }: { isDrawer?: boolean
   return (
     <motion.div 
       initial={isDrawer ? {} : { opacity: 0, y: 20 }}
-      animate={isDrawer ? {} : { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
+      animate={isDrawer ? {} : { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" } }}
       className={isDrawer ? "w-full" : "max-w-[1240px] mx-auto px-4 sm:px-8 py-16 sm:py-24"}
     >
       {!isDrawer && (

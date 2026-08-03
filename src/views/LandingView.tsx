@@ -11,12 +11,12 @@ import { MOCK_PRODUCTS } from "../data/mockProducts";
 
 const pageVariants = {
   initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" } },
 };
 
 const sliderVariants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
 export default function LandingView({
@@ -63,22 +63,22 @@ export default function LandingView({
 
   const handleScrollLeft = () => {
     const currentX = x.get();
-    animate(x, Math.min(currentX + 400, 0), { type: "tween", duration: 0.5, ease: "easeInOut" });
+    animate(x, Math.min(currentX + 400, 0), { type: "tween", duration: 0.25, ease: "easeInOut" });
   };
 
   const handleScrollRight = () => {
     const currentX = x.get();
-    animate(x, Math.max(currentX - 400, -width), { type: "tween", duration: 0.5, ease: "easeInOut" });
+    animate(x, Math.max(currentX - 400, -width), { type: "tween", duration: 0.25, ease: "easeInOut" });
   };
 
   const handleBestScrollLeft = () => {
     const currentX = xBest.get();
-    animate(xBest, Math.min(currentX + 400, 0), { type: "tween", duration: 0.5, ease: "easeInOut" });
+    animate(xBest, Math.min(currentX + 400, 0), { type: "tween", duration: 0.25, ease: "easeInOut" });
   };
 
   const handleBestScrollRight = () => {
     const currentX = xBest.get();
-    animate(xBest, Math.max(currentX - 400, -bestSellersWidth), { type: "tween", duration: 0.5, ease: "easeInOut" });
+    animate(xBest, Math.max(currentX - 400, -bestSellersWidth), { type: "tween", duration: 0.25, ease: "easeInOut" });
   };
 
   return (
@@ -96,7 +96,7 @@ export default function LandingView({
         <motion.div
           className="flex whitespace-nowrap"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ ease: "linear", duration: 20, repeat: Infinity }}
+          transition={{ ease: "linear", duration: 10, repeat: Infinity }}
         >
           {Array.from({ length: 4 }).map((_, i) => (
             <div key={i} className="flex items-center">
@@ -203,7 +203,7 @@ export default function LandingView({
       <motion.section
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.4 }}
         viewport={{ once: true, margin: "-100px" }}
         className="w-full bg-[var(--theme-bg)] py-16 px-4 sm:px-8 overflow-hidden"
       >

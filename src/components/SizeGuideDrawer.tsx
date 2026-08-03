@@ -43,7 +43,7 @@ export default function SizeGuideDrawer({ isOpen, onClose }: SizeGuideDrawerProp
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             className="absolute inset-0 bg-black/60 backdrop-blur-xs"
             onClick={onClose}
             data-lenis-prevent="true"
@@ -52,7 +52,7 @@ export default function SizeGuideDrawer({ isOpen, onClose }: SizeGuideDrawerProp
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3, ease: 'easeOut' }}
+            transition={{ type: 'tween', duration: 0.2, ease: 'easeOut' }}
             className="relative w-full max-w-xl bg-white h-full shadow-2xl flex flex-col z-10 no-radius"
           >
             {/* Header */}

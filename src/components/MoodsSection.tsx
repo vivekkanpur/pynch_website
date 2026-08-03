@@ -44,7 +44,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 50 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
 const MARQUEE_MOODS = [...MOODS, ...MOODS, ...MOODS, ...MOODS];
@@ -63,7 +63,7 @@ export function MoodsSection() {
         <motion.div 
           animate={{ x: ["0%", "-50%"] }}
           transition={{ 
-            duration: 120, 
+            duration: 60, 
             ease: "linear", 
             repeat: Infinity 
           }}

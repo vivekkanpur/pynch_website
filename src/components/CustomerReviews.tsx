@@ -33,7 +33,7 @@ export function CustomerReviews() {
         <motion.div 
           className="flex whitespace-nowrap"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ ease: "linear", duration: 35, repeat: Infinity }}
+          transition={{ ease: "linear", duration: 17.5, repeat: Infinity }}
         >
           {/* Duplicate the array to ensure smooth looping */}
           {[...REVIEWS, ...REVIEWS].map((review, i) => (

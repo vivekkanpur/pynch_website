@@ -15,7 +15,7 @@ interface CollectionsViewProps {
 
 const pageVariants = {
   initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" } },
 };
 
 const gridVariants = {
@@ -28,7 +28,7 @@ const gridVariants = {
 
 const footerVariants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 import allMoodsImg from '../data/images/models/all_moods.gif';
 import moodAarambhImg from '../data/images/models/mood_lingerie_seductress.webp';
@@ -94,7 +94,7 @@ export default function CollectionsView({ onSelectProduct, onQuickAdd, lustListI
             key={`${selectedCategory}-${selectedType}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.25 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-12 sm:gap-y-16"
           >
             {collectionProducts.map((prod) => (
@@ -121,7 +121,7 @@ export default function CollectionsView({ onSelectProduct, onQuickAdd, lustListI
       >
         <div className="relative aspect-[3/4] overflow-hidden group cursor-pointer border border-[var(--theme-border)] p-4 bg-[var(--theme-bg)]">
           <div className="relative w-full h-full overflow-hidden isolate z-0">
-            <img 
+            <img decoding="async" loading="lazy" 
               src={laceEditImg}
               alt="Collection Image 1"
               className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
@@ -136,7 +136,7 @@ export default function CollectionsView({ onSelectProduct, onQuickAdd, lustListI
         </div>
         <div className="relative aspect-[3/4] overflow-hidden group cursor-pointer border border-[var(--theme-border)] p-4 bg-[var(--theme-bg)]">
           <div className="relative w-full h-full overflow-hidden isolate z-0">
-            <img 
+            <img decoding="async" loading="lazy" 
               src={silkEditImg}
               alt="Collection Image 2"
               className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"

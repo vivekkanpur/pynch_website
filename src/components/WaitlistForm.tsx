@@ -144,7 +144,7 @@ export function WaitlistForm() {
                   }`}
                 >
                   <div className="relative w-full aspect-[3/4] overflow-hidden bg-gray-100">
-                    <img 
+                    <img decoding="async" loading="lazy" 
                       src={image} 
                       alt={id} 
                       className={`object-cover w-full h-full transition-transform duration-700 ease-out ${

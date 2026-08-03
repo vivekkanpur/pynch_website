@@ -36,10 +36,10 @@ export default function WaitlistView() {
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            transition={{ duration: 0.75, ease: "easeInOut" }}
             className="absolute inset-0"
           >
-            <img 
+            <img decoding="async" loading="lazy" 
               src={moodImages[currentIndex].src} 
               alt={moodImages[currentIndex].id} 
               className="w-full h-full object-cover"
@@ -57,7 +57,7 @@ export default function WaitlistView() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 1, delay: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
               className="text-white"
             >
               <p className="font-sans text-[10px] uppercase tracking-[0.3em] opacity-80 mb-2">Current Mood</p>
@@ -74,7 +74,7 @@ export default function WaitlistView() {
         <motion.div 
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
           className="w-full max-w-[800px]"
         >
           <WaitlistForm />

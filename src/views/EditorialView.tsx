@@ -30,7 +30,7 @@ export default function EditorialView({ onViewChange }: EditorialViewProps) {
 
       {/* Main Campaign Image Row */}
       <section className="relative w-full aspect-[16/9] bg-[#F4F0EA] overflow-hidden no-radius border border-[#E8E3DB]">
-        <img
+        <img decoding="async" loading="lazy"
           src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600"
           alt="PYNCH Lookbook Campaign"
           referrerPolicy="no-referrer"
@@ -58,7 +58,7 @@ export default function EditorialView({ onViewChange }: EditorialViewProps) {
             <div className="space-y-6">
               {/* Cover Thumbnail */}
               <div className="aspect-[16/10] bg-[#F4F0EA] overflow-hidden no-radius">
-                <img
+                <img decoding="async" loading="lazy"
                   src={art.image}
                   alt={art.title}
                   referrerPolicy="no-referrer"
@@ -154,7 +154,7 @@ export default function EditorialView({ onViewChange }: EditorialViewProps) {
 
               {/* Cover image in detail */}
               <div className="w-full aspect-[16/9] bg-[#F4F0EA] overflow-hidden no-radius border border-[#E8E3DB]">
-                <img
+                <img decoding="async" loading="lazy"
                   src={activeArticle.image}
                   alt={activeArticle.title}
                   referrerPolicy="no-referrer"
