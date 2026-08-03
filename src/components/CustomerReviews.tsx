@@ -12,14 +12,14 @@ import reviewer7 from '../data/images/reviewer_7.webp';
 import reviewer8 from '../data/images/reviewer_8.webp';
 
 const REVIEWS = [
-  { id: 1, name: "Priya M.", avatar: reviewer1, rating: 5, text: "Absolutely in love with the quality. The fit is perfect and it feels so luxurious." },
-  { id: 2, name: "Ananya S.", avatar: reviewer2, rating: 4, text: "Stunning details and fabric. I wish shipping was a bit faster, but worth the wait." },
-  { id: 3, name: "Neha K.", avatar: reviewer3, rating: 5, text: "So comfortable yet incredibly flattering. The materials are definitely premium." },
-  { id: 4, name: "Riya P.", avatar: reviewer4, rating: 3, text: "Beautiful design, but the sizing runs slightly small for me. Consider sizing up!" },
-  { id: 5, name: "Kavya R.", avatar: reviewer5, rating: 5, text: "I've finally found my go-to brand for intimates. The sizing is spot on." },
-  { id: 6, name: "Isha V.", avatar: reviewer6, rating: 4, text: "The packaging alone was an experience. The pieces are great, but a bit on the pricey side." },
-  { id: 7, name: "Simran D.", avatar: reviewer7, rating: 5, text: "Sensual, honest, and truly beautifully crafted. I'll be buying more colors." },
-  { id: 8, name: "Aisha N.", avatar: reviewer8, rating: 3, text: "The fabric is nice but the elastic band feels a bit restrictive after a few hours of wear." }
+  { id: 1, name: "Priya M.", avatar: reviewer1, rating: 5, text: "okay so i was NOT expecting to feel this way about a bralette but here we are. wore it all day and forgot i had it on. that never happens." },
+  { id: 2, name: "Ananya S.", avatar: reviewer2, rating: 4, text: "got it for a wedding and ended up wearing it basically every weekend after. the fabric just gets better after washing. minus one star only because i want more colours." },
+  { id: 3, name: "Neha K.", avatar: reviewer3, rating: 5, text: "i have a really hard time finding things that fit right and this actually did. like properly. i've already told four people about this brand." },
+  { id: 4, name: "Riya P.", avatar: reviewer4, rating: 3, text: "the fabric is genuinely beautiful, softer than i expected. i'd size up though — i'm usually an M and the M was a bit snug on me." },
+  { id: 5, name: "Kavya R.", avatar: reviewer5, rating: 5, text: "bought this on a whim and now i'm annoyed at myself for not finding it sooner. it's the kind of thing you want in every colour." },
+  { id: 6, name: "Isha V.", avatar: reviewer6, rating: 4, text: "wore this under a silk saree and it was the first time in years i didn't have to keep adjusting. that alone is worth it." },
+  { id: 7, name: "Simran D.", avatar: reviewer7, rating: 5, text: "honestly was skeptical at this price point but it really does feel different. my regular stuff feels cheap now which is a problem for my wallet." },
+  { id: 8, name: "Aisha N.", avatar: reviewer8, rating: 3, text: "the design is lovely and the material feels premium but the band digs in a bit by evening. hoping it stretches with wear." }
 ];
 
 export function CustomerReviews() {
