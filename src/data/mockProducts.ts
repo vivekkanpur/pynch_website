@@ -26,7 +26,6 @@ import asset_24 from "./images/models/Models New/Comphy/The Kiss Goodnight Trian
 import asset_25 from "./images/models/Models New/Comphy/The Kiss Goodnight Triangle Bralette/hf_20260713_093456_03822cfe-347d-45be-92f9-aed7a8c50ff1.webp";
 import asset_26 from "./images/models/Models New/Comphy/The Kiss Goodnight Triangle Bralette/hf_20260713_093537_7d0c905e-c587-41de-b393-82e9ad5c47b1.webp";
 import asset_27 from "./images/models/Models New/Comphy/The Love Triangle Bralette/ECOM_PR_SY-NY-10032_PWF_FRONT_SHOT01_2x3_VB5A1.webp";
-import asset_28 from "./images/models/Models New/Comphy/The Love Triangle Bralette/The Love Triangle Bralette – SYRN.mp4";
 import asset_29 from "./images/models/Models New/Comphy/The Love Triangle Bralette/hf_20260713_092712_d141c897-2045-4c97-8755-bfa6622c4618.webp";
 import asset_30 from "./images/models/Models New/Comphy/The Love Triangle Bralette/hf_20260713_093214_c55e8b85-c11d-48cb-8ebe-e7bf123cc5ce.webp";
 import asset_31 from "./images/models/Models New/Comphy/The Love Triangle Bralette/hf_20260713_093234_bbdd83fb-e20b-4786-a5dd-de6cabc41b97.webp";
@@ -155,21 +154,17 @@ import asset_153 from "./images/models/Models New/Romantic/9350/panties/hf_20260
 import asset_154 from "./images/models/Models New/Romantic/9350/panties/hf_20260730_113519_1e5c07f0-b400-4847-b2f3-4dd82d903892.png";
 import asset_155 from "./images/models/Models New/Romantic/Forever Yours Lightly Lined Demi Bra/010425_SYRN_Look8_Flushed_1413.webp";
 import asset_156 from "./images/models/Models New/Romantic/Forever Yours Lightly Lined Demi Bra/260204_SYRN_L1_PillowFight_MFR_0026.webp";
-import asset_157 from "./images/models/Models New/Romantic/Forever Yours Lightly Lined Demi Bra/Create AI Videos from Text & Image.mp4";
 import asset_158 from "./images/models/Models New/Romantic/Forever Yours Lightly Lined Demi Bra/ECOM_PR_SY-SB-10016_DWM_FRONT_SHOT01_2x3_2O2MM.webp";
 import asset_159 from "./images/models/Models New/Romantic/Forever Yours Lightly Lined Demi Bra/ECOM_RM_SOWK_09_SY-SB-10016_SY-PI-10011_BNP_TOP_BK_MO_SHOT01_YXYWA.webp";
 import asset_160 from "./images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/260204_SYRN_L2_LoveMeNot_MFR_0005.webp";
 import asset_161 from "./images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/260217_SYRN_L11_DewMe_MFR_0028.webp";
 import asset_162 from "./images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/ECOM_PR_SY-SB-10002_PIB_FRONT_SHOT1_2X3_M83G0.webp";
 import asset_163 from "./images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/ECOM_RM_SOWK_08_SY-SB-10002_SY-PI-10018_BNP_BODY_BK_MO_SHOT01_XQFMS.webp";
-import asset_164 from "./images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/Forget Me Not Unlined Balconette Bra – SYRN.mp4";
-import asset_165 from "./images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/Forget Me Not Unlined Balconette Bra – SYRN1.mp4";
 import asset_166 from "./images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/Unlined_balonette_2-1.webp";
 import asset_167 from "./images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/hf_20260713_075301_647efb66-492f-447e-a020-b2cb5a2a29a7.webp";
 import asset_168 from "./images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/hf_20260713_084031_0d74fd69-2afe-4bc6-9f7f-c1201997ff00.webp";
 import asset_169 from "./images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/hf_20260713_085635_90746bcc-cc34-48ba-b4f0-b01d227c12ce.webp";
 import asset_170 from "./images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/010425_SYRN_Look9_PillowFight_1601.webp";
-import asset_171 from "./images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/Create AI Videos from Text & Image.mp4";
 import asset_172 from "./images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/ECOM_PR_SY-PI-10011_FPF_FRONT_SHOT1_2X3_WYAK4_1.webp";
 import asset_173 from "./images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/ECOM_RM_SOWK_09_SY-PI-10011_SY-SB-10016_ADF_BODY_FR_IC_SHOT01_68XZ9.webp";
 import asset_174 from "./images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/ECOM_RM_SOWK_09_SY-PI-10011_SY-SB-10016_BNP_BODY_BK_MO_SHOT01_LS8T4.webp";
@@ -211,7 +206,6 @@ import asset_209 from "./images/models/Models New/Seductress/String You Along Lo
 import asset_210 from "./images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/ECOM_PR_SY-SB-10006_BIT_BACK_SHOT01_2x3_1S5PP.webp";
 import asset_211 from "./images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/hf_20260713_165047_b7709bcc-840f-48e9-aa85-84a94b759967.webp";
 import asset_212 from "./images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/hf_20260713_165115_51d1ded5-c00b-4243-8216-3085303fe0ca.webp";
-import asset_213 from "./images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/hf_20260713_165619_42995c1b-4f20-4e2e-95f6-e262916cb24f.mp4";
 import asset_214 from "./images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/hf_20260714_090322_90fc4615-fcc2-4ff5-99cf-db3d3cfbc115.webp";
 import asset_215 from "./images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/hf_20260714_091116_716a5368-f0f3-4a35-a324-79524e0b98d7.webp";
 import asset_216 from "./images/models/Models New/Seductress/The Show Off Unlined Plunge Bra/hf_20260713_171111_b04cc175-c03f-4142-8bb9-30f67ac5e807.webp";
@@ -342,17 +336,17 @@ export const MOCK_PRODUCTS = [
       {
         name: "After Dark",
         hex: "#242424",
-        images: [asset_31, asset_27, asset_28, asset_29, asset_30, asset_32]
+        images: [asset_31, asset_27, asset_29, asset_30, asset_32]
       },
       {
         name: "Pillow Fight",
         hex: "#F4F0E6",
-        images: [asset_31, asset_27, asset_28, asset_29, asset_30, asset_32]
+        images: [asset_31, asset_27, asset_29, asset_30, asset_32]
       },
       {
         name: "Bedhead / Pillow Fight",
         hex: "#D1D1D1,#F4F0E6",
-        images: [asset_31, asset_27, asset_28, asset_29, asset_30, asset_32]
+        images: [asset_31, asset_27, asset_29, asset_30, asset_32]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -447,17 +441,17 @@ export const MOCK_PRODUCTS = [
       {
         name: "After Dark",
         hex: "#242424",
-        images: [asset_156, asset_155, asset_157, asset_158, asset_159]
+        images: [asset_156, asset_155, asset_158, asset_159]
       },
       {
         name: "Pillow Fight",
         hex: "#F4F0E6",
-        images: [asset_156, asset_155, asset_157, asset_158, asset_159]
+        images: [asset_156, asset_155, asset_158, asset_159]
       },
       {
         name: "Bedhead / Pillow Fight",
         hex: "#D1D1D1,#F4F0E6",
-        images: [asset_156, asset_155, asset_157, asset_158, asset_159]
+        images: [asset_156, asset_155, asset_158, asset_159]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -482,17 +476,17 @@ export const MOCK_PRODUCTS = [
       {
         name: "After Dark",
         hex: "#242424",
-        images: [asset_168, asset_160, asset_161, asset_162, asset_163, asset_164, asset_165, asset_166, asset_167, asset_169]
+        images: [asset_168, asset_160, asset_161, asset_162, asset_163, asset_166, asset_167, asset_169]
       },
       {
         name: "Pillow Fight",
         hex: "#F4F0E6",
-        images: [asset_168, asset_160, asset_161, asset_162, asset_163, asset_164, asset_165, asset_166, asset_167, asset_169]
+        images: [asset_168, asset_160, asset_161, asset_162, asset_163, asset_166, asset_167, asset_169]
       },
       {
         name: "Bedhead / Pillow Fight",
         hex: "#D1D1D1,#F4F0E6",
-        images: [asset_168, asset_160, asset_161, asset_162, asset_163, asset_164, asset_165, asset_166, asset_167, asset_169]
+        images: [asset_168, asset_160, asset_161, asset_162, asset_163, asset_166, asset_167, asset_169]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -517,17 +511,17 @@ export const MOCK_PRODUCTS = [
       {
         name: "After Dark",
         hex: "#242424",
-        images: [asset_173, asset_170, asset_171, asset_172, asset_174, asset_175]
+        images: [asset_173, asset_170, asset_172, asset_174, asset_175]
       },
       {
         name: "Pillow Fight",
         hex: "#F4F0E6",
-        images: [asset_173, asset_170, asset_171, asset_172, asset_174, asset_175]
+        images: [asset_173, asset_170, asset_172, asset_174, asset_175]
       },
       {
         name: "Bedhead / Pillow Fight",
         hex: "#D1D1D1,#F4F0E6",
-        images: [asset_173, asset_170, asset_171, asset_172, asset_174, asset_175]
+        images: [asset_173, asset_170, asset_172, asset_174, asset_175]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -622,17 +616,17 @@ export const MOCK_PRODUCTS = [
       {
         name: "After Dark",
         hex: "#242424",
-        images: [asset_212, asset_210, asset_211, asset_213, asset_214, asset_215]
+        images: [asset_212, asset_210, asset_211, asset_214, asset_215]
       },
       {
         name: "Pillow Fight",
         hex: "#F4F0E6",
-        images: [asset_212, asset_210, asset_211, asset_213, asset_214, asset_215]
+        images: [asset_212, asset_210, asset_211, asset_214, asset_215]
       },
       {
         name: "Bedhead / Pillow Fight",
         hex: "#D1D1D1,#F4F0E6",
-        images: [asset_212, asset_210, asset_211, asset_213, asset_214, asset_215]
+        images: [asset_212, asset_210, asset_211, asset_214, asset_215]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -1481,7 +1475,7 @@ export const MOCK_PRODUCTS = [
     description: 'Experience ultimate comfort with our The Dare Mid Rise Brief. Carefully crafted for a perfect fit, featuring 95% Polyester 5% Elastane.',
     price: 5500,
     category: 'bras',
-    mood: 'Shararat',
+    mood: 'Sukoon',
     colors: [
       {
         name: 'Standard',

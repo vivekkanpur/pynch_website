@@ -195,8 +195,6 @@ export default function Footer({ onViewChange, onSizingOpen }: FooterProps) {
             <li>
               <Link
                 to="/tashu-studio"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="block hover:text-[var(--theme-teal)] hover:opacity-100 transition-colors cursor-pointer"
               >
                 Tashu Studio

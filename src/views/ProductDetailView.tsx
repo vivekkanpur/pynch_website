@@ -141,7 +141,8 @@ export default function ProductDetailView({
           ))}
           {activeColor.images.map((img, idx) => (
             <div key={`img-${idx}`} className="relative aspect-[3/4] w-[85vw] sm:w-[70vw] lg:w-full shrink-0 snap-center lg:snap-align-none bg-[#F4F0EA] overflow-hidden">
-              <img loading="lazy"
+              <img loading={idx === 0 ? "eager" : "lazy"}
+                fetchPriority={idx === 0 ? "high" : "auto"}
                 src={img}
                 alt={`${product.name} detail ${idx + 1}`}
                 referrerPolicy="no-referrer"
@@ -180,7 +181,7 @@ export default function ProductDetailView({
                 <span className="text-gray-400">Size</span>
                 <button
                   onClick={onSizingOpen}
-                  className="text-gray-400 hover:text-[#111111] border-b border-transparent hover:border-[#111111] transition-all"
+                  className="bg-[#F4F0EA] text-[#111111] text-[10px] font-sans tracking-[0.1em] uppercase px-4 py-2 hover:bg-gray-200 transition-colors no-radius"
                 >
                   Size Guide
                 </button>

@@ -252,11 +252,14 @@ function AppContent() {
       </main>
 
       <Footer
-        onViewChange={(path) => navigate(
-          path === 'shop' ? '/shop' : 
-          path === 'tashu-studio' ? '/tashu-studio' : 
-          path === 'philosophy' ? '/our-world' : '/'
-        )}
+        onViewChange={(path) => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          navigate(
+            path === 'shop' ? '/shop' : 
+            path === 'tashu-studio' ? '/tashu-studio' : 
+            path === 'philosophy' ? '/our-world' : '/'
+          );
+        }}
         onSizingOpen={() => navigate('/size-guide')}
       />
 
