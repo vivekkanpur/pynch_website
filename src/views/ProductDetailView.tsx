@@ -127,18 +127,7 @@ export default function ProductDetailView({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
         {/* Left Side: Images */}
         <div className="col-span-12 lg:col-span-7 flex overflow-x-auto snap-x snap-mandatory lg:flex-col lg:space-y-4 lg:overflow-visible gap-4 lg:gap-0 hide-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
-          {product.videos?.map((vid, idx) => (
-            <div key={`vid-${idx}`} className="relative aspect-[3/4] w-[85vw] sm:w-[70vw] lg:w-full shrink-0 snap-center lg:snap-align-none bg-[#F4F0EA] overflow-hidden">
-              <video
-                src={vid}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className={`absolute inset-0 w-full h-full object-cover object-center mix-blend-multiply transition-transform duration-1000 ease-out lg:hover:scale-105`}
-              />
-            </div>
-          ))}
+
           {activeColor.images.map((img, idx) => (
             <div key={`img-${idx}`} className="relative aspect-[3/4] w-[85vw] sm:w-[70vw] lg:w-full shrink-0 snap-center lg:snap-align-none bg-[#F4F0EA] overflow-hidden">
               <img loading={idx === 0 ? "eager" : "lazy"}
