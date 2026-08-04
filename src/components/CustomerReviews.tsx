@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Star } from 'lucide-react';
 
 import reviewer1 from '../data/images/reviewer_1.webp';
@@ -30,11 +29,7 @@ export function CustomerReviews() {
       </h2>
       <div className="w-full relative flex items-center">
         {/* We use two identical sets of reviews to create a seamless infinite loop */}
-        <motion.div 
-          className="flex whitespace-nowrap"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ ease: "linear", duration: 17.5, repeat: Infinity }}
-        >
+        <div className="flex whitespace-nowrap animate-marquee">
           {/* Duplicate the array to ensure smooth looping */}
           {[...REVIEWS, ...REVIEWS].map((review, i) => (
             <div 
@@ -65,7 +60,7 @@ export function CustomerReviews() {
               </p>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
