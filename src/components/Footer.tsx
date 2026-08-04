@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Mail, ArrowRight, Instagram, Linkedin, Facebook } from 'lucide-react';
-import logoImage from "../data/images/logo/Pynch Logo.png";
+import logoImage from "../data/images/logo/Pynch Logo.webp";
 
 interface FooterProps {
   onViewChange: (view: string) => void;

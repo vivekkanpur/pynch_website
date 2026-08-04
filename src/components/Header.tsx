@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useAuth } from "../contexts/AuthContext";
 import { signOut } from "../lib/firebase";
 
-import logoImage from "../data/images/logo/Pynch Logo - Copy.png";
+import logoImage from "../data/images/logo/Pynch Logo - Copy.webp";
 import { MOCK_PRODUCTS } from "../data/mockProducts";
 import { MobileLoginModal } from "./MobileLoginModal";
 
