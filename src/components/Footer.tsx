@@ -91,7 +91,7 @@ export default function Footer({ onViewChange, onSizingOpen }: FooterProps) {
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-[var(--theme-teal)] hover:opacity-100 transition-colors flex items-center gap-3">
+              <a href="https://www.facebook.com/profile.php?id=61591969918421" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--theme-teal)] hover:opacity-100 transition-colors flex items-center gap-3">
                 <Facebook className="w-4 h-4 stroke-[1.5]" />
                 <span>Meta</span>
               </a>
