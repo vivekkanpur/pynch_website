@@ -97,3 +97,58 @@ body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Reveal Meter Draggable Slider */
+.reveal-meter-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  border-radius: 2px;
+}
+.reveal-meter-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  background: transparent;
+  border-radius: 2px;
+}
+.reveal-meter-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 2.5px solid var(--thumb-color, #F97316);
+  margin-top: -7px;
+  cursor: grab;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+.reveal-meter-slider:hover::-webkit-slider-thumb {
+  transform: scale(1.12);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2), 0 0 0 5px color-mix(in srgb, var(--thumb-color, #F97316) 18%, transparent);
+}
+.reveal-meter-slider:active::-webkit-slider-thumb {
+  cursor: grabbing;
+  transform: scale(1.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22), 0 0 0 8px color-mix(in srgb, var(--thumb-color, #F97316) 14%, transparent);
+}
+.reveal-meter-slider::-moz-range-track {
+  height: 4px;
+  background: transparent;
+  border-radius: 2px;
+}
+.reveal-meter-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 2.5px solid var(--thumb-color, #F97316);
+  cursor: grab;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease;
+}

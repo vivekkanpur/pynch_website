@@ -1,5 +1,5 @@
 import { Menu } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { useAuth } from "../contexts/AuthContext";
@@ -30,6 +30,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [revealIndex, setRevealIndex] = useState(0); // 0=Sukoon(Comfy) … 3=Aarambh(Seductress)
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -281,62 +282,233 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                   
                   {/* Right Content - Reveal Meter & 4 Mood Images */}
                   <div className="flex-1 flex flex-col">
-                    {/* Reveal Meter */}
-                    <div className="w-full flex flex-col mb-6 relative">
-                      <div className="flex justify-between items-center text-[9px] font-sans tracking-[0.2em] uppercase text-[var(--theme-text)] opacity-60 mb-2 px-4">
-                        <span>Max Coverage (Comfy)</span>
-                        <span>Reveal Meter</span>
-                        <span>Max Reveal (Seductress)</span>
-                      </div>
-                      <div className="w-full flex items-center relative mt-1">
-                         {/* Continuous Line */}
-                         <div className="absolute left-[12.5%] right-[12.5%] top-[3px] h-px bg-[var(--theme-border)]"></div>
-                         {/* 4 Markers */}
-                         <div className="w-1/4 flex flex-col items-center z-10 gap-2">
-                           <div className="w-1.5 h-1.5 rounded-full bg-[var(--theme-teal)]"></div>
-                           <span className="text-[10px] font-sans tracking-widest text-[var(--theme-text)]">75%</span>
-                         </div>
-                         <div className="w-1/4 flex flex-col items-center z-10 gap-2">
-                           <div className="w-1.5 h-1.5 rounded-full bg-[var(--theme-border)]"></div>
-                           <span className="text-[10px] font-sans tracking-widest text-[var(--theme-text)] opacity-70">50%</span>
-                         </div>
-                         <div className="w-1/4 flex flex-col items-center z-10 gap-2">
-                           <div className="w-1.5 h-1.5 rounded-full bg-[var(--theme-border)]"></div>
-                           <span className="text-[10px] font-sans tracking-widest text-[var(--theme-text)] opacity-70">35%</span>
-                         </div>
-                         <div className="w-1/4 flex flex-col items-center z-10 gap-2">
-                           <div className="w-1.5 h-1.5 rounded-full bg-[var(--theme-teal)]"></div>
-                           <span className="text-[10px] font-sans tracking-widest text-[var(--theme-text)]">20%</span>
-                         </div>
-                      </div>
-                    </div>
-                    
-                    <div className="grid grid-cols-4 gap-4">
-                      <div onClick={() => navigate('/collections', { state: { selectedMood: 'Sukoon' } })} className="relative group cursor-pointer flex flex-col h-full">
-                        <div className="relative overflow-hidden aspect-[3/4]">
-                          <img decoding="async" loading="lazy" src={imgComfy} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="SUKOON (Comfy)" />
-                        </div>
-                        <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">SUKOON (Comfy)</span>
-                      </div>
-                      <div onClick={() => navigate('/collections', { state: { selectedMood: 'Shararat' } })} className="relative group cursor-pointer flex flex-col h-full">
-                        <div className="relative overflow-hidden aspect-[3/4]">
-                          <img decoding="async" loading="lazy" src={imgPlayful} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="SHARARAT (Playful)" />
-                        </div>
-                        <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">SHARARAT (Playful)</span>
-                      </div>
-                      <div onClick={() => navigate('/collections', { state: { selectedMood: 'Ishq' } })} className="relative group cursor-pointer flex flex-col h-full">
-                        <div className="relative overflow-hidden aspect-[3/4]">
-                          <img decoding="async" loading="lazy" src={imgRomantic} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="ISHQ (Romantic)" />
-                        </div>
-                        <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">ISHQ (Romantic)</span>
-                      </div>
-                      <div onClick={() => navigate('/collections', { state: { selectedMood: 'Aarambh' } })} className="relative group cursor-pointer flex flex-col h-full">
-                        <div className="relative overflow-hidden aspect-[3/4]">
-                          <img decoding="async" loading="lazy" src={imgSeductress} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="AARAMBH (Seductress)" />
-                        </div>
-                        <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] mt-3">AARAMBH (Seductress)</span>
-                      </div>
-                    </div>
+                    {(() => {
+                      const MOODS = [
+                        { key: 'Sukoon',   label: 'SUKOON (Comfy)',       coverage: 75, img: imgComfy },
+                        { key: 'Shararat', label: 'SHARARAT (Playful)',   coverage: 50, img: imgPlayful },
+                        { key: 'Ishq',     label: 'ISHQ (Romantic)',      coverage: 35, img: imgRomantic },
+                        { key: 'Aarambh',  label: 'AARAMBH (Seductress)', coverage: 20, img: imgSeductress },
+                      ];
+                      const TEMP_COLORS = ['#F97316', '#EA580C', '#DC2626', '#991B1B'];
+                      const HEAT_GRADIENT = 'linear-gradient(to right, #F97316, #EA580C, #DC2626, #991B1B)';
+                      const fillPct = (revealIndex / 3) * 100;
+                      const activeColor = TEMP_COLORS[revealIndex];
+                      // Pill translation: keep within bounds at edges
+                      const pillTranslate = revealIndex === 0 ? '0%' : revealIndex === 3 ? '-100%' : '-50%';
+
+                      return (
+                        <>
+                          {/* ── Reveal Meter ── */}
+                          <div className="w-full flex flex-col mb-6">
+
+                            {/* Title row */}
+                            <div className="flex justify-between items-center mb-5">
+                              <span className="text-[8px] font-sans tracking-[0.22em] uppercase text-[var(--theme-text)] opacity-35">
+                                Max Coverage
+                              </span>
+                              <span
+                                className="text-[9px] font-sans tracking-[0.25em] uppercase font-medium"
+                                style={{ color: activeColor, transition: 'color 0.3s ease' }}
+                              >
+                                — Reveal Meter —
+                              </span>
+                              <span className="text-[8px] font-sans tracking-[0.22em] uppercase text-[var(--theme-text)] opacity-35">
+                                Max Reveal
+                              </span>
+                            </div>
+
+                            {/* Slider container — fixed height for layering */}
+                            <div className="relative w-full" style={{ height: '72px' }}>
+
+                              {/* ① Floating pill badge above thumb */}
+                              <div
+                                style={{
+                                  position: 'absolute',
+                                  top: 0,
+                                  left: `${fillPct}%`,
+                                  transform: `translateX(${pillTranslate})`,
+                                  transition: 'left 0.18s ease, transform 0s',
+                                  pointerEvents: 'none',
+                                  zIndex: 20,
+                                  display: 'flex',
+                                  flexDirection: 'column',
+                                  alignItems: revealIndex === 0 ? 'flex-start' : revealIndex === 3 ? 'flex-end' : 'center',
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    background: activeColor,
+                                    color: 'white',
+                                    fontSize: '9px',
+                                    fontFamily: 'var(--font-sans)',
+                                    letterSpacing: '0.18em',
+                                    padding: '3px 10px',
+                                    borderRadius: '20px',
+                                    whiteSpace: 'nowrap',
+                                    boxShadow: `0 2px 10px ${activeColor}55`,
+                                    transition: 'background 0.3s ease, box-shadow 0.3s ease',
+                                    textTransform: 'uppercase',
+                                  }}
+                                >
+                                  {MOODS[revealIndex].coverage}% covered
+                                </div>
+                                {/* Caret */}
+                                <div
+                                  style={{
+                                    width: 0,
+                                    height: 0,
+                                    borderLeft: '5px solid transparent',
+                                    borderRight: '5px solid transparent',
+                                    borderTop: `5px solid ${activeColor}`,
+                                    alignSelf: revealIndex === 0 ? 'flex-start' : revealIndex === 3 ? 'flex-end' : 'center',
+                                    marginLeft: revealIndex === 0 ? '12px' : undefined,
+                                    marginRight: revealIndex === 3 ? '12px' : undefined,
+                                    transition: 'border-top-color 0.3s ease',
+                                  }}
+                                />
+                              </div>
+
+                              {/* ② Track background */}
+                              <div
+                                style={{
+                                  position: 'absolute', left: 0, right: 0,
+                                  top: '36px', height: '6px',
+                                  borderRadius: '3px',
+                                  background: 'var(--theme-border)',
+                                }}
+                              />
+
+                              {/* ③ Gradient fill */}
+                              <div
+                                style={{
+                                  position: 'absolute', left: 0,
+                                  top: '36px', height: '6px',
+                                  borderRadius: '3px',
+                                  width: `${fillPct}%`,
+                                  background: HEAT_GRADIENT,
+                                  transition: 'width 0.15s ease',
+                                }}
+                              />
+
+                              {/* ④ Glow bloom beneath fill */}
+                              <div
+                                style={{
+                                  position: 'absolute', left: 0,
+                                  top: '42px', height: '14px',
+                                  width: `${fillPct}%`,
+                                  background: HEAT_GRADIENT,
+                                  filter: 'blur(7px)',
+                                  opacity: 0.38,
+                                  transition: 'width 0.15s ease',
+                                  pointerEvents: 'none',
+                                  borderRadius: '3px',
+                                }}
+                              />
+
+                              {/* ⑤ Range input */}
+                              <input
+                                type="range"
+                                min={0} max={3} step={1}
+                                value={revealIndex}
+                                onChange={e => setRevealIndex(Number(e.target.value))}
+                                onClick={e => e.stopPropagation()}
+                                onMouseDown={e => e.stopPropagation()}
+                                className="reveal-meter-slider"
+                                style={{
+                                  position: 'absolute', left: 0, right: 0,
+                                  top: '33px', width: '100%', margin: 0,
+                                  '--thumb-color': activeColor,
+                                } as React.CSSProperties}
+                              />
+
+                              {/* ⑥ Snap ticks + % labels */}
+                              {MOODS.map((m, i) => {
+                                const snapPct = (i / 3) * 100;
+                                const isActive = i === revealIndex;
+                                const isPast   = i <= revealIndex;
+                                return (
+                                  <div
+                                    key={m.key}
+                                    style={{
+                                      position: 'absolute',
+                                      top: '52px',
+                                      left: `${snapPct}%`,
+                                      transform: i === 0 ? 'translateX(0)' : i === 3 ? 'translateX(-100%)' : 'translateX(-50%)',
+                                      display: 'flex',
+                                      flexDirection: 'column',
+                                      alignItems: i === 0 ? 'flex-start' : i === 3 ? 'flex-end' : 'center',
+                                      pointerEvents: 'none',
+                                      gap: '3px',
+                                    }}
+                                  >
+                                    {/* Tick mark */}
+                                    <div style={{
+                                      width: isActive ? '2px' : '1px',
+                                      height: isActive ? '10px' : '6px',
+                                      borderRadius: '1px',
+                                      background: isPast ? TEMP_COLORS[i] : 'var(--theme-border)',
+                                      transition: 'all 0.25s ease',
+                                    }} />
+                                    {/* % label */}
+                                    <span style={{
+                                      fontSize: '8px',
+                                      fontFamily: 'var(--font-sans)',
+                                      letterSpacing: '0.15em',
+                                      color: isActive ? TEMP_COLORS[i] : 'var(--theme-text)',
+                                      opacity: isActive ? 1 : 0.35,
+                                      transition: 'color 0.25s ease, opacity 0.25s ease',
+                                      fontWeight: isActive ? '500' : '400',
+                                    }}>
+                                      {m.coverage}%
+                                    </span>
+                                  </div>
+                                );
+                              })}
+
+                            </div>{/* /slider container */}
+                          </div>{/* /meter */}
+
+                          {/* ── Mood Cards ── */}
+                          <div className="grid grid-cols-4 gap-4">
+                            {MOODS.map((mood, i) => (
+                              <div
+                                key={mood.key}
+                                onClick={() => navigate('/collections', { state: { selectedMood: mood.key } })}
+                                onMouseEnter={() => setRevealIndex(i)}
+                                className="relative group cursor-pointer flex flex-col h-full"
+                              >
+                                <div
+                                  className="relative overflow-hidden aspect-[3/4]"
+                                  style={{
+                                    outline: i === revealIndex ? `1.5px solid ${TEMP_COLORS[i]}` : '1.5px solid transparent',
+                                    opacity: i === revealIndex ? 1 : 0.5,
+                                    transform: i === revealIndex ? 'scale(1.03)' : 'scale(1)',
+                                    boxShadow: i === revealIndex ? `0 8px 24px ${TEMP_COLORS[i]}30` : 'none',
+                                    transition: 'opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
+                                  }}
+                                >
+                                  <img
+                                    decoding="async" loading="lazy" src={mood.img}
+                                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                                    alt={mood.label}
+                                  />
+                                </div>
+                                <span
+                                  className="font-[var(--font-playfair)] text-lg tracking-wide mt-3"
+                                  style={{
+                                    color: i === revealIndex ? TEMP_COLORS[i] : 'var(--theme-text)',
+                                    opacity: i === revealIndex ? 1 : 0.45,
+                                    transition: 'color 0.25s ease, opacity 0.25s ease',
+                                  }}
+                                >
+                                  {mood.label}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </>
+                      );
+                    })()}
                   </div>
                 </div>
               )}
