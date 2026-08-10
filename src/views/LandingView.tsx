@@ -91,21 +91,21 @@ export default function LandingView({
       {/* HERO SECTION (TOGGLABLE MOODS) */}
       <TogglableMoods />
 
-      {/* HORIZONTAL SCROLLING MARQUEE */}
-      <section className="w-full overflow-hidden bg-[var(--theme-bg)] py-6 flex items-center">
+      {/* HORIZONTAL SCROLLING MARQUEE — editorial strip */}
+      <section className="w-full overflow-hidden bg-[var(--theme-bg)] border-y border-[var(--theme-border)] flex items-center" style={{ height: '52px' }}>
         <motion.div
-          className="flex whitespace-nowrap"
+          className="flex whitespace-nowrap items-center"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ ease: "linear", duration: 10, repeat: Infinity }}
+          transition={{ ease: "linear", duration: 28, repeat: Infinity }}
         >
-          {Array.from({ length: 4 }).map((_, i) => (
+          {Array.from({ length: 6 }).map((_, i) => (
             <div key={i} className="flex items-center">
-              <span className="font-serif italic text-2xl text-[var(--theme-text)] mx-6">dress the person, not the performance</span>
-              <span className="text-[var(--theme-teal)] text-sm mx-6">✦</span>
-              <span className="font-sans font-light tracking-widest text-sm text-[var(--theme-text)] uppercase mx-6">New Collection Arrived</span>
-              <span className="text-[var(--theme-teal)] text-sm mx-6">✦</span>
-              <span className="font-serif italic text-2xl text-[var(--theme-text)] mx-6">luxury intimates</span>
-              <span className="text-[var(--theme-teal)] text-sm mx-6">✦</span>
+              <span className="font-serif italic text-[18px] text-[var(--theme-text)] mx-10 opacity-75 tracking-wide">dress the person, not the performance</span>
+              <span className="mx-6 opacity-30 text-[var(--theme-teal)]" style={{ fontSize: '8px', letterSpacing: '0.2em' }}>◆</span>
+              <span className="font-sans font-light text-[10px] tracking-[0.35em] text-[var(--theme-text)] uppercase mx-10 opacity-50">New Collection — PYNCH</span>
+              <span className="mx-6 opacity-30 text-[var(--theme-teal)]" style={{ fontSize: '8px', letterSpacing: '0.2em' }}>◆</span>
+              <span className="font-serif italic text-[18px] text-[var(--theme-text)] mx-10 opacity-75 tracking-wide">luxury intimates</span>
+              <span className="mx-6 opacity-30 text-[var(--theme-teal)]" style={{ fontSize: '8px', letterSpacing: '0.2em' }}>◆</span>
             </div>
           ))}
         </motion.div>

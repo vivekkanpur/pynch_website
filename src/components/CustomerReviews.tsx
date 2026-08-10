@@ -34,19 +34,19 @@ export function CustomerReviews() {
           {[...REVIEWS, ...REVIEWS].map((review, i) => (
             <div 
               key={`${review.id}-${i}`} 
-              className="w-[300px] sm:w-[400px] shrink-0 mx-4 p-8 flex flex-col justify-between gap-6 bg-[var(--theme-bg)] hover:bg-[var(--theme-text)] hover:text-[var(--theme-bg)] transition-colors duration-500 group"
+              className="w-[300px] sm:w-[400px] shrink-0 mx-4 p-8 flex flex-col justify-between gap-6 bg-[var(--theme-bg)] border border-[var(--theme-border)] hover:bg-[var(--theme-text)] hover:text-[var(--theme-bg)] hover:border-[var(--theme-text)] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group"
             >
               <div className="flex items-center gap-4">
-                <img src={review.avatar} alt={review.name} loading="lazy" decoding="async" className="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-                <div className="flex flex-col gap-1">
-                  <span className="font-sans font-medium text-xs tracking-[0.2em] uppercase">
+                <img src={review.avatar} alt={review.name} loading="lazy" decoding="async" className="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out" />
+                <div className="flex flex-col gap-1.5">
+                  <span className="font-sans font-medium text-[10px] tracking-[0.25em] uppercase">
                     {review.name}
                   </span>
-                  <div className="flex gap-1 text-[var(--theme-teal)] group-hover:text-[var(--theme-bg)] transition-colors duration-500">
+                  <div className="flex gap-1 text-[var(--theme-teal)] group-hover:text-[var(--theme-bg)] transition-colors duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)]">
                     {Array.from({ length: 5 }).map((_, idx) => (
                       <Star 
                         key={idx} 
-                        size={14} 
+                        size={12} 
                         fill={idx < review.rating ? "currentColor" : "none"} 
                         strokeWidth={idx < review.rating ? 0 : 1.5} 
                         className={idx >= review.rating ? "opacity-30" : ""} 
@@ -55,7 +55,7 @@ export function CustomerReviews() {
                   </div>
                 </div>
               </div>
-              <p className="font-serif text-xl leading-relaxed italic whitespace-normal">
+              <p className="font-serif text-[22px] leading-relaxed italic whitespace-normal font-light">
                 "{review.text}"
               </p>
             </div>

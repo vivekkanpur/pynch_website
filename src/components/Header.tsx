@@ -32,6 +32,13 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [revealIndex, setRevealIndex] = useState(0); // 0=Sukoon(Comfy) … 3=Aarambh(Seductress)
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [announcementIdx, setAnnouncementIdx] = useState(0);
+  const [announcementVisible, setAnnouncementVisible] = useState(true);
+  const ANNOUNCEMENTS = [
+    'Complimentary organic sandalwood scenting on all orders',
+    'Ethical sourcing · Made with kindness · Shipped with care',
+    'New collection — discover ISHQ, the romantic',
+  ];
   const navigate = useNavigate();
   const { user } = useAuth();
 
@@ -41,6 +48,17 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const cycle = setInterval(() => {
+      setAnnouncementVisible(false);
+      setTimeout(() => {
+        setAnnouncementIdx(i => (i + 1) % ANNOUNCEMENTS.length);
+        setAnnouncementVisible(true);
+      }, 450);
+    }, 4500);
+    return () => clearInterval(cycle);
   }, []);
 
   const handleNavClick = (path: string) => {
@@ -53,9 +71,18 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
       className="sticky top-0 left-0 right-0 z-50 w-full bg-[var(--theme-bg)] border-b border-[var(--theme-border)] transition-all duration-400 ease-in-out group/header"
       onMouseLeave={() => setActiveMenu(null)}
     >
-      {/* Announcement Bar */}
-      <div className="bg-[var(--theme-text)] text-[var(--theme-bg)] py-2 text-center text-[10px] font-sans uppercase tracking-[0.4em] font-light">
-        Complimentary organic sandalwood scenting on all orders
+      {/* Announcement Bar — rotating messages with fade */}
+      <div className="bg-[var(--theme-text)] text-[var(--theme-bg)] py-2.5 text-center text-[9px] font-sans uppercase tracking-[0.45em] font-light overflow-hidden" style={{ height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <span
+          style={{
+            display: 'block',
+            opacity: announcementVisible ? 1 : 0,
+            transform: announcementVisible ? 'translateY(0)' : 'translateY(-6px)',
+            transition: 'opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)',
+          }}
+        >
+          {ANNOUNCEMENTS[announcementIdx]}
+        </span>
       </div>
 
       {/* Main Navigation */}

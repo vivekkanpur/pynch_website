@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import image1 from '../data/images/Team/WhatsApp Image 2026-08-09 at 10.54.10 AM.jpeg';
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -19,7 +20,7 @@ export default function TashuStudioView() {
           variants={fadeUpVariants}
           className="w-full aspect-[4/5] overflow-hidden bg-[#F4F0EA] flex items-center justify-center border border-[var(--theme-border)]"
         >
-          <span className="font-sans text-xs uppercase tracking-[0.2em] text-gray-400">Founder Image Coming Soon</span>
+          <img src={image1} alt="Tashu" className="w-full h-full object-cover" />
         </motion.div>
         
         <motion.div 

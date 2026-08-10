@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
+    "@marsidev/react-turnstile": "^1.1.0",
     "@shopify/hydrogen-react": "^2024.1.0",
     "@studio-freight/lenis": "^1.0.42",
     "@tailwindcss/vite": "^4.1.14",
