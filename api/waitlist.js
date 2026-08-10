@@ -1,3 +1,4 @@
+// Waitlist API Handler - triggers redeployment
 import { Resend } from 'resend';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc, getCountFromServer, query, where, getDocs, updateDoc } from 'firebase/firestore';
