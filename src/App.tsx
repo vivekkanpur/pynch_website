@@ -202,7 +202,7 @@ function AppContent() {
                 quantity: 1
               });
           }} /></PageTransition>} />
-          <Route path="/collections" element={<PageTransition><SEO title="Collections" description="Browse PYNCH mood-based collections — Sukoon (Comfy), Shararat (Playful), Ishq (Romantic), and Aarambh (Seductress)." /><CollectionsView 
+          <Route path="/collections" element={<PageTransition><SEO title="Collections" description="Browse PYNCH mood-based collections — Aarambh (Seductress), Ishq (Romantic), Shararat (Playful), and Sukoon (Comfy)." /><CollectionsView 
             onSelectProduct={handleSelectProduct} 
             lustListItems={lustListItems}
             onToggleLust={handleToggleLust}

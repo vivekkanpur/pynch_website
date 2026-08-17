@@ -11,7 +11,7 @@ interface SEOProps {
 }
 
 const DEFAULT_TITLE = 'PYNCH — Luxury Intimate Wear | Dress The Person, Not The Performance';
-const DEFAULT_DESCRIPTION = 'PYNCH is a luxury intimate wear brand built around four moods — Sukoon, Shararat, Ishq, and Aarambh. Premium fabrics, zero hardware, designed to honor your natural geometry.';
+const DEFAULT_DESCRIPTION = 'PYNCH is a luxury intimate wear brand built around four moods — Aarambh, Ishq, Shararat, and Sukoon. Premium fabrics, zero hardware, designed to honor your natural geometry.';
 const DEFAULT_KEYWORDS = 'PYNCH, luxury lingerie, intimate wear, bras, panties, bralettes, Indian lingerie brand, premium underwear, comfortable lingerie, mood-based lingerie';
 
 export function SEO({

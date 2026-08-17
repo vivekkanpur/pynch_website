@@ -53,10 +53,10 @@ export default function CollectionsView({ onSelectProduct, onQuickAdd, lustListI
 
   const categoryItems: CategoryItem[] = [
     { id: 'All Moods', label: 'ALL MOODS', image: allMoodsImg },
-    { id: 'Sukoon', label: 'SUKOON (Comfy)', image: moodSukoonImg },
-    { id: 'Shararat', label: 'SHARARAT (Playful)', image: moodShararatImg },
+    { id: 'Aarambh', label: 'AARAMBH (Seductress)', image: moodAarambhImg },
     { id: 'Ishq', label: 'ISHQ (Romantic)', image: moodIshqImg },
-    { id: 'Aarambh', label: 'AARAMBH (Seductress)', image: moodAarambhImg }
+    { id: 'Shararat', label: 'SHARARAT (Playful)', image: moodShararatImg },
+    { id: 'Sukoon', label: 'SUKOON (Comfy)', image: moodSukoonImg }
   ];
 
   return (

@@ -30,7 +30,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [revealIndex, setRevealIndex] = useState(0); // 0=Sukoon(Comfy) … 3=Aarambh(Seductress)
+  const [revealIndex, setRevealIndex] = useState(0); // 0=Aarambh(Seductress) … 3=Sukoon(Comfy)
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [announcementIdx, setAnnouncementIdx] = useState(0);
   const [announcementVisible, setAnnouncementVisible] = useState(true);
@@ -300,10 +300,10 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                   <div className="flex gap-16 min-w-[300px]">
 
                     <div className="flex flex-col gap-4">
-                      <Link to="/collections" state={{ selectedMood: 'Sukoon' }} className="text-base font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">SUKOON (Comfy)</Link>
-                      <Link to="/collections" state={{ selectedMood: 'Shararat' }} className="text-base font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">SHARARAT (Playful)</Link>
-                      <Link to="/collections" state={{ selectedMood: 'Ishq' }} className="text-base font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">ISHQ (Romantic)</Link>
                       <Link to="/collections" state={{ selectedMood: 'Aarambh' }} className="text-base font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">AARAMBH (Seductress)</Link>
+                      <Link to="/collections" state={{ selectedMood: 'Ishq' }} className="text-base font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">ISHQ (Romantic)</Link>
+                      <Link to="/collections" state={{ selectedMood: 'Shararat' }} className="text-base font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">SHARARAT (Playful)</Link>
+                      <Link to="/collections" state={{ selectedMood: 'Sukoon' }} className="text-base font-sans text-[var(--theme-text)] hover:text-[var(--theme-teal)] transition-colors">SUKOON (Comfy)</Link>
                     </div>
                   </div>
                   
@@ -311,13 +311,13 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                   <div className="flex-1 flex flex-col">
                     {(() => {
                       const MOODS = [
-                        { key: 'Sukoon',   label: 'SUKOON (Comfy)',       coverage: 75, img: imgComfy },
-                        { key: 'Shararat', label: 'SHARARAT (Playful)',   coverage: 50, img: imgPlayful },
-                        { key: 'Ishq',     label: 'ISHQ (Romantic)',      coverage: 35, img: imgRomantic },
                         { key: 'Aarambh',  label: 'AARAMBH (Seductress)', coverage: 20, img: imgSeductress },
+                        { key: 'Ishq',     label: 'ISHQ (Romantic)',      coverage: 35, img: imgRomantic },
+                        { key: 'Shararat', label: 'SHARARAT (Playful)',   coverage: 50, img: imgPlayful },
+                        { key: 'Sukoon',   label: 'SUKOON (Comfy)',       coverage: 75, img: imgComfy },
                       ];
-                      const TEMP_COLORS = ['#F97316', '#EA580C', '#DC2626', '#991B1B'];
-                      const HEAT_GRADIENT = 'linear-gradient(to right, #F97316, #EA580C, #DC2626, #991B1B)';
+                      const TEMP_COLORS = ['#991B1B', '#DC2626', '#EA580C', '#F97316'];
+                      const HEAT_GRADIENT = 'linear-gradient(to right, #991B1B, #DC2626, #EA580C, #F97316)';
                       const fillPct = (revealIndex / 3) * 100;
                       const activeColor = TEMP_COLORS[revealIndex];
                       // Pill translation: keep within bounds at edges
@@ -331,7 +331,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                             {/* Title row */}
                             <div className="flex justify-between items-center mb-5">
                               <span className="text-[8px] font-sans tracking-[0.22em] uppercase text-[var(--theme-text)] opacity-35">
-                                Max Coverage
+                                Max Reveal
                               </span>
                               <span
                                 className="text-[9px] font-sans tracking-[0.25em] uppercase font-medium"
@@ -340,7 +340,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                                 — Reveal Meter —
                               </span>
                               <span className="text-[8px] font-sans tracking-[0.22em] uppercase text-[var(--theme-text)] opacity-35">
-                                Max Reveal
+                                Max Coverage
                               </span>
                             </div>
 

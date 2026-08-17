@@ -13,20 +13,12 @@ import mood04Mobile from "../data/images/Mood04_mobile.webp";
 
 const MOODS_DATA = [
   {
-    id: "comfy",
-    categoryId: "Sukoon",
-    label: "Comfy",
-    title: "SUKOON",
-    img: mood03,
-    mobileImg: mood03Mobile,
-  },
-  {
-    id: "playful",
-    categoryId: "Shararat",
-    label: "Playful",
-    title: "SHARARAT",
-    img: mood04,
-    mobileImg: mood04Mobile,
+    id: "seductress",
+    categoryId: "Aarambh",
+    label: "Seductress",
+    title: "AARAMBH",
+    img: mood01,
+    mobileImg: mood01Mobile,
   },
   {
     id: "romantic",
@@ -37,12 +29,20 @@ const MOODS_DATA = [
     mobileImg: mood02Mobile,
   },
   {
-    id: "seductress",
-    categoryId: "Aarambh",
-    label: "Seductress",
-    title: "AARAMBH",
-    img: mood01,
-    mobileImg: mood01Mobile,
+    id: "playful",
+    categoryId: "Shararat",
+    label: "Playful",
+    title: "SHARARAT",
+    img: mood04,
+    mobileImg: mood04Mobile,
+  },
+  {
+    id: "comfy",
+    categoryId: "Sukoon",
+    label: "Comfy",
+    title: "SUKOON",
+    img: mood03,
+    mobileImg: mood03Mobile,
   },
 ];
 
