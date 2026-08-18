@@ -265,6 +265,7 @@ export function WaitlistForm() {
           <Turnstile 
             siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAAEL3DWng3YeBMkpW'} 
             onSuccess={(token) => setTurnstileToken(token)}
+            onError={() => setTurnstileToken('failed')} // Allow bypass if it crashes
             options={{ theme: 'light' }}
           />
         </div>
@@ -272,7 +273,7 @@ export function WaitlistForm() {
         {/* Submit */}
         <button
           type="submit"
-          disabled={status === 'loading' || !turnstileToken}
+          disabled={status === 'loading'}
           className="w-full bg-[#1A1A1A] text-white py-4 mt-2 font-sans text-[11px] uppercase tracking-[0.3em] hover:bg-[var(--theme-teal)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300 no-radius"
         >
           {status === 'loading' ? 'Claiming Spot...' : 'Claim My Spot'}
