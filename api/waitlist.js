@@ -129,6 +129,7 @@ export default async function handler(req, res) {
     // ── Save to Vercel Postgres ──────────────────────────────────────────────
     let waitlistPosition = 2401; // default fallback
     let insertedId = null;
+    let dbErrorMessage = null;
 
     if (!sql) {
       console.error('POSTGRES_URL is not set — skipping database save.');
@@ -146,6 +147,7 @@ export default async function handler(req, res) {
         insertedId = insertResult[0]?.id;
       } catch (dbError) {
         console.error('Postgres save error:', dbError);
+        dbErrorMessage = dbError.message || String(dbError);
       }
     }
 
@@ -335,6 +337,7 @@ export default async function handler(req, res) {
       position: waitlistPosition,
       referralCode,
       referralLink,
+      dbError: dbErrorMessage,
       ...(couponCode5 ? { couponCode5 } : {})
     });
   } catch (error) {
