@@ -3,7 +3,7 @@ import { createStorefrontClient } from '@shopify/hydrogen-react';
 export const client = createStorefrontClient({
   storeDomain: import.meta.env.VITE_SHOPIFY_STORE_DOMAIN || '',
   publicStorefrontToken: import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN || '',
-  storefrontApiVersion: '2024-01',
+  storefrontApiVersion: '2024-10',
 });
 
 export const getStorefrontApiUrl = client.getStorefrontApiUrl;

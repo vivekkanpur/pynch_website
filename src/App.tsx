@@ -248,7 +248,7 @@ export default function App() {
     <ShopifyProvider
       storeDomain={import.meta.env.VITE_SHOPIFY_STORE_DOMAIN}
       storefrontToken={import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN}
-      storefrontApiVersion="2024-01"
+      storefrontApiVersion="2024-10"
       countryIsoCode="US"
       languageIsoCode="EN"
     >
