@@ -1,7 +1,7 @@
 // Waitlist API Handler
 import { Resend } from 'resend';
 import { generateCouponCode, generateReferralCode } from './utils/generateCodes.js';
-import { neon } from '@neondatabase/serverless';
+import postgres from 'postgres';
 
 
 /**
@@ -59,7 +59,7 @@ async function scheduleDiscountMessage({ phone, name, couponCode, waitlistPositi
     ? `https://${process.env.VERCEL_URL}`
     : 'https://justpynch.com';
 
-  const qstashEndpoint = process.env.QSTASH_URL 
+  const qstashEndpoint = process.env.QSTASH_URL
     ? `${process.env.QSTASH_URL}/v2/publish/json`
     : 'https://qstash.upstash.io/v2/publish/json';
 
@@ -94,7 +94,7 @@ export default async function handler(req, res) {
     const { name, email, phone, moods, referredBy, turnstileToken } = req.body;
 
     // Lazy-init Neon so a missing POSTGRES_URL doesn't crash the module
-    const sql = process.env.POSTGRES_URL ? neon(process.env.POSTGRES_URL) : null;
+    const sql = process.env.POSTGRES_URL ? postgres(process.env.POSTGRES_URL, { ssl: 'require' }) : null;
 
     // Lazy-init Resend
     const resend = new Resend(process.env.RESEND_API_KEY || 'dummy_key');
@@ -103,7 +103,7 @@ export default async function handler(req, res) {
     if (!turnstileToken) {
       console.warn('No Turnstile token provided — skipping CAPTCHA check.');
     } else {
-    
+
       const secretKey = process.env.TURNSTILE_SECRET_KEY;
       if (!secretKey) {
         console.warn('TURNSTILE_SECRET_KEY is missing. Skipping verification.');
@@ -114,7 +114,7 @@ export default async function handler(req, res) {
           body: `secret=${encodeURIComponent(secretKey)}&response=${encodeURIComponent(turnstileToken)}`
         });
         const turnstileData = await turnstileRes.json();
-        
+
         if (!turnstileData.success) {
           console.error('Turnstile verification failed:', turnstileData);
           return res.status(400).json({ error: 'CAPTCHA verification failed. Please try again.' });
@@ -206,10 +206,10 @@ export default async function handler(req, res) {
     // ── 2. Email to the Customer (Autoresponder) ──────────────────────────────
     try {
       const customerResponse = await resend.emails.send({
-      from: 'Tashu at PYNCH <care@justpynch.com>',
-      to: [email],
-      subject: 'You are on the list.',
-      html: `
+        from: 'Tashu at PYNCH <care@justpynch.com>',
+        to: [email],
+        subject: 'You are on the list.',
+        html: `
         <!DOCTYPE html>
         <html>
         <head>
@@ -289,12 +289,12 @@ export default async function handler(req, res) {
         </body>
         </html>
       `
-    });
+      });
 
-    if (customerResponse.error) console.error('Customer email error:', customerResponse.error);
-  } catch (emailErr) {
-    console.error('Customer email failed:', emailErr);
-  }
+      if (customerResponse.error) console.error('Customer email error:', customerResponse.error);
+    } catch (emailErr) {
+      console.error('Customer email failed:', emailErr);
+    }
 
     // ── 3. Immediate WhatsApp: Welcome + Referral Link ────────────────────────
     if (phone && phone !== 'Not provided') {

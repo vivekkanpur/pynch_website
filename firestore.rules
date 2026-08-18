@@ -1,0 +1,22 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // By default, deny all read and write access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Allow authenticated users to read and write ONLY their own data
+    // This assumes you store user data in a collection called 'users'
+    // where the document ID matches the user's authentication UID.
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      
+      // If you plan to have subcollections for interactions, e.g., users/{userId}/interactions/{interactionId}
+      match /{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}

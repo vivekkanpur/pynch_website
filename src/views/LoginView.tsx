@@ -8,6 +8,7 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   auth,
+  logUserInteraction,
 } from '../lib/firebase';
 
 export default function LoginView() {
@@ -33,8 +34,10 @@ export default function LoginView() {
     try {
       if (isLogin) {
         await signInWithEmailAndPassword(auth, email, password);
+        await logUserInteraction('login', { method: 'email' });
       } else {
         await createUserWithEmailAndPassword(auth, email, password);
+        await logUserInteraction('register', { method: 'email' });
       }
       navigate('/account');
     } catch (err: any) {
@@ -64,6 +67,7 @@ export default function LoginView() {
     setError(null);
     try {
       await loginWithGoogle();
+      await logUserInteraction('login', { method: 'google' });
       navigate('/account');
     } catch (err: any) {
       setError(err.message);
