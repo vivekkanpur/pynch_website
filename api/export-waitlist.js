@@ -1,17 +1,6 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { neon } from '@neondatabase/serverless';
 
-const firebaseConfig = {
-  apiKey: process.env.VITE_FIREBASE_API_KEY,
-  authDomain: process.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.VITE_FIREBASE_APP_ID
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const sql = neon(process.env.POSTGRES_URL);
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
@@ -19,21 +8,26 @@ export default async function handler(req, res) {
   }
 
   try {
-    const waitlistSnapshot = await getDocs(collection(db, 'waitlist'));
+    const waitlist = await sql`SELECT * FROM waitlist ORDER BY created_at ASC`;
     
     // Create CSV header
-    let csv = 'Name,Email,Phone,Moods,Date\n';
+    let csv = 'ID,Name,Email,Phone,Moods,Position,CouponCode10,ReferralCode,ReferredBy,CouponCode5,Date\n';
 
-    waitlistSnapshot.forEach((doc) => {
-      const data = doc.data();
+    waitlist.forEach((data) => {
       // Escape fields for CSV to prevent issues with commas or quotes
+      const id = `"${(data.id || '').toString().replace(/"/g, '""')}"`;
       const name = `"${(data.name || '').replace(/"/g, '""')}"`;
       const email = `"${(data.email || '').replace(/"/g, '""')}"`;
       const phone = `"${(data.phone || '').replace(/"/g, '""')}"`;
       const moods = `"${(data.moods || '').replace(/"/g, '""')}"`;
-      const date = `"${(data.createdAt || '').replace(/"/g, '""')}"`;
+      const position = `"${(data.position || '').toString().replace(/"/g, '""')}"`;
+      const coupon10 = `"${(data.coupon_code_10 || '').replace(/"/g, '""')}"`;
+      const refCode = `"${(data.referral_code || '').replace(/"/g, '""')}"`;
+      const refBy = `"${(data.referred_by || '').replace(/"/g, '""')}"`;
+      const coupon5 = `"${(data.coupon_code_5 || '').replace(/"/g, '""')}"`;
+      const date = `"${(data.created_at ? new Date(data.created_at).toISOString() : '').replace(/"/g, '""')}"`;
       
-      csv += `${name},${email},${phone},${moods},${date}\n`;
+      csv += `${id},${name},${email},${phone},${moods},${position},${coupon10},${refCode},${refBy},${coupon5},${date}\n`;
     });
 
     // Send as CSV file

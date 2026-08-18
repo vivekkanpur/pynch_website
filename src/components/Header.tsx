@@ -7,7 +7,6 @@ import { signOut } from "../lib/firebase";
 
 import logoImage from "../data/images/logo/Pynch Logo - Copy.webp";
 import { MOCK_PRODUCTS } from "../data/mockProducts";
-import { MobileLoginModal } from "./MobileLoginModal";
 
 // Product & Mood Images for Mega Menus
 import imgCorset from "../data/images/products/model_black_corset.webp";
@@ -199,7 +198,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                 <div className="absolute top-full right-0 bg-[var(--theme-bg)] border border-[var(--theme-border)] shadow-xl p-4 hidden group-hover/user:flex flex-col gap-3 min-w-[150px] z-50">
                   <span className="text-[9px] font-sans text-gray-500 uppercase tracking-widest truncate max-w-full">{user.email}</span>
                   <button onClick={() => navigate('/account')} className="text-left text-[10px] font-sans uppercase tracking-[0.2em] hover:text-[var(--theme-lime)]">My Account</button>
-                  <button onClick={() => signOut()} className="text-left text-[10px] font-sans uppercase tracking-[0.2em] hover:text-red-500 transition-colors">Sign Out</button>
+                  <button onClick={() => { signOut(); navigate('/'); }} className="text-left text-[10px] font-sans uppercase tracking-[0.2em] hover:text-red-500 transition-colors">Sign Out</button>
                 </div>
               </div>
             ) : (
@@ -213,7 +212,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                 <button
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    setIsLoginModalOpen(!isLoginModalOpen);
+                    navigate('/login');
                   }}
                   className="p-2 text-[var(--theme-text)] hover:text-[var(--theme-lime)] transition-colors sm:hidden"
                 >
@@ -631,24 +630,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
         </div>
       )}
 
-      {/* Mobile Login Drop-down Panel */}
-      <AnimatePresence>
-        {isLoginModalOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="md:hidden absolute top-full left-0 right-0 bg-[var(--theme-bg)] border-b border-[var(--theme-border)] shadow-2xl p-6 z-40 max-h-[calc(100vh-70px)] overflow-y-auto"
-          >
-            <MobileLoginModal 
-              isOpen={true} 
-              isInline={true}
-              onClose={() => setIsLoginModalOpen(false)} 
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+
     </header>
   );
 }

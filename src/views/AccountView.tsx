@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { db, signOut } from '../lib/firebase';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { signOut } from '../lib/firebase';
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -28,15 +27,13 @@ export default function AccountView() {
 
     const fetchProfile = async () => {
       try {
-        const docRef = doc(db, 'users', user.uid);
-        const docSnap = await getDoc(docRef);
-        
-        if (docSnap.exists()) {
-          setProfile(docSnap.data());
+        const storedProfile = localStorage.getItem(`profile_${user.email}`);
+        if (storedProfile) {
+          setProfile(JSON.parse(storedProfile));
         } else {
           // Initialize empty profile
           const defaultProfile = { walletBalance: 0, sizes: {}, address: {} };
-          await setDoc(docRef, defaultProfile);
+          localStorage.setItem(`profile_${user.email}`, JSON.stringify(defaultProfile));
           setProfile(defaultProfile);
         }
       } catch (err) {
@@ -53,7 +50,7 @@ export default function AccountView() {
     if (!user) return;
     setSaveStatus('Saving...');
     try {
-      await setDoc(doc(db, 'users', user.uid), profile, { merge: true });
+      localStorage.setItem(`profile_${user.email}`, JSON.stringify(profile));
       setSaveStatus('Saved successfully');
       setTimeout(() => setSaveStatus(null), 3000);
     } catch (err) {

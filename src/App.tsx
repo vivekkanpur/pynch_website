@@ -71,45 +71,10 @@ function AppContent() {
 
   const { user } = useAuth();
 
-  // Load Lust List from Firestore when user logs in
-  useEffect(() => {
-    if (!user) return;
-    
-    import('firebase/firestore').then(({ doc, getDoc }) => {
-      import('./lib/firebase').then(({ db }) => {
-        getDoc(doc(db, 'users', user.uid)).then((docSnap) => {
-          if (docSnap.exists()) {
-            const data = docSnap.data();
-            if (data.lustList && Array.isArray(data.lustList)) {
-              // Merge local and cloud list by unique ID
-              setLustListItems(prev => {
-                const merged = [...prev];
-                data.lustList.forEach((cloudItem: Product) => {
-                  if (!merged.find(p => p.id === cloudItem.id)) {
-                    merged.push(cloudItem);
-                  }
-                });
-                return merged;
-              });
-            }
-          }
-        });
-      });
-    });
-  }, [user]);
-
-  // Save Lust List to LocalStorage and Firestore
+  // Save Lust List to LocalStorage
   useEffect(() => {
     localStorage.setItem('pynch_lust_list', JSON.stringify(lustListItems));
-    
-    if (user) {
-      import('firebase/firestore').then(({ doc, setDoc }) => {
-        import('./lib/firebase').then(({ db }) => {
-          setDoc(doc(db, 'users', user.uid), { lustList: lustListItems }, { merge: true });
-        });
-      });
-    }
-  }, [lustListItems, user]);
+  }, [lustListItems]);
 
   // Handlers for mocked features (Cart logic moved to CartDrawer and Shopify CartProvider)
   const handleAddToCart = (product: Product, colorName: string, size: string) => {

@@ -1,45 +1,32 @@
 import { initializeApp } from 'firebase/app';
-import { 
-  getAuth, 
-  GoogleAuthProvider, 
-  OAuthProvider,
+import {
+  getAuth,
   signInWithPopup,
-  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   sendPasswordResetEmail,
-  signInAnonymously,
-  signOut
+  signOut as firebaseSignOut,
 } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "dummy_api_key",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "dummy_domain",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "dummy_id",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "dummy_bucket",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "dummy_sender",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "dummy_app_id"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = getFirestore(app);
 
-// Providers
-export const googleProvider = new GoogleAuthProvider();
-export const appleProvider = new OAuthProvider('apple.com');
+const googleProvider = new GoogleAuthProvider();
 
-// Auth Methods
 export const loginWithGoogle = () => signInWithPopup(auth, googleProvider);
-export const loginWithApple = () => signInWithPopup(auth, appleProvider);
-
-const firebaseSignOut = () => signOut(auth);
-
+export const signOut = () => firebaseSignOut(auth);
 export {
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   sendPasswordResetEmail,
-  signInAnonymously,
-  firebaseSignOut as signOut
 };

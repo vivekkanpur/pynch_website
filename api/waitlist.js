@@ -1,20 +1,10 @@
 // Waitlist API Handler - triggers redeployment
 import { Resend } from 'resend';
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc, getCountFromServer, query, where, getDocs, updateDoc } from 'firebase/firestore';
 import { generateCouponCode, generateReferralCode } from './utils/generateCodes.js';
 
-const firebaseConfig = {
-  apiKey: process.env.VITE_FIREBASE_API_KEY,
-  authDomain: process.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.VITE_FIREBASE_APP_ID
-};
+import { neon } from '@neondatabase/serverless';
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const sql = neon(process.env.POSTGRES_URL);
 
 // Vercel automatically exposes files in /api as serverless functions.
 // process.env.RESEND_API_KEY must be set in Vercel or locally in .env
@@ -136,50 +126,43 @@ export default async function handler(req, res) {
     const couponCode10 = generateCouponCode('PYNCH10');   // 10% off — sent Day-1
     const referralCode = generateReferralCode(name);       // Referral link code
 
-    // ── Save to Firebase Firestore ────────────────────────────────────────────
+    // ── Save to Vercel Postgres ──────────────────────────────────────────────
     let waitlistPosition = 2401; // default fallback
-    let newDocRef = null;
+    let insertedId = null;
 
     try {
-      const waitlistColl = collection(db, 'waitlist');
-      const snapshot = await getCountFromServer(waitlistColl);
-      const dbCount = snapshot.data().count;
-      waitlistPosition = 2400 + dbCount + 1;
+      // Get count to determine position
+      const countResult = await sql`SELECT COUNT(*) as count FROM waitlist`;
+      const count = parseInt(countResult[0]?.count || '0', 10);
+      waitlistPosition = 2400 + count + 1;
 
-      newDocRef = await addDoc(waitlistColl, {
-        name: name || '',
-        email: email || '',
-        phone: phone || '',
-        moods: moods || '',
-        position: waitlistPosition,
-        couponCode10,
-        referralCode,
-        referredBy: referredBy || null,
-        createdAt: new Date().toISOString()
-      });
-    } catch (fbError) {
-      console.error('Firebase save error:', fbError);
+      // Insert new user
+      const insertResult = await sql`
+        INSERT INTO waitlist (name, email, phone, moods, position, coupon_code_10, referral_code, referred_by)
+        VALUES (${name || ''}, ${email || ''}, ${phone || ''}, ${moods || ''}, ${waitlistPosition}, ${couponCode10}, ${referralCode}, ${referredBy || null})
+        RETURNING id
+      `;
+      insertedId = insertResult[0]?.id;
+    } catch (dbError) {
+      console.error('Postgres save error:', dbError);
     }
 
     // ── Handle referral: find referrer and store 5% coupon for new user ───────
     let couponCode5 = null;
     if (referredBy) {
       try {
-        const refQuery = query(
-          collection(db, 'waitlist'),
-          where('referralCode', '==', referredBy)
-        );
-        const refSnapshot = await getDocs(refQuery);
+        const refRows = await sql`
+          SELECT id FROM waitlist WHERE referral_code = ${referredBy} LIMIT 1
+        `;
 
-        if (!refSnapshot.empty) {
-          // Give the new user a 5% code
+        if (refRows.length > 0) {
           couponCode5 = generateCouponCode('PYNCH5');
 
-          // Update the new user's Firestore doc with their 5% coupon
-          if (newDocRef) {
-            await updateDoc(newDocRef, { couponCode5 });
+          if (insertedId) {
+            await sql`
+              UPDATE waitlist SET coupon_code_5 = ${couponCode5} WHERE id = ${insertedId}
+            `;
           }
-
           console.log(`Referral match found for code "${referredBy}". 5% coupon: ${couponCode5}`);
         } else {
           console.log(`No referrer found for code "${referredBy}".`);
