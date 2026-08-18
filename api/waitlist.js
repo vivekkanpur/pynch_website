@@ -204,7 +204,8 @@ export default async function handler(req, res) {
     }
 
     // ── 2. Email to the Customer (Autoresponder) ──────────────────────────────
-    const customerResponse = await resend.emails.send({
+    try {
+      const customerResponse = await resend.emails.send({
       from: 'Tashu at PYNCH <care@justpynch.com>',
       to: [email],
       subject: 'You are on the list.',
