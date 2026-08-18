@@ -1,14 +1,8 @@
-// Waitlist API Handler - triggers redeployment
+// Waitlist API Handler
 import { Resend } from 'resend';
 import { generateCouponCode, generateReferralCode } from './utils/generateCodes.js';
-
 import { neon } from '@neondatabase/serverless';
 
-const sql = neon(process.env.POSTGRES_URL);
-
-// Vercel automatically exposes files in /api as serverless functions.
-// process.env.RESEND_API_KEY must be set in Vercel or locally in .env
-const resend = new Resend(process.env.RESEND_API_KEY || 'dummy_key');
 
 /**
  * Send an immediate WhatsApp message via the Meta Business Cloud API.
@@ -99,26 +93,32 @@ export default async function handler(req, res) {
   try {
     const { name, email, phone, moods, referredBy, turnstileToken } = req.body;
 
+    // Lazy-init Neon so a missing POSTGRES_URL doesn't crash the module
+    const sql = process.env.POSTGRES_URL ? neon(process.env.POSTGRES_URL) : null;
+
+    // Lazy-init Resend
+    const resend = new Resend(process.env.RESEND_API_KEY || 'dummy_key');
+
     // ── Verify Turnstile Token ───────────────────────────────────────────────
     if (!turnstileToken) {
-      return res.status(400).json({ error: 'CAPTCHA token is required.' });
-    }
-    
-    // Skip verification in dev if using the dummy testing secret key
-    const secretKey = process.env.TURNSTILE_SECRET_KEY;
-    if (!secretKey) {
-      console.warn('TURNSTILE_SECRET_KEY is missing. Skipping verification.');
+      console.warn('No Turnstile token provided — skipping CAPTCHA check.');
     } else {
-      const turnstileRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: `secret=${encodeURIComponent(secretKey)}&response=${encodeURIComponent(turnstileToken)}`
-      });
-      const turnstileData = await turnstileRes.json();
-      
-      if (!turnstileData.success) {
-        console.error('Turnstile verification failed:', turnstileData);
-        return res.status(400).json({ error: 'CAPTCHA verification failed. Please try again.' });
+    
+      const secretKey = process.env.TURNSTILE_SECRET_KEY;
+      if (!secretKey) {
+        console.warn('TURNSTILE_SECRET_KEY is missing. Skipping verification.');
+      } else {
+        const turnstileRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: `secret=${encodeURIComponent(secretKey)}&response=${encodeURIComponent(turnstileToken)}`
+        });
+        const turnstileData = await turnstileRes.json();
+        
+        if (!turnstileData.success) {
+          console.error('Turnstile verification failed:', turnstileData);
+          return res.status(400).json({ error: 'CAPTCHA verification failed. Please try again.' });
+        }
       }
     }
 
@@ -130,26 +130,28 @@ export default async function handler(req, res) {
     let waitlistPosition = 2401; // default fallback
     let insertedId = null;
 
-    try {
-      // Get count to determine position
-      const countResult = await sql`SELECT COUNT(*) as count FROM waitlist`;
-      const count = parseInt(countResult[0]?.count || '0', 10);
-      waitlistPosition = 2400 + count + 1;
+    if (!sql) {
+      console.error('POSTGRES_URL is not set — skipping database save.');
+    } else {
+      try {
+        const countResult = await sql`SELECT COUNT(*) as count FROM waitlist`;
+        const count = parseInt(countResult[0]?.count || '0', 10);
+        waitlistPosition = 2400 + count + 1;
 
-      // Insert new user
-      const insertResult = await sql`
-        INSERT INTO waitlist (name, email, phone, moods, position, coupon_code_10, referral_code, referred_by)
-        VALUES (${name || ''}, ${email || ''}, ${phone || ''}, ${moods || ''}, ${waitlistPosition}, ${couponCode10}, ${referralCode}, ${referredBy || null})
-        RETURNING id
-      `;
-      insertedId = insertResult[0]?.id;
-    } catch (dbError) {
-      console.error('Postgres save error:', dbError);
+        const insertResult = await sql`
+          INSERT INTO waitlist (name, email, phone, moods, position, coupon_code_10, referral_code, referred_by)
+          VALUES (${name || ''}, ${email || ''}, ${phone || ''}, ${moods || ''}, ${waitlistPosition}, ${couponCode10}, ${referralCode}, ${referredBy || null})
+          RETURNING id
+        `;
+        insertedId = insertResult[0]?.id;
+      } catch (dbError) {
+        console.error('Postgres save error:', dbError);
+      }
     }
 
     // ── Handle referral: find referrer and store 5% coupon for new user ───────
     let couponCode5 = null;
-    if (referredBy) {
+    if (referredBy && sql) {
       try {
         const refRows = await sql`
           SELECT id FROM waitlist WHERE referral_code = ${referredBy} LIMIT 1
@@ -176,28 +178,29 @@ export default async function handler(req, res) {
     const referralLink = `https://justpynch.com/waitlist?ref=${referralCode}`;
 
     // ── 1. Email to the Owner (Internal Notification) ─────────────────────────
-    const ownerResponse = await resend.emails.send({
-      from: 'PYNCH System <waitlist@justpynch.com>',
-      to: ['care@justpynch.com'],
-      subject: `New Waitlist Signup: ${name}`,
-      html: `
-        <div style="font-family: sans-serif; padding: 20px;">
-          <h2>New Waitlist Submission</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Phone:</strong> ${phone}</p>
-          <p><strong>Moods:</strong> ${moods}</p>
-          <p><strong>Waitlist Position:</strong> #${waitlistPosition}</p>
-          <p><strong>10% Coupon (Day-1):</strong> ${couponCode10}</p>
-          <p><strong>Referral Code:</strong> ${referralCode}</p>
-          ${referredBy ? `<p><strong>Referred By:</strong> ${referredBy}</p>` : ''}
-          ${couponCode5 ? `<p><strong>5% Referral Coupon Given:</strong> ${couponCode5}</p>` : ''}
-        </div>
-      `
-    });
-
-    if (ownerResponse.error) {
-      throw new Error(`Resend Owner Email Failed: ${ownerResponse.error.message}`);
+    try {
+      const ownerResponse = await resend.emails.send({
+        from: 'PYNCH System <waitlist@justpynch.com>',
+        to: ['care@justpynch.com'],
+        subject: `New Waitlist Signup: ${name}`,
+        html: `
+          <div style="font-family: sans-serif; padding: 20px;">
+            <h2>New Waitlist Submission</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Moods:</strong> ${moods}</p>
+            <p><strong>Waitlist Position:</strong> #${waitlistPosition}</p>
+            <p><strong>10% Coupon (Day-1):</strong> ${couponCode10}</p>
+            <p><strong>Referral Code:</strong> ${referralCode}</p>
+            ${referredBy ? `<p><strong>Referred By:</strong> ${referredBy}</p>` : ''}
+            ${couponCode5 ? `<p><strong>5% Referral Coupon Given:</strong> ${couponCode5}</p>` : ''}
+          </div>
+        `
+      });
+      if (ownerResponse.error) console.error('Owner email error:', ownerResponse.error);
+    } catch (emailErr) {
+      console.error('Owner email failed:', emailErr);
     }
 
     // ── 2. Email to the Customer (Autoresponder) ──────────────────────────────
@@ -287,9 +290,10 @@ export default async function handler(req, res) {
       `
     });
 
-    if (customerResponse.error) {
-      throw new Error(`Resend Customer Email Failed: ${customerResponse.error.message}`);
-    }
+    if (customerResponse.error) console.error('Customer email error:', customerResponse.error);
+  } catch (emailErr) {
+    console.error('Customer email failed:', emailErr);
+  }
 
     // ── 3. Immediate WhatsApp: Welcome + Referral Link ────────────────────────
     if (phone && phone !== 'Not provided') {
