@@ -28,9 +28,17 @@ export function WaitlistForm() {
   const [referredBy, setReferredBy] = useState<string | null>(null);
   const [linkCopied, setLinkCopied] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [totalCount, setTotalCount] = useState<number | null>(null);
 
-  // On mount: read ?ref= from the URL so a referred user's code is captured
+  // On mount: read ?ref= from the URL so a referred user's code is captured, and fetch count
   useEffect(() => {
+    fetch('/api/waitlist-count')
+      .then(res => res.json())
+      .then(data => {
+        if (data.count !== undefined) setTotalCount(data.count);
+      })
+      .catch(console.error);
+
     const params = new URLSearchParams(window.location.search);
     const ref = params.get('ref');
     if (ref) {
@@ -102,7 +110,9 @@ export function WaitlistForm() {
       {/* Social Proof Counter */}
       <div className="mb-8 border-b border-[var(--theme-border)] pb-4">
         <span className="font-sans text-[11px] font-medium tracking-[0.2em] uppercase text-[var(--theme-teal)]">
-          2,400+ women already on the list
+          {totalCount !== null 
+            ? `${totalCount} / 500 women enrolled for early access discount`
+            : 'First 500 people enrolling get 10% discount'}
         </span>
       </div>
 

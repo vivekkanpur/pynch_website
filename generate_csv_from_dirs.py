@@ -1,5 +1,6 @@
 import os
 import csv
+import urllib.parse
 
 def generate_csv():
     base_dir = 'public/images/models/Models New'
@@ -74,7 +75,10 @@ def generate_csv():
                 for file in files:
                     ext = file.split('.')[-1].lower()
                     if ext in ['png', 'webp', 'jpg', 'jpeg']:
-                        image_url = f"https://justpynch.com/images/models/Models New/{mood_dir}/{product_name}/{file}"
+                        # properly URL-encode the path (handles spaces like "Models New" and product names)
+                        path_part = f"images/models/Models New/{mood_dir}/{product_name}/{file}"
+                        encoded_path = urllib.parse.quote(path_part)
+                        image_url = f"https://justpynch.com/{encoded_path}"
                         
                         img_row = [
                             handle, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',

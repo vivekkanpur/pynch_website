@@ -1,7 +1,20 @@
 // Waitlist API Handler
 import { Resend } from 'resend';
 import { generateCouponCode, generateReferralCode } from './utils/generateCodes.js';
-import postgres from 'postgres';
+import admin from 'firebase-admin';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
+import { JWT } from 'google-auth-library';
+
+if (!admin.apps.length) {
+  try {
+    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT || '{}');
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount)
+    });
+  } catch (error) {
+    console.error('Firebase Admin initialization error:', error);
+  }
+}
 
 
 /**
@@ -93,8 +106,7 @@ export default async function handler(req, res) {
   try {
     const { name, email, phone, moods, referredBy, turnstileToken } = req.body;
 
-    // Lazy-init Neon so a missing POSTGRES_URL doesn't crash the module
-    const sql = process.env.POSTGRES_URL ? postgres(process.env.POSTGRES_URL, { ssl: 'require' }) : null;
+    const db = admin.apps.length ? admin.firestore() : null;
 
     // Lazy-init Resend
     const resend = new Resend(process.env.RESEND_API_KEY || 'dummy_key');
@@ -126,46 +138,97 @@ export default async function handler(req, res) {
     const couponCode10 = generateCouponCode('PYNCH10');   // 10% off — sent Day-1
     const referralCode = generateReferralCode(name);       // Referral link code
 
-    // ── Save to Vercel Postgres ──────────────────────────────────────────────
-    let waitlistPosition = 2401; // default fallback
-    let insertedId = null;
+    // ── Check for Duplicates ─────────────────────────────────────────────────
+    if (db) {
+      const existingEmail = await db.collection('waitlist').where('email', '==', email).limit(1).get();
+      if (!existingEmail.empty) {
+        return res.status(400).json({ error: 'This email is already on the waitlist.' });
+      }
+      
+      if (phone) {
+        const existingPhone = await db.collection('waitlist').where('phone', '==', phone).limit(1).get();
+        if (!existingPhone.empty) {
+          return res.status(400).json({ error: 'This phone number is already on the waitlist.' });
+        }
+      }
+    }
+
+    // ── Save to Firebase Firestore ───────────────────────────────────────────
+    let waitlistPosition = 1; // default fallback
+    let insertedDocRef = null;
     let dbErrorMessage = null;
 
-    if (!sql) {
-      console.error('POSTGRES_URL is not set — skipping database save.');
+    if (!db) {
+      console.error('Firebase DB is not initialized — skipping database save.');
     } else {
       try {
-        const countResult = await sql`SELECT COUNT(*) as count FROM waitlist`;
-        const count = parseInt(countResult[0]?.count || '0', 10);
-        waitlistPosition = 2400 + count + 1;
+        const waitlistCol = db.collection('waitlist');
+        const countSnapshot = await waitlistCol.count().get();
+        const count = countSnapshot.data().count;
+        waitlistPosition = count + 1;
 
-        const insertResult = await sql`
-          INSERT INTO waitlist (name, email, phone, moods, position, coupon_code_10, referral_code, referred_by)
-          VALUES (${name || ''}, ${email || ''}, ${phone || ''}, ${moods || ''}, ${waitlistPosition}, ${couponCode10}, ${referralCode}, ${referredBy || null})
-          RETURNING id
-        `;
-        insertedId = insertResult[0]?.id;
+        insertedDocRef = await waitlistCol.add({
+          name: name || '',
+          email: email || '',
+          phone: phone || '',
+          moods: moods || '',
+          position: waitlistPosition,
+          coupon_code_10: couponCode10,
+          referral_code: referralCode,
+          referred_by: referredBy || null,
+          createdAt: admin.firestore.FieldValue.serverTimestamp()
+        });
+
+        // ── Sync to Google Sheets ────────────────────────────────────────────────
+        const sheetId = process.env.GOOGLE_SHEET_ID;
+        const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT || '{}');
+        
+        if (sheetId && serviceAccount.client_email) {
+          try {
+            const jwt = new JWT({
+              email: serviceAccount.client_email,
+              key: serviceAccount.private_key,
+              scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+            });
+            const doc = new GoogleSpreadsheet(sheetId, jwt);
+            await doc.loadInfo();
+            
+            const sheet = doc.sheetsByIndex[0]; // Waitlist is the first tab
+            await sheet.setHeaderRow(['Name', 'Email', 'Phone', 'Moods', 'Position', 'Referral Code', 'Referred By', 'Date']);
+            await sheet.addRow({
+              'Name': name || '',
+              'Email': email || '',
+              'Phone': phone || '',
+              'Moods': moods || '',
+              'Position': waitlistPosition,
+              'Referral Code': referralCode,
+              'Referred By': referredBy || '',
+              'Date': new Date().toISOString()
+            });
+          } catch (sheetError) {
+            console.error('Google Sheets sync error:', sheetError);
+          }
+        }
+
       } catch (dbError) {
-        console.error('Postgres save error:', dbError);
+        console.error('Firebase save error:', dbError);
         dbErrorMessage = dbError.message || String(dbError);
       }
     }
 
     // ── Handle referral: find referrer and store 5% coupon for new user ───────
     let couponCode5 = null;
-    if (referredBy && sql) {
+    if (referredBy && db) {
       try {
-        const refRows = await sql`
-          SELECT id FROM waitlist WHERE referral_code = ${referredBy} LIMIT 1
-        `;
+        const refSnapshot = await db.collection('waitlist').where('referral_code', '==', referredBy).limit(1).get();
 
-        if (refRows.length > 0) {
+        if (!refSnapshot.empty) {
           couponCode5 = generateCouponCode('PYNCH5');
 
-          if (insertedId) {
-            await sql`
-              UPDATE waitlist SET coupon_code_5 = ${couponCode5} WHERE id = ${insertedId}
-            `;
+          if (insertedDocRef) {
+            await insertedDocRef.update({
+              coupon_code_5: couponCode5
+            });
           }
           console.log(`Referral match found for code "${referredBy}". 5% coupon: ${couponCode5}`);
         } else {
