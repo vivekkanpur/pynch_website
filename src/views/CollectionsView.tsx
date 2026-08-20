@@ -36,8 +36,8 @@ import moodIshqImg from '../data/images/models/mood_lingerie_romantic.webp';
 import moodSukoonImg from '../data/images/models/mood_lingerie_comfy.webp';
 import moodShararatImg from '../data/images/models/mood_lingerie_playful.webp';
 
-import laceEditImg from '../data/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/hf_20260713_163158_2283bfb8-5a8e-40b3-bc09-15fb1d4de7d8.webp';
-import silkEditImg from '../data/images/models/Models New/Romantic/Forever Yours Lightly Lined Demi Bra/ECOM_PR_SY-SB-10016_DWM_FRONT_SHOT01_2x3_2O2MM.webp';
+const laceEditImg = '/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/hf_20260713_163158_2283bfb8-5a8e-40b3-bc09-15fb1d4de7d8.webp';
+const silkEditImg = '/images/models/Models New/Romantic/Forever Yours Lightly Lined Demi Bra/ECOM_PR_SY-SB-10016_DWM_FRONT_SHOT01_2x3_2O2MM.webp';
 
 export default function CollectionsView({ onSelectProduct, onQuickAdd, lustListItems, onToggleLust }: CollectionsViewProps) {
   const location = useLocation();

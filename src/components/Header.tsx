@@ -16,7 +16,7 @@ import imgSeductress from "../data/images/models/mood_lingerie_seductress.webp";
 import imgRomantic from "../data/images/models/mood_lingerie_romantic.webp";
 import imgPlayful from "../data/images/models/mood_lingerie_playful.webp";
 import imgComfy from "../data/images/models/mood_lingerie_comfy.webp";
-import imgOurWorld from "../data/images/models/Models New/Comphy/Nap Time Mid Rise Bikini/Syrn_DanielDerro8088.webp";
+const imgOurWorld = "/images/models/Models New/Comphy/Nap Time Mid Rise Bikini/Syrn_DanielDerro8088.webp";
 
 interface HeaderProps {
   onCartClick: () => void;
