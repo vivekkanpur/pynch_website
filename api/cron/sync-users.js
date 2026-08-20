@@ -44,10 +44,10 @@ export default async function handler(req, res) {
     const doc = new GoogleSpreadsheet(sheetId, jwt);
     await doc.loadInfo();
 
-    // Use the second sheet (index 1) for Users
-    const sheet = doc.sheetsByIndex[1]; 
+    // Find the Users sheet by title
+    const sheet = doc.sheetsByTitle['users'] || doc.sheetsByTitle['Users'] || doc.sheetsByTitle['USERS']; 
     if (!sheet) {
-      console.error('Second tab (Users) not found in Google Sheet');
+      console.error('Users tab not found in Google Sheet. Make sure you named the tab "users".');
       return res.status(500).json({ error: 'Users sheet not found' });
     }
 
