@@ -180,7 +180,7 @@ export default async function handler(req, res) {
         });
 
         // ── Sync to Google Sheets ────────────────────────────────────────────────
-        const sheetId = process.env.GOOGLE_SHEET_ID;
+        const sheetId = "1hN8z4e605JTkt44HuBo-HZyQ6qS9E3ZxdUkZaTkHQro";
         const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT || '{}');
         
         if (sheetId && serviceAccount.client_email) {

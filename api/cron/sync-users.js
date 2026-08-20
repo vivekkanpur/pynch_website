@@ -20,7 +20,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const sheetId = process.env.GOOGLE_SHEET_ID;
+    const sheetId = "1hN8z4e605JTkt44HuBo-HZyQ6qS9E3ZxdUkZaTkHQro";
     if (!sheetId) {
       console.error('Missing GOOGLE_SHEET_ID');
       return res.status(500).json({ error: 'Missing GOOGLE_SHEET_ID' });
