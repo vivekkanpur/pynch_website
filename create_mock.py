@@ -1,7 +1,7 @@
 import os
 import json
 
-base_dir = 'src/data/images/models/Models New'
+base_dir = 'public/images/models/Models New'
 moods = {
     'Comphy': 'Sukoon',
     'Playful': 'Shararat',
@@ -9,9 +9,7 @@ moods = {
     'Seductress': 'Aarambh'
 }
 
-imports = []
 products = []
-import_count = 0
 
 for mood_dir, mood_val in moods.items():
     mdir = os.path.join(base_dir, mood_dir)
@@ -29,16 +27,12 @@ for mood_dir, mood_val in moods.items():
         for f in files:
             ext = f.split('.')[-1].lower()
             if ext in ['png', 'webp', 'jpg', 'jpeg', 'mp4']:
-                import_name = f"asset_{import_count}"
-                import_path = f"./images/models/Models New/{mood_dir}/{product_name}/{f}"
-                imports.append(f'import {import_name} from "{import_path}";')
+                public_path = f"/images/models/Models New/{mood_dir}/{product_name}/{f}"
                 
                 if ext == 'mp4':
-                    product_videos.append(import_name)
+                    product_videos.append(f'"{public_path}"')
                 else:
-                    product_images.append(import_name)
-                
-                import_count += 1
+                    product_images.append(f'"{public_path}"')
                 
         category = "bras"
         if "thong" in product_name.lower() or "bikini" in product_name.lower() or "brief" in product_name.lower():
@@ -71,9 +65,7 @@ for mood_dir, mood_val in moods.items():
     videos: [{', '.join(product_videos)}]
   }}""")
 
-output = f"""{chr(10).join(imports)}
-
-export const MOCK_PRODUCTS = [{','.join(products)}
+output = f"""export const MOCK_PRODUCTS = [{','.join(products)}
 ];
 """
 
