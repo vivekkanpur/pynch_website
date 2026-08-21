@@ -19,6 +19,7 @@ export default function LoginView() {
     if (user) navigate('/account');
   }, [user, navigate]);
 
+  const [countryCode, setCountryCode] = useState('+91');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [otp, setOtp] = useState('');
   const [loading, setLoading] = useState(false);
@@ -42,13 +43,28 @@ export default function LoginView() {
     e.preventDefault();
     setLoading(true);
     setError(null);
+    
     try {
+      const digits = phoneNumber.replace(/\D/g, '');
+      const formattedPhone = countryCode + digits;
+
+      if (digits.length < 5) {
+        throw new Error('Please enter a valid phone number.');
+      }
+
       const appVerifier = (window as any).recaptchaVerifier;
-      const confirmation = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
+      const confirmation = await signInWithPhoneNumber(auth, formattedPhone, appVerifier);
       setConfirmationResult(confirmation);
       setIsOtpStep(true);
     } catch (err: any) {
-      setError(err.message || 'Failed to send OTP. Please check the phone number format (e.g. +1...).');
+      console.error(err);
+      if (err.code === 'auth/invalid-phone-number') {
+        setError('Invalid phone number format. Please include your country code (e.g., +1 for US).');
+      } else if (err.code === 'auth/operation-not-allowed') {
+        setError('SMS login is disabled or your region is not allowed. Check Firebase Console.');
+      } else {
+        setError(err.message || 'Failed to send OTP. Please check the phone number.');
+      }
       if ((window as any).recaptchaVerifier) {
           (window as any).recaptchaVerifier.render().then((widgetId: any) => {
               (window as any).grecaptcha.reset(widgetId);
@@ -115,12 +131,28 @@ export default function LoginView() {
           <form className="space-y-8" onSubmit={handleSendOtp}>
             <div className="space-y-2">
               <label className="block font-sans text-[9px] uppercase tracking-[0.2em] text-[var(--theme-text)]">Phone Number</label>
-              <input
-                type="tel" required value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                className="w-full bg-transparent border-b border-[var(--theme-border)] py-3 focus:outline-none focus:border-[var(--theme-lime)] transition-colors font-sans text-sm text-[var(--theme-text)] placeholder-gray-400"
-                placeholder="+1 234 567 8900"
-              />
+              <div className="flex border-b border-[var(--theme-border)] focus-within:border-[var(--theme-lime)] transition-colors">
+                <select
+                  value={countryCode}
+                  onChange={(e) => setCountryCode(e.target.value)}
+                  className="bg-transparent py-3 pr-2 focus:outline-none font-sans text-sm text-[var(--theme-text)] cursor-pointer outline-none"
+                >
+                  <option value="+91">IN (+91)</option>
+                  <option value="+1">US (+1)</option>
+                  <option value="+44">UK (+44)</option>
+                  <option value="+61">AU (+61)</option>
+                  <option value="+81">JP (+81)</option>
+                  <option value="+49">DE (+49)</option>
+                  <option value="+33">FR (+33)</option>
+                  <option value="+86">CN (+86)</option>
+                </select>
+                <input
+                  type="tel" required value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  className="w-full bg-transparent py-3 pl-2 focus:outline-none font-sans text-sm text-[var(--theme-text)] placeholder-gray-400"
+                  placeholder="234 567 8900"
+                />
+              </div>
             </div>
             
             <div id="recaptcha-container"></div>
