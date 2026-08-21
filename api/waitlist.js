@@ -145,7 +145,7 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'This email is already on the waitlist.' });
       }
       
-      if (phone) {
+      if (phone && phone !== 'Not provided') {
         const existingPhone = await db.collection('waitlist').where('phone', '==', phone).limit(1).get();
         if (!existingPhone.empty) {
           return res.status(400).json({ error: 'This phone number is already on the waitlist.' });
