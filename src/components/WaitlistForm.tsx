@@ -22,6 +22,7 @@ export function WaitlistForm() {
     phone: ''
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [waitlistNumber, setWaitlistNumber] = useState<number | null>(null);
   const [referralLink, setReferralLink] = useState<string | null>(null);
   const [couponCode5, setCouponCode5] = useState<string | null>(null);
@@ -88,10 +89,13 @@ export function WaitlistForm() {
         setFormData({ name: '', email: '', phone: '' });
         setSelectedMoods([]);
       } else {
+        const errorData = await response.json().catch(() => ({}));
+        setErrorMessage(errorData.error || 'Something went wrong. Please try again.');
         setStatus('error');
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
+      setErrorMessage(error.message || 'Something went wrong. Please try again.');
       setStatus('error');
     }
   };
@@ -291,7 +295,7 @@ export function WaitlistForm() {
 
         {status === 'error' && (
           <p className="text-center font-sans text-[11px] text-red-500 mt-2">
-            Something went wrong. Please try again.
+            {errorMessage || 'Something went wrong. Please try again.'}
           </p>
         )}
 
