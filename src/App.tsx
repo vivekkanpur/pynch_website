@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation, useParams } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -49,6 +49,7 @@ function ScrollToTop() {
 function AppContent() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { handle: urlHandle } = useParams();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   // Modals and Drawers
@@ -119,9 +120,17 @@ function AppContent() {
     };
   }, []);
 
+  // Load product from URL if refreshing /product/:handle
+  useEffect(() => {
+    if (urlHandle && !selectedProduct) {
+      // In real app: fetch from Shopify by handle; for now navigate back to shop
+      navigate('/shop');
+    }
+  }, [urlHandle]);
+
   const handleSelectProduct = (product: Product) => {
     setSelectedProduct(product);
-    navigate("/product");
+    navigate(`/product/${product.handle}`);
     window.scrollTo(0, 0);
   };
 
@@ -155,24 +164,28 @@ function AppContent() {
             onQuickAdd={(p, colorName, size) => {
               handleAddToCart(p, colorName || p.colors[0].name, size || p.sizes[0]);
             }} /></PageTransition>} />
-          <Route path="/collections" element={<PageTransition><SEO title="Collections" description="Browse PYNCH mood-based collections — Aarambh (Seductress), Ishq (Romantic), Shararat (Playful), and Sukoon (Comfy)." /><CollectionsView 
-            onSelectProduct={handleSelectProduct} 
+          <Route path="/collections" element={<PageTransition><SEO title="Collections" description="Browse PYNCH mood-based collections — Aarambh (Seductress), Ishq (Romantic), Shararat (Playful), and Sukoon (Comfy)." /><CollectionsView
+            onSelectProduct={handleSelectProduct}
             lustListItems={lustListItems}
             onToggleLust={handleToggleLust}
-            onQuickAdd={(p) => console.log('Quick add')}
+            onQuickAdd={(p, colorName, size) => {
+              handleAddToCart(p, colorName || p.colors[0].name, size || p.sizes[0]);
+            }}
           /></PageTransition>} />
           <Route path="/our-world" element={<PageTransition><SEO title="Our World" description="Discover the PYNCH philosophy — we dress the person, not the performance. Four moods, four versions of you, all of them real." /><PhilosophyView /></PageTransition>} />
           <Route path="/login" element={<PageTransition><SEO title="Log In" description="Sign in to your PYNCH account to manage orders, track deliveries, and access your Lust List." /><LoginView /></PageTransition>} />
           <Route path="/account" element={<PageTransition><SEO title="My Account" /><AccountView /></PageTransition>} />
           <Route path="/size-guide" element={<PageTransition><SEO title="Sizing & Comfort Guide" description="Find your perfect PYNCH fit with our comprehensive sizing guide and comfort calculator." /><SizeGuideView /></PageTransition>} />
           <Route path="/tashu-studio" element={<PageTransition><SEO title="Tashu Studio" description="Meet the creator behind PYNCH. Explore Tashu's vision for redefining luxury intimate wear." /><TashuStudioView /></PageTransition>} />
-          <Route path="/lust-list" element={<PageTransition><SEO title="Lust List" description="Your curated selection of PYNCH pieces you love." /><LustListView 
+          <Route path="/lust-list" element={<PageTransition><SEO title="Lust List" description="Your curated selection of PYNCH pieces you love." /><LustListView
             lustListItems={lustListItems}
             onSelectProduct={handleSelectProduct}
             onToggleLust={handleToggleLust}
-            onQuickAdd={(p) => console.log('Quick add')}
+            onQuickAdd={(p, colorName, size) => {
+              handleAddToCart(p, colorName || p.colors[0].name, size || p.sizes[0]);
+            }}
           /></PageTransition>} />
-          <Route path="/product" element={
+          <Route path="/product/:handle" element={
             selectedProduct ? (
               <PageTransition><SEO title={selectedProduct.name} description={selectedProduct.description} /><ProductDetailView
                 key={selectedProduct.id}

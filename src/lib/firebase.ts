@@ -43,8 +43,7 @@ export async function logUserInteraction(actionType: string, details?: any) {
       details: details || {},
       timestamp: new Date()
     });
-    console.log(`Interaction logged: ${actionType}`);
-  } catch (error) {
-    console.error("Error saving interaction: ", error);
+  } catch {
+    // Silent fail - analytics tracking should not block user flow
   }
 }

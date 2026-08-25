@@ -38,6 +38,8 @@ export const PRODUCTS_QUERY = `
           title
           description
           handle
+          tags
+          productType
           priceRange {
             minVariantPrice {
               amount
@@ -85,21 +87,27 @@ export function mapShopifyProductsToLocal(shopifyData: any): any[] {
     // Deduplicate sizes
     const uniqueSizes = Array.from(new Set(sizes));
 
+    // Extract color names from variant options (assuming option name is 'Color')
+    const colorNames = Array.from(new Set(
+      node.variants.edges
+        .map((e: any) => e.node.selectedOptions.find((o: any) => o.name === 'Color')?.value)
+        .filter(Boolean)
+    ));
+    const palette = ['#8B7355', '#C4A882', '#D4C4B0', '#E8DCC8', '#F5EFE6', '#3E2F23'];
+    
     return {
       id: node.id,
       name: node.title,
       tagline: node.handle, // fallback
       description: node.description,
       price: parseFloat(node.priceRange.minVariantPrice.amount),
-      category: 'sets', // default until we map collections
-      colors: [
-        {
-          name: 'Default',
-          hex: '#000000',
-          images: images.length > 0 ? images : ['https://via.placeholder.com/400'],
-        }
-      ],
-      sizes: uniqueSizes.length > 0 ? uniqueSizes : ['XS', 'S', 'M', 'L'],
+      category: (node.productType || node.tags.split(',')[0] || 'sets').toLowerCase(),
+      colors: (colorNames.length > 0 ? colorNames : ['Default']).map((cname, i) => ({
+        name: cname,
+        hex: palette[i % palette.length],
+        images: images.length > 0 ? images : [],
+      })),
+      sizes: uniqueSizes,
       materials: 'Shopify Product Material',
       details: ['Fetched dynamically from Shopify'],
       features: ['Storefront API Integration'],
