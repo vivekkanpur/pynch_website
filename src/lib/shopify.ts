@@ -94,7 +94,12 @@ export function mapShopifyProductsToLocal(shopifyData: any): any[] {
         .filter(Boolean)
     ));
     const palette = ['#8B7355', '#C4A882', '#D4C4B0', '#E8DCC8', '#F5EFE6', '#3E2F23'];
-    
+
+    // Extract mood from tags (Aarambh, Ishq, Shararat, Sukoon)
+    const tags = node.tags ? node.tags.split(',').map((t: string) => t.trim()) : [];
+    const moods = ['Aarambh', 'Ishq', 'Shararat', 'Sukoon'];
+    const productMood = tags.find((t: string) => moods.includes(t)) || null;
+
     return {
       id: node.id,
       sku: node.handle,
@@ -104,6 +109,7 @@ export function mapShopifyProductsToLocal(shopifyData: any): any[] {
       description: node.description,
       price: parseFloat(node.priceRange.minVariantPrice.amount),
       category: (node.productType || node.tags.split(',')[0] || 'sets').toLowerCase(),
+      mood: productMood,
       colors: (colorNames.length > 0 ? colorNames : ['Default']).map((cname, i) => ({
         name: cname,
         hex: palette[i % palette.length],
