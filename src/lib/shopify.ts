@@ -119,6 +119,7 @@ export function mapShopifyProductsToLocal(shopifyData: any): Product[] {
       tagline: node.handle, // fallback
       description: node.description,
       price: parseFloat(node.priceRange?.minVariantPrice?.amount ?? '0'),
+      currency: node.priceRange?.minVariantPrice?.currencyCode || 'INR',
       category: (node.productType || tags[0] || 'sets').toLowerCase(),
       mood: productMood,
       colors: (colorNames.length > 0 ? colorNames : ['Default']).map((cname, i) => ({

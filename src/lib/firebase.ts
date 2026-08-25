@@ -7,8 +7,6 @@ import {
   signInWithPhoneNumber,
   signOut as firebaseSignOut,
 } from 'firebase/auth';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
-
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -20,7 +18,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = getFirestore(app);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -33,10 +30,14 @@ export {
 
 export async function logUserInteraction(actionType: string, details?: any) {
   const user = auth.currentUser;
-  
+
   if (!user) return;
 
   try {
+    // Firestore is loaded on demand — it's only needed here, and eagerly
+    // bundling it would add ~150kB gzipped to every page's initial load.
+    const { getFirestore, collection, addDoc } = await import('firebase/firestore');
+    const db = getFirestore(app);
     const interactionsRef = collection(db, 'users', user.uid, 'interactions');
     await addDoc(interactionsRef, {
       type: actionType,

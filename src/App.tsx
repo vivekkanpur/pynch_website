@@ -16,6 +16,7 @@ import SizeGuideDrawer from "./components/SizeGuideDrawer";
 import { ShopifyCartIdentitySync } from "./components/ShopifyCartIdentitySync";
 import { useAuth } from "./contexts/AuthContext";
 import { Product } from "./types";
+import { ROUTE_META } from "@/lib/routeMeta";
 
 // Every other route is code-split so the initial bundle only ships the
 // landing page; the rest loads on demand as the user navigates there.
@@ -176,15 +177,15 @@ function AppContent() {
               handleAddToCart(p, colorName || p.colors[0].name, size || p.sizes[0]);
             }}
           /></PageTransition>} />
-          <Route path="/waitlist" element={<PageTransition><SEO title="Join the Waitlist" description="Be the first to experience PYNCH luxury intimate wear. Join our exclusive waitlist for early access to our collections." /><WaitlistView /></PageTransition>} />
-          <Route path="/shop" element={<PageTransition><SEO title="Shop All Intimates" description="Explore the full PYNCH collection — bras, bralettes, panties, and more. Premium fabrics, zero hardware, designed for your comfort." /><ShopView 
+          <Route path="/waitlist" element={<PageTransition><SEO {...ROUTE_META['/waitlist']} /><WaitlistView /></PageTransition>} />
+          <Route path="/shop" element={<PageTransition><SEO {...ROUTE_META['/shop']} /><ShopView 
             onSelectProduct={handleSelectProduct} 
             lustListItems={lustListItems}
             onToggleLust={handleToggleLust}
             onQuickAdd={(p, colorName, size) => {
               handleAddToCart(p, colorName || p.colors[0].name, size || p.sizes[0]);
             }} /></PageTransition>} />
-          <Route path="/collections" element={<PageTransition><SEO title="Collections" description="Browse PYNCH mood-based collections — Aarambh (Seductress), Ishq (Romantic), Shararat (Playful), and Sukoon (Comfy)." /><CollectionsView
+          <Route path="/collections" element={<PageTransition><SEO {...ROUTE_META['/collections']} /><CollectionsView
             onSelectProduct={handleSelectProduct}
             lustListItems={lustListItems}
             onToggleLust={handleToggleLust}
@@ -192,12 +193,12 @@ function AppContent() {
               handleAddToCart(p, colorName || p.colors[0].name, size || p.sizes[0]);
             }}
           /></PageTransition>} />
-          <Route path="/our-world" element={<PageTransition><SEO title="Our World" description="Discover the PYNCH philosophy — we dress the person, not the performance. Four moods, four versions of you, all of them real." /><PhilosophyView /></PageTransition>} />
-          <Route path="/login" element={<PageTransition><SEO title="Log In" description="Sign in to your PYNCH account to manage orders, track deliveries, and access your Lust List." /><LoginView /></PageTransition>} />
-          <Route path="/account" element={<PageTransition><SEO title="My Account" /><AccountView /></PageTransition>} />
-          <Route path="/size-guide" element={<PageTransition><SEO title="Sizing & Comfort Guide" description="Find your perfect PYNCH fit with our comprehensive sizing guide and comfort calculator." /><SizeGuideView /></PageTransition>} />
-          <Route path="/tashu-studio" element={<PageTransition><SEO title="Tashu Studio" description="Meet the creator behind PYNCH. Explore Tashu's vision for redefining luxury intimate wear." /><TashuStudioView /></PageTransition>} />
-          <Route path="/lust-list" element={<PageTransition><SEO title="Lust List" description="Your curated selection of PYNCH pieces you love." /><LustListView
+          <Route path="/our-world" element={<PageTransition><SEO {...ROUTE_META['/our-world']} /><PhilosophyView /></PageTransition>} />
+          <Route path="/login" element={<PageTransition><SEO {...ROUTE_META['/login']} /><LoginView /></PageTransition>} />
+          <Route path="/account" element={<PageTransition><SEO {...ROUTE_META['/account']} /><AccountView /></PageTransition>} />
+          <Route path="/size-guide" element={<PageTransition><SEO {...ROUTE_META['/size-guide']} /><SizeGuideView /></PageTransition>} />
+          <Route path="/tashu-studio" element={<PageTransition><SEO {...ROUTE_META['/tashu-studio']} /><TashuStudioView /></PageTransition>} />
+          <Route path="/lust-list" element={<PageTransition><SEO {...ROUTE_META['/lust-list']} /><LustListView
             lustListItems={lustListItems}
             onSelectProduct={handleSelectProduct}
             onToggleLust={handleToggleLust}
@@ -207,7 +208,27 @@ function AppContent() {
           /></PageTransition>} />
           <Route path="/product/:handle" element={
             selectedProduct ? (
-              <PageTransition><SEO title={selectedProduct.name} description={selectedProduct.description} /><ProductDetailView
+              <PageTransition><SEO
+                title={selectedProduct.name}
+                description={selectedProduct.description}
+                ogImage={selectedProduct.colors?.[0]?.images?.[0]}
+                ogType="product"
+                jsonLd={{
+                  '@context': 'https://schema.org',
+                  '@type': 'Product',
+                  name: selectedProduct.name,
+                  description: selectedProduct.description,
+                  sku: selectedProduct.sku,
+                  image: selectedProduct.colors?.flatMap(c => c.images) ?? [],
+                  offers: {
+                    '@type': 'Offer',
+                    url: `https://justpynch.com/product/${encodeURIComponent(selectedProduct.handle || selectedProduct.id)}`,
+                    priceCurrency: selectedProduct.currency || 'INR',
+                    price: selectedProduct.price,
+                    availability: 'https://schema.org/InStock',
+                  },
+                }}
+              /><ProductDetailView
                 key={selectedProduct.id}
                 product={selectedProduct}
                 onBack={() => navigate(-1)}
@@ -225,11 +246,11 @@ function AppContent() {
               </div>
             )
           } />
-          <Route path="/returns-and-exchanges" element={<PageTransition><SEO title="Returns & Exchanges" description="PYNCH returns and exchanges policy. We want you to love your purchase." /><LegalView type="returns" /></PageTransition>} />
-          <Route path="/refund-policy" element={<PageTransition><SEO title="Refund Policy" /><LegalView type="refunds" /></PageTransition>} />
-          <Route path="/privacy-policy" element={<PageTransition><SEO title="Privacy Policy" /><LegalView type="privacy" /></PageTransition>} />
-          <Route path="/terms-of-service" element={<PageTransition><SEO title="Terms of Service" /><LegalView type="terms" /></PageTransition>} />
-          <Route path="/track-order" element={<PageTransition><SEO title="Track My Order" description="Track your PYNCH order status and delivery updates." /><OrderTrackingView /></PageTransition>} />
+          <Route path="/returns-and-exchanges" element={<PageTransition><SEO {...ROUTE_META['/returns-and-exchanges']} /><LegalView type="returns" /></PageTransition>} />
+          <Route path="/refund-policy" element={<PageTransition><SEO {...ROUTE_META['/refund-policy']} /><LegalView type="refunds" /></PageTransition>} />
+          <Route path="/privacy-policy" element={<PageTransition><SEO {...ROUTE_META['/privacy-policy']} /><LegalView type="privacy" /></PageTransition>} />
+          <Route path="/terms-of-service" element={<PageTransition><SEO {...ROUTE_META['/terms-of-service']} /><LegalView type="terms" /></PageTransition>} />
+          <Route path="/track-order" element={<PageTransition><SEO {...ROUTE_META['/track-order']} /><OrderTrackingView /></PageTransition>} />
           {/* Checkout route removed for Shopify Headless */}
         </Routes>
         </Suspense>

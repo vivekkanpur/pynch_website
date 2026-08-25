@@ -30,7 +30,7 @@ const footerVariants = {
   hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as any } },
 };
-import allMoodsImg from '../data/images/models/all_moods.gif';
+import allMoodsImg from '../data/images/models/all_moods.webp';
 import moodAarambhImg from '../data/images/models/mood_lingerie_seductress.webp';
 import moodIshqImg from '../data/images/models/mood_lingerie_romantic.webp';
 import moodSukoonImg from '../data/images/models/mood_lingerie_comfy.webp';
