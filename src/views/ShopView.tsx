@@ -45,7 +45,7 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
 
   const filteredProducts = products.filter((product) => !filter || matchesCategory(product, filter));
 
-  const allCategoryItems: CategoryItem[] = [
+  const categoryItems: CategoryItem[] = [
     { id: 'bras', label: 'BRAS', image: braImg },
     { id: 'panties', label: 'PANTIES', image: pantiesImg },
     { id: 'bodysuits', label: 'BODYSUITS', image: bodysuitsImg },
@@ -53,13 +53,6 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
     { id: 'Attire', label: 'ATTIRE', image: attireImg },
     { id: 'Accessories', label: 'ACCESSORIES', image: accessoriesImg }
   ];
-
-  // Hide tabs the current catalog has no stock for, so shoppers don't land
-  // on an always-empty category. Shown as-is while still loading to avoid
-  // the tab bar flashing/reflowing once data arrives.
-  const categoryItems = loading
-    ? allCategoryItems
-    : allCategoryItems.filter((cat) => products.some((p) => matchesCategory(p, cat.id)));
 
   return (
     <motion.div 
