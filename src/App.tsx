@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { Routes, Route, useNavigate, useLocation, matchPath } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
 import { HelmetProvider } from 'react-helmet-async';
@@ -8,24 +8,29 @@ import Footer from "./components/Footer";
 import { BackToTop } from "./components/BackToTop";
 import { PageTransition } from "./components/PageTransition";
 import { SEO } from "./components/SEO";
+// LandingView stays a static import — it's the entry point for the majority
+// of first visits, so lazy-loading it would only add a network round-trip.
 import LandingView from "./views/LandingView";
-import ShopView from "./views/ShopView";
-import CollectionsView from "./views/CollectionsView";
-import ProductDetailView from "./views/ProductDetailView";
-import PhilosophyView from "./views/PhilosophyView";
-import TashuStudioView from "./views/TashuStudioView";
-import WaitlistView from "./views/WaitlistView";
-import LoginView from "./views/LoginView";
-import AccountView from "./views/AccountView";
 import CartDrawer from "./components/CartDrawer";
 import SizeGuideDrawer from "./components/SizeGuideDrawer";
 import { ShopifyCartIdentitySync } from "./components/ShopifyCartIdentitySync";
 import { useAuth } from "./contexts/AuthContext";
-import SizeGuideView from "./views/SizeGuideView";
-import LustListView from "./views/LustListView";
-import LegalView from "./views/LegalView";
-import OrderTrackingView from "./views/OrderTrackingView";
 import { Product } from "./types";
+
+// Every other route is code-split so the initial bundle only ships the
+// landing page; the rest loads on demand as the user navigates there.
+const ShopView = lazy(() => import("./views/ShopView"));
+const CollectionsView = lazy(() => import("./views/CollectionsView"));
+const ProductDetailView = lazy(() => import("./views/ProductDetailView"));
+const PhilosophyView = lazy(() => import("./views/PhilosophyView"));
+const TashuStudioView = lazy(() => import("./views/TashuStudioView"));
+const WaitlistView = lazy(() => import("./views/WaitlistView"));
+const LoginView = lazy(() => import("./views/LoginView"));
+const AccountView = lazy(() => import("./views/AccountView"));
+const SizeGuideView = lazy(() => import("./views/SizeGuideView"));
+const LustListView = lazy(() => import("./views/LustListView"));
+const LegalView = lazy(() => import("./views/LegalView"));
+const OrderTrackingView = lazy(() => import("./views/OrderTrackingView"));
 import { useShopifyProducts } from "./hooks/useShopifyProducts";
 import { ShopifyProvider, CartProvider, useCart } from '@shopify/hydrogen-react';
 import { AuthProvider } from './contexts/AuthContext';
@@ -156,6 +161,11 @@ function AppContent() {
       />
 
       <main className="flex-grow w-full">
+        <Suspense fallback={
+          <div className="pt-32 text-center h-screen flex items-center justify-center text-[var(--theme-olive)] font-sans text-sm tracking-widest uppercase">
+            Loading...
+          </div>
+        }>
         <Routes>
           <Route path="/" element={<PageTransition><SEO /><LandingView 
             onViewChange={(path) => navigate(`/${path}`)} 
@@ -222,6 +232,7 @@ function AppContent() {
           <Route path="/track-order" element={<PageTransition><SEO title="Track My Order" description="Track your PYNCH order status and delivery updates." /><OrderTrackingView /></PageTransition>} />
           {/* Checkout route removed for Shopify Headless */}
         </Routes>
+        </Suspense>
       </main>
 
       <Footer

@@ -3,32 +3,56 @@ import { storeFetch, PRODUCTS_QUERY, mapShopifyProductsToLocal } from '../lib/sh
 import type { Product } from '../types';
 import { MOCK_PRODUCTS } from '../data/mockProducts';
 
-export function useShopifyProducts() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+// Module-level cache shared by every component that calls this hook, so the
+// full product catalog is fetched from Shopify at most once per page load
+// instead of once per mounted view (Shop, Collections, Product detail, App
+// shell all called this independently, causing repeated loading flashes and
+// duplicate network requests on every navigation).
+let cachedProducts: Product[] | null = null;
+let cachedError: string | null = null;
+let inFlightRequest: Promise<void> | null = null;
+const subscribers = new Set<() => void>();
 
-  useEffect(() => {
-    async function fetchProducts() {
+function notifySubscribers() {
+  subscribers.forEach((listener) => listener());
+}
+
+function loadProducts(): Promise<void> {
+  if (!inFlightRequest) {
+    inFlightRequest = (async () => {
       try {
-        setLoading(true);
-        // Fetch from live Shopify Storefront API
         const response = await storeFetch(PRODUCTS_QUERY, { first: 250 });
-        const mappedProducts = mapShopifyProductsToLocal(response);
-        setProducts(mappedProducts);
-        setError(null);
+        cachedProducts = mapShopifyProductsToLocal(response);
+        cachedError = null;
       } catch (err: any) {
         console.error('Failed to fetch Shopify products:', err);
-        // Fallback to mock data on error
-        setProducts(MOCK_PRODUCTS as Product[]);
-        setError('Using local data — live sync temporarily unavailable');
+        cachedProducts = MOCK_PRODUCTS as Product[];
+        cachedError = 'Using local data — live sync temporarily unavailable';
       } finally {
-        setLoading(false);
+        notifySubscribers();
       }
-    }
+    })();
+  }
+  return inFlightRequest;
+}
 
-    fetchProducts();
+export function useShopifyProducts() {
+  const [, forceRender] = useState(0);
+
+  useEffect(() => {
+    const listener = () => forceRender((n) => n + 1);
+    subscribers.add(listener);
+    if (cachedProducts === null) {
+      loadProducts();
+    }
+    return () => {
+      subscribers.delete(listener);
+    };
   }, []);
 
-  return { products, loading, error };
+  return {
+    products: cachedProducts ?? [],
+    loading: cachedProducts === null,
+    error: cachedError,
+  };
 }

@@ -156,7 +156,7 @@ export const MOCK_PRODUCTS = [
     tagline: "New",
     description: "A beautifully crafted piece for your everyday essential. Join the waitlist for exclusive access.",
     price: 3500,
-    category: "bras",
+    category: "bodysuits",
     mood: "Sukoon",
     colors: [
       {

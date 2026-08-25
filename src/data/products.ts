@@ -7,6 +7,7 @@ import imgSupport from '../data/images/products/prod_performance_support.webp';
 export const PYNCH_PRODUCTS: Product[] = [
   {
     id: 'tascher-bralette',
+    handle: 'tascher-bralette',
     sku: 'PYN-TB-001',
     name: 'The Tascher Bralette',
     tagline: 'unstructured support, zero performance',
@@ -48,6 +49,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'essence-brief',
+    handle: 'essence-brief',
     sku: 'PYN-EB-002',
     name: 'The Essence High-Rise',
     tagline: 'second skin containment, seamless luxury',
@@ -89,6 +91,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'persona-bodysuit',
+    handle: 'persona-bodysuit',
     sku: 'PYN-PB-003',
     name: 'The Persona Ribbed Bodysuit',
     tagline: 'sculpted organic knit, designed to be seen',
@@ -125,6 +128,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'performance-free-underwire',
+    handle: 'performance-free-underwire',
     sku: 'PYN-PU-004',
     name: 'The Performance-Free Support',
     tagline: 'engineered release, intuitive contour',
@@ -161,6 +165,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'tashu-silk-slip',
+    handle: 'tashu-silk-slip',
     sku: 'PYN-SS-005',
     name: 'The Tashu Silk Slip',
     tagline: 'sand-washed heavy silk, liquid drape',
@@ -202,6 +207,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'untethered-rib-set',
+    handle: 'untethered-rib-set',
     sku: 'PYN-US-006',
     name: 'The Untethered Rib Set',
     tagline: 'unstructured lounger, matching freedom',
@@ -238,6 +244,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-8810-bra-0',
+    handle: 'prod-8810-bra-0',
     sku: 'prod-8810-bra-0',
     name: 'Style 8810 - Bra',
     tagline: 'designed for comfort and style',
@@ -261,6 +268,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-8810-pantie-1',
+    handle: 'prod-8810-pantie-1',
     sku: 'prod-8810-pantie-1',
     name: 'Style 8810 - Pantie',
     tagline: 'designed for comfort and style',
@@ -284,6 +292,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2857-bra-2',
+    handle: 'prod-2857-bra-2',
     sku: 'prod-2857-bra-2',
     name: 'Style 2857 - Bra',
     tagline: 'designed for comfort and style',
@@ -307,6 +316,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2857-pantie-3',
+    handle: 'prod-2857-pantie-3',
     sku: 'prod-2857-pantie-3',
     name: 'Style 2857 - Pantie',
     tagline: 'designed for comfort and style',
@@ -330,6 +340,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-8826-bra-4',
+    handle: 'prod-8826-bra-4',
     sku: 'prod-8826-bra-4',
     name: 'Style 8826 - Bra',
     tagline: 'designed for comfort and style',
@@ -353,6 +364,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-8826-pantie-5',
+    handle: 'prod-8826-pantie-5',
     sku: 'prod-8826-pantie-5',
     name: 'Style 8826 - Pantie',
     tagline: 'designed for comfort and style',
@@ -376,6 +388,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2366-bra-6',
+    handle: 'prod-2366-bra-6',
     sku: 'prod-2366-bra-6',
     name: 'Style 2366 - Bra',
     tagline: 'designed for comfort and style',
@@ -399,6 +412,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2366-pantie-7',
+    handle: 'prod-2366-pantie-7',
     sku: 'prod-2366-pantie-7',
     name: 'Style 2366 - Pantie',
     tagline: 'designed for comfort and style',
@@ -422,6 +436,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2870-bra-8',
+    handle: 'prod-2870-bra-8',
     sku: 'prod-2870-bra-8',
     name: 'Style 2870 - Bra',
     tagline: 'designed for comfort and style',
@@ -445,6 +460,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2870-pantie-9',
+    handle: 'prod-2870-pantie-9',
     sku: 'prod-2870-pantie-9',
     name: 'Style 2870 - Pantie',
     tagline: 'designed for comfort and style',
@@ -468,6 +484,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-9276-bra-10',
+    handle: 'prod-9276-bra-10',
     sku: 'prod-9276-bra-10',
     name: 'Style 9276 - Bra',
     tagline: 'designed for comfort and style',
@@ -491,6 +508,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-9276-pantie-11',
+    handle: 'prod-9276-pantie-11',
     sku: 'prod-9276-pantie-11',
     name: 'Style 9276 - Pantie',
     tagline: 'designed for comfort and style',
@@ -514,6 +532,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-t13--360-bra-12',
+    handle: 'prod-t13--360-bra-12',
     sku: 'prod-t13--360-bra-12',
     name: 'Style T13- 360 - Bra',
     tagline: 'designed for comfort and style',
@@ -537,6 +556,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-t13--360-pantie-13',
+    handle: 'prod-t13--360-pantie-13',
     sku: 'prod-t13--360-pantie-13',
     name: 'Style T13- 360 - Pantie',
     tagline: 'designed for comfort and style',
@@ -560,6 +580,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-6616-bra-14',
+    handle: 'prod-6616-bra-14',
     sku: 'prod-6616-bra-14',
     name: 'Style 6616 - Bra',
     tagline: 'designed for comfort and style',
@@ -583,6 +604,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-6616-pantie-15',
+    handle: 'prod-6616-pantie-15',
     sku: 'prod-6616-pantie-15',
     name: 'Style 6616 - Pantie',
     tagline: 'designed for comfort and style',
@@ -606,6 +628,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2839-only-bra--l020-bra-16',
+    handle: 'prod-2839-only-bra--l020-bra-16',
     sku: 'prod-2839-only-bra--l020-bra-16',
     name: 'Style 2839# only Bra/ L020 - Bra',
     tagline: 'designed for comfort and style',
@@ -629,6 +652,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-9306-only-bra--5201-bra-17',
+    handle: 'prod-9306-only-bra--5201-bra-17',
     sku: 'prod-9306-only-bra--5201-bra-17',
     name: 'Style 9306# only Bra/ 5201 - Bra',
     tagline: 'designed for comfort and style',
@@ -652,6 +676,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-rh001-2881-bra-18',
+    handle: 'prod-rh001-2881-bra-18',
     sku: 'prod-rh001-2881-bra-18',
     name: 'Style RH001/2881 - Bra',
     tagline: 'designed for comfort and style',
@@ -675,6 +700,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-rh001-2881-pantie-19',
+    handle: 'prod-rh001-2881-pantie-19',
     sku: 'prod-rh001-2881-pantie-19',
     name: 'Style RH001/2881 - Pantie',
     tagline: 'designed for comfort and style',
@@ -698,6 +724,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2856-bra-20',
+    handle: 'prod-2856-bra-20',
     sku: 'prod-2856-bra-20',
     name: 'Style 2856 - Bra',
     tagline: 'designed for comfort and style',
@@ -721,6 +748,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2856-pantie-21',
+    handle: 'prod-2856-pantie-21',
     sku: 'prod-2856-pantie-21',
     name: 'Style 2856 - Pantie',
     tagline: 'designed for comfort and style',
@@ -744,6 +772,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-9350-m002-bra-22',
+    handle: 'prod-9350-m002-bra-22',
     sku: 'prod-9350-m002-bra-22',
     name: 'Style 9350#/M002 - Bra',
     tagline: 'designed for comfort and style',
@@ -767,6 +796,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-9350-m002-pantie-23',
+    handle: 'prod-9350-m002-pantie-23',
     sku: 'prod-9350-m002-pantie-23',
     name: 'Style 9350#/M002 - Pantie',
     tagline: 'designed for comfort and style',
@@ -790,6 +820,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2867-bra-24',
+    handle: 'prod-2867-bra-24',
     sku: 'prod-2867-bra-24',
     name: 'Style 2867 - Bra',
     tagline: 'designed for comfort and style',
@@ -813,6 +844,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2867-pantie-25',
+    handle: 'prod-2867-pantie-25',
     sku: 'prod-2867-pantie-25',
     name: 'Style 2867 - Pantie',
     tagline: 'designed for comfort and style',
@@ -836,6 +868,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-6616-2876-bra-26',
+    handle: 'prod-6616-2876-bra-26',
     sku: 'prod-6616-2876-bra-26',
     name: 'Style 6616#/2876 - Bra',
     tagline: 'designed for comfort and style',
@@ -859,6 +892,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-6616-2876-pantie-27',
+    handle: 'prod-6616-2876-pantie-27',
     sku: 'prod-6616-2876-pantie-27',
     name: 'Style 6616#/2876 - Pantie',
     tagline: 'designed for comfort and style',
@@ -882,6 +916,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2343-bra-28',
+    handle: 'prod-2343-bra-28',
     sku: 'prod-2343-bra-28',
     name: 'Style 2343 - Bra',
     tagline: 'designed for comfort and style',
@@ -905,6 +940,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2343-pantie-29',
+    handle: 'prod-2343-pantie-29',
     sku: 'prod-2343-pantie-29',
     name: 'Style 2343 - Pantie',
     tagline: 'designed for comfort and style',
@@ -928,6 +964,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2851-bra-30',
+    handle: 'prod-2851-bra-30',
     sku: 'prod-2851-bra-30',
     name: 'Style 2851# - Bra',
     tagline: 'designed for comfort and style',
@@ -951,6 +988,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2851-pantie-31',
+    handle: 'prod-2851-pantie-31',
     sku: 'prod-2851-pantie-31',
     name: 'Style 2851# - Pantie',
     tagline: 'designed for comfort and style',
@@ -974,6 +1012,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2852-bra-32',
+    handle: 'prod-2852-bra-32',
     sku: 'prod-2852-bra-32',
     name: 'Style 2852 - Bra',
     tagline: 'designed for comfort and style',
@@ -997,6 +1036,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2852-pantie-33',
+    handle: 'prod-2852-pantie-33',
     sku: 'prod-2852-pantie-33',
     name: 'Style 2852 - Pantie',
     tagline: 'designed for comfort and style',
@@ -1020,6 +1060,7 @@ export const PYNCH_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-3931-bodysuit-34',
+    handle: 'prod-3931-bodysuit-34',
     sku: 'prod-3931-bodysuit-34',
     name: 'Style 3931 - Bodysuit',
     tagline: 'designed for comfort and style',
@@ -1046,6 +1087,7 @@ export const PYNCH_PRODUCTS: Product[] = [
 export const EDITORIAL_ARTICLES = [
   {
     id: 'philosophical-unbuttoning',
+    handle: 'philosophical-unbuttoning',
     title: 'The Anti-Performance Manifesto',
     subtitle: 'Why Tashu founded PYNCH to dismantle the traditional lingerie gaze.',
     date: 'June 24, 2026',
@@ -1067,6 +1109,7 @@ export const EDITORIAL_ARTICLES = [
   },
   {
     id: 'sustainability-at-our-seams',
+    handle: 'sustainability-at-our-seams',
     title: 'Where It Matters: Our Materials & Origin',
     subtitle: 'A transparent breakdown of our European supply chain.',
     date: 'May 12, 2026',

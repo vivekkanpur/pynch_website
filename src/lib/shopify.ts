@@ -1,10 +1,18 @@
 import { createStorefrontClient } from '@shopify/hydrogen-react';
+import type { Product } from '../types';
 
-export const client = createStorefrontClient({
-  storeDomain: import.meta.env.VITE_SHOPIFY_STORE_DOMAIN || '',
-  publicStorefrontToken: import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN || '',
-  storefrontApiVersion: '2024-10',
-});
+export const client = (() => {
+  const domain = import.meta.env.VITE_SHOPIFY_STORE_DOMAIN || '';
+  const token = import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN || '';
+  if (!domain || !token) {
+    console.warn('Shopify env vars missing: live sync unavailable');
+  }
+  return createStorefrontClient({
+    storeDomain: domain,
+    publicStorefrontToken: token,
+    storefrontApiVersion: '2024-10',
+  });
+})();
 
 export const getStorefrontApiUrl = client.getStorefrontApiUrl;
 export const getPublicTokenHeaders = client.getPublicTokenHeaders;
@@ -49,7 +57,7 @@ export const PRODUCTS_QUERY = `
           images(first: 5) {
             edges {
               node {
-                url
+                url(transform: { maxWidth: 1600 })
                 altText
               }
             }
@@ -72,16 +80,16 @@ export const PRODUCTS_QUERY = `
   }
 `;
 
-export function mapShopifyProductsToLocal(shopifyData: any): any[] {
+export function mapShopifyProductsToLocal(shopifyData: any): Product[] {
   if (!shopifyData?.products?.edges) return [];
   
   return shopifyData.products.edges.map(({ node }: any) => {
-    // Map Shopify images
-    const images = node.images.edges.map((e: any) => e.node.url);
-    
+    // Map Shopify images (guard against missing images connection)
+    const images = (node.images?.edges ?? []).map((e: any) => e.node.url).filter(Boolean);
+
     // Extract sizes from variants (assuming option name is 'Size')
-    const sizes = node.variants.edges
-      .map((e: any) => e.node.selectedOptions.find((o: any) => o.name === 'Size')?.value)
+    const sizes = (node.variants?.edges ?? [])
+      .map((e: any) => e.node.selectedOptions?.find((o: any) => o.name === 'Size')?.value)
       .filter(Boolean);
       
     // Deduplicate sizes
@@ -89,14 +97,17 @@ export function mapShopifyProductsToLocal(shopifyData: any): any[] {
 
     // Extract color names from variant options (assuming option name is 'Color')
     const colorNames = Array.from(new Set(
-      node.variants.edges
-        .map((e: any) => e.node.selectedOptions.find((o: any) => o.name === 'Color')?.value)
+      (node.variants?.edges ?? [])
+        .map((e: any) => e.node.selectedOptions?.find((o: any) => o.name === 'Color')?.value)
         .filter(Boolean)
     ));
     const palette = ['#8B7355', '#C4A882', '#D4C4B0', '#E8DCC8', '#F5EFE6', '#3E2F23'];
 
     // Extract mood from tags (Aarambh, Ishq, Shararat, Sukoon)
-    const tags = node.tags ? node.tags.split(',').map((t: string) => t.trim()) : [];
+    // Shopify Storefront API returns `tags` as a string array, not a comma-separated string
+    const tags = Array.isArray(node.tags)
+      ? node.tags.map((t: string) => t.trim())
+      : (node.tags ? String(node.tags).split(',').map((t: string) => t.trim()) : []);
     const moods = ['Aarambh', 'Ishq', 'Shararat', 'Sukoon'];
     const productMood = tags.find((t: string) => moods.includes(t)) || null;
 
@@ -107,8 +118,8 @@ export function mapShopifyProductsToLocal(shopifyData: any): any[] {
       name: node.title,
       tagline: node.handle, // fallback
       description: node.description,
-      price: parseFloat(node.priceRange.minVariantPrice.amount),
-      category: (node.productType || node.tags.split(',')[0] || 'sets').toLowerCase(),
+      price: parseFloat(node.priceRange?.minVariantPrice?.amount ?? '0'),
+      category: (node.productType || tags[0] || 'sets').toLowerCase(),
       mood: productMood,
       colors: (colorNames.length > 0 ? colorNames : ['Default']).map((cname, i) => ({
         name: cname,
@@ -121,7 +132,7 @@ export function mapShopifyProductsToLocal(shopifyData: any): any[] {
       features: ['Storefront API Integration'],
       fitInfo: 'Standard fit',
       story: 'Story fetched from Shopify backend.',
-      shopifyVariants: node.variants.edges.map((e: any) => e.node)
+      shopifyVariants: (node.variants?.edges ?? []).map((e: any) => e.node)
     };
   });
 }

@@ -81,33 +81,38 @@ export default function CollectionsView({ onSelectProduct, onQuickAdd, lustListI
           <div className="flex justify-center items-center h-64 text-[var(--theme-olive)] font-sans text-sm tracking-widest uppercase">
             Loading products...
           </div>
-        ) : error ? (
-          <div className="flex justify-center items-center h-64 text-red-500 font-sans text-sm tracking-widest uppercase">
-            {error}
-          </div>
-        ) : collectionProducts.length === 0 ? (
-          <div className="flex justify-center items-center h-64 text-[var(--theme-text)] opacity-50 font-sans text-sm tracking-widest uppercase">
-            No pieces found.
-          </div>
         ) : (
-          <motion.div 
-            key={`${selectedCategory}-${selectedType}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.25 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-12 sm:gap-y-16"
-          >
-            {collectionProducts.map((prod) => (
-              <ProductCard
-                key={prod.id}
-                product={prod}
-                onClick={onSelectProduct}
-                onQuickAdd={onQuickAdd}
-                isLusted={lustListItems?.some(p => p.id === prod.id)}
-                onToggleLust={onToggleLust}
-              />
-            ))}
-          </motion.div>
+          <>
+            {error && (
+              <div className="text-center text-red-500 font-sans text-xs tracking-widest uppercase mb-8">
+                {error}
+              </div>
+            )}
+            {collectionProducts.length === 0 ? (
+              <div className="flex justify-center items-center h-64 text-[var(--theme-text)] opacity-50 font-sans text-sm tracking-widest uppercase">
+                No pieces found.
+              </div>
+            ) : (
+              <motion.div
+                key={`${selectedCategory}-${selectedType}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.25 }}
+                className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-12 sm:gap-y-16"
+              >
+                {collectionProducts.map((prod) => (
+                  <ProductCard
+                    key={prod.id}
+                    product={prod}
+                    onClick={onSelectProduct}
+                    onQuickAdd={onQuickAdd}
+                    isLusted={lustListItems?.some(p => p.id === prod.id)}
+                    onToggleLust={onToggleLust}
+                  />
+                ))}
+              </motion.div>
+            )}
+          </>
         )}
       </div>
 

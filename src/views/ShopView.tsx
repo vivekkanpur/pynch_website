@@ -35,15 +35,17 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
   const [filter, setFilter] = useState<string | null>(null);
   const { products, loading, error } = useShopifyProducts();
 
-  const filteredProducts = products.filter((product) => {
-    if (!filter) return true;
-    if (filter === 'bras') return ['bras', 'bralettes'].includes(product.category.toLowerCase());
-    if (filter === 'panties') return ['panties', 'briefs', 'thongs', 'bikinis'].includes(product.category.toLowerCase());
-    if (filter === 'bodysuits') return product.category.toLowerCase() === 'bodysuits';
-    return product.category.toLowerCase() === filter.toLowerCase();
-  });
+  const matchesCategory = (product: Product, cat: string) => {
+    const c = product.category.toLowerCase();
+    if (cat === 'bras') return ['bras', 'bralettes'].includes(c);
+    if (cat === 'panties') return ['panties', 'briefs', 'thongs', 'bikinis'].includes(c);
+    if (cat === 'bodysuits') return c === 'bodysuits';
+    return c === cat.toLowerCase();
+  };
 
-  const categoryItems: CategoryItem[] = [
+  const filteredProducts = products.filter((product) => !filter || matchesCategory(product, filter));
+
+  const allCategoryItems: CategoryItem[] = [
     { id: 'bras', label: 'BRAS', image: braImg },
     { id: 'panties', label: 'PANTIES', image: pantiesImg },
     { id: 'bodysuits', label: 'BODYSUITS', image: bodysuitsImg },
@@ -51,6 +53,13 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
     { id: 'Attire', label: 'ATTIRE', image: attireImg },
     { id: 'Accessories', label: 'ACCESSORIES', image: accessoriesImg }
   ];
+
+  // Hide tabs the current catalog has no stock for, so shoppers don't land
+  // on an always-empty category. Shown as-is while still loading to avoid
+  // the tab bar flashing/reflowing once data arrives.
+  const categoryItems = loading
+    ? allCategoryItems
+    : allCategoryItems.filter((cat) => products.some((p) => matchesCategory(p, cat.id)));
 
   return (
     <motion.div 
@@ -74,33 +83,38 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
           <div className="flex justify-center items-center h-64 text-[var(--theme-olive)] font-sans text-sm tracking-widest uppercase">
             Loading Studio Selection...
           </div>
-        ) : error ? (
-          <div className="flex justify-center items-center h-64 text-red-500 font-sans text-sm tracking-widest uppercase">
-            {error}
-          </div>
-        ) : filteredProducts.length === 0 ? (
-          <div className="flex justify-center items-center h-64 text-[var(--theme-text)] opacity-50 font-sans text-sm tracking-widest uppercase">
-            No pieces found.
-          </div>
         ) : (
-          <motion.div 
-            variants={gridVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 w-full auto-rows-max"
-          >
-            {filteredProducts.map((prod) => (
-              <ProductCard
-                key={prod.id}
-                product={prod}
-                onClick={onSelectProduct}
-                onQuickAdd={onQuickAdd}
-                isLusted={lustListItems?.some(p => p.id === prod.id)}
-                onToggleLust={onToggleLust}
-              />
-            ))}
-          </motion.div>
+          <>
+            {error && (
+              <div className="text-center text-red-500 font-sans text-xs tracking-widest uppercase mb-8">
+                {error}
+              </div>
+            )}
+            {filteredProducts.length === 0 ? (
+              <div className="flex justify-center items-center h-64 text-[var(--theme-text)] opacity-50 font-sans text-sm tracking-widest uppercase">
+                No pieces found.
+              </div>
+            ) : (
+              <motion.div
+                variants={gridVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-100px" }}
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 w-full auto-rows-max"
+              >
+                {filteredProducts.map((prod) => (
+                  <ProductCard
+                    key={prod.id}
+                    product={prod}
+                    onClick={onSelectProduct}
+                    onQuickAdd={onQuickAdd}
+                    isLusted={lustListItems?.some(p => p.id === prod.id)}
+                    onToggleLust={onToggleLust}
+                  />
+                ))}
+              </motion.div>
+            )}
+          </>
         )}
       </div>
 
