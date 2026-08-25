@@ -203,7 +203,9 @@ function AppContent() {
                 }}
               /></PageTransition>
             ) : (
-              <div className="pt-32 text-center">Product not found.</div>
+              <div className="pt-32 text-center h-screen flex items-center justify-center">
+                {products.length === 0 ? 'Loading products...' : 'Product not found.'}
+              </div>
             )
           } />
           <Route path="/returns-and-exchanges" element={<PageTransition><SEO title="Returns & Exchanges" description="PYNCH returns and exchanges policy. We want you to love your purchase." /><LegalView type="returns" /></PageTransition>} />
