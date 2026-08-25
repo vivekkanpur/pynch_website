@@ -97,6 +97,8 @@ export function mapShopifyProductsToLocal(shopifyData: any): any[] {
     
     return {
       id: node.id,
+      sku: node.handle,
+      handle: node.handle,
       name: node.title,
       tagline: node.handle, // fallback
       description: node.description,

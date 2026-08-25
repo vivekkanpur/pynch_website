@@ -7,6 +7,7 @@ export interface ProductColor {
 export interface Product {
   id: string;
   sku: string;
+  handle: string;
   name: string;
   tagline: string;
   description: string;
