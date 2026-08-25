@@ -123,7 +123,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             </div>
           ) : (
             lines.map((item: any) => {
-              const primaryImage = item?.merchandise?.image?.url || 'https://images.unsplash.com/photo-1594913785162-e678537db3b1?q=80&w=800';
+              const primaryImage = item?.merchandise?.image?.url || '/placeholder-image.svg';
               const price = item?.cost?.totalAmount?.amount ? parseFloat(item.cost.totalAmount.amount) : 0;
               const title = item?.merchandise?.product?.title || 'Unknown Product';
               const selectedOptions = item?.merchandise?.selectedOptions || [];

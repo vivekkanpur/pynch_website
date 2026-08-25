@@ -126,14 +126,18 @@ function AppContent() {
   
   useEffect(() => {
     if (urlHandle && !selectedProduct) {
-      const found = products.find(p => p.handle === urlHandle || p.id === urlHandle);
+      const cleanHandle = urlHandle ? decodeURIComponent(urlHandle).toLowerCase() : "";
+      const found = products.find(p => {
+        const h = p.handle ? p.handle.toLowerCase() : "";
+        return h === cleanHandle || (p.id ? p.id.toLowerCase() === cleanHandle : false);
+      });
       if (found) setSelectedProduct(found);
     }
   }, [urlHandle, products, selectedProduct]);
 
   const handleSelectProduct = (product: Product) => {
     setSelectedProduct(product);
-    navigate(`/product/${product.handle}`);
+    navigate(`/product/${encodeURIComponent(product.handle || product.id || "item")}`);
     window.scrollTo(0, 0);
   };
 
