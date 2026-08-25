@@ -4,7 +4,7 @@ import image1 from '../data/images/Team/WhatsApp Image 2026-08-09 at 10.54.10 AM
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as any } },
 };
 
 export default function TashuStudioView() {

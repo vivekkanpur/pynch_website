@@ -14,7 +14,6 @@ import CollectionsView from "./views/CollectionsView";
 import ProductDetailView from "./views/ProductDetailView";
 import PhilosophyView from "./views/PhilosophyView";
 import TashuStudioView from "./views/TashuStudioView";
-import CheckoutView from "./views/CheckoutView";
 import WaitlistView from "./views/WaitlistView";
 import LoginView from "./views/LoginView";
 import AccountView from "./views/AccountView";
@@ -144,13 +143,8 @@ function AppContent() {
             onSelectProduct={handleSelectProduct} 
             lustListItems={lustListItems}
             onToggleLust={handleToggleLust}
-            onQuickAdd={(p) => {
-              handleAddToCart({
-                product: p,
-                selectedColor: p.colors[0],
-                selectedSize: p.sizes[0],
-                quantity: 1
-              });
+            onQuickAdd={(p, colorName, size) => {
+              handleAddToCart(p, colorName || p.colors[0].name, size || p.sizes[0]);
             }}
           /></PageTransition>} />
           <Route path="/waitlist" element={<PageTransition><SEO title="Join the Waitlist" description="Be the first to experience PYNCH luxury intimate wear. Join our exclusive waitlist for early access to our collections." /><WaitlistView /></PageTransition>} />
@@ -158,15 +152,9 @@ function AppContent() {
             onSelectProduct={handleSelectProduct} 
             lustListItems={lustListItems}
             onToggleLust={handleToggleLust}
-            onQuickAdd={(p) => {
-              // Simplified quick add
-              handleAddToCart({
-                product: p,
-                selectedColor: p.colors[0],
-                selectedSize: p.sizes[0],
-                quantity: 1
-              });
-          }} /></PageTransition>} />
+            onQuickAdd={(p, colorName, size) => {
+              handleAddToCart(p, colorName || p.colors[0].name, size || p.sizes[0]);
+            }} /></PageTransition>} />
           <Route path="/collections" element={<PageTransition><SEO title="Collections" description="Browse PYNCH mood-based collections — Aarambh (Seductress), Ishq (Romantic), Shararat (Playful), and Sukoon (Comfy)." /><CollectionsView 
             onSelectProduct={handleSelectProduct} 
             lustListItems={lustListItems}
@@ -194,13 +182,8 @@ function AppContent() {
                 lustListItems={lustListItems}
                 onToggleLust={handleToggleLust}
                 onSelectProduct={handleSelectProduct}
-                onQuickAdd={(p) => {
-                  handleAddToCart({
-                    product: p,
-                    selectedColor: p.colors[0],
-                    selectedSize: p.sizes[0],
-                    quantity: 1
-                  });
+                onQuickAdd={(p, colorName, size) => {
+                  handleAddToCart(p, colorName || p.colors[0].name, size || p.sizes[0]);
                 }}
               /></PageTransition>
             ) : (

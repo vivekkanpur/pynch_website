@@ -12,14 +12,16 @@ export function useShopifyProducts() {
     async function fetchProducts() {
       try {
         setLoading(true);
-        // FORCE MOCK DATA FOR UI TESTING
-        setProducts(MOCK_PRODUCTS as Product[]);
+        // Fetch from live Shopify Storefront API
+        const response = await storeFetch(PRODUCTS_QUERY, { first: 250 });
+        const mappedProducts = mapShopifyProductsToLocal(response);
+        setProducts(mappedProducts);
         setError(null);
       } catch (err: any) {
         console.error('Failed to fetch Shopify products:', err);
-        // Fallback to mock data on error as well
+        // Fallback to mock data on error
         setProducts(MOCK_PRODUCTS as Product[]);
-        setError(null); // Clear error so UI renders the mock products
+        setError('Using local data — live sync temporarily unavailable');
       } finally {
         setLoading(false);
       }

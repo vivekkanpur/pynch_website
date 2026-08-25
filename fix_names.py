@@ -1,6 +1,6 @@
 import os
 
-base_dir = 'public/images/models/Models New'
+base_dir = 'src/data/images/products'
 
 mappings = {
     'Comphy': {

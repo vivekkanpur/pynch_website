@@ -6,7 +6,7 @@ import { signOut } from '../lib/firebase';
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" as any } },
 };
 
 export default function AccountView() {

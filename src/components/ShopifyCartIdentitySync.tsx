@@ -4,22 +4,24 @@ import { useCart } from '@shopify/hydrogen-react';
 
 export function ShopifyCartIdentitySync() {
   const { user } = useAuth();
-  const { cartBuyerIdentityUpdate, id } = useCart();
+  const { cartAttributesUpdate, id } = useCart();
 
   useEffect(() => {
-    // Only update if we have a valid cart ID, a logged-in user with an email, 
-    // and cartBuyerIdentityUpdate is available from Shopify
-    if (id && user && user.email && cartBuyerIdentityUpdate) {
+    // Only update if we have a valid cart ID, a logged-in user with an email,
+    // and cartAttributesUpdate is available from Shopify
+    if (id && user && user.email && cartAttributesUpdate) {
       console.log('Syncing Firebase User to Shopify Cart Identity...', user.email);
-      
-      cartBuyerIdentityUpdate({
-        buyerIdentity: {
-          email: user.email,
-          phone: user.phoneNumber || undefined,
-        }
-      }).catch(err => console.error("Failed to sync Shopify identity:", err));
+
+      try {
+        cartAttributesUpdate([
+          { key: 'email', value: user.email },
+          ...(user.phoneNumber ? [{ key: 'phone', value: user.phoneNumber }] : [])
+        ]);
+      } catch (err) {
+        console.error("Failed to sync Shopify cart attributes:", err);
+      }
     }
-  }, [id, user, cartBuyerIdentityUpdate]);
+  }, [id, user, cartAttributesUpdate]);
 
   return null; // This is a headless component
 }

@@ -12,6 +12,7 @@ import corsetImg from '../data/images/filters/corset.webp';
 import pantiesImg from '../data/images/filters/panties.webp';
 
 interface ShopViewProps {
+  onSelectProduct: (product: Product) => void;
   onQuickAdd: (product: Product, colorName: string, size: string) => void;
   lustListItems?: Product[];
   onToggleLust?: (product: Product) => void;
@@ -19,7 +20,7 @@ interface ShopViewProps {
 
 const pageVariants = {
   initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" as any } },
 };
 
 const gridVariants = {
@@ -106,7 +107,7 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
       {/* Campaign Footer Blocks */}
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }}
+        whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as any } }}
         viewport={{ once: true, margin: "-100px" }}
         className="w-auto grid grid-cols-1 md:grid-cols-2 gap-8 my-8 mx-4 sm:mx-8"
       >

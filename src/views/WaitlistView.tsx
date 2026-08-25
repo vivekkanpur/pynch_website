@@ -36,7 +36,7 @@ export default function WaitlistView() {
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.75, ease: "easeInOut" }}
+            transition={{ duration: 0.75, ease: "easeInOut" as any }}
             className="absolute inset-0"
           >
             <img decoding="async" loading="lazy" 
@@ -74,7 +74,7 @@ export default function WaitlistView() {
         <motion.div 
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" as any }}
           className="w-full max-w-[800px]"
         >
           <WaitlistForm />

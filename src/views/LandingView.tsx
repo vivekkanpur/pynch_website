@@ -11,12 +11,12 @@ import { MOCK_PRODUCTS } from "../data/mockProducts";
 
 const pageVariants = {
   initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" as any } },
 };
 
 const sliderVariants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as any } },
 };
 
 export default function LandingView({
@@ -63,22 +63,22 @@ export default function LandingView({
 
   const handleScrollLeft = () => {
     const currentX = x.get();
-    animate(x, Math.min(currentX + 400, 0), { type: "tween", duration: 0.25, ease: "easeInOut" });
+    animate(x, Math.min(currentX + 400, 0), { type: "tween", duration: 0.25, ease: "easeInOut" as any });
   };
 
   const handleScrollRight = () => {
     const currentX = x.get();
-    animate(x, Math.max(currentX - 400, -width), { type: "tween", duration: 0.25, ease: "easeInOut" });
+    animate(x, Math.max(currentX - 400, -width), { type: "tween", duration: 0.25, ease: "easeInOut" as any });
   };
 
   const handleBestScrollLeft = () => {
     const currentX = xBest.get();
-    animate(xBest, Math.min(currentX + 400, 0), { type: "tween", duration: 0.25, ease: "easeInOut" });
+    animate(xBest, Math.min(currentX + 400, 0), { type: "tween", duration: 0.25, ease: "easeInOut" as any });
   };
 
   const handleBestScrollRight = () => {
     const currentX = xBest.get();
-    animate(xBest, Math.max(currentX - 400, -bestSellersWidth), { type: "tween", duration: 0.25, ease: "easeInOut" });
+    animate(xBest, Math.max(currentX - 400, -bestSellersWidth), { type: "tween", duration: 0.25, ease: "easeInOut" as any });
   };
 
   return (

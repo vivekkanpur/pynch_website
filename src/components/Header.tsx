@@ -248,7 +248,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
             initial={{ opacity: 0, y: -5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -5 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.2, ease: "easeOut" as any }}
             className="absolute top-full left-0 w-full bg-[var(--theme-bg)] border-b border-[var(--theme-border)] shadow-xl z-40 hidden md:block"
             onMouseEnter={() => setActiveMenu(activeMenu)}
           >

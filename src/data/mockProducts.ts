@@ -37,7 +37,7 @@ export const MOCK_PRODUCTS = [
       {
         name: "Signature",
         hex: "#1A1A1A",
-        images: ["/images/models/Models New/Comphy/Soft Launch Scoop Bralette/ECOM_CM_DWMYN_02_SY-NS-10036_BYT_TOP_BK_MO_SHOT01_5928A.webp", "/images/models/Models New/Comphy/Soft Launch Scoop Bralette/ECOM_CM_DWMYN_06_SY-PI-10035_SY-NS-10036_DTN_BODY_BK_MB_SHOT01_GKI2Y.webp", "/images/models/Models New/Comphy/Soft Launch Scoop Bralette/hf_20260713_093816_85d66ebe-8e03-4679-baa0-625c98daf954.webp", "/images/models/Models New/Comphy/Soft Launch Scoop Bralette/hf_20260713_093900_f94af604-1237-4b3a-bab1-2b103fd4baa4.webp", "/images/models/Models New/Comphy/Soft Launch Scoop Bralette/hf_20260713_093918_63c4ab61-dcd4-4e39-879b-f89c383394b4.webp", "/images/models/Models New/Comphy/Soft Launch Scoop Bralette/hf_20260713_094014_c5224066-c3bd-4fa1-b4f4-f39e4c88f049.webp", "/images/models/Models New/Comphy/Soft Launch Scoop Bralette/hf_20260713_094155_980bb6cf-2266-4651-81c6-c45fd8593f7f.webp"]
+        images: ["/images/models/Models New/Comphy/Soft Launch Scoop Bralette/hf_20260713_094014_c5224066-c3bd-4fa1-b4f4-f39e4c88f049.webp", "/images/models/Models New/Comphy/Soft Launch Scoop Bralette/ECOM_CM_DWMYN_02_SY-NS-10036_BYT_TOP_BK_MO_SHOT01_5928A.webp", "/images/models/Models New/Comphy/Soft Launch Scoop Bralette/ECOM_CM_DWMYN_06_SY-PI-10035_SY-NS-10036_DTN_BODY_BK_MB_SHOT01_GKI2Y.webp", "/images/models/Models New/Comphy/Soft Launch Scoop Bralette/hf_20260713_093816_85d66ebe-8e03-4679-baa0-625c98daf954.webp", "/images/models/Models New/Comphy/Soft Launch Scoop Bralette/hf_20260713_093900_f94af604-1237-4b3a-bab1-2b103fd4baa4.webp", "/images/models/Models New/Comphy/Soft Launch Scoop Bralette/hf_20260713_093918_63c4ab61-dcd4-4e39-879b-f89c383394b4.webp", "/images/models/Models New/Comphy/Soft Launch Scoop Bralette/hf_20260713_094155_980bb6cf-2266-4651-81c6-c45fd8593f7f.webp"]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -87,7 +87,7 @@ export const MOCK_PRODUCTS = [
       {
         name: "Signature",
         hex: "#1A1A1A",
-        images: ["/images/models/Models New/Comphy/The Love Triangle Bralette/ECOM_PR_SY-NY-10032_PWF_FRONT_SHOT01_2x3_VB5A1.webp", "/images/models/Models New/Comphy/The Love Triangle Bralette/hf_20260713_092712_d141c897-2045-4c97-8755-bfa6622c4618.webp", "/images/models/Models New/Comphy/The Love Triangle Bralette/hf_20260713_093214_c55e8b85-c11d-48cb-8ebe-e7bf123cc5ce.webp", "/images/models/Models New/Comphy/The Love Triangle Bralette/hf_20260713_093234_bbdd83fb-e20b-4786-a5dd-de6cabc41b97.webp", "/images/models/Models New/Comphy/The Love Triangle Bralette/hf_20260713_093307_6f3d4388-abc6-4695-8a66-bd2f326e10a6.webp"]
+        images: ["/images/models/Models New/Comphy/The Love Triangle Bralette/hf_20260713_093234_bbdd83fb-e20b-4786-a5dd-de6cabc41b97.webp", "/images/models/Models New/Comphy/The Love Triangle Bralette/ECOM_PR_SY-NY-10032_PWF_FRONT_SHOT01_2x3_VB5A1.webp", "/images/models/Models New/Comphy/The Love Triangle Bralette/hf_20260713_092712_d141c897-2045-4c97-8755-bfa6622c4618.webp", "/images/models/Models New/Comphy/The Love Triangle Bralette/hf_20260713_093214_c55e8b85-c11d-48cb-8ebe-e7bf123cc5ce.webp", "/images/models/Models New/Comphy/The Love Triangle Bralette/hf_20260713_093307_6f3d4388-abc6-4695-8a66-bd2f326e10a6.webp"]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -112,7 +112,7 @@ export const MOCK_PRODUCTS = [
       {
         name: "Signature",
         hex: "#1A1A1A",
-        images: ["/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/ECOM_CM_DWMYN_04_SY-NS-10040_SY-PI-10003_BYT_BODY_BK_FT_SHOT01_68QZ4.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_072704_a92256a8-1ec3-4c37-bd6c-c9de437b7a0f.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_072715_00f1e076-c56e-4254-a897-2ef6d2036f2f.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_072727_cf5dc2d8-7f50-49ee-bf0f-58f85b2c56fd.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_072738_74552040-d309-43ba-b07c-ed11d1a80afe.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_073103_c8c10a05-1941-4450-9895-b8796156c3de.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_073614_93ef8791-ea91-4b12-9c06-976b848f017c.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_083321_29dd566d-eaf2-4316-8ad4-afc21bf8f144.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_083406_18fa37e9-d827-47c6-b489-08965f934ec0.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_084240_04689f6e-1589-4cd7-97ca-41c447b1b5db.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_091519_ee1e46f9-5a74-40e2-a6d5-fd58ad038020.webp"]
+        images: ["/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_083321_29dd566d-eaf2-4316-8ad4-afc21bf8f144.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/ECOM_CM_DWMYN_04_SY-NS-10040_SY-PI-10003_BYT_BODY_BK_FT_SHOT01_68QZ4.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_072704_a92256a8-1ec3-4c37-bd6c-c9de437b7a0f.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_072715_00f1e076-c56e-4254-a897-2ef6d2036f2f.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_072727_cf5dc2d8-7f50-49ee-bf0f-58f85b2c56fd.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_072738_74552040-d309-43ba-b07c-ed11d1a80afe.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_073103_c8c10a05-1941-4450-9895-b8796156c3de.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_073614_93ef8791-ea91-4b12-9c06-976b848f017c.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_083406_18fa37e9-d827-47c6-b489-08965f934ec0.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_084240_04689f6e-1589-4cd7-97ca-41c447b1b5db.webp", "/images/models/Models New/Comphy/Tit for Tat Triangle Bralette/hf_20260713_091519_ee1e46f9-5a74-40e2-a6d5-fd58ad038020.webp"]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -187,7 +187,7 @@ export const MOCK_PRODUCTS = [
       {
         name: "Signature",
         hex: "#1A1A1A",
-        images: ["/images/models/Models New/Playful/Rear View Mid Rise Bikini/ECOM_PL_MOAF_01_SY-PI-10043_SY-NS-10047_ADS_BTM_BK_SM_SHOT01_4TK7W.webp", "/images/models/Models New/Playful/Rear View Mid Rise Bikini/ECOM_PL_MOAF_01_SY-PI-10043_THI_BTM_BK_FT_SHOT01_AENHX-b661-45a6-9ffc-77966cdf2aae.webp", "/images/models/Models New/Playful/Rear View Mid Rise Bikini/ECOM_PL_MOAF_01_SY-PI-10043_THI_BTM_FR_FT_SHOT01_55Z10.webp", "/images/models/Models New/Playful/Rear View Mid Rise Bikini/ECOM_PL_MOAF_03_SY-PI-10043_SY-NS-10047_FST_BTM_BK_FT_SHOT01_9NWJ9.webp", "/images/models/Models New/Playful/Rear View Mid Rise Bikini/ECOM_PL_MOAF_03_SY-PI-10043_SY-NS-10047_FST_BTM_FR_FT_SHOT01_6901Q.webp", "/images/models/Models New/Playful/Rear View Mid Rise Bikini/ECOM_PL_MOAF_13_SY-PI-10043_AFD_BTM_SD_IC_SHOT01_HRH52.webp", "/images/models/Models New/Playful/Rear View Mid Rise Bikini/hf_20260713_095435_460f5ced-37e0-43cd-93d1-f7d80706ea5f.webp"]
+        images: ["/images/models/Models New/Playful/Rear View Mid Rise Bikini/hf_20260713_095435_460f5ced-37e0-43cd-93d1-f7d80706ea5f.webp", "/images/models/Models New/Playful/Rear View Mid Rise Bikini/ECOM_PL_MOAF_01_SY-PI-10043_SY-NS-10047_ADS_BTM_BK_SM_SHOT01_4TK7W.webp", "/images/models/Models New/Playful/Rear View Mid Rise Bikini/ECOM_PL_MOAF_01_SY-PI-10043_THI_BTM_BK_FT_SHOT01_AENHX-b661-45a6-9ffc-77966cdf2aae.webp", "/images/models/Models New/Playful/Rear View Mid Rise Bikini/ECOM_PL_MOAF_01_SY-PI-10043_THI_BTM_FR_FT_SHOT01_55Z10.webp", "/images/models/Models New/Playful/Rear View Mid Rise Bikini/ECOM_PL_MOAF_03_SY-PI-10043_SY-NS-10047_FST_BTM_BK_FT_SHOT01_9NWJ9.webp", "/images/models/Models New/Playful/Rear View Mid Rise Bikini/ECOM_PL_MOAF_03_SY-PI-10043_SY-NS-10047_FST_BTM_FR_FT_SHOT01_6901Q.webp", "/images/models/Models New/Playful/Rear View Mid Rise Bikini/ECOM_PL_MOAF_13_SY-PI-10043_AFD_BTM_SD_IC_SHOT01_HRH52.webp"]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -212,7 +212,7 @@ export const MOCK_PRODUCTS = [
       {
         name: "Signature",
         hex: "#1A1A1A",
-        images: ["/images/models/Models New/Playful/Caught You Looking Plunge Bralette/hf_20260731_085434_163bd672-b853-4d58-a6b1-87b0e07d4447.webp", "/images/models/Models New/Playful/Caught You Looking Plunge Bralette/hf_20260731_091047_373c5121-f7db-4156-94fb-6ac8ea4889c7.webp", "/images/models/Models New/Playful/Caught You Looking Plunge Bralette/hf_20260731_094022_00a4f3c0-0ec1-410f-9479-67577ee13bed.webp", "/images/models/Models New/Playful/Caught You Looking Plunge Bralette/hf_20260731_095154_7e024d18-69cf-43e3-8472-4b1fe626f0d3.webp"]
+        images: ["/images/models/Models New/Playful/Caught You Looking Plunge Bralette/hf_20260731_091047_373c5121-f7db-4156-94fb-6ac8ea4889c7.webp", "/images/models/Models New/Playful/Caught You Looking Plunge Bralette/hf_20260731_085434_163bd672-b853-4d58-a6b1-87b0e07d4447.webp", "/images/models/Models New/Playful/Caught You Looking Plunge Bralette/hf_20260731_094022_00a4f3c0-0ec1-410f-9479-67577ee13bed.webp", "/images/models/Models New/Playful/Caught You Looking Plunge Bralette/hf_20260731_095154_7e024d18-69cf-43e3-8472-4b1fe626f0d3.webp"]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -237,7 +237,7 @@ export const MOCK_PRODUCTS = [
       {
         name: "Signature",
         hex: "#1A1A1A",
-        images: ["/images/models/Models New/Playful/Caught You Looking Mid Rise Bikini/hf_20260731_085434_163bd672-b853-4d58-a6b1-87b0e07d4447.webp", "/images/models/Models New/Playful/Caught You Looking Mid Rise Bikini/hf_20260731_091047_373c5121-f7db-4156-94fb-6ac8ea4889c7.webp", "/images/models/Models New/Playful/Caught You Looking Mid Rise Bikini/hf_20260731_094022_00a4f3c0-0ec1-410f-9479-67577ee13bed.webp", "/images/models/Models New/Playful/Caught You Looking Mid Rise Bikini/hf_20260731_095154_7e024d18-69cf-43e3-8472-4b1fe626f0d3.webp"]
+        images: ["/images/models/Models New/Playful/Caught You Looking Mid Rise Bikini/hf_20260731_091047_373c5121-f7db-4156-94fb-6ac8ea4889c7.webp", "/images/models/Models New/Playful/Caught You Looking Mid Rise Bikini/hf_20260731_085434_163bd672-b853-4d58-a6b1-87b0e07d4447.webp", "/images/models/Models New/Playful/Caught You Looking Mid Rise Bikini/hf_20260731_094022_00a4f3c0-0ec1-410f-9479-67577ee13bed.webp", "/images/models/Models New/Playful/Caught You Looking Mid Rise Bikini/hf_20260731_095154_7e024d18-69cf-43e3-8472-4b1fe626f0d3.webp"]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -512,7 +512,7 @@ export const MOCK_PRODUCTS = [
       {
         name: "Signature",
         hex: "#1A1A1A",
-        images: ["/images/models/Models New/Playful/The Dare Wireless Bralette/hf_20260730_080706_28c72344-f41f-4733-a52b-0919d1ae4482.webp", "/images/models/Models New/Playful/The Dare Wireless Bralette/hf_20260731_170934_2219573d-27cf-42e9-b373-8399a62b8bcb.webp", "/images/models/Models New/Playful/The Dare Wireless Bralette/hf_20260801_102931_e1d4c9e1-67c0-46e1-aa69-93b0748a25fe.webp", "/images/models/Models New/Playful/The Dare Wireless Bralette/hf_20260801_171125_eb14e227-8dfc-46fd-b611-a53c7cfc6f90.webp"]
+        images: ["/images/models/Models New/Playful/The Dare Wireless Bralette/hf_20260801_102931_e1d4c9e1-67c0-46e1-aa69-93b0748a25fe.webp", "/images/models/Models New/Playful/The Dare Wireless Bralette/hf_20260730_080706_28c72344-f41f-4733-a52b-0919d1ae4482.webp", "/images/models/Models New/Playful/The Dare Wireless Bralette/hf_20260731_170934_2219573d-27cf-42e9-b373-8399a62b8bcb.webp", "/images/models/Models New/Playful/The Dare Wireless Bralette/hf_20260801_171125_eb14e227-8dfc-46fd-b611-a53c7cfc6f90.webp"]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -587,7 +587,7 @@ export const MOCK_PRODUCTS = [
       {
         name: "Signature",
         hex: "#1A1A1A",
-        images: ["/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/260204_SYRN_L2_LoveMeNot_MFR_0005.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/260217_SYRN_L11_DewMe_MFR_0028.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/ECOM_PR_SY-SB-10002_PIB_FRONT_SHOT1_2X3_M83G0.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/ECOM_RM_SOWK_08_SY-SB-10002_SY-PI-10018_BNP_BODY_BK_MO_SHOT01_XQFMS.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/Unlined_balonette_2-1.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/hf_20260713_075301_647efb66-492f-447e-a020-b2cb5a2a29a7.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/hf_20260713_084031_0d74fd69-2afe-4bc6-9f7f-c1201997ff00.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/hf_20260713_085635_90746bcc-cc34-48ba-b4f0-b01d227c12ce.webp"]
+        images: ["/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/hf_20260713_084031_0d74fd69-2afe-4bc6-9f7f-c1201997ff00.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/260204_SYRN_L2_LoveMeNot_MFR_0005.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/260217_SYRN_L11_DewMe_MFR_0028.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/ECOM_PR_SY-SB-10002_PIB_FRONT_SHOT1_2X3_M83G0.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/ECOM_RM_SOWK_08_SY-SB-10002_SY-PI-10018_BNP_BODY_BK_MO_SHOT01_XQFMS.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/Unlined_balonette_2-1.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/hf_20260713_075301_647efb66-492f-447e-a020-b2cb5a2a29a7.webp", "/images/models/Models New/Romantic/Forget Me Not Unlined Balconette Bra/hf_20260713_085635_90746bcc-cc34-48ba-b4f0-b01d227c12ce.webp"]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -612,7 +612,7 @@ export const MOCK_PRODUCTS = [
       {
         name: "Signature",
         hex: "#1A1A1A",
-        images: ["/images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/010425_SYRN_Look9_PillowFight_1601.webp", "/images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/ECOM_PR_SY-PI-10011_FPF_FRONT_SHOT1_2X3_WYAK4_1.webp", "/images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/ECOM_RM_SOWK_09_SY-PI-10011_SY-SB-10016_ADF_BODY_FR_IC_SHOT01_68XZ9.webp", "/images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/ECOM_RM_SOWK_09_SY-PI-10011_SY-SB-10016_BNP_BODY_BK_MO_SHOT01_LS8T4.webp", "/images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/hf_20260713_090633_3c87ffc5-5cc8-4dca-a3d7-7e76a99bafda.webp"]
+        images: ["/images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/ECOM_RM_SOWK_09_SY-PI-10011_SY-SB-10016_ADF_BODY_FR_IC_SHOT01_68XZ9.webp", "/images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/010425_SYRN_Look9_PillowFight_1601.webp", "/images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/ECOM_PR_SY-PI-10011_FPF_FRONT_SHOT1_2X3_WYAK4_1.webp", "/images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/ECOM_RM_SOWK_09_SY-PI-10011_SY-SB-10016_BNP_BODY_BK_MO_SHOT01_LS8T4.webp", "/images/models/Models New/Romantic/Sweetest Lil' Thing Mid Rise Thong/hf_20260713_090633_3c87ffc5-5cc8-4dca-a3d7-7e76a99bafda.webp"]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -637,7 +637,7 @@ export const MOCK_PRODUCTS = [
       {
         name: "Signature",
         hex: "#1A1A1A",
-        images: ["/images/models/Models New/Romantic/The Starlet Halter Unlined Plunge Bra/10048_PWF_FRONT.webp", "/images/models/Models New/Romantic/The Starlet Halter Unlined Plunge Bra/ECOM_SD_SSPRING_02_SY-SB-10048_PWF_TOP_BK_MO_SHOT01_C565T.webp", "/images/models/Models New/Romantic/The Starlet Halter Unlined Plunge Bra/hf_20260713_095856_524f89a5-1219-4f19-a8ca-df3366d54fb0.webp", "/images/models/Models New/Romantic/The Starlet Halter Unlined Plunge Bra/hf_20260713_100057_e1e70a36-660e-49ad-944f-84548db30424.webp", "/images/models/Models New/Romantic/The Starlet Halter Unlined Plunge Bra/hf_20260713_100346_95eb4c18-3925-4ad9-b10a-8f83eb5cfd4f.webp", "/images/models/Models New/Romantic/The Starlet Halter Unlined Plunge Bra/hf_20260713_100406_2de652bc-af46-4f57-b0b4-119c5ea24ef5.webp"]
+        images: ["/images/models/Models New/Romantic/The Starlet Halter Unlined Plunge Bra/hf_20260713_100406_2de652bc-af46-4f57-b0b4-119c5ea24ef5.webp", "/images/models/Models New/Romantic/The Starlet Halter Unlined Plunge Bra/10048_PWF_FRONT.webp", "/images/models/Models New/Romantic/The Starlet Halter Unlined Plunge Bra/ECOM_SD_SSPRING_02_SY-SB-10048_PWF_TOP_BK_MO_SHOT01_C565T.webp", "/images/models/Models New/Romantic/The Starlet Halter Unlined Plunge Bra/hf_20260713_095856_524f89a5-1219-4f19-a8ca-df3366d54fb0.webp", "/images/models/Models New/Romantic/The Starlet Halter Unlined Plunge Bra/hf_20260713_100057_e1e70a36-660e-49ad-944f-84548db30424.webp", "/images/models/Models New/Romantic/The Starlet Halter Unlined Plunge Bra/hf_20260713_100346_95eb4c18-3925-4ad9-b10a-8f83eb5cfd4f.webp"]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -662,7 +662,7 @@ export const MOCK_PRODUCTS = [
       {
         name: "Signature",
         hex: "#1A1A1A",
-        images: ["/images/models/Models New/Romantic/Midnight Whisper Mesh Bralette/hf_20260731_073355_8c944087-233d-4c1e-8fc3-3b9ac3dab9ab.webp", "/images/models/Models New/Romantic/Midnight Whisper Mesh Bralette/hf_20260731_075724_edf14e19-2c7b-4a9d-9a05-e18c1dc1492e.webp", "/images/models/Models New/Romantic/Midnight Whisper Mesh Bralette/hf_20260731_081135_2a56fe51-c27a-415e-a1c2-2de547f70c0d.webp", "/images/models/Models New/Romantic/Midnight Whisper Mesh Bralette/hf_20260731_081701_a39799de-9099-4971-9994-c3c0105aed44.webp"]
+        images: ["/images/models/Models New/Romantic/Midnight Whisper Mesh Bralette/hf_20260731_075724_edf14e19-2c7b-4a9d-9a05-e18c1dc1492e.webp", "/images/models/Models New/Romantic/Midnight Whisper Mesh Bralette/hf_20260731_073355_8c944087-233d-4c1e-8fc3-3b9ac3dab9ab.webp", "/images/models/Models New/Romantic/Midnight Whisper Mesh Bralette/hf_20260731_081135_2a56fe51-c27a-415e-a1c2-2de547f70c0d.webp", "/images/models/Models New/Romantic/Midnight Whisper Mesh Bralette/hf_20260731_081701_a39799de-9099-4971-9994-c3c0105aed44.webp"]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -962,7 +962,7 @@ export const MOCK_PRODUCTS = [
       {
         name: "Signature",
         hex: "#1A1A1A",
-        images: ["/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/ECOM_PR_SY-PI-10004_PWF_FRONT_SHOT00_2x3_KEB7E_8ec83080-553b-4436-876d-8fdb6384f6f5.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/ECOM_SD_AATA_07_SY-NS-10013_SY-PI-10004_PWF_BODY_FR_KD_SHOT01_HN542.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/ECOM_SD_AATA_08_SY-PI-10004_BAM_BODY_BK_MO_SHOT02_W80YW.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/hf_20260713_100406_2de652bc-af46-4f57-b0b4-119c5ea24ef5.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/hf_20260713_163158_2283bfb8-5a8e-40b3-bc09-15fb1d4de7d8.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/hf_20260713_163237_53d8bc01-f5a2-424b-ab78-053c08b6590b.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/hf_20260713_163730_30aedcfb-d188-4305-bcad-c914a20413c9.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/hf_20260713_164617_36e95bf5-a9b2-49cb-aad4-2af447f9a8bd.webp"]
+        images: ["/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/hf_20260713_100406_2de652bc-af46-4f57-b0b4-119c5ea24ef5.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/ECOM_PR_SY-PI-10004_PWF_FRONT_SHOT00_2x3_KEB7E_8ec83080-553b-4436-876d-8fdb6384f6f5.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/ECOM_SD_AATA_07_SY-NS-10013_SY-PI-10004_PWF_BODY_FR_KD_SHOT01_HN542.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/ECOM_SD_AATA_08_SY-PI-10004_BAM_BODY_BK_MO_SHOT02_W80YW.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/hf_20260713_163158_2283bfb8-5a8e-40b3-bc09-15fb1d4de7d8.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/hf_20260713_163237_53d8bc01-f5a2-424b-ab78-053c08b6590b.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/hf_20260713_163730_30aedcfb-d188-4305-bcad-c914a20413c9.webp", "/images/models/Models New/Seductress/String You Along Low Rise Lace Thong/hf_20260713_164617_36e95bf5-a9b2-49cb-aad4-2af447f9a8bd.webp"]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -987,7 +987,7 @@ export const MOCK_PRODUCTS = [
       {
         name: "Signature",
         hex: "#1A1A1A",
-        images: ["/images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/ECOM_PR_SY-SB-10006_BIT_BACK_SHOT01_2x3_1S5PP.webp", "/images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/hf_20260713_165047_b7709bcc-840f-48e9-aa85-84a94b759967.webp", "/images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/hf_20260713_165115_51d1ded5-c00b-4243-8216-3085303fe0ca.webp", "/images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/hf_20260714_090322_90fc4615-fcc2-4ff5-99cf-db3d3cfbc115.webp", "/images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/hf_20260714_091116_716a5368-f0f3-4a35-a324-79524e0b98d7.webp"]
+        images: ["/images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/hf_20260713_165115_51d1ded5-c00b-4243-8216-3085303fe0ca.webp", "/images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/ECOM_PR_SY-SB-10006_BIT_BACK_SHOT01_2x3_1S5PP.webp", "/images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/hf_20260713_165047_b7709bcc-840f-48e9-aa85-84a94b759967.webp", "/images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/hf_20260714_090322_90fc4615-fcc2-4ff5-99cf-db3d3cfbc115.webp", "/images/models/Models New/Seductress/The Seduction Lightly Lined Plunge Bra/hf_20260714_091116_716a5368-f0f3-4a35-a324-79524e0b98d7.webp"]
       }
     ],
     sizes: ["XS", "S", "M", "L", "XL"],

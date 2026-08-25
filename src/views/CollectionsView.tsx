@@ -15,7 +15,7 @@ interface CollectionsViewProps {
 
 const pageVariants = {
   initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" as any } },
 };
 
 const gridVariants = {
@@ -28,7 +28,7 @@ const gridVariants = {
 
 const footerVariants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as any } },
 };
 import allMoodsImg from '../data/images/models/all_moods.gif';
 import moodAarambhImg from '../data/images/models/mood_lingerie_seductress.webp';
