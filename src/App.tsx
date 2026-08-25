@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, useNavigate, useLocation, useParams } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation, matchPath } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -121,12 +121,15 @@ function AppContent() {
   }, []);
 
   // Load product from /product/:handle when refreshing
-  const { handle: urlHandle } = useParams();
+  // Note: useParams() doesn't work here since AppContent isn't rendered inside a <Route>,
+  // so we extract the handle from location.pathname directly.
   const { products } = useShopifyProducts();
-  
+  const productMatch = matchPath('/product/:handle', location.pathname);
+  const urlHandle = productMatch?.params?.handle;
+
   useEffect(() => {
     if (urlHandle && !selectedProduct) {
-      const cleanHandle = urlHandle ? decodeURIComponent(urlHandle).toLowerCase() : "";
+      const cleanHandle = decodeURIComponent(urlHandle).toLowerCase();
       const found = products.find(p => {
         const h = p.handle ? p.handle.toLowerCase() : "";
         return h === cleanHandle || (p.id ? p.id.toLowerCase() === cleanHandle : false);
