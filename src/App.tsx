@@ -26,6 +26,7 @@ import LustListView from "./views/LustListView";
 import LegalView from "./views/LegalView";
 import OrderTrackingView from "./views/OrderTrackingView";
 import { Product } from "./types";
+import { useShopifyProducts } from "./hooks/useShopifyProducts";
 import { ShopifyProvider, CartProvider, useCart } from '@shopify/hydrogen-react';
 import { AuthProvider } from './contexts/AuthContext';
 
@@ -49,7 +50,6 @@ function ScrollToTop() {
 function AppContent() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { handle: urlHandle } = useParams();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   // Modals and Drawers
@@ -119,14 +119,6 @@ function AppContent() {
       lenis.destroy();
     };
   }, []);
-
-  // Load product from URL if refreshing /product/:handle
-  useEffect(() => {
-    if (urlHandle && !selectedProduct) {
-      // In real app: fetch from Shopify by handle; for now navigate back to shop
-      navigate('/shop');
-    }
-  }, [urlHandle]);
 
   // Load product from /product/:handle when refreshing
   const { handle: urlHandle } = useParams();
