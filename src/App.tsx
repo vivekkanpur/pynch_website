@@ -128,6 +128,17 @@ function AppContent() {
     }
   }, [urlHandle]);
 
+  // Load product from /product/:handle when refreshing
+  const { handle: urlHandle } = useParams();
+  const { products } = useShopifyProducts();
+  
+  useEffect(() => {
+    if (urlHandle && !selectedProduct) {
+      const found = products.find(p => p.handle === urlHandle || p.id === urlHandle);
+      if (found) setSelectedProduct(found);
+    }
+  }, [urlHandle, products, selectedProduct]);
+
   const handleSelectProduct = (product: Product) => {
     setSelectedProduct(product);
     navigate(`/product/${product.handle}`);
