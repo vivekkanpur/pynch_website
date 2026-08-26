@@ -1,7 +1,8 @@
-// Real-time sync of a single user into the Google Sheets "users" tab.
+// Real-time sync of a single user into the Google Sheets "Realtime Users" tab.
 // Called by the client immediately after a successful sign-in, so a new
 // user shows up in the sheet right away instead of waiting for the nightly
-// cron (api/cron/sync-users.js), which still runs as a reconciliation backup.
+// cron (api/cron/sync-users.js), which writes to the separate "Users" tab
+// as a full daily reconciliation.
 import admin from 'firebase-admin';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
@@ -49,9 +50,12 @@ export default async function handler(req, res) {
     const doc = new GoogleSpreadsheet(sheetId, jwt);
     await doc.loadInfo();
 
-    const sheet = doc.sheetsByTitle['users'] || doc.sheetsByTitle['Users'] || doc.sheetsByTitle['USERS'];
+    const sheet =
+      doc.sheetsByTitle['Realtime Users'] ||
+      doc.sheetsByTitle['realtime users'] ||
+      doc.sheetsByTitle['REALTIME USERS'];
     if (!sheet) {
-      return res.status(500).json({ error: 'Users sheet not found' });
+      return res.status(500).json({ error: 'Realtime Users sheet not found' });
     }
 
     await sheet.setHeaderRow(['UID', 'Email', 'Phone', 'Created At', 'Last Login At']);
