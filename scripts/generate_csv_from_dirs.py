@@ -18,7 +18,7 @@ def generate_csv():
         'Variant Price', 'Variant Requires Shipping', 'Variant Taxable', 'Image Src', 'Image Position'
     ]
 
-    with open('shopify_import.csv', 'w', newline='', encoding='utf-8') as f:
+    with open('data/shopify_import.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow(headers)
 
@@ -88,7 +88,7 @@ def generate_csv():
                         writer.writerow(img_row)
                         img_position += 1
 
-    print("Generated shopify_import.csv successfully with public images!")
+    print("Generated data/shopify_import.csv successfully with public images!")
 
 if __name__ == '__main__':
     generate_csv()

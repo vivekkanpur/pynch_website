@@ -3,7 +3,7 @@
  * Loads all /api/*.js handlers and serves them at /api/<name>.
  * This mirrors how Vercel's serverless functions work.
  *
- * Run with: node dev-server.js
+ * Run with: node scripts/dev-server.js
  * (Vite is configured to proxy /api/* to this server on port 3001)
  */
 
@@ -19,13 +19,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 app.use(express.json());
 
-const apiDir = path.join(__dirname, 'api');
+const apiDir = path.join(__dirname, '..', 'api');
 const files = await readdir(apiDir);
 
 for (const file of files) {
   if (!file.endsWith('.js')) continue;
   const routeName = file.replace('.js', '');
-  const modulePath = `./api/${file}`;
+  const modulePath = `../api/${file}`;
   const mod = await import(modulePath);
   const handler = mod.default;
   if (typeof handler !== 'function') continue;

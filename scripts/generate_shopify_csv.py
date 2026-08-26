@@ -37,7 +37,7 @@ if buf.strip():
 print(f"Found {len(items)} products")
 
 # Write Shopify CSV
-with open('shopify_import.csv', 'w', newline='', encoding='utf-8') as csvfile:
+with open('data/shopify_import.csv', 'w', newline='', encoding='utf-8') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow([
         'Handle', 'Title', 'Body (HTML)', 'Vendor', 'Product Type',
@@ -119,4 +119,4 @@ with open('shopify_import.csv', 'w', newline='', encoding='utf-8') as csvfile:
                 str(idx)
             ])
 
-print(f"Generated shopify_import.csv with {len(items)} products")
+print(f"Generated data/shopify_import.csv with {len(items)} products")

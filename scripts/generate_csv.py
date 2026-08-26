@@ -82,7 +82,7 @@ def generate_csv(products):
         'Variant Price', 'Variant Requires Shipping', 'Variant Taxable', 'Image Src', 'Image Position'
     ]
     
-    with open('shopify_import.csv', 'w', newline='', encoding='utf-8') as f:
+    with open('data/shopify_import.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow(headers)
         
@@ -126,7 +126,7 @@ def generate_csv(products):
                 ]
                 writer.writerow(row)
                 
-    print(f"Created shopify_import.csv with {len(products)} products!")
+    print(f"Created data/shopify_import.csv with {len(products)} products!")
 
 if __name__ == '__main__':
     parse_mock_products()

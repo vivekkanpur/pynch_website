@@ -21,5 +21,5 @@ function getModifiedFiles(dir, fileList = []) {
     return fileList;
 }
 
-const modifiedFiles = getModifiedFiles(path.join(__dirname, 'src'));
+const modifiedFiles = getModifiedFiles(path.join(__dirname, '..', 'src'));
 fs.writeFileSync('modified_today.txt', modifiedFiles.join('\n'));

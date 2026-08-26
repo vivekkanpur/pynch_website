@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const filePath = path.join(__dirname, 'src', 'data', 'mockProducts.ts');
+const filePath = path.join(__dirname, '..', 'src', 'data', 'mockProducts.ts');
 let content = fs.readFileSync(filePath, 'utf8');
 
 // The regex matches the colors array for "Signature"

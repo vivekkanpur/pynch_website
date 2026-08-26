@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { MOCK_PRODUCTS } from './src/data/mockProducts';
+import { MOCK_PRODUCTS } from '../src/data/mockProducts';
 
 // Helper to escape CSV fields (wrap in quotes if contains comma, quotes, or newlines)
 function escapeCSV(field: any): string {
@@ -107,8 +107,8 @@ function generateCSV() {
     }
   });
 
-  fs.writeFileSync('shopify_import.csv', csvContent, 'utf-8');
-  console.log('Successfully generated shopify_import.csv with', MOCK_PRODUCTS.length, 'products.');
+  fs.writeFileSync('data/shopify_import.csv', csvContent, 'utf-8');
+  console.log('Successfully generated data/shopify_import.csv with', MOCK_PRODUCTS.length, 'products.');
 }
 
 generateCSV();

@@ -115,13 +115,36 @@ pynch_website/
 │   ├── export-waitlist.js        # GET /api/export-waitlist — CSV export (admin)
 │   ├── send-discount.js          # POST /api/send-discount — QStash callback for Day-1 WA
 │   ├── cron/
-│   │   └── sync-users.js         # Cron: syncs Firebase users daily to Firestore
+│   │   └── sync-users.js         # Daily cron (8am IST) — full rewrite of the "Users" Google Sheet tab
 │   └── utils/
 │       └── generateCodes.js      # Generates coupon + referral codes
 │
 ├── public/                       # Static assets served as-is
 ├── assets/                       # Raw/source assets (pre-compression)
 ├── dist/                         # Vite build output (gitignored)
+│
+├── scripts/                      # One-off / local dev tooling — not part of the app build
+│   ├── dev-server.js             # Local express server mimicking Vercel /api (npm run dev:api)
+│   ├── check_git.js              # Git status helper
+│   ├── test-db.js                # Firebase connection test
+│   ├── compress_images.js        # Batch WebP compression via sharp
+│   ├── compress_python.py        # Python image compression alternative
+│   ├── generate_csv.py           # Generates Shopify import CSV from products.ts
+│   ├── generate_csv_from_dirs.py # CSV generation from image directories
+│   ├── generate_shopify_csv.py   # Alternative Shopify CSV generator
+│   ├── export_shopify_csv.ts     # TypeScript Shopify CSV exporter
+│   ├── create_mock.py            # Generates mockProducts.ts
+│   ├── generate_mock.py          # Alternative mock generator
+│   ├── find_modified.js          # Lists recently modified files
+│   ├── list_products.js          # Lists product IDs/names
+│   ├── restore_wide_images.py    # Restores original wide images
+│   ├── fix_names.py              # Renames product image directories
+│   ├── updateColors.cjs          # Updates color hex values in product data
+│   └── powershell.bat            # Windows helper
+│
+├── data/                         # Generated/working data files (not app code)
+│   ├── shopify_import.csv        # Generated Shopify product import file
+│   └── PYNCH_Products.xlsx       # Product reference spreadsheet (gitignored)
 │
 ├── index.html                    # Vite entry HTML
 ├── vite.config.ts                # Vite config — Tailwind plugin, /api proxy to :3001
@@ -134,24 +157,7 @@ pynch_website/
 ├── .env.example                  # Template for required env vars
 ├── .env.local                    # Local overrides
 │
-├── AGENT_CONTEXT.md              # This file
-│
-└── [Utility Scripts]
-    ├── compress_images.js        # Batch WebP compression via sharp
-    ├── compress_python.py        # Python image compression alternative
-    ├── generate_csv.py           # Generates Shopify import CSV from products.ts
-    ├── generate_csv_from_dirs.py # CSV generation from image directories
-    ├── export_shopify_csv.ts     # TypeScript Shopify CSV exporter
-    ├── shopify_import.csv        # Generated Shopify product import file
-    ├── create_mock.py            # Generates mockProducts.ts
-    ├── generate_mock.py          # Alternative mock generator
-    ├── find_modified.js          # Lists recently modified files
-    ├── list_products.js          # Lists product IDs/names
-    ├── restore_wide_images.py    # Restores original wide images
-    ├── updateColors.cjs          # Updates color hex values in product data
-    ├── check_git.js              # Git status helper
-    ├── dev-server.js             # Local express server mimicking Vercel /api
-    └── test-db.js                # Firebase connection test
+└── AGENT_CONTEXT.md              # This file
 ```
 
 ---
@@ -346,11 +352,13 @@ All functions in `/api/` are Vercel Serverless Functions (Node.js ESM).
 ```json
 {
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
-  "crons": [{ "path": "/api/cron/sync-users", "schedule": "0 0 * * *" }]
+  "crons": [{ "path": "/api/cron/sync-users", "schedule": "30 2 * * *" }]
 }
 ```
 - All routes fall through to `index.html` (SPA pattern).
-- The cron fires daily at midnight UTC to sync users.
+- The cron fires daily at 8:00 AM IST (2:30 AM UTC) — a full rewrite of the "Users" Google Sheet
+  tab from Firebase Auth's actual user list, acting as a reconciliation backup for the real-time
+  per-login sync (`api/sync-user.js` → "Realtime Users" tab, called from `LoginView.tsx`).
 
 ---
 
@@ -364,7 +372,7 @@ All functions in `/api/` are Vercel Serverless Functions (Node.js ESM).
   ```
 - **Cart operations**: `useCart()` hook — `linesAdd()` to add items. `checkoutUrl` redirects to Shopify-hosted checkout. **No custom /checkout page**.
 - **Products**: `useShopifyProducts` hook currently forces `MOCK_PRODUCTS`. Storefront API query is defined in `src/lib/shopify.ts`.
-- **CSV tooling**: `generate_csv.py` / `export_shopify_csv.ts` → `shopify_import.csv` — for bulk product creation in Shopify admin.
+- **CSV tooling**: `scripts/generate_csv.py` / `scripts/export_shopify_csv.ts` → `data/shopify_import.csv` — for bulk product creation in Shopify admin.
 
 ---
 
