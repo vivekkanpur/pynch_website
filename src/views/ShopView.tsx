@@ -91,8 +91,7 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
               <motion.div
                 variants={gridVariants}
                 initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-100px" }}
+                animate="show"
                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 w-full auto-rows-max"
               >
                 {filteredProducts.map((prod) => (
