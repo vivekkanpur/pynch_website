@@ -16,6 +16,7 @@ import imgSeductress from "../data/images/models/mood_lingerie_seductress.webp";
 import imgRomantic from "../data/images/models/mood_lingerie_romantic.webp";
 import imgPlayful from "../data/images/models/mood_lingerie_playful.webp";
 import imgComfy from "../data/images/models/mood_lingerie_comfy.webp";
+import imgIshqCurtain from "../data/images/models/ishq_lace_curtain.webp";
 const imgOurWorld = "/images/models/Models New/Comphy/Nap Time Mid Rise Bikini/Syrn_DanielDerro8088.webp";
 
 interface HeaderProps {
@@ -568,6 +569,14 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                         </div>
                         <div className="mt-2 flex flex-col">
                           <span className="font-serif text-lg tracking-wide text-[var(--theme-teal)] truncate">Read The Essential Journal</span>
+                        </div>
+                      </div>
+                      <div onClick={() => navigate('/shop')} className="relative group overflow-hidden cursor-pointer bg-gray-100 flex flex-col col-span-1 h-full">
+                        <div className="flex-1 relative overflow-hidden min-h-0 [transform:translateZ(0)]">
+                          <img decoding="async" loading="lazy" src={imgIshqCurtain} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Shop The Edit" />
+                        </div>
+                        <div className="mt-2 flex flex-col">
+                          <span className="font-serif text-lg tracking-wide text-[var(--theme-teal)] truncate">Shop The Edit</span>
                         </div>
                       </div>
                     </div>
