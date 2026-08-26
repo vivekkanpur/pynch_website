@@ -109,6 +109,12 @@ function buildHead({
       url: SITE_URL,
       sameAs: ['https://www.facebook.com/profile.php?id=61591969918421'],
     },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'PYNCH',
+      url: SITE_URL,
+    },
     ...(jsonLd ? [jsonLd] : []),
   ];
 
