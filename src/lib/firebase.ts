@@ -28,6 +28,22 @@ export {
   signInWithPhoneNumber,
 };
 
+export async function syncUserToSheet() {
+  const user = auth.currentUser;
+  if (!user) return;
+
+  try {
+    const idToken = await user.getIdToken();
+    await fetch('/api/sync-user', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ idToken }),
+    });
+  } catch {
+    // Silent fail — nightly cron reconciles the sheet as a backup.
+  }
+}
+
 export async function logUserInteraction(actionType: string, details?: any) {
   const user = auth.currentUser;
 

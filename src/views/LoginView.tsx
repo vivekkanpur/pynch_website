@@ -8,6 +8,7 @@ import {
   signInWithPhoneNumber,
   auth,
   logUserInteraction,
+  syncUserToSheet,
 } from '../lib/firebase';
 import { ConfirmationResult } from 'firebase/auth';
 
@@ -83,6 +84,7 @@ export default function LoginView() {
     try {
       await confirmationResult.confirm(otp);
       await logUserInteraction('login', { method: 'phone' });
+      await syncUserToSheet();
       navigate('/account');
     } catch (err: any) {
       setError(err.message || 'Invalid OTP.');
@@ -96,6 +98,7 @@ export default function LoginView() {
     try {
       await loginWithGoogle();
       await logUserInteraction('login', { method: 'google' });
+      await syncUserToSheet();
       navigate('/account');
     } catch (err: any) {
       setError(err.message);
