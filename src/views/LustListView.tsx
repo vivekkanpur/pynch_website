@@ -39,7 +39,7 @@ export default function LustListView({
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8">
         <div className="text-center mb-16">
-          <h1 className="font-serif text-4xl sm:text-5xl text-[#111111] font-light uppercase tracking-widest mb-4">
+          <h1 className="font-serif text-4xl sm:text-5xl text-[var(--theme-text)] font-light uppercase tracking-widest mb-4">
             Lust List
           </h1>
           <p className="font-sans text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-500">
@@ -48,11 +48,11 @@ export default function LustListView({
         </div>
 
         {lustListItems.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-20 border border-[#E8E3DB] bg-white">
+          <div className="flex flex-col items-center justify-center py-20 border border-[var(--theme-cream)] bg-white">
             <svg viewBox="0 0 100 100" className="w-16 h-16 stroke-gray-200 fill-none mb-6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M 50 85 C 50 85, 15 55, 15 30 C 15 10, 40 10, 50 30 C 60 10, 85 10, 85 30 C 85 55, 50 85, 50 85 Z" />
             </svg>
-            <h3 className="font-sans text-lg text-[#111111] uppercase tracking-[0.1em] font-light mb-2">
+            <h3 className="font-sans text-lg text-[var(--theme-text)] uppercase tracking-[0.1em] font-light mb-2">
               Your lust list is empty
             </h3>
             <p className="font-sans text-xs text-gray-500 tracking-[0.1em] mb-8">
@@ -60,7 +60,7 @@ export default function LustListView({
             </p>
             <Link
               to="/shop"
-              className="bg-[#111111] text-white px-8 py-4 font-sans text-[10px] uppercase tracking-[0.3em] hover:bg-[#111111]/80 transition-colors"
+              className="bg-[var(--theme-text)] text-white px-8 py-4 font-sans text-[10px] uppercase tracking-[0.3em] hover:bg-[var(--theme-text)]/80 transition-colors"
             >
               Explore Shop
             </Link>

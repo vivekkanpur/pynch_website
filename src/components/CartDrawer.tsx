@@ -63,9 +63,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
       <div className="relative w-full max-w-md bg-white h-full shadow-2xl flex flex-col z-10 no-radius">
         
         {/* Header */}
-        <div className="p-6 border-b border-[#E8E3DB] flex justify-between items-center bg-white sticky top-0">
+        <div className="p-6 border-b border-[var(--theme-cream)] flex justify-between items-center bg-white sticky top-0">
           <div>
-            <h2 className="font-sans text-xl tracking-[0.1em] text-[#111111] uppercase font-light">
+            <h2 className="font-sans text-xl tracking-[0.1em] text-[var(--theme-text)] uppercase font-light">
               Your Bag
             </h2>
             <p className="text-[10px] font-sans uppercase tracking-[0.2em] text-gray-400 mt-1">
@@ -78,7 +78,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         </div>
 
         {/* Free Shipping Progress Indicator */}
-        <div className="bg-[#F4F0EA] p-4 px-6 border-b border-[#E8E3DB] text-[10px] font-sans uppercase tracking-[0.1em]">
+        <div className="bg-[var(--theme-cream)] p-4 px-6 border-b border-[var(--theme-cream)] text-[10px] font-sans uppercase tracking-[0.1em]">
           {isFreeShipping ? (
             <div className="text-gray-700 flex justify-between items-center">
               <span>🎉 Congratulations! Your order qualifies for free shipping.</span>
@@ -89,9 +89,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 <span>Free shipping progress</span>
                 <span className="text-black font-medium">₹{shippingLeft.toFixed(2)} away</span>
               </div>
-              <div className="w-full bg-[#E8E3DB] h-1 no-radius overflow-hidden">
+              <div className="w-full bg-[var(--theme-cream)] h-1 no-radius overflow-hidden">
                 <div
-                  className="bg-[#111111] h-full transition-all duration-500"
+                  className="bg-[var(--theme-text)] h-full transition-all duration-500"
                   style={{ width: `${Math.min((subtotal / freeShippingThreshold) * 100, 100)}%` }}
                 ></div>
               </div>
@@ -116,7 +116,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               </div>
               <button
                 onClick={onClose}
-                className="border border-[#111111] text-[#111111] text-[11px] font-sans tracking-[0.2em] uppercase px-6 py-4 hover:bg-gray-50 transition-colors no-radius mt-4"
+                className="border border-[var(--theme-text)] text-[var(--theme-text)] text-[11px] font-sans tracking-[0.2em] uppercase px-6 py-4 hover:bg-gray-50 transition-colors no-radius mt-4"
               >
                 Start Exploring
               </button>
@@ -131,14 +131,14 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               const sizeOption = selectedOptions.find((o: any) => o.name === 'Size')?.value || 'Default';
 
               return (
-                <div key={item.id} className="flex gap-4 border-b border-[#E8E3DB] pb-6 last:border-0 last:pb-0">
-                  <div className="w-24 aspect-[3/4] bg-[#F4F0EA] overflow-hidden shrink-0">
+                <div key={item.id} className="flex gap-4 border-b border-[var(--theme-cream)] pb-6 last:border-0 last:pb-0">
+                  <div className="w-24 aspect-[3/4] bg-[var(--theme-cream)] overflow-hidden shrink-0">
                     <img decoding="async" loading="lazy" src={primaryImage} alt={title} className="w-full h-full object-cover mix-blend-multiply" />
                   </div>
                   <div className="flex-1 flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="flex justify-between items-start">
-                        <h4 className="font-sans font-light text-sm tracking-[0.1em] uppercase text-[#111111]">
+                        <h4 className="font-sans font-light text-sm tracking-[0.1em] uppercase text-[var(--theme-text)]">
                           {title}
                         </h4>
                         <span className="font-sans font-light text-sm text-gray-900">
@@ -150,7 +150,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                       </p>
                     </div>
                     <div className="flex justify-between items-center mt-4">
-                      <div className="flex items-center border border-[#E8E3DB] no-radius">
+                      <div className="flex items-center border border-[var(--theme-cream)] no-radius">
                         <button
                           onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
                           className="p-1 px-3 text-gray-500 hover:text-black transition-colors focus:outline-none"
@@ -167,7 +167,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                       </div>
                       <button
                         onClick={() => linesRemove([item.id])}
-                        className="text-gray-400 hover:text-[#111111] transition-colors focus:outline-none p-2 border border-transparent hover:border-[#111111]"
+                        className="text-gray-400 hover:text-[var(--theme-text)] transition-colors focus:outline-none p-2 border border-transparent hover:border-[var(--theme-text)]"
                       >
                         <Trash2 className="w-3.5 h-3.5 stroke-[1]" />
                       </button>
@@ -181,9 +181,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
         {/* Footer / Summary Area */}
         {lines && lines.length > 0 && (
-          <div className="border-t border-[#E8E3DB] p-6 space-y-6 bg-white sticky bottom-0">
+          <div className="border-t border-[var(--theme-cream)] p-6 space-y-6 bg-white sticky bottom-0">
             {/* Gift Note Section */}
-            <div className="border-b border-[#E8E3DB] pb-6">
+            <div className="border-b border-[var(--theme-cream)] pb-6">
               {!giftNoteAdded ? (
                 <button
                   onClick={() => setGiftNoteAdded(true)}
@@ -211,7 +211,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                     value={giftNote}
                     onChange={(e) => setGiftNote(e.target.value)}
                     placeholder="Enter your message here..."
-                    className="w-full bg-[#F4F0EA] border-0 p-3 text-[11px] font-sans text-gray-800 focus:ring-1 focus:ring-[#111111] resize-none no-radius h-20 placeholder:text-gray-400"
+                    className="w-full bg-[var(--theme-cream)] border-0 p-3 text-[11px] font-sans text-gray-800 focus:ring-1 focus:ring-[var(--theme-text)] resize-none no-radius h-20 placeholder:text-gray-400"
                   />
                 </div>
               )}
@@ -233,7 +233,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             <button
               onClick={handleCheckout}
               disabled={!checkoutUrl}
-              className="w-full bg-[#111111] text-white py-4 flex justify-between items-center px-6 hover:bg-black transition-colors no-radius group disabled:opacity-50"
+              className="w-full bg-[var(--theme-text)] text-white py-4 flex justify-between items-center px-6 hover:bg-black transition-colors no-radius group disabled:opacity-50"
             >
               <span className="font-sans text-[11px] tracking-[0.2em] uppercase font-light">Proceed to Checkout</span>
               <span className="font-sans text-[11px] tracking-widest font-light">

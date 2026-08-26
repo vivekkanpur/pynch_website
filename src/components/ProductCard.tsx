@@ -69,7 +69,7 @@ export function ProductCard({
 
         {/* Tagline badge */}
         {product.tagline && (
-          <div className="absolute top-3 left-3 bg-[var(--theme-lime)] text-[#1A1A1A] text-[9px] uppercase font-sans tracking-[0.28em] px-3 py-1 font-medium z-10 pointer-events-none">
+          <div className="absolute top-3 left-3 bg-[var(--theme-lime)] text-[var(--theme-text)] text-[9px] uppercase font-sans tracking-[0.28em] px-3 py-1 font-medium z-10 pointer-events-none">
             {product.tagline}
           </div>
         )}
@@ -131,7 +131,7 @@ export function ProductCard({
       {/* Card info */}
       <div className="flex flex-col items-start justify-start pt-4 px-4 pb-5 flex-grow">
         <h3
-          className="font-[var(--font-playfair)] italic text-[20px] tracking-wide text-[var(--theme-text)] font-light mb-3 line-clamp-2"
+          className="font-serif italic text-[20px] tracking-wide text-[var(--theme-text)] font-light mb-3 line-clamp-2"
           style={{ lineHeight: '1.35', minHeight: '3.2rem' }}
         >
           {product.name}

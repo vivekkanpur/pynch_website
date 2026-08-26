@@ -22,11 +22,11 @@ export default function Footer({ onViewChange, onSizingOpen }: FooterProps) {
   };
 
   return (
-    <footer className="bg-white border-t border-[#E8E3DB] text-[#111111]">
+    <footer className="bg-white border-t border-[var(--theme-cream)] text-[var(--theme-text)]">
       {/* Brand Ethos Banner */}
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 py-16 sm:py-24 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16 border-b border-[#E8E3DB]/50">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 py-16 sm:py-24 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16 border-b border-[var(--theme-cream)]/50">
         <div className="col-span-12 md:col-span-6 space-y-6">
-          <h3 className="font-sans italic text-2xl sm:text-3xl lg:text-4xl text-[#111111] font-light leading-snug tracking-wide">
+          <h3 className="font-sans italic text-2xl sm:text-3xl lg:text-4xl text-[var(--theme-text)] font-light leading-snug tracking-wide">
             "Dress the person, not the performance."
           </h3>
           <p className="font-sans font-light text-xs sm:text-sm text-gray-500 max-w-md leading-relaxed">
@@ -45,7 +45,7 @@ export default function Footer({ onViewChange, onSizingOpen }: FooterProps) {
           </p>
 
           {!subscribed ? (
-            <form onSubmit={handleSubscribe} className="flex border-b border-[#111111] py-1">
+            <form onSubmit={handleSubscribe} className="flex border-b border-[var(--theme-text)] py-1">
               <input
                 type="email"
                 required
@@ -57,7 +57,7 @@ export default function Footer({ onViewChange, onSizingOpen }: FooterProps) {
               />
               <button
                 type="submit"
-                className="text-[#111111] hover:translate-x-1.5 transition-transform duration-300 p-2"
+                className="text-[var(--theme-text)] hover:translate-x-1.5 transition-transform duration-300 p-2"
                 aria-label="Subscribe"
                 id="footer-subscribe-btn"
               >
@@ -65,7 +65,7 @@ export default function Footer({ onViewChange, onSizingOpen }: FooterProps) {
               </button>
             </form>
           ) : (
-            <div className="bg-[#F4F0EA] p-4 no-radius text-[11px] font-sans tracking-wide text-[#111111]">
+            <div className="bg-[var(--theme-cream)] p-4 no-radius text-[11px] font-sans tracking-wide text-[var(--theme-text)]">
               ✓ Thank you for joining. We write sparingly and with intent.
             </div>
           )}
@@ -217,7 +217,7 @@ export default function Footer({ onViewChange, onSizingOpen }: FooterProps) {
       </div>
 
       {/* Footer Bottom Credentials */}
-      <div className="bg-[#111111] text-[#E8E3DB] py-8 px-4 sm:px-8 text-[9px] font-sans tracking-[0.2em] font-light">
+      <div className="bg-[var(--theme-text)] text-[var(--theme-cream)] py-8 px-4 sm:px-8 text-[9px] font-sans tracking-[0.2em] font-light">
         <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
           <span className="opacity-70">© 2026 Pynch. VELURIA INTERNATIONAL PRIVATE LIMITED. All rights reserved.</span>
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 text-center sm:text-left">

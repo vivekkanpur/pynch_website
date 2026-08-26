@@ -98,7 +98,7 @@ export function MoodsSection() {
               </div>
 
               {/* Shop Now Button (Appears on hover) */}
-              <div className="absolute bottom-0 inset-x-0 bg-[var(--theme-lime)] text-[#1A1A1A] py-5 flex items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-20">
+              <div className="absolute bottom-0 inset-x-0 bg-[var(--theme-lime)] text-[var(--theme-text)] py-5 flex items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-20">
                 <span className="font-sans text-[11px] uppercase tracking-[0.4em] font-medium">
                   Shop Now
                 </span>

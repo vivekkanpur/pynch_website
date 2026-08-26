@@ -56,9 +56,9 @@ export default function SizeGuideDrawer({ isOpen, onClose }: SizeGuideDrawerProp
             className="relative w-full max-w-xl bg-white h-full shadow-2xl flex flex-col z-10 no-radius"
           >
             {/* Header */}
-            <div className="p-6 border-b border-[#E8E3DB] flex justify-between items-center bg-white sticky top-0 z-20">
+            <div className="p-6 border-b border-[var(--theme-cream)] flex justify-between items-center bg-white sticky top-0 z-20">
               <div>
-                <h2 className="font-sans text-xl tracking-[0.1em] text-[#111111] uppercase font-light">
+                <h2 className="font-sans text-xl tracking-[0.1em] text-[var(--theme-text)] uppercase font-light">
                   Sizing & Comfort Guide
                 </h2>
                 <p className="text-[10px] font-sans uppercase tracking-[0.2em] text-gray-400 mt-1">
@@ -73,7 +73,7 @@ export default function SizeGuideDrawer({ isOpen, onClose }: SizeGuideDrawerProp
             {/* Scrollable Body */}
             <div 
               ref={scrollRef}
-              className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 bg-[#F4F0EA]" 
+              className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 bg-[var(--theme-cream)]" 
               data-lenis-prevent="true"
             >
               <SizeGuideView isDrawer={true} />

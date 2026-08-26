@@ -12,7 +12,7 @@ export default function PhilosophyView() {
     <div className="w-full bg-[#08514C] min-h-screen overflow-hidden relative">
       
       {/* Our World / Brand Philosophy Section */}
-      <section className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-12 md:px-20 py-24 flex flex-col justify-center items-center text-center space-y-12 text-[#F9F6F0] selection:bg-[#CFE11C] selection:text-black">
+      <section className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-12 md:px-20 py-24 flex flex-col justify-center items-center text-center space-y-12 text-[var(--theme-cream)] selection:bg-[var(--theme-lime)] selection:text-black">
         {/* Subtle abstract background element */}
         <div className="absolute top-0 right-0 w-[80vw] h-[80vw] bg-[#0A5D57] rounded-full mix-blend-screen filter blur-[100px] opacity-30 -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
         
@@ -24,8 +24,8 @@ export default function PhilosophyView() {
           variants={fadeUpVariants}
           className="space-y-4 mb-8"
         >
-          <h1 className="font-serif text-5xl md:text-6xl text-[#CFE11C] font-light">Our World</h1>
-          <p className="font-sans text-sm uppercase tracking-[0.3em] text-[#F9F6F0]/70">Brand Philosophy</p>
+          <h1 className="font-serif text-5xl md:text-6xl text-[var(--theme-lime)] font-light">Our World</h1>
+          <p className="font-sans text-sm uppercase tracking-[0.3em] text-[var(--theme-cream)]/70">Brand Philosophy</p>
         </motion.div>
 
         <motion.div 
@@ -45,7 +45,7 @@ export default function PhilosophyView() {
             We started PYNCH because we had one quiet, stubborn belief: a woman is not one thing. She is a seductress on Monday, a romantic on a rainy Wednesday, unruly on Thursday, and finally, gloriously still on Sunday night. She contains multitudes. Her intimate wear should too.
           </p>
 
-          <p className="italic font-medium text-2xl sm:text-3xl md:text-4xl text-[#CFE11C] py-6">
+          <p className="italic font-medium text-2xl sm:text-3xl md:text-4xl text-[var(--theme-lime)] py-6">
             &ldquo;Dress the person, not the performance.&rdquo;
           </p>
 
@@ -53,11 +53,11 @@ export default function PhilosophyView() {
             So we built a language for her, not a uniform. Four moods. Four versions of her. None of them wrong. All of them real.
           </p>
 
-          <div className="py-4 space-y-3 font-serif text-2xl sm:text-3xl font-normal text-[#F9F6F0]/90">
-            <p><span className="text-[#CFE11C] italic">Aarambh.</span> The seductress.</p>
-            <p><span className="text-[#CFE11C] italic">Ishq.</span> The romantic.</p>
-            <p><span className="text-[#CFE11C] italic">Shararat.</span> The playful.</p>
-            <p><span className="text-[#CFE11C] italic">Sukoon.</span> The stillness.</p>
+          <div className="py-4 space-y-3 font-serif text-2xl sm:text-3xl font-normal text-[var(--theme-cream)]/90">
+            <p><span className="text-[var(--theme-lime)] italic">Aarambh.</span> The seductress.</p>
+            <p><span className="text-[var(--theme-lime)] italic">Ishq.</span> The romantic.</p>
+            <p><span className="text-[var(--theme-lime)] italic">Shararat.</span> The playful.</p>
+            <p><span className="text-[var(--theme-lime)] italic">Sukoon.</span> The stillness.</p>
           </div>
 
           <p>
@@ -72,7 +72,7 @@ export default function PhilosophyView() {
           <p>
             PYNCH is here to wrap you in that ease.
           </p>
-          <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#CFE11C] italic pt-4">
+          <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-[var(--theme-lime)] italic pt-4">
             Just a pynch is enough.
           </p>
 

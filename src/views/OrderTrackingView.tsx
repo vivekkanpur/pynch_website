@@ -37,7 +37,7 @@ export default function OrderTrackingView() {
         
         {/* Header */}
         <div className="text-center">
-          <h1 className="font-[var(--font-playfair)] text-4xl sm:text-5xl lg:text-6xl text-[var(--theme-teal)] mb-4 tracking-wide">
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--theme-teal)] mb-4 tracking-wide">
             Track Your Order
           </h1>
           <p className="font-sans text-sm text-[var(--theme-text)] opacity-70 max-w-md mx-auto tracking-wide">
@@ -54,31 +54,31 @@ export default function OrderTrackingView() {
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="flex flex-col gap-2">
-              <label className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#1A1A1A]">Order Number *</label>
+              <label className="font-sans text-[10px] uppercase tracking-[0.2em] text-[var(--theme-text)]">Order Number *</label>
               <input 
                 type="text" 
                 placeholder="e.g. #PYNCH-1001"
                 required
                 value={orderId}
                 onChange={(e) => setOrderId(e.target.value)}
-                className="w-full bg-transparent border-b border-[var(--theme-border)] py-2 text-sm focus:outline-none focus:border-[var(--theme-teal)] transition-colors text-[#1A1A1A]" 
+                className="w-full bg-transparent border-b border-[var(--theme-border)] py-2 text-sm focus:outline-none focus:border-[var(--theme-teal)] transition-colors text-[var(--theme-text)]" 
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#1A1A1A]">Email or Phone *</label>
+              <label className="font-sans text-[10px] uppercase tracking-[0.2em] text-[var(--theme-text)]">Email or Phone *</label>
               <input 
                 type="text" 
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-transparent border-b border-[var(--theme-border)] py-2 text-sm focus:outline-none focus:border-[var(--theme-teal)] transition-colors text-[#1A1A1A]" 
+                className="w-full bg-transparent border-b border-[var(--theme-border)] py-2 text-sm focus:outline-none focus:border-[var(--theme-teal)] transition-colors text-[var(--theme-text)]" 
               />
             </div>
           </div>
           <button
             type="submit"
             disabled={trackingState === 'loading'}
-            className="w-full bg-[#1A1A1A] text-white py-4 mt-2 font-sans text-[11px] uppercase tracking-[0.3em] hover:bg-[var(--theme-teal)] transition-colors duration-300 no-radius disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full bg-[var(--theme-text)] text-white py-4 mt-2 font-sans text-[11px] uppercase tracking-[0.3em] hover:bg-[var(--theme-teal)] transition-colors duration-300 no-radius disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {trackingState === 'loading' ? 'Locating...' : 'Track Order'}
             {trackingState !== 'loading' && <ChevronRight className="w-4 h-4" />}
@@ -99,11 +99,11 @@ export default function OrderTrackingView() {
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-[var(--theme-border)] pb-6 mb-10 gap-4">
                   <div>
                     <h3 className="font-sans font-medium text-lg text-[var(--theme-teal)] uppercase tracking-widest">{orderId}</h3>
-                    <p className="font-sans text-[11px] text-[#1A1A1A] opacity-60 tracking-wider uppercase mt-1">Via Delhivery Express</p>
+                    <p className="font-sans text-[11px] text-[var(--theme-text)] opacity-60 tracking-wider uppercase mt-1">Via Delhivery Express</p>
                   </div>
                   <div className="text-left sm:text-right">
-                    <p className="font-sans text-[10px] text-[#1A1A1A] opacity-60 tracking-widest uppercase">Est. Delivery</p>
-                    <p className="font-[var(--font-playfair)] text-2xl text-[var(--theme-text)] mt-1">Oct 16, 2026</p>
+                    <p className="font-sans text-[10px] text-[var(--theme-text)] opacity-60 tracking-widest uppercase">Est. Delivery</p>
+                    <p className="font-serif text-2xl text-[var(--theme-text)] mt-1">Oct 16, 2026</p>
                   </div>
                 </div>
 
@@ -135,10 +135,10 @@ export default function OrderTrackingView() {
                           
                           {/* Step Details */}
                           <div className={`flex flex-col pt-1 transition-opacity duration-500 ${isCompleted ? 'opacity-100' : 'opacity-40'}`}>
-                            <span className={`font-sans text-[12px] uppercase tracking-[0.2em] ${isCurrent ? 'font-medium text-[var(--theme-teal)]' : 'text-[#1A1A1A]'}`}>
+                            <span className={`font-sans text-[12px] uppercase tracking-[0.2em] ${isCurrent ? 'font-medium text-[var(--theme-teal)]' : 'text-[var(--theme-text)]'}`}>
                               {step.label}
                             </span>
-                            <span className="font-sans text-[11px] text-[#1A1A1A] opacity-60 tracking-wide mt-1">
+                            <span className="font-sans text-[11px] text-[var(--theme-text)] opacity-60 tracking-wide mt-1">
                               {step.date}
                             </span>
                           </div>
@@ -150,7 +150,7 @@ export default function OrderTrackingView() {
                 
                 {/* Notice */}
                 <div className="mt-12 pt-6 border-t border-[var(--theme-border)] text-center">
-                  <p className="font-sans text-[10px] uppercase tracking-widest text-[#1A1A1A] opacity-50">
+                  <p className="font-sans text-[10px] uppercase tracking-widest text-[var(--theme-text)] opacity-50">
                     Need help? <a href="mailto:hello@pynch.com" className="hover:text-[var(--theme-teal)] underline underline-offset-4">Contact Support</a>
                   </p>
                 </div>

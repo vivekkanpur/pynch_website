@@ -15,11 +15,11 @@ export default function EditorialView({ onViewChange }: EditorialViewProps) {
   return (
     <div className="max-w-[1440px] mx-auto px-4 sm:px-8 py-16 sm:py-24 space-y-24">
       {/* Editorial Header */}
-      <div className="text-center space-y-6 max-w-2xl mx-auto pb-12 border-b border-[#E8E3DB]">
+      <div className="text-center space-y-6 max-w-2xl mx-auto pb-12 border-b border-[var(--theme-cream)]">
         <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-gray-400 block">
           The Pynch Chronicles
         </span>
-        <h2 className="font-sans text-4xl sm:text-5xl lg:text-6xl tracking-widest font-light text-[#111111] uppercase">
+        <h2 className="font-sans text-4xl sm:text-5xl lg:text-6xl tracking-widest font-light text-[var(--theme-text)] uppercase">
           The Essential <br />
           <span className="italic">Journal</span>
         </h2>
@@ -29,14 +29,14 @@ export default function EditorialView({ onViewChange }: EditorialViewProps) {
       </div>
 
       {/* Main Campaign Image Row */}
-      <section className="relative w-full aspect-[16/9] bg-[#F4F0EA] overflow-hidden no-radius border border-[#E8E3DB]">
+      <section className="relative w-full aspect-[16/9] bg-[var(--theme-cream)] overflow-hidden no-radius border border-[var(--theme-cream)]">
         <img decoding="async" loading="lazy"
           src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600"
           alt="PYNCH Lookbook Campaign"
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover grayscale-15 mix-blend-multiply"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/80 via-[#111111]/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--theme-text)]/80 via-[var(--theme-text)]/20 to-transparent"></div>
         <div className="absolute bottom-0 inset-x-0 p-8 sm:p-12 text-white space-y-4 max-w-xl">
           <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-white/70">Summer Release Lookbook</span>
           <h3 className="font-sans text-2xl sm:text-4xl font-light tracking-wide">Sensual Honesty: The Body in Solitude</h3>
@@ -52,12 +52,12 @@ export default function EditorialView({ onViewChange }: EditorialViewProps) {
           <article
             key={art.id}
             onClick={() => setSelectedArticleId(art.id)}
-            className="group cursor-pointer space-y-8 flex flex-col justify-between border border-[#E8E3DB] p-6 sm:p-10 hover:bg-[#F4F0EA]/50 transition-colors no-radius"
+            className="group cursor-pointer space-y-8 flex flex-col justify-between border border-[var(--theme-cream)] p-6 sm:p-10 hover:bg-[var(--theme-cream)]/50 transition-colors no-radius"
             id={`editorial-article-${art.id}`}
           >
             <div className="space-y-6">
               {/* Cover Thumbnail */}
-              <div className="aspect-[16/10] bg-[#F4F0EA] overflow-hidden no-radius">
+              <div className="aspect-[16/10] bg-[var(--theme-cream)] overflow-hidden no-radius">
                 <img decoding="async" loading="lazy"
                   src={art.image}
                   alt={art.title}
@@ -97,7 +97,7 @@ export default function EditorialView({ onViewChange }: EditorialViewProps) {
             </div>
 
             {/* Read Button */}
-            <div className="pt-6 flex items-center gap-3 text-[11px] font-sans tracking-[0.2em] uppercase text-[#111111] font-light group-hover:text-gray-600 transition-colors border-t border-[#E8E3DB]">
+            <div className="pt-6 flex items-center gap-3 text-[11px] font-sans tracking-[0.2em] uppercase text-[var(--theme-text)] font-light group-hover:text-gray-600 transition-colors border-t border-[var(--theme-cream)]">
               <span>Read Reflection</span>
               <ArrowRight className="w-4 h-4 stroke-[1] transition-transform group-hover:translate-x-1" />
             </div>
@@ -106,11 +106,11 @@ export default function EditorialView({ onViewChange }: EditorialViewProps) {
       </section>
 
       {/* Philosophy Quote Ribbon */}
-      <section className="text-center py-16 border-y border-[#E8E3DB] max-w-4xl mx-auto space-y-6">
+      <section className="text-center py-16 border-y border-[var(--theme-cream)] max-w-4xl mx-auto space-y-6">
         <blockquote className="font-sans italic font-light text-xl sm:text-2xl text-gray-800 leading-relaxed">
           “Physical ease is the foundation of emotional honesty. Lingerie shouldn't feel like armor you put on to face the world; it should feel like the quiet sanctuary you return to.”
         </blockquote>
-        <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-[#111111] font-medium block">
+        <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-[var(--theme-text)] font-medium block">
           — Atelier Tashu Dictionary of Comfort
         </span>
       </section>
@@ -120,7 +120,7 @@ export default function EditorialView({ onViewChange }: EditorialViewProps) {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 sm:p-6 lg:p-10">
           <div className="w-full max-w-4xl bg-white h-full max-h-[90vh] overflow-y-auto no-radius shadow-2xl relative flex flex-col">
             {/* Header Sticky Bar */}
-            <div className="p-6 border-b border-[#E8E3DB] flex justify-between items-center bg-white sticky top-0 z-10">
+            <div className="p-6 border-b border-[var(--theme-cream)] flex justify-between items-center bg-white sticky top-0 z-10">
               <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-gray-400">
                 Pynch Essays ╱ By Tashu
               </span>
@@ -143,7 +143,7 @@ export default function EditorialView({ onViewChange }: EditorialViewProps) {
                   {activeArticle.subtitle}
                 </p>
                 
-                <div className="flex justify-center gap-6 font-sans text-[10px] text-gray-400 border-y border-[#E8E3DB] py-4 uppercase tracking-[0.2em]">
+                <div className="flex justify-center gap-6 font-sans text-[10px] text-gray-400 border-y border-[var(--theme-cream)] py-4 uppercase tracking-[0.2em]">
                   <span>Date: {activeArticle.date}</span>
                   <span>╱</span>
                   <span>Read: {activeArticle.readTime}</span>
@@ -153,7 +153,7 @@ export default function EditorialView({ onViewChange }: EditorialViewProps) {
               </div>
 
               {/* Cover image in detail */}
-              <div className="w-full aspect-[16/9] bg-[#F4F0EA] overflow-hidden no-radius border border-[#E8E3DB]">
+              <div className="w-full aspect-[16/9] bg-[var(--theme-cream)] overflow-hidden no-radius border border-[var(--theme-cream)]">
                 <img decoding="async" loading="lazy"
                   src={activeArticle.image}
                   alt={activeArticle.title}
@@ -163,14 +163,14 @@ export default function EditorialView({ onViewChange }: EditorialViewProps) {
               </div>
 
               {/* Essay Text body */}
-              <div className="max-w-2xl mx-auto space-y-8 text-[#111111] leading-relaxed font-sans text-sm sm:text-base font-light">
+              <div className="max-w-2xl mx-auto space-y-8 text-[var(--theme-text)] leading-relaxed font-sans text-sm sm:text-base font-light">
                 {activeArticle.content.map((para, idx) => (
                   <p key={idx}>{para}</p>
                 ))}
 
                 {activeArticle.quote && (
-                  <div className="border-l border-[#111111] pl-8 py-4 my-10 bg-[#F4F0EA]/30">
-                    <p className="font-sans font-light italic text-xl sm:text-2xl text-[#111111] leading-relaxed">
+                  <div className="border-l border-[var(--theme-text)] pl-8 py-4 my-10 bg-[var(--theme-cream)]/30">
+                    <p className="font-sans font-light italic text-xl sm:text-2xl text-[var(--theme-text)] leading-relaxed">
                       "{activeArticle.quote}"
                     </p>
                   </div>
@@ -179,13 +179,13 @@ export default function EditorialView({ onViewChange }: EditorialViewProps) {
 
               {/* Link back to collection */}
               {activeArticle.collectionLink && (
-                <div className="max-w-2xl mx-auto pt-12 border-t border-[#E8E3DB] text-center">
+                <div className="max-w-2xl mx-auto pt-12 border-t border-[var(--theme-cream)] text-center">
                   <button
                     onClick={() => {
                       setSelectedArticleId(null);
                       onViewChange('shop');
                     }}
-                    className="bg-[#111111] text-white px-10 py-5 text-[11px] font-sans tracking-[0.2em] uppercase hover:bg-black transition-colors no-radius font-light"
+                    className="bg-[var(--theme-text)] text-white px-10 py-5 text-[11px] font-sans tracking-[0.2em] uppercase hover:bg-black transition-colors no-radius font-light"
                     id="article-shop-cta"
                   >
                     {activeArticle.collectionLink.text}

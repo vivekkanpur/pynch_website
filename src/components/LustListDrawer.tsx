@@ -24,9 +24,9 @@ export default function LustListDrawer({
       <div className="absolute inset-0" onClick={onClose}></div>
 
       <div className="relative w-full max-w-md bg-white h-full shadow-2xl flex flex-col z-10 no-radius">
-        <div className="p-6 border-b border-[#E8E3DB] flex justify-between items-center bg-white sticky top-0">
+        <div className="p-6 border-b border-[var(--theme-cream)] flex justify-between items-center bg-white sticky top-0">
           <div>
-            <h2 className="font-sans text-xl tracking-[0.1em] text-[#111111] uppercase font-light">
+            <h2 className="font-sans text-xl tracking-[0.1em] text-[var(--theme-text)] uppercase font-light">
               Lust List
             </h2>
             <p className="text-[10px] font-sans uppercase tracking-[0.2em] text-gray-400 mt-1">
@@ -52,7 +52,7 @@ export default function LustListDrawer({
               </div>
               <button
                 onClick={onClose}
-                className="border border-[#111111] text-[#111111] text-[11px] font-sans tracking-[0.2em] uppercase px-6 py-4 hover:bg-gray-50 transition-colors no-radius mt-4"
+                className="border border-[var(--theme-text)] text-[var(--theme-text)] text-[11px] font-sans tracking-[0.2em] uppercase px-6 py-4 hover:bg-gray-50 transition-colors no-radius mt-4"
               >
                 Explore Collection
               </button>
@@ -63,15 +63,15 @@ export default function LustListDrawer({
               const primaryImage = activeColor?.images[0] || '';
               
               return (
-                <div key={`${item.id}-${index}`} className="flex gap-4 border-b border-[#E8E3DB] pb-6 last:border-0 last:pb-0">
-                  <div className="w-24 aspect-[3/4] bg-[#F4F0EA] overflow-hidden shrink-0">
+                <div key={`${item.id}-${index}`} className="flex gap-4 border-b border-[var(--theme-cream)] pb-6 last:border-0 last:pb-0">
+                  <div className="w-24 aspect-[3/4] bg-[var(--theme-cream)] overflow-hidden shrink-0">
                     <img decoding="async" loading="lazy" src={primaryImage} alt={item.name} className="w-full h-full object-cover mix-blend-multiply" />
                   </div>
 
                   <div className="flex-1 flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="flex justify-between items-start">
-                        <h4 className="font-sans font-light text-sm tracking-[0.1em] uppercase text-[#111111]">
+                        <h4 className="font-sans font-light text-sm tracking-[0.1em] uppercase text-[var(--theme-text)]">
                           {item.name}
                         </h4>
                         <span className="font-sans font-light text-sm text-gray-900">
@@ -86,7 +86,7 @@ export default function LustListDrawer({
                     <div className="flex justify-between items-center mt-4">
                       <button
                         onClick={() => onQuickAdd(item, activeColor.name, item.sizes[0])}
-                        className="text-[10px] font-sans tracking-[0.2em] uppercase text-[#111111] flex items-center gap-2 hover:opacity-70 transition-opacity"
+                        className="text-[10px] font-sans tracking-[0.2em] uppercase text-[var(--theme-text)] flex items-center gap-2 hover:opacity-70 transition-opacity"
                       >
                         <ShoppingBag className="w-3.5 h-3.5 stroke-[1]" />
                         Move to Bag
@@ -94,7 +94,7 @@ export default function LustListDrawer({
 
                       <button
                         onClick={() => onRemoveItem(item)}
-                        className="text-gray-400 hover:text-[#111111] transition-colors focus:outline-none p-2"
+                        className="text-gray-400 hover:text-[var(--theme-text)] transition-colors focus:outline-none p-2"
                         aria-label="Remove item"
                       >
                         <Trash2 className="w-3.5 h-3.5 stroke-[1]" />

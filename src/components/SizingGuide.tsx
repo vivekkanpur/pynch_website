@@ -72,9 +72,9 @@ export default function SizingGuide({ isOpen, onClose }: SizingGuideProps) {
     <div className="fixed inset-0 z-50 flex items-center justify-end bg-black/60 backdrop-blur-xs transition-opacity duration-300">
       <div className="w-full max-w-xl bg-white h-full overflow-y-auto no-radius flex flex-col shadow-2xl relative">
         {/* Header */}
-        <div className="p-6 border-b border-[#E8E3DB] flex justify-between items-center bg-white sticky top-0 z-10">
+        <div className="p-6 border-b border-[var(--theme-cream)] flex justify-between items-center bg-white sticky top-0 z-10">
           <div>
-            <h2 className="font-sans text-xl tracking-[0.1em] text-[#111111] uppercase font-light">
+            <h2 className="font-sans text-xl tracking-[0.1em] text-[var(--theme-text)] uppercase font-light">
               Sizing & Sensation
             </h2>
             <p className="text-[10px] font-sans uppercase tracking-[0.2em] text-gray-400 mt-1">
@@ -93,8 +93,8 @@ export default function SizingGuide({ isOpen, onClose }: SizingGuideProps) {
         {/* Content */}
         <div className="p-6 space-y-8 flex-1">
           {/* Brand Philosophy Note */}
-          <div className="border border-[#E8E3DB] p-6 bg-[#F4F0EA] no-radius space-y-3">
-            <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-[#111111] font-medium block">
+          <div className="border border-[var(--theme-cream)] p-6 bg-[var(--theme-cream)] no-radius space-y-3">
+            <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-[var(--theme-text)] font-medium block">
               Tashu’s Fitting Philosophy
             </span>
             <p className="font-sans font-light italic text-sm text-gray-800 leading-relaxed">
@@ -105,13 +105,13 @@ export default function SizingGuide({ isOpen, onClose }: SizingGuideProps) {
           </div>
 
           {/* Unit Toggle */}
-          <div className="flex justify-between items-center border-b border-[#E8E3DB] pb-4">
+          <div className="flex justify-between items-center border-b border-[var(--theme-cream)] pb-4">
             <span className="text-[11px] font-sans tracking-[0.15em] uppercase text-gray-600">Measurement Unit</span>
-            <div className="flex border border-[#111111]/20 no-radius p-0.5">
+            <div className="flex border border-[var(--theme-text)]/20 no-radius p-0.5">
               <button
                 onClick={() => setUnit('in')}
                 className={`px-3 py-1 text-[10px] font-sans uppercase tracking-[0.2em] transition-colors no-radius ${
-                  unit === 'in' ? 'bg-[#111111] text-white' : 'text-gray-600 hover:bg-gray-100'
+                  unit === 'in' ? 'bg-[var(--theme-text)] text-white' : 'text-gray-600 hover:bg-gray-100'
                 }`}
               >
                 Inches
@@ -119,7 +119,7 @@ export default function SizingGuide({ isOpen, onClose }: SizingGuideProps) {
               <button
                 onClick={() => setUnit('cm')}
                 className={`px-3 py-1 text-[10px] font-sans uppercase tracking-[0.2em] transition-colors no-radius ${
-                  unit === 'cm' ? 'bg-[#111111] text-white' : 'text-gray-600 hover:bg-gray-100'
+                  unit === 'cm' ? 'bg-[var(--theme-text)] text-white' : 'text-gray-600 hover:bg-gray-100'
                 }`}
               >
                 Centimeters
@@ -144,7 +144,7 @@ export default function SizingGuide({ isOpen, onClose }: SizingGuideProps) {
                     value={underbust}
                     onChange={(e) => setUnderbust(e.target.value)}
                     placeholder={unit === 'in' ? 'e.g., 32' : 'e.g., 81'}
-                    className="w-full border border-[#E8E3DB] px-4 py-3 text-sm no-radius font-sans focus:border-[#111111] focus:outline-none transition-colors"
+                    className="w-full border border-[var(--theme-cream)] px-4 py-3 text-sm no-radius font-sans focus:border-[var(--theme-text)] focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -161,7 +161,7 @@ export default function SizingGuide({ isOpen, onClose }: SizingGuideProps) {
                     value={overbust}
                     onChange={(e) => setOverbust(e.target.value)}
                     placeholder={unit === 'in' ? 'e.g., 35' : 'e.g., 89'}
-                    className="w-full border border-[#E8E3DB] px-4 py-3 text-sm no-radius font-sans focus:border-[#111111] focus:outline-none transition-colors"
+                    className="w-full border border-[var(--theme-cream)] px-4 py-3 text-sm no-radius font-sans focus:border-[var(--theme-text)] focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -177,14 +177,14 @@ export default function SizingGuide({ isOpen, onClose }: SizingGuideProps) {
                     value={hip}
                     onChange={(e) => setHip(e.target.value)}
                     placeholder={unit === 'in' ? 'e.g., 37' : 'e.g., 94'}
-                    className="w-full border border-[#E8E3DB] px-4 py-3 text-sm no-radius font-sans focus:border-[#111111] focus:outline-none transition-colors"
+                    className="w-full border border-[var(--theme-cream)] px-4 py-3 text-sm no-radius font-sans focus:border-[var(--theme-text)] focus:outline-none transition-colors"
                   />
                 </div>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-[#111111] text-white py-4 text-[11px] font-sans tracking-[0.2em] uppercase hover:bg-black transition-colors no-radius font-light"
+                className="w-full bg-[var(--theme-text)] text-white py-4 text-[11px] font-sans tracking-[0.2em] uppercase hover:bg-black transition-colors no-radius font-light"
                 id="calculate-size-btn"
               >
                 Determine My True Fitting
@@ -192,24 +192,24 @@ export default function SizingGuide({ isOpen, onClose }: SizingGuideProps) {
             </form>
           ) : (
             <div className="space-y-6 text-center py-4">
-              <div className="border border-[#E8E3DB] p-8 no-radius bg-white space-y-4">
+              <div className="border border-[var(--theme-cream)] p-8 no-radius bg-white space-y-4">
                 <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-gray-400 block">
                   Your Recommended Fit
                 </span>
                 
                 <div className="flex justify-center gap-8 items-center py-4">
                   <div className="text-center">
-                    <div className="text-3xl sm:text-4xl font-sans text-[#111111] font-light">{calculatedSize}</div>
+                    <div className="text-3xl sm:text-4xl font-sans text-[var(--theme-text)] font-light">{calculatedSize}</div>
                     <div className="text-[9px] font-sans text-gray-400 uppercase tracking-[0.2em] mt-2">Bralettes & Tops</div>
                   </div>
-                  <div className="h-10 w-px bg-[#E8E3DB]"></div>
+                  <div className="h-10 w-px bg-[var(--theme-cream)]"></div>
                   <div className="text-center">
-                    <div className="text-3xl sm:text-4xl font-sans text-[#111111] font-light">{calculatedBriefSize}</div>
+                    <div className="text-3xl sm:text-4xl font-sans text-[var(--theme-text)] font-light">{calculatedBriefSize}</div>
                     <div className="text-[9px] font-sans text-gray-400 uppercase tracking-[0.2em] mt-2">Briefs & Knickers</div>
                   </div>
                 </div>
 
-                <p className="text-xs text-gray-500 font-light leading-relaxed text-left border-t border-[#E8E3DB] pt-4">
+                <p className="text-xs text-gray-500 font-light leading-relaxed text-left border-t border-[var(--theme-cream)] pt-4">
                   * Based on your measurements of {underbust}{unit} underbust and {overbust}{unit} overbust. 
                   Our fabric molds to your shape, so you will feel a firm but un-restrictive hug.
                 </p>
@@ -218,14 +218,14 @@ export default function SizingGuide({ isOpen, onClose }: SizingGuideProps) {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={handleReset}
-                  className="flex-1 border border-[#111111] text-[#111111] py-4 text-[11px] font-sans tracking-[0.2em] uppercase hover:bg-gray-50 transition-colors no-radius font-light"
+                  className="flex-1 border border-[var(--theme-text)] text-[var(--theme-text)] py-4 text-[11px] font-sans tracking-[0.2em] uppercase hover:bg-gray-50 transition-colors no-radius font-light"
                   id="recalculate-size-btn"
                 >
                   Measure Again
                 </button>
                 <button
                   onClick={onClose}
-                  className="flex-1 bg-[#111111] text-white py-4 text-[11px] font-sans tracking-[0.2em] uppercase hover:bg-black transition-colors no-radius font-light"
+                  className="flex-1 bg-[var(--theme-text)] text-white py-4 text-[11px] font-sans tracking-[0.2em] uppercase hover:bg-black transition-colors no-radius font-light"
                   id="apply-fitting-btn"
                 >
                   Continue Shopping
@@ -235,7 +235,7 @@ export default function SizingGuide({ isOpen, onClose }: SizingGuideProps) {
           )}
 
           {/* Sizing Chart Details */}
-          <div className="pt-8 border-t border-[#E8E3DB]">
+          <div className="pt-8 border-t border-[var(--theme-cream)]">
             <FitGuideGraphic />
           </div>
         </div>

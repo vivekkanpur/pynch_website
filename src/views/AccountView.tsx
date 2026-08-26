@@ -88,7 +88,7 @@ export default function AccountView() {
         {/* Sidebar */}
         <div className="w-full md:w-64 shrink-0 flex flex-col gap-8">
           <div className="space-y-2">
-            <h1 className="font-[var(--font-playfair)] italic text-3xl text-[var(--theme-text)]">My Account</h1>
+            <h1 className="font-serif italic text-3xl text-[var(--theme-text)]">My Account</h1>
             <p className="font-sans text-[10px] tracking-widest uppercase text-gray-500">
               Welcome, {user?.displayName || user?.email?.split('@')[0]}
             </p>
@@ -121,11 +121,11 @@ export default function AccountView() {
           {/* DASHBOARD */}
           {activeTab === 'dashboard' && (
             <div className="space-y-8 animate-fade-in">
-              <h2 className="font-[var(--font-playfair)] text-2xl text-[var(--theme-text)] mb-8">Overview</h2>
+              <h2 className="font-serif text-2xl text-[var(--theme-text)] mb-8">Overview</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div className="border border-[var(--theme-border)] p-8 bg-white flex flex-col items-center justify-center text-center space-y-4">
                   <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-gray-500">Wallet Balance</span>
-                  <span className="font-[var(--font-playfair)] text-4xl text-[var(--theme-text)]">₹{profile?.walletBalance || 0}</span>
+                  <span className="font-serif text-4xl text-[var(--theme-text)]">₹{profile?.walletBalance || 0}</span>
                 </div>
                 <div className="border border-[var(--theme-border)] p-8 bg-white flex flex-col items-center justify-center text-center space-y-4">
                   <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-gray-500">Recent Orders</span>
@@ -138,7 +138,7 @@ export default function AccountView() {
           {/* ORDERS */}
           {activeTab === 'orders' && (
             <div className="space-y-8 animate-fade-in">
-              <h2 className="font-[var(--font-playfair)] text-2xl text-[var(--theme-text)] mb-8">Order History</h2>
+              <h2 className="font-serif text-2xl text-[var(--theme-text)] mb-8">Order History</h2>
               
               {/* Mock Order */}
               <div className="border border-[var(--theme-border)] bg-white p-6 sm:p-8">
@@ -148,8 +148,8 @@ export default function AccountView() {
                     <span className="block font-sans text-[12px] text-[var(--theme-text)]">Placed on June 12, 2026</span>
                   </div>
                   <div className="text-left sm:text-right">
-                    <span className="block font-[var(--font-playfair)] text-xl text-[var(--theme-text)] mb-1">₹3,490</span>
-                    <span className="block font-sans text-[10px] uppercase tracking-widest text-[var(--theme-lime)] bg-[#111111] px-3 py-1 inline-block">Delivered</span>
+                    <span className="block font-serif text-xl text-[var(--theme-text)] mb-1">₹3,490</span>
+                    <span className="block font-sans text-[10px] uppercase tracking-widest text-[var(--theme-lime)] bg-[var(--theme-text)] px-3 py-1 inline-block">Delivered</span>
                   </div>
                 </div>
                 
@@ -186,7 +186,7 @@ export default function AccountView() {
           {activeTab === 'sizes' && (
             <div className="space-y-8 animate-fade-in">
               <div className="flex justify-between items-center mb-8">
-                <h2 className="font-[var(--font-playfair)] text-2xl text-[var(--theme-text)]">My Sizes</h2>
+                <h2 className="font-serif text-2xl text-[var(--theme-text)]">My Sizes</h2>
                 <button 
                   onClick={handleSaveProfile}
                   className="bg-[var(--theme-text)] text-white px-8 py-3 font-sans text-[10px] uppercase tracking-[0.2em] hover:bg-black transition-colors"
@@ -234,7 +234,7 @@ export default function AccountView() {
           {activeTab === 'addresses' && (
             <div className="space-y-8 animate-fade-in">
               <div className="flex justify-between items-center mb-8">
-                <h2 className="font-[var(--font-playfair)] text-2xl text-[var(--theme-text)]">Saved Addresses</h2>
+                <h2 className="font-serif text-2xl text-[var(--theme-text)]">Saved Addresses</h2>
                 <button 
                   onClick={handleSaveProfile}
                   className="bg-[var(--theme-text)] text-white px-8 py-3 font-sans text-[10px] uppercase tracking-[0.2em] hover:bg-black transition-colors"
@@ -293,12 +293,12 @@ export default function AccountView() {
                   <rect x="2" y="5" width="20" height="14" rx="2" />
                   <line x1="2" y1="10" x2="22" y2="10" />
                </svg>
-               <h2 className="font-[var(--font-playfair)] text-3xl text-[var(--theme-text)] mb-2">Store Credit</h2>
+               <h2 className="font-serif text-3xl text-[var(--theme-text)] mb-2">Store Credit</h2>
                <p className="font-sans text-[11px] uppercase tracking-[0.2em] text-gray-500 mb-8 max-w-md mx-auto">
                  Your wallet balance can be automatically applied during checkout on eligible purchases.
                </p>
-               <div className="bg-[#111111] text-[var(--theme-lime)] px-12 py-8 rounded-full">
-                  <span className="font-[var(--font-playfair)] text-5xl">₹{profile?.walletBalance || 0}</span>
+               <div className="bg-[var(--theme-text)] text-[var(--theme-lime)] px-12 py-8 rounded-full">
+                  <span className="font-serif text-5xl">₹{profile?.walletBalance || 0}</span>
                </div>
             </div>
           )}

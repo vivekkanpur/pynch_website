@@ -292,11 +292,11 @@ export default function SizeGuideView({ isDrawer = false }: { isDrawer?: boolean
     >
       {!isDrawer && (
         <>
-          <p className="text-[11px] font-sans tracking-[0.18em] uppercase text-[#111111] font-semibold mb-2 text-center sm:text-left">Sizing & Sensation</p>
-          <h1 className="font-serif font-medium text-4xl sm:text-5xl tracking-wide uppercase text-[#111111] mb-2 text-center sm:text-left">
+          <p className="text-[11px] font-sans tracking-[0.18em] uppercase text-[var(--theme-text)] font-semibold mb-2 text-center sm:text-left">Sizing & Sensation</p>
+          <h1 className="font-serif font-medium text-4xl sm:text-5xl tracking-wide uppercase text-[var(--theme-text)] mb-2 text-center sm:text-left">
             True Fitting Calculator
           </h1>
-          <p className="font-serif italic text-[#6b6558] text-base sm:text-lg mb-12 text-center sm:text-left">
+          <p className="font-serif italic text-[var(--theme-text-muted)] text-base sm:text-lg mb-12 text-center sm:text-left">
             Bra · Panties · Lingerie — precision calibrated for India & EU wearers
           </p>
         </>
@@ -304,36 +304,36 @@ export default function SizeGuideView({ isDrawer = false }: { isDrawer?: boolean
 
       {/* Tabs */}
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-8">
-        <div className="flex border border-[#111111] no-radius">
+        <div className="flex border border-[var(--theme-text)] no-radius">
           <button 
             onClick={() => { setRegion('IN'); setResult(null); }}
-            className={`px-6 py-2.5 font-sans text-xs uppercase tracking-widest no-radius border-r border-[#111111] transition-colors ${region === 'IN' ? 'bg-[#111111] text-white font-medium' : 'bg-white text-[#111111] hover:bg-gray-50'}`}
+            className={`px-6 py-2.5 font-sans text-xs uppercase tracking-widest no-radius border-r border-[var(--theme-text)] transition-colors ${region === 'IN' ? 'bg-[var(--theme-text)] text-white font-medium' : 'bg-white text-[var(--theme-text)] hover:bg-gray-50'}`}
           >
             India
           </button>
           <button 
             onClick={() => { setRegion('EU'); setResult(null); }}
-            className={`px-6 py-2.5 font-sans text-xs uppercase tracking-widest no-radius transition-colors ${region === 'EU' ? 'bg-[#111111] text-white font-medium' : 'bg-white text-[#111111] hover:bg-gray-50'}`}
+            className={`px-6 py-2.5 font-sans text-xs uppercase tracking-widest no-radius transition-colors ${region === 'EU' ? 'bg-[var(--theme-text)] text-white font-medium' : 'bg-white text-[var(--theme-text)] hover:bg-gray-50'}`}
           >
             EU
           </button>
         </div>
-        <div className="flex border border-[#111111] no-radius overflow-x-auto">
+        <div className="flex border border-[var(--theme-text)] no-radius overflow-x-auto">
           <button 
             onClick={() => { setProduct('bra'); setResult(null); }}
-            className={`px-6 py-2.5 font-sans text-xs uppercase tracking-widest no-radius border-r border-[#111111] whitespace-nowrap transition-colors ${product === 'bra' ? 'bg-[#111111] text-white font-medium' : 'bg-white text-[#111111] hover:bg-gray-50'}`}
+            className={`px-6 py-2.5 font-sans text-xs uppercase tracking-widest no-radius border-r border-[var(--theme-text)] whitespace-nowrap transition-colors ${product === 'bra' ? 'bg-[var(--theme-text)] text-white font-medium' : 'bg-white text-[var(--theme-text)] hover:bg-gray-50'}`}
           >
             Bra
           </button>
           <button 
             onClick={() => { setProduct('panty'); setResult(null); }}
-            className={`px-6 py-2.5 font-sans text-xs uppercase tracking-widest no-radius border-r border-[#111111] whitespace-nowrap transition-colors ${product === 'panty' ? 'bg-[#111111] text-white font-medium' : 'bg-white text-[#111111] hover:bg-gray-50'}`}
+            className={`px-6 py-2.5 font-sans text-xs uppercase tracking-widest no-radius border-r border-[var(--theme-text)] whitespace-nowrap transition-colors ${product === 'panty' ? 'bg-[var(--theme-text)] text-white font-medium' : 'bg-white text-[var(--theme-text)] hover:bg-gray-50'}`}
           >
             Panties
           </button>
           <button 
             onClick={() => { setProduct('lingerie'); setResult(null); }}
-            className={`px-6 py-2.5 font-sans text-xs uppercase tracking-widest no-radius whitespace-nowrap transition-colors ${product === 'lingerie' ? 'bg-[#111111] text-white font-medium' : 'bg-white text-[#111111] hover:bg-gray-50'}`}
+            className={`px-6 py-2.5 font-sans text-xs uppercase tracking-widest no-radius whitespace-nowrap transition-colors ${product === 'lingerie' ? 'bg-[var(--theme-text)] text-white font-medium' : 'bg-white text-[var(--theme-text)] hover:bg-gray-50'}`}
           >
             Lingerie / Bodysuit
           </button>
@@ -346,8 +346,8 @@ export default function SizeGuideView({ isDrawer = false }: { isDrawer?: boolean
         <div className={isDrawer ? "w-full bg-white border border-gray-200 p-6 space-y-6 shadow-sm no-radius" : "col-span-1 lg:col-span-5 bg-white border border-gray-200 p-6 sm:p-8 space-y-8 shadow-sm no-radius"}>
           
           {/* Philosophy Box */}
-          <div className="border border-[#E8E3DB] p-6 bg-[#F4F0EA] no-radius space-y-3">
-            <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-[#111111] font-semibold block">
+          <div className="border border-[var(--theme-cream)] p-6 bg-[var(--theme-cream)] no-radius space-y-3">
+            <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-[var(--theme-text)] font-semibold block">
               Tashu’s Fitting Philosophy
             </span>
             <p className="font-sans font-light italic text-xs text-gray-800 leading-relaxed">
@@ -356,17 +356,17 @@ export default function SizeGuideView({ isDrawer = false }: { isDrawer?: boolean
           </div>
 
           <div>
-            <div className="text-[11px] font-sans uppercase tracking-[0.15em] font-semibold text-[#8a8474] mb-3">Measurement Unit</div>
-            <div className="flex border border-[#111111] w-fit no-radius">
+            <div className="text-[11px] font-sans uppercase tracking-[0.15em] font-semibold text-[var(--theme-text-muted)] mb-3">Measurement Unit</div>
+            <div className="flex border border-[var(--theme-text)] w-fit no-radius">
               <button 
                 onClick={() => setUnit('in')}
-                className={`px-5 py-2 font-sans text-[11px] uppercase tracking-widest transition-colors no-radius border-r border-[#111111] ${unit === 'in' ? 'bg-[#111111] text-white' : 'bg-white text-[#111111] hover:bg-gray-50'}`}
+                className={`px-5 py-2 font-sans text-[11px] uppercase tracking-widest transition-colors no-radius border-r border-[var(--theme-text)] ${unit === 'in' ? 'bg-[var(--theme-text)] text-white' : 'bg-white text-[var(--theme-text)] hover:bg-gray-50'}`}
               >
                 Inches
               </button>
               <button 
                 onClick={() => setUnit('cm')}
-                className={`px-5 py-2 font-sans text-[11px] uppercase tracking-widest transition-colors no-radius ${unit === 'cm' ? 'bg-[#111111] text-white' : 'bg-white text-[#111111] hover:bg-gray-50'}`}
+                className={`px-5 py-2 font-sans text-[11px] uppercase tracking-widest transition-colors no-radius ${unit === 'cm' ? 'bg-[var(--theme-text)] text-white' : 'bg-white text-[var(--theme-text)] hover:bg-gray-50'}`}
               >
                 Centimeters
               </button>
@@ -375,32 +375,32 @@ export default function SizeGuideView({ isDrawer = false }: { isDrawer?: boolean
 
           {(product === 'bra' || product === 'lingerie') && (
             <div className="space-y-4">
-              <div className="text-[11px] font-sans uppercase tracking-[0.15em] font-semibold text-[#8a8474] mb-4">
+              <div className="text-[11px] font-sans uppercase tracking-[0.15em] font-semibold text-[var(--theme-text-muted)] mb-4">
                 {product === 'bra' ? 'Bra Measurements' : 'Lingerie / Bodysuit Measurements'}
               </div>
               
               <div>
-                <label className="flex justify-between items-baseline text-[11px] font-sans uppercase tracking-widest text-[#57534a] mb-2">
+                <label className="flex justify-between items-baseline text-[11px] font-sans uppercase tracking-widest text-[var(--theme-text-muted)] mb-2">
                   Underbust <span className="normal-case tracking-normal text-gray-400">snug around ribs, exhaled</span>
                 </label>
                 <input 
                   type="number" step="0.1" inputMode="decimal"
                   value={measurements.underbust} onChange={(e) => handleChange('underbust', e.target.value)}
                   placeholder={getPlaceholder('underbust')}
-                  className={`w-full p-3 border font-sans text-sm bg-gray-50 focus:outline-none focus:border-[#111111] no-radius ${errors.underbust ? 'border-red-400 bg-red-50' : 'border-[#d9d3c3]'}`}
+                  className={`w-full p-3 border font-sans text-sm bg-gray-50 focus:outline-none focus:border-[var(--theme-text)] no-radius ${errors.underbust ? 'border-red-400 bg-red-50' : 'border-[var(--theme-cream)]'}`}
                 />
                 {errors.underbust && <div className="text-red-500 text-[11px] mt-1.5 font-sans uppercase tracking-wider">{errors.underbust}</div>}
               </div>
 
               <div>
-                <label className="flex justify-between items-baseline text-[11px] font-sans uppercase tracking-widest text-[#57534a] mb-2">
+                <label className="flex justify-between items-baseline text-[11px] font-sans uppercase tracking-widest text-[var(--theme-text-muted)] mb-2">
                   Overbust <span className="normal-case tracking-normal text-gray-400">fullest point of bust</span>
                 </label>
                 <input 
                   type="number" step="0.1" inputMode="decimal"
                   value={measurements.overbust} onChange={(e) => handleChange('overbust', e.target.value)}
                   placeholder={getPlaceholder('overbust')}
-                  className={`w-full p-3 border font-sans text-sm bg-gray-50 focus:outline-none focus:border-[#111111] no-radius ${errors.overbust ? 'border-red-400 bg-red-50' : 'border-[#d9d3c3]'}`}
+                  className={`w-full p-3 border font-sans text-sm bg-gray-50 focus:outline-none focus:border-[var(--theme-text)] no-radius ${errors.overbust ? 'border-red-400 bg-red-50' : 'border-[var(--theme-cream)]'}`}
                 />
                 {errors.overbust && <div className="text-red-500 text-[11px] mt-1.5 font-sans uppercase tracking-wider">{errors.overbust}</div>}
               </div>
@@ -410,33 +410,33 @@ export default function SizeGuideView({ isDrawer = false }: { isDrawer?: boolean
           {(product === 'panty' || product === 'lingerie') && (
             <div className="space-y-4">
               {product === 'panty' && (
-                <div className="text-[11px] font-sans uppercase tracking-[0.15em] font-semibold text-[#8a8474] mb-4">Panty Measurements</div>
+                <div className="text-[11px] font-sans uppercase tracking-[0.15em] font-semibold text-[var(--theme-text-muted)] mb-4">Panty Measurements</div>
               )}
               
               {product === 'panty' && (
                 <div>
-                  <label className="flex justify-between items-baseline text-[11px] font-sans uppercase tracking-widest text-[#57534a] mb-2">
+                  <label className="flex justify-between items-baseline text-[11px] font-sans uppercase tracking-widest text-[var(--theme-text-muted)] mb-2">
                     Waist <span className="normal-case tracking-normal text-gray-400">natural indentation</span>
                   </label>
                   <input 
                     type="number" step="0.1" inputMode="decimal"
                     value={measurements.waist} onChange={(e) => handleChange('waist', e.target.value)}
                     placeholder={getPlaceholder('waist')}
-                    className={`w-full p-3 border font-sans text-sm bg-gray-50 focus:outline-none focus:border-[#111111] no-radius ${errors.waist ? 'border-red-400 bg-red-50' : 'border-[#d9d3c3]'}`}
+                    className={`w-full p-3 border font-sans text-sm bg-gray-50 focus:outline-none focus:border-[var(--theme-text)] no-radius ${errors.waist ? 'border-red-400 bg-red-50' : 'border-[var(--theme-cream)]'}`}
                   />
                   {errors.waist && <div className="text-red-500 text-[11px] mt-1.5 font-sans uppercase tracking-wider">{errors.waist}</div>}
                 </div>
               )}
 
               <div>
-                <label className="flex justify-between items-baseline text-[11px] font-sans uppercase tracking-widest text-[#57534a] mb-2">
+                <label className="flex justify-between items-baseline text-[11px] font-sans uppercase tracking-widest text-[var(--theme-text-muted)] mb-2">
                   Hip <span className="normal-case tracking-normal text-gray-400">fullest part of hips/seat</span>
                 </label>
                 <input 
                   type="number" step="0.1" inputMode="decimal"
                   value={measurements.hip} onChange={(e) => handleChange('hip', e.target.value)}
                   placeholder={getPlaceholder('hip')}
-                  className={`w-full p-3 border font-sans text-sm bg-gray-50 focus:outline-none focus:border-[#111111] no-radius ${errors.hip ? 'border-red-400 bg-red-50' : 'border-[#d9d3c3]'}`}
+                  className={`w-full p-3 border font-sans text-sm bg-gray-50 focus:outline-none focus:border-[var(--theme-text)] no-radius ${errors.hip ? 'border-red-400 bg-red-50' : 'border-[var(--theme-cream)]'}`}
                 />
                 {errors.hip && <div className="text-red-500 text-[11px] mt-1.5 font-sans uppercase tracking-wider">{errors.hip}</div>}
               </div>
@@ -445,7 +445,7 @@ export default function SizeGuideView({ isDrawer = false }: { isDrawer?: boolean
 
           <button 
             onClick={handleCalculate}
-            className="w-full bg-[#111111] text-white p-4 font-sans text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-[var(--theme-lime)] hover:text-[#111111] transition-colors duration-300 no-radius mt-2 shadow-sm"
+            className="w-full bg-[var(--theme-text)] text-white p-4 font-sans text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-[var(--theme-lime)] hover:text-[var(--theme-text)] transition-colors duration-300 no-radius mt-2 shadow-sm"
           >
             Determine My True Fitting
           </button>
@@ -456,8 +456,8 @@ export default function SizeGuideView({ isDrawer = false }: { isDrawer?: boolean
         </div>
 
         {/* RIGHT: RESULTS PANEL */}
-        <div className={isDrawer ? "w-full bg-[#1A1A1A] text-white min-h-[400px] flex flex-col no-radius border border-[#222222]" : "col-span-1 lg:col-span-7 bg-[#1A1A1A] text-white min-h-[500px] flex flex-col no-radius border border-[#222222]"}>
-          <div className="p-8 sm:p-10 pb-6 bg-[#111111] border-b border-[#222222]">
+        <div className={isDrawer ? "w-full bg-[var(--theme-text)] text-white min-h-[400px] flex flex-col no-radius border border-[#222222]" : "col-span-1 lg:col-span-7 bg-[var(--theme-text)] text-white min-h-[500px] flex flex-col no-radius border border-[#222222]"}>
+          <div className="p-8 sm:p-10 pb-6 bg-[var(--theme-text)] border-b border-[#222222]">
             <h2 className="font-serif font-light text-3xl uppercase tracking-wider mb-2 text-[var(--theme-teal)]">Your Perfect Fit</h2>
             <div className="text-gray-400 text-xs font-sans tracking-wide max-w-md">Calibrated instantly for maximum tactile comfort and seamless silhouette wear.</div>
           </div>
@@ -475,7 +475,7 @@ export default function SizeGuideView({ isDrawer = false }: { isDrawer?: boolean
           ) : (
             <div className="p-8 sm:p-10 flex-grow animate-fade-in">
               
-              <div className="bg-[#111111] border border-white/10 p-8 text-center mb-8 no-radius">
+              <div className="bg-[var(--theme-text)] border border-white/10 p-8 text-center mb-8 no-radius">
                 <div className="text-[10px] font-sans uppercase tracking-[0.2em] text-gray-400 mb-3">
                   Recommended {result.type === 'bra' ? 'Bra' : result.type === 'panty' ? 'Panty' : 'Lingerie / Bodysuit'} Size — {result.isIN ? 'India Standard' : 'EU Metric'}
                 </div>

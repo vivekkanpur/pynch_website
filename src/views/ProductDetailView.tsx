@@ -117,7 +117,7 @@ export default function ProductDetailView({
       {/* Back CTA */}
       <button
         onClick={onBack}
-        className="flex items-center gap-2 text-[10px] font-sans tracking-[0.2em] uppercase text-gray-500 hover:text-[#111111] mb-12 transition-colors"
+        className="flex items-center gap-2 text-[10px] font-sans tracking-[0.2em] uppercase text-gray-500 hover:text-[var(--theme-text)] mb-12 transition-colors"
         id="back-to-portfolio-btn"
       >
         <ArrowLeft className="w-3 h-3" />
@@ -129,7 +129,7 @@ export default function ProductDetailView({
         <div className="col-span-12 lg:col-span-7 flex overflow-x-auto snap-x snap-mandatory lg:flex-col lg:space-y-4 lg:overflow-visible gap-4 lg:gap-0 hide-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
 
           {activeColor.images.map((img, idx) => (
-            <div key={`img-${idx}`} className="relative aspect-[3/4] w-[85vw] sm:w-[70vw] lg:w-full shrink-0 snap-center lg:snap-align-none bg-[#F4F0EA] overflow-hidden">
+            <div key={`img-${idx}`} className="relative aspect-[3/4] w-[85vw] sm:w-[70vw] lg:w-full shrink-0 snap-center lg:snap-align-none bg-[var(--theme-cream)] overflow-hidden">
               <img loading={idx === 0 ? "eager" : "lazy"}
                 fetchPriority={idx === 0 ? "high" : "auto"}
                 src={img}
@@ -147,10 +147,10 @@ export default function ProductDetailView({
           
           {/* Header Area */}
           <div className="space-y-2">
-            <h1 className="font-[var(--font-playfair)] italic text-3xl sm:text-4xl tracking-wide text-[#111111] leading-tight">
+            <h1 className="font-serif italic text-3xl sm:text-4xl tracking-wide text-[var(--theme-text)] leading-tight">
               {product.name}
             </h1>
-            <div className="font-sans text-sm tracking-widest text-[#111111]">
+            <div className="font-sans text-sm tracking-widest text-[var(--theme-text)]">
               ₹{product.price}
             </div>
           </div>
@@ -170,7 +170,7 @@ export default function ProductDetailView({
                 <span className="text-gray-400">Size</span>
                 <button
                   onClick={onSizingOpen}
-                  className="bg-[#F4F0EA] text-[#111111] text-[10px] font-sans tracking-[0.1em] uppercase px-4 py-2 hover:bg-gray-200 transition-colors no-radius"
+                  className="bg-[var(--theme-cream)] text-[var(--theme-text)] text-[10px] font-sans tracking-[0.1em] uppercase px-4 py-2 hover:bg-gray-200 transition-colors no-radius"
                 >
                   Size Guide
                 </button>
@@ -182,8 +182,8 @@ export default function ProductDetailView({
                     onClick={() => setSelectedSize(sz)}
                     className={`border text-[11px] font-sans tracking-[0.1em] py-2 px-4 min-w-[3rem] text-center transition-all duration-300 no-radius ${
                       selectedSize === sz
-                        ? 'border-[#111111] bg-[#111111] text-white shadow-md scale-105'
-                        : 'border-[#111111]/20 text-[#111111] hover:border-[#111111] hover:bg-[#F8F6F3]'
+                        ? 'border-[var(--theme-text)] bg-[var(--theme-text)] text-white shadow-md scale-105'
+                        : 'border-[var(--theme-text)]/20 text-[var(--theme-text)] hover:border-[var(--theme-text)] hover:bg-[var(--theme-cream)]'
                     }`}
                   >
                     {sz}
@@ -201,7 +201,7 @@ export default function ProductDetailView({
                   disabled={!selectedSize}
                   className={`flex-1 h-12 text-[11px] font-sans tracking-[0.2em] uppercase transition-all duration-500 no-radius flex items-center justify-center relative overflow-hidden group ${
                     selectedSize
-                      ? 'bg-[#111111] text-white cursor-pointer hover:shadow-xl'
+                      ? 'bg-[var(--theme-text)] text-white cursor-pointer hover:shadow-xl'
                       : 'bg-transparent text-gray-400 cursor-not-allowed border border-gray-200'
                   }`}
                   id="add-to-bag-cta"
@@ -209,7 +209,7 @@ export default function ProductDetailView({
                   {selectedSize ? (
                     <>
                       <span className="relative z-10 group-hover:scale-105 transition-transform duration-500">Add to Bag</span>
-                      <div className="absolute inset-0 bg-[#0C3839] transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out z-0"></div>
+                      <div className="absolute inset-0 bg-[var(--theme-ink)] transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out z-0"></div>
                     </>
                   ) : (
                     <span>Select a Size</span>
@@ -220,16 +220,16 @@ export default function ProductDetailView({
                 {/* Waitlist Mode Button */}
                 <button
                   onClick={() => navigate('/waitlist')}
-                  className="flex-1 h-12 text-[11px] font-sans tracking-[0.2em] uppercase transition-all duration-500 no-radius flex items-center justify-center relative overflow-hidden group bg-[#111111] text-white cursor-pointer hover:shadow-xl"
+                  className="flex-1 h-12 text-[11px] font-sans tracking-[0.2em] uppercase transition-all duration-500 no-radius flex items-center justify-center relative overflow-hidden group bg-[var(--theme-text)] text-white cursor-pointer hover:shadow-xl"
                   id="join-waitlist-cta"
                 >
                   <span className="relative z-10 group-hover:scale-105 transition-transform duration-500">Join Waitlist</span>
-                  <div className="absolute inset-0 bg-[#0C3839] transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out z-0"></div>
+                  <div className="absolute inset-0 bg-[var(--theme-ink)] transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out z-0"></div>
                 </button>
                 <button
                   onClick={() => onToggleLust && onToggleLust(product)}
-                  className={`w-12 h-12 border border-[#E8E3DB] flex items-center justify-center hover:border-[#111111] transition-colors ${
-                    isLusted ? 'text-[#111111]' : 'text-gray-400'
+                  className={`w-12 h-12 border border-[var(--theme-cream)] flex items-center justify-center hover:border-[var(--theme-text)] transition-colors ${
+                    isLusted ? 'text-[var(--theme-text)]' : 'text-gray-400'
                   }`}
                   aria-label={isLusted ? "Remove from Lust List" : "Add to Lust List"}
                 >
@@ -249,7 +249,7 @@ export default function ProductDetailView({
               </div>
 
               {addedMessage && (
-                <div className="text-[#111111] font-sans text-[10px] tracking-[0.2em] uppercase py-2 text-center">
+                <div className="text-[var(--theme-text)] font-sans text-[10px] tracking-[0.2em] uppercase py-2 text-center">
                   Added to bag
                 </div>
               )}
@@ -257,7 +257,7 @@ export default function ProductDetailView({
 
             {/* Pincode Checker */}
             <div className="pt-6 border-t border-gray-100 space-y-4">
-              <div className="text-[10px] font-sans tracking-[0.2em] uppercase text-[#111111]">
+              <div className="text-[10px] font-sans tracking-[0.2em] uppercase text-[var(--theme-text)]">
                 Delivery Options
               </div>
               <div className="flex gap-2 h-12">
@@ -267,12 +267,12 @@ export default function ProductDetailView({
                   placeholder="Enter 6-digit PIN code"
                   value={pincode}
                   onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
-                  className="flex-1 border border-gray-200 px-4 text-xs font-sans focus:border-[#111111] focus:outline-none transition-colors no-radius"
+                  className="flex-1 border border-gray-200 px-4 text-xs font-sans focus:border-[var(--theme-text)] focus:outline-none transition-colors no-radius"
                 />
                 <button
                   onClick={handleCheckPincode}
                   disabled={pincodeStatus === 'checking'}
-                  className="w-24 bg-[#F4F0EA] text-[#111111] text-[10px] font-sans tracking-[0.1em] uppercase hover:bg-gray-200 transition-colors no-radius disabled:opacity-50"
+                  className="w-24 bg-[var(--theme-cream)] text-[var(--theme-text)] text-[10px] font-sans tracking-[0.1em] uppercase hover:bg-gray-200 transition-colors no-radius disabled:opacity-50"
                 >
                   {pincodeStatus === 'checking' ? '...' : 'Check'}
                 </button>
@@ -295,7 +295,7 @@ export default function ProductDetailView({
             <div className="py-4">
               <button
                 onClick={() => toggleTab('story')}
-                className="w-full flex justify-between items-center text-left text-lg font-[var(--font-playfair)] italic tracking-wide text-[#111111] hover:opacity-70 transition-opacity"
+                className="w-full flex justify-between items-center text-left text-lg font-serif italic tracking-wide text-[var(--theme-text)] hover:opacity-70 transition-opacity"
               >
                 <span>The Story</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-500 ${activeTab === 'story' ? 'rotate-180' : ''}`} />
@@ -311,7 +311,7 @@ export default function ProductDetailView({
             <div className="py-4">
               <button
                 onClick={() => toggleTab('materials')}
-                className="w-full flex justify-between items-center text-left text-lg font-[var(--font-playfair)] italic tracking-wide text-[#111111] hover:opacity-70 transition-opacity"
+                className="w-full flex justify-between items-center text-left text-lg font-serif italic tracking-wide text-[var(--theme-text)] hover:opacity-70 transition-opacity"
               >
                 <span>Materials & Origin</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-500 ${activeTab === 'materials' ? 'rotate-180' : ''}`} />
@@ -332,7 +332,7 @@ export default function ProductDetailView({
             <div className="py-4">
               <button
                 onClick={() => toggleTab('fit')}
-                className="w-full flex justify-between items-center text-left text-lg font-[var(--font-playfair)] italic tracking-wide text-[#111111] hover:opacity-70 transition-opacity"
+                className="w-full flex justify-between items-center text-left text-lg font-serif italic tracking-wide text-[var(--theme-text)] hover:opacity-70 transition-opacity"
               >
                 <span>Fit Information</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-500 ${activeTab === 'fit' ? 'rotate-180' : ''}`} />
@@ -348,7 +348,7 @@ export default function ProductDetailView({
             <div className="py-4">
               <button
                 onClick={() => toggleTab('shipping')}
-                className="w-full flex justify-between items-center text-left text-lg font-[var(--font-playfair)] italic tracking-wide text-[#111111] hover:opacity-70 transition-opacity"
+                className="w-full flex justify-between items-center text-left text-lg font-serif italic tracking-wide text-[var(--theme-text)] hover:opacity-70 transition-opacity"
               >
                 <span>Shipping & Discreet Packaging</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-500 ${activeTab === 'shipping' ? 'rotate-180' : ''}`} />
@@ -373,7 +373,7 @@ export default function ProductDetailView({
               <div className="py-4">
                 <button
                   onClick={() => toggleTab('washing')}
-                  className="w-full flex justify-between items-center text-left text-lg font-[var(--font-playfair)] italic tracking-wide text-[#111111] hover:opacity-70 transition-opacity"
+                  className="w-full flex justify-between items-center text-left text-lg font-serif italic tracking-wide text-[var(--theme-text)] hover:opacity-70 transition-opacity"
                 >
                   <span>Washing Guide</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-500 ${activeTab === 'washing' ? 'rotate-180' : ''}`} />

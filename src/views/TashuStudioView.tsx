@@ -18,7 +18,7 @@ export default function TashuStudioView() {
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUpVariants}
-          className="w-full aspect-[4/5] overflow-hidden bg-[#F4F0EA] flex items-center justify-center border border-[var(--theme-border)]"
+          className="w-full aspect-[4/5] overflow-hidden bg-[var(--theme-cream)] flex items-center justify-center border border-[var(--theme-border)]"
         >
           <img src={image1} alt="Tashu" className="w-full h-full object-cover" />
         </motion.div>
@@ -100,7 +100,7 @@ export default function TashuStudioView() {
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUpVariants}
-          className="w-full aspect-[4/5] overflow-hidden bg-[#F4F0EA] flex items-center justify-center border border-[var(--theme-border)] order-1 lg:order-2"
+          className="w-full aspect-[4/5] overflow-hidden bg-[var(--theme-cream)] flex items-center justify-center border border-[var(--theme-border)] order-1 lg:order-2"
         >
           <span className="font-sans text-xs uppercase tracking-[0.2em] text-gray-400 text-center">Editorial Image Coming Soon</span>
         </motion.div>
@@ -113,7 +113,7 @@ export default function TashuStudioView() {
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUpVariants}
-          className="w-full max-w-md mx-auto aspect-[3/4] overflow-hidden bg-[#F4F0EA] flex items-center justify-center border border-[var(--theme-border)]"
+          className="w-full max-w-md mx-auto aspect-[3/4] overflow-hidden bg-[var(--theme-cream)] flex items-center justify-center border border-[var(--theme-border)]"
         >
           <span className="font-sans text-xs uppercase tracking-[0.2em] text-gray-400 text-center">Editorial Image Coming Soon</span>
         </motion.div>
@@ -220,7 +220,7 @@ export default function TashuStudioView() {
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUpVariants}
-          className="w-full aspect-[4/5] overflow-hidden bg-[#F4F0EA] flex items-center justify-center border border-[var(--theme-border)] order-1 lg:order-2"
+          className="w-full aspect-[4/5] overflow-hidden bg-[var(--theme-cream)] flex items-center justify-center border border-[var(--theme-border)] order-1 lg:order-2"
         >
           <span className="font-sans text-xs uppercase tracking-[0.2em] text-gray-400 text-center">Editorial Image Coming Soon</span>
         </motion.div>

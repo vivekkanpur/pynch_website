@@ -173,7 +173,7 @@ export default function LandingView({
             )}
             {/* Final Slide: SHOP MORE */}
             <div
-              className="w-[85vw] sm:w-[45vw] md:w-[25vw] shrink-0 relative aspect-[2/3] group bg-[#1A1A1A] flex items-center justify-center overflow-hidden border border-[var(--theme-border)] pointer-events-auto cursor-pointer"
+              className="w-[85vw] sm:w-[45vw] md:w-[25vw] shrink-0 relative aspect-[2/3] group bg-[var(--theme-text)] flex items-center justify-center overflow-hidden border border-[var(--theme-border)] pointer-events-auto cursor-pointer"
               onClick={() => onViewChange("shop")}
             >
               <img

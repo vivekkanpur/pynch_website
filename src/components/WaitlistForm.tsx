@@ -110,7 +110,7 @@ export function WaitlistForm() {
   };
 
   return (
-    <div className="w-full bg-[#F8F5F0] p-8 border border-[var(--theme-border)]">
+    <div className="w-full bg-[var(--theme-cream)] p-8 border border-[var(--theme-border)]">
       {/* Social Proof Counter */}
       <div className="mb-8 border-b border-[var(--theme-border)] pb-4">
         <span className="font-sans text-[11px] font-medium tracking-[0.2em] uppercase text-[var(--theme-teal)]">
@@ -135,10 +135,10 @@ export function WaitlistForm() {
 
       {/* Header */}
       <div className="mb-10 text-center">
-        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light tracking-wide text-[#1A1A1A] mb-4">
+        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light tracking-wide text-[var(--theme-text)] mb-4">
           be the first to wear your mood.
         </h2>
-        <p className="font-sans text-sm tracking-wide text-[#1A1A1A] opacity-80 mb-6 px-4">
+        <p className="font-sans text-sm tracking-wide text-[var(--theme-text)] opacity-80 mb-6 px-4">
           PYNCH launches soon. Join early for first access, 20% off, and a personal note from our founder.
         </p>
         <p className="font-serif italic text-lg text-[var(--theme-olive)]">
@@ -157,8 +157,8 @@ export function WaitlistForm() {
           </div>
 
           <div>
-            <h3 className="font-serif text-3xl font-light text-[#1A1A1A] mb-3">You're on the list.</h3>
-            <p className="font-sans text-sm text-[#1A1A1A] opacity-80 max-w-xs mx-auto leading-relaxed">
+            <h3 className="font-serif text-3xl font-light text-[var(--theme-text)] mb-3">You're on the list.</h3>
+            <p className="font-sans text-sm text-[var(--theme-text)] opacity-80 max-w-xs mx-auto leading-relaxed">
               You are number {waitlistNumber?.toLocaleString()} in line. Keep an eye on your inbox and WhatsApp — a note from Tashu is on its way.
             </p>
           </div>
@@ -167,21 +167,21 @@ export function WaitlistForm() {
           {couponCode5 && (
             <div className="w-full bg-[var(--theme-teal)]/10 border border-[var(--theme-teal)] px-6 py-5">
               <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--theme-teal)] mb-2">🎁 Referral Bonus Unlocked</p>
-              <p className="font-sans text-sm text-[#1A1A1A] leading-relaxed mb-3">
+              <p className="font-sans text-sm text-[var(--theme-text)] leading-relaxed mb-3">
                 Your friend brought you here, so you get an extra <strong>5% off</strong> on launch day.
               </p>
               <div className="bg-white border border-[var(--theme-border)] px-4 py-3 inline-block">
                 <span className="font-sans text-[11px] uppercase tracking-[0.15em] text-[#888] block mb-1">Your Code</span>
                 <span className="font-mono text-lg font-bold text-[var(--theme-teal)] tracking-widest">{couponCode5}</span>
               </div>
-              <p className="font-sans text-[10px] text-[#1A1A1A] opacity-50 mt-3">Save this — it will be valid at checkout when we launch.</p>
+              <p className="font-sans text-[10px] text-[var(--theme-text)] opacity-50 mt-3">Save this — it will be valid at checkout when we launch.</p>
             </div>
           )}
 
           {/* Referral Share Block */}
           {referralLink && (
-            <div className="w-full bg-[#0C3839] px-6 py-6">
-              <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#CCFF00] mb-2">Share & Give 5% Off</p>
+            <div className="w-full bg-[var(--theme-ink)] px-6 py-6">
+              <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--theme-lime-cta)] mb-2">Share & Give 5% Off</p>
               <p className="font-sans text-xs text-white opacity-80 leading-relaxed mb-4">
                 Know someone who dresses for themselves? Share your link — they get 5% off when they join.
               </p>
@@ -190,7 +190,7 @@ export function WaitlistForm() {
               </div>
               <button
                 onClick={handleCopyLink}
-                className="w-full bg-[#CCFF00] text-[#0C3839] py-3 font-sans text-[11px] font-bold uppercase tracking-[0.25em] hover:bg-white transition-colors duration-300"
+                className="w-full bg-[var(--theme-lime-cta)] text-[var(--theme-ink)] py-3 font-sans text-[11px] font-bold uppercase tracking-[0.25em] hover:bg-white transition-colors duration-300"
               >
                 {linkCopied ? '✓ Copied!' : 'Copy My Referral Link'}
               </button>
@@ -200,26 +200,26 @@ export function WaitlistForm() {
       ) : (
       <form onSubmit={handleSubmit} className="flex flex-col gap-6">
         <div className="flex flex-col gap-1">
-          <label className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#1A1A1A]">Full Name *</label>
-          <input required type="text" name="name" value={formData.name} onChange={handleInputChange} className="w-full bg-transparent border-b border-[var(--theme-border)] py-2 text-sm focus:outline-none focus:border-[var(--theme-teal)] transition-colors text-[#1A1A1A]" />
+          <label className="font-sans text-[10px] uppercase tracking-[0.2em] text-[var(--theme-text)]">Full Name *</label>
+          <input required type="text" name="name" value={formData.name} onChange={handleInputChange} className="w-full bg-transparent border-b border-[var(--theme-border)] py-2 text-sm focus:outline-none focus:border-[var(--theme-teal)] transition-colors text-[var(--theme-text)]" />
         </div>
         
         <div className="flex flex-col gap-1">
-          <label className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#1A1A1A]">Email Address *</label>
-          <input required type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full bg-transparent border-b border-[var(--theme-border)] py-2 text-sm focus:outline-none focus:border-[var(--theme-teal)] transition-colors text-[#1A1A1A]" />
+          <label className="font-sans text-[10px] uppercase tracking-[0.2em] text-[var(--theme-text)]">Email Address *</label>
+          <input required type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full bg-transparent border-b border-[var(--theme-border)] py-2 text-sm focus:outline-none focus:border-[var(--theme-teal)] transition-colors text-[var(--theme-text)]" />
         </div>
         
         <div className="flex flex-col gap-1">
           <div className="flex justify-between items-baseline">
-            <label className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#1A1A1A]">Phone Number</label>
-            <span className="font-sans text-[9px] text-[#1A1A1A] opacity-50 italic">get launch updates on WhatsApp instead of email</span>
+            <label className="font-sans text-[10px] uppercase tracking-[0.2em] text-[var(--theme-text)]">Phone Number</label>
+            <span className="font-sans text-[9px] text-[var(--theme-text)] opacity-50 italic">get launch updates on WhatsApp instead of email</span>
           </div>
-          <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full bg-transparent border-b border-[var(--theme-border)] py-2 text-sm focus:outline-none focus:border-[var(--theme-teal)] transition-colors text-[#1A1A1A]" />
+          <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full bg-transparent border-b border-[var(--theme-border)] py-2 text-sm focus:outline-none focus:border-[var(--theme-teal)] transition-colors text-[var(--theme-text)]" />
         </div>
 
         {/* Mood Selector */}
         <div className="mt-4 mb-2">
-          <label className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#1A1A1A] block mb-4">
+          <label className="font-sans text-[10px] uppercase tracking-[0.2em] text-[var(--theme-text)] block mb-4">
             Your Mood — choose all that speak to you
           </label>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -263,7 +263,7 @@ export function WaitlistForm() {
                   </div>
                   <span 
                     className={`font-sans text-[11px] uppercase tracking-wider transition-colors duration-300 w-full text-center pb-2 ${
-                      isSelected ? 'text-[var(--theme-teal)] font-medium' : 'text-[#1A1A1A]'
+                      isSelected ? 'text-[var(--theme-teal)] font-medium' : 'text-[var(--theme-text)]'
                     }`}
                   >
                     {id}
@@ -288,7 +288,7 @@ export function WaitlistForm() {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="w-full bg-[#1A1A1A] text-white py-4 mt-2 font-sans text-[11px] uppercase tracking-[0.3em] hover:bg-[var(--theme-teal)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300 no-radius"
+          className="w-full bg-[var(--theme-text)] text-white py-4 mt-2 font-sans text-[11px] uppercase tracking-[0.3em] hover:bg-[var(--theme-teal)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300 no-radius"
         >
           {status === 'loading' ? 'Claiming Spot...' : 'Claim My Spot'}
         </button>
@@ -299,7 +299,7 @@ export function WaitlistForm() {
           </p>
         )}
 
-        <p className="text-center font-sans text-[10px] text-[#1A1A1A] opacity-50 mt-2 tracking-wide uppercase">
+        <p className="text-center font-sans text-[10px] text-[var(--theme-text)] opacity-50 mt-2 tracking-wide uppercase">
           No spam. Ever. Your data is safe with us.
         </p>
       </form>

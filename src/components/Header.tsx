@@ -278,12 +278,12 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                       {MOCK_PRODUCTS.slice(6, 9).map((product, idx) => (
                         <div key={product.id} onClick={() => navigate(`/shop`)} className="relative group overflow-hidden cursor-pointer bg-gray-100 flex flex-col h-full">
                           <div className="flex-1 relative overflow-hidden min-h-0 [transform:translateZ(0)]">
-                            {idx === 0 && <span className="absolute top-2 left-2 bg-[var(--theme-lime)] text-[#1A1A1A] text-[8px] font-sans uppercase tracking-widest px-2 py-1 z-10">On Tashu's Rack</span>}
+                            {idx === 0 && <span className="absolute top-2 left-2 bg-[var(--theme-lime)] text-[var(--theme-text)] text-[8px] font-sans uppercase tracking-widest px-2 py-1 z-10">On Tashu's Rack</span>}
                             <img decoding="async" loading="lazy" src={product.colors[0].images[0]} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" alt={product.name} />
                           </div>
                           <div className="mt-2 flex flex-col">
-                            <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] truncate">{product.name}</span>
-                            <span className="font-sans text-xs text-[#1A1A1A] font-medium mt-1">₹{product.price}</span>
+                            <span className="font-serif text-lg tracking-wide text-[var(--theme-teal)] truncate">{product.name}</span>
+                            <span className="font-sans text-xs text-[var(--theme-text)] font-medium mt-1">₹{product.price}</span>
                           </div>
                         </div>
                       ))}
@@ -520,7 +520,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                                   />
                                 </div>
                                 <span
-                                  className="font-[var(--font-playfair)] text-lg tracking-wide mt-3"
+                                  className="font-serif text-lg tracking-wide mt-3"
                                   style={{
                                     color: i === revealIndex ? TEMP_COLORS[i] : 'var(--theme-text)',
                                     opacity: i === revealIndex ? 1 : 0.45,
@@ -567,7 +567,7 @@ export function Header({ onCartClick, cartItemCount, onLustListClick, lustListIt
                           <img decoding="async" loading="lazy" src={imgOurWorld} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Our World" />
                         </div>
                         <div className="mt-2 flex flex-col">
-                          <span className="font-[var(--font-playfair)] text-lg tracking-wide text-[var(--theme-teal)] truncate">Read The Essential Journal</span>
+                          <span className="font-serif text-lg tracking-wide text-[var(--theme-teal)] truncate">Read The Essential Journal</span>
                         </div>
                       </div>
                     </div>

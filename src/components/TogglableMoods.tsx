@@ -76,7 +76,7 @@ export function TogglableMoods() {
   }, [handleNext, isAutoPlaying, activeIndex]);
 
   return (
-    <section className="relative w-full h-[85vh] sm:h-[80vh] md:h-auto md:aspect-video bg-[#1A1A1A] overflow-hidden">
+    <section className="relative w-full h-[85vh] sm:h-[80vh] md:h-auto md:aspect-video bg-[var(--theme-text)] overflow-hidden">
       {/* Pre-rendered background image stack for instantaneous mobile switching and zero network delay */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
         {MOODS_DATA.map((mood, idx) => {
@@ -117,7 +117,7 @@ export function TogglableMoods() {
         >
           
           <div className="absolute top-8 sm:top-16 left-8 sm:left-16 text-left text-white z-20 max-w-md pointer-events-auto">
-             <h2 className="font-[var(--font-playfair)] text-5xl sm:text-6xl font-medium tracking-wider uppercase leading-none drop-shadow-lg">
+             <h2 className="font-serif text-5xl sm:text-6xl font-medium tracking-wider uppercase leading-none drop-shadow-lg">
                 {MOODS_DATA[activeIndex].title}
              </h2>
           </div>
@@ -184,7 +184,7 @@ export function TogglableMoods() {
       <div className="absolute bottom-6 sm:bottom-16 right-4 sm:right-16 z-30">
         <button 
           onClick={() => navigate('/waitlist')}
-          className="bg-[var(--theme-lime)] text-[#1A1A1A] px-4 py-2 sm:px-6 sm:py-3 font-sans text-[10px] sm:text-xs uppercase tracking-[0.2em] font-medium hover:bg-white transition-colors"
+          className="bg-[var(--theme-lime)] text-[var(--theme-text)] px-4 py-2 sm:px-6 sm:py-3 font-sans text-[10px] sm:text-xs uppercase tracking-[0.2em] font-medium hover:bg-white transition-colors"
         >
           Join Waitlist
         </button>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import {
@@ -111,7 +111,7 @@ export default function LoginView() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        className="max-w-lg w-full space-y-12 bg-[#F8F5F0] p-8 sm:p-12 border border-[var(--theme-border)]"
+        className="max-w-lg w-full space-y-12 bg-[var(--theme-cream)] p-8 sm:p-12 border border-[var(--theme-border)]"
       >
         <div className="text-center space-y-4">
           <h1 className="font-serif text-4xl sm:text-5xl text-[var(--theme-teal)] uppercase tracking-[0.1em] font-light">
@@ -161,7 +161,7 @@ export default function LoginView() {
             <div id="recaptcha-container"></div>
 
             <button type="submit" disabled={loading}
-              className="w-full bg-[var(--theme-text)] text-[var(--theme-bg)] py-4 font-sans text-[10px] uppercase tracking-[0.4em] hover:bg-[var(--theme-lime)] hover:text-[#111111] transition-colors duration-300 disabled:opacity-50"
+              className="w-full bg-[var(--theme-text)] text-[var(--theme-bg)] py-4 font-sans text-[10px] uppercase tracking-[0.4em] hover:bg-[var(--theme-lime)] hover:text-[var(--theme-text)] transition-colors duration-300 disabled:opacity-50"
             >
               {loading ? 'Sending Code...' : 'Send Code'}
             </button>
@@ -179,7 +179,7 @@ export default function LoginView() {
             </div>
 
             <button type="submit" disabled={loading}
-              className="w-full bg-[var(--theme-text)] text-[var(--theme-bg)] py-4 font-sans text-[10px] uppercase tracking-[0.4em] hover:bg-[var(--theme-lime)] hover:text-[#111111] transition-colors duration-300 disabled:opacity-50"
+              className="w-full bg-[var(--theme-text)] text-[var(--theme-bg)] py-4 font-sans text-[10px] uppercase tracking-[0.4em] hover:bg-[var(--theme-lime)] hover:text-[var(--theme-text)] transition-colors duration-300 disabled:opacity-50"
             >
               {loading ? 'Verifying...' : 'Verify & Sign In'}
             </button>
