@@ -129,7 +129,7 @@ function AppContent() {
   // Load product from /product/:handle when refreshing
   // Note: useParams() doesn't work here since AppContent isn't rendered inside a <Route>,
   // so we extract the handle from location.pathname directly.
-  const { products } = useShopifyProducts();
+  const { products, loading: productsLoading, error: productsError } = useShopifyProducts();
   const productMatch = matchPath('/product/:handle', location.pathname);
   const urlHandle = productMatch?.params?.handle;
 
@@ -143,6 +143,21 @@ function AppContent() {
       if (found) setSelectedProduct(found);
     }
   }, [urlHandle, products, selectedProduct]);
+
+  // Prune Lust List entries that no longer exist in Shopify (deleted/unpublished
+  // products). Saved items are full snapshots in localStorage, so nothing else
+  // ever revalidates them against the live catalog. Only run this once a real
+  // Shopify fetch has actually succeeded (not the MOCK_PRODUCTS fallback, and
+  // not the empty array during the initial load) — otherwise a temporary API
+  // failure or the loading state would wipe the whole saved list.
+  useEffect(() => {
+    if (productsLoading || productsError || products.length === 0) return;
+    setLustListItems(prev => {
+      const liveIds = new Set(products.map(p => p.id));
+      const pruned = prev.filter(p => liveIds.has(p.id));
+      return pruned.length === prev.length ? prev : pruned;
+    });
+  }, [products, productsLoading, productsError]);
 
   const handleSelectProduct = (product: Product) => {
     setSelectedProduct(product);

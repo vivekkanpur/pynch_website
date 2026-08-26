@@ -44,7 +44,14 @@ export default function ProductDetailView({
   const isLusted = lustListItems?.some(p => p.id === product.id);
   const { linesAdd } = useCart();
   const navigate = useNavigate();
-  const { products } = useShopifyProducts();
+  const { products, loading: productsLoading, error: productsError } = useShopifyProducts();
+
+  // True when this product was opened from a stale source (e.g. a Lust List
+  // snapshot in localStorage) and has since been removed/unpublished in
+  // Shopify. Only trust this once a real Shopify fetch has succeeded — never
+  // flag anything while still loading, or during a MOCK_PRODUCTS fallback.
+  const isUnavailable = !productsLoading && !productsError && products.length > 0
+    && !products.some(p => p.id === product.id);
 
   // Recommendations: same category or mood, excluding this one
   let recommendedProducts = products.filter((p: any) => p.id !== product.id && (p.category === product.category || p.mood === product.mood));
@@ -147,6 +154,11 @@ export default function ProductDetailView({
           
           {/* Header Area */}
           <div className="space-y-2">
+            {isUnavailable && (
+              <div className="inline-block bg-red-50 text-red-600 font-sans text-[10px] tracking-[0.2em] uppercase px-3 py-2 mb-2">
+                No longer available
+              </div>
+            )}
             <h1 className="font-serif italic text-3xl sm:text-4xl tracking-wide text-[var(--theme-text)] leading-tight">
               {product.name}
             </h1>
