@@ -23,6 +23,9 @@ const pageVariants = {
   animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" as any } },
 };
 
+// Category filter bar hidden until we have enough categories/products to justify it.
+const SHOW_CATEGORY_FILTERS = false;
+
 const gridVariants = {
   hidden: { opacity: 0 },
   show: {
@@ -62,13 +65,15 @@ export default function ShopView({ onSelectProduct, onQuickAdd, lustListItems = 
       className="w-full bg-[var(--theme-bg)] pt-24 sm:pt-32 min-h-screen"
     >
       {/* Visual Category Control Bar */}
-      <div className="w-full mt-8 mb-12 sm:mb-20">
-        <CategoryGrid 
-          categories={categoryItems}
-          selectedId={filter || ''}
-          onSelect={(id) => setFilter(filter === id ? null : id)}
-        />
-      </div>
+      {SHOW_CATEGORY_FILTERS && (
+        <div className="w-full mt-8 mb-12 sm:mb-20">
+          <CategoryGrid
+            categories={categoryItems}
+            selectedId={filter || ''}
+            onSelect={(id) => setFilter(filter === id ? null : id)}
+          />
+        </div>
+      )}
 
       {/* Product Grid */}
       <div className="w-auto my-8 mx-4 sm:mx-8">
